@@ -10,6 +10,7 @@ RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc
 RUN \
     apt-get update && \
     apt-get -y upgrade && \
+    apt-get purge php5* && \
     apt-get install -y php7.2 unzip
 
 WORKDIR /app
