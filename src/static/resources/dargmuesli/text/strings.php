@@ -16,8 +16,12 @@
             }
 
             return $startsWith;
-        } elseif (is_string($haystack) && (substr($haystack, 0, strlen($needle)) === $needle)) {
-            return true;
+        } elseif (is_string($haystack)) {
+            if (substr($haystack, 0, strlen($needle)) === $needle) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             throw new Exception('"'.$haystack.'" is neither a string nor an array!');
         }
