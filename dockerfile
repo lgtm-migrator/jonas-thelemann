@@ -1,19 +1,11 @@
-# Base image (should be node, but this as dependency issues)
-FROM php:latest AS node
+# Base image
+FROM node:9 AS node
 
 # Update and upgrade
 RUN \
     apt-get update && \
     apt-get -y upgrade && \
-    apt-get install -y apt-transport-https git gnupg unzip
-
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
-
-RUN \
-    apt-get update && \
-    apt-get install -y nodejs yarn
+    apt-get install -y php5 unzip
 
 WORKDIR /app
 
