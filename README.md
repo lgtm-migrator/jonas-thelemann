@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/Dargmuesli/jonas-thelemann.de.svg?branch=master)](https://travis-ci.org/Dargmuesli/jonas-thelemann.de)
 [![Known Vulnerabilities](https://snyk.io/test/github/dargmuesli/jonas-thelemann.de/badge.svg)](https://snyk.io/test/github/dargmuesli/jonas-thelemann.de)
 [![Greenkeeper Badge](https://badges.greenkeeper.io/Dargmuesli/jonas-thelemann.de.svg)](https://greenkeeper.io/)
-[![Coverage Status](https://coveralls.io/repos/github/Dargmuesli/jonas-thelemann.de/badge.svg?branch=master)](https://coveralls.io/github/Dargmuesli/jonas-thelemann.de?branch=master)
 
 # jonas-thelemann.de
 
