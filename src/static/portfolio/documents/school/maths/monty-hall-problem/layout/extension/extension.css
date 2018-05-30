@@ -1,0 +1,7 @@
+.car{background-image:url("../images/car.png");background-size:100% auto;}
+.chosen{background-image:url("../images/green-door.png");}
+.clickable{cursor:pointer;}
+.door{background-color:white;background-position:center;background-repeat:no-repeat;display:inline-block;height:370px;max-width:150px;width:75%;}
+.goat{background-image:url("../images/goat.png");}
+.hidden{display:none;}
+.initial{background-image:url("../images/red-door.png");}

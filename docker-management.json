@@ -1,0 +1,115 @@
+{
+    "Owner": "dargmuesli",
+    "RegistryAddress": {
+        "Name": "registry",
+        "Hostname": "localhost",
+        "Port": "5000"
+    },
+    "ComposeFile": {
+        "Name": "docker-compose.yml",
+        "Content": {
+            "version": "3.6",
+            "services": {
+                "adminer": {
+                    "image": "adminer",
+                    "deploy": {
+                        "labels": [
+                            "traefik.backend=adminer",
+                            "traefik.enable=true",
+                            "traefik.frontend.auth.basic=jonas:$$apr1$$k850e1u9$$WRBoSvyQSIRaMwQz6l6781",
+                            "traefik.frontend.rule=Host:adminer.jonas-thelemann.test",
+                            "traefik.port=8080"
+                        ]
+                    }
+                },
+                "apache": {
+                    "image": "localhost:5000/dargmuesli/jonas-thelemann.de",
+                    "deploy": {
+                        "labels": [
+                            "traefik.backend=apache",
+                            "traefik.enable=true",
+                            "traefik.frontend.rule=Host:jonas-thelemann.test,www.jonas-thelemann.test",
+                            "traefik.port=443",
+                            "traefik.protocol=https"
+                        ],
+                        "restart_policy": {
+                            "condition": "on-failure"
+                        }
+                    },
+                    "volumes": [
+                        "./dist/jonas-thelemann.de:/var/www/jonas-thelemann.de",
+                        "./docker/conf/certs:/etc/ssl/certs"
+                    ]
+                },
+                "postgres": {
+                    "image": "postgres",
+                    "environment": {
+                        "POSTGRES_DB_FILE": "/run/secrets/postgres_db",
+                        "POSTGRES_PASSWORD_FILE": "/run/secrets/postgres_password",
+                        "POSTGRES_USER_FILE": "/run/secrets/postgres_user"
+                    },
+                    "secrets": [
+                        "postgres_db",
+                        "postgres_password",
+                        "postgres_user"
+                    ],
+                    "volumes": [
+                        "postgres-data:/var/lib/postgresql/data"
+                    ]
+                },
+                "traefik": {
+                    "image": "traefik",
+                    "ports": [
+                        "80:80",
+                        "443:443"
+                    ],
+                    "deploy": {
+                        "labels": [
+                            "traefik.backend=traefik",
+                            "traefik.docker.network=jonas-thelemann-de_default",
+                            "traefik.enable=true",
+                            "traefik.frontend.auth.basic=jonas:$$apr1$$k850e1u9$$WRBoSvyQSIRaMwQz6l6781",
+                            "traefik.frontend.rule=Host:traefik.jonas-thelemann.test",
+                            "traefik.port=8080"
+                        ],
+                        "mode": "global",
+                        "placement": {
+                            "constraints": [
+                                "node.role == manager"
+                            ]
+                        }
+                    },
+                    "command": [
+                        "--api",
+                        "--defaultentrypoints=http,https",
+                        "--docker",
+                        "--docker.domain=jonas-thelemann.de",
+                        "--docker.exposedByDefault=false",
+                        "--docker.swarmMode=true",
+                        "--entryPoints=Name:http Address::80 Redirect.EntryPoint:https",
+                        "--entryPoints=Name:https Address::443 TLS:/etc/ssl/certs/jonas-thelemann.de.crt,/etc/ssl/certs/jonas-thelemann.de.key Compress:true",
+                        "--insecureSkipVerify=true"
+                    ],
+                    "volumes": [
+                        "/var/run/docker.sock:/var/run/docker.sock",
+                        "./docker/conf/certs:/etc/ssl/certs"
+                    ]
+                }
+            },
+            "secrets": {
+                "postgres_db": {
+                    "external": true
+                },
+                "postgres_password": {
+                    "external": true
+                },
+                "postgres_user": {
+                    "external": true
+                }
+            },
+            "volumes": {
+                "postgres-data": {}
+            }
+        }
+    }
+}

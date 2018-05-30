@@ -1,0 +1,26 @@
+{
+    "name": "dargmuesli/jonas-thelemann.de",
+    "description": "The source code of my website.",
+    "version": "1.0.0",
+    "homepage": "https://jonas-thelemann.de/",
+    "type": "project",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Jonas Thelemann",
+            "email": "e-mail@jonas-thelemann.de"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Dargmuesli/jonas-thelemann.de/issues"
+    },
+    "require": {
+        "gettext/gettext": "^4.3",
+        "google/recaptcha": "^1.1",
+        "mtdowling/cron-expression": "^1.1",
+        "phpmailer/phpmailer": "^5.2",
+        "respect/validation": "^1.1",
+        "thesoftwarefanatics/php-html-parser": "^1.8",
+        "vlucas/phpdotenv": "^2.4"
+    }
+}

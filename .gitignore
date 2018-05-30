@@ -1,0 +1,10 @@
+/dist
+/node_modules
+/src/static/stuff
+/vendor
+/docker-compose.yml
+.htpasswd
+*.crt
+*.csr
+*.env
+*.key

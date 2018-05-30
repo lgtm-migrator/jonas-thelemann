@@ -1,0 +1,8 @@
+User-agent: Browsershots
+Disallow:
+
+User-agent: *
+Disallow: /portfolio/github/hcjwebsitebuilder/documentation/*/*
+Disallow: /robots.txt
+Allow: /
+Sitemap: https://jonas-thelemann.de/sitemap/sitemap.xml
