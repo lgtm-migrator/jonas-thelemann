@@ -6,7 +6,7 @@
     error_reporting(E_ALL);
 
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
-    $_SERVER['SERVER_ROOT'] = str_replace(DIRECTORY_SEPARATOR.$_SERVER['HTTP_HOST'], '', $_SERVER['DOCUMENT_ROOT']);
+    $_SERVER['SERVER_ROOT'] = dirname($_SERVER['DOCUMENT_ROOT']);
     $_SERVER['SERVER_ROOT_URL'] = $protocol.$_SERVER['HTTP_HOST'];
     // $firstErrorLogged = false;
     $simpleLogging = $_SERVER['SERVER_NAME'] == 'localhost' ? false : true;

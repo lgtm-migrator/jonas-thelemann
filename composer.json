@@ -20,7 +20,7 @@
         "mtdowling/cron-expression": "^1.1",
         "phpmailer/phpmailer": "^5.2",
         "respect/validation": "^1.1",
-        "thesoftwarefanatics/php-html-parser": "^1.7",
+        "thesoftwarefanatics/php-html-parser": "^1.8",
         "vlucas/phpdotenv": "^2.4"
     }
 }
