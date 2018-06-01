@@ -1,10 +1,9 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
-    include_once $_SERVER['SERVER_ROOT'].'/credentials/database.php';
 
     $open = false;
-	$dbh = getDbh($_ENV['PGSQL_DATABASE']);
+    $dbh = getDbh($_ENV['PGSQL_DATABASE']);
     $stmt = $dbh->prepare("SELECT ip FROM mottos WHERE ip='".$_SERVER['REMOTE_ADDR']."'");
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);

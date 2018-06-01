@@ -1,7 +1,6 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
-    include_once $_SERVER['SERVER_ROOT'].'/credentials/database.php';
 
     // var playerOneElementsLength = <?php echo $dataResultCountPlayerOne;
     // var playerTwoElementsLength = <?php echo $dataResultCountPlayerTwo;

@@ -1,7 +1,6 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
-    include_once $_SERVER['SERVER_ROOT'].'/credentials/database.php';
 
     if (isset($_POST['chosenDoor']) && isset($_POST['modDoor']) && isset($_POST['carDoor']) && isset($_POST['change'])) {
         $chosenDoor = filter_var($_POST['chosenDoor'], FILTER_SANITIZE_NUMBER_INT);

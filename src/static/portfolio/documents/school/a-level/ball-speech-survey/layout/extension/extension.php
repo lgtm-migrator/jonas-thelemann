@@ -1,7 +1,6 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
-    include_once $_SERVER['SERVER_ROOT'].'/credentials/database.php';
 
     if (isset($_POST['chosen'])) {
         $open = false;
@@ -33,7 +32,8 @@
         'Rosa Freytag',
     );
 
-    function getPopulatedCandidateSurvey($skeletonContent) {
+    function getPopulatedCandidateSurvey($skeletonContent)
+    {
         global $finished;
         global $dbh;
 

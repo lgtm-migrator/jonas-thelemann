@@ -3,7 +3,6 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
-    include_once $_SERVER['SERVER_ROOT'].'/credentials/database.php';
 
     lastModified(getPageModTime());
 
