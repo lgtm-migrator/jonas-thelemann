@@ -18,14 +18,13 @@
     // Get the PDO instance for a database
     function getDbh($dbhName)
     {
+        // Load .env file
+        loadEnvFile($_SERVER['SERVER_ROOT'].'/credentials');
+
         // Limit table access
         $whiteList = array($_ENV['PGSQL_DATABASE'], 'server');
 
         if (in_array($dbhName, $whiteList)) {
-
-            // Load .env file
-            loadEnvFile('../../../../credentials/');
-
             return new PDO('pgsql:host='.$_ENV['PGSQL_HOST'].';port='.$_ENV['PGSQL_PORT'].';dbname='.$dbhName, $_ENV['PGSQL_USERNAME'], $_ENV['PGSQL_PASSWORD']);
         } else {
             throw new Exception('"'.$dbhName.'" is not whitelisted!');
@@ -106,4 +105,40 @@
         $sql->execute();
 
         return $sql->fetch(PDO::FETCH_ASSOC);
+    }
+
+    function initTable($dbh, $tableName, $columnConfig = null)
+    {
+        if (!$columnConfig) {
+            switch ($tableName) {
+                case 'dj_song_suggestions':
+                    $columnConfig = '
+                        id serial PRIMARY KEY,
+                        title character varying(100) DEFAULT \'n/a\'::character varying,
+                        artist character varying(100) DEFAULT \'n/a\'::character varying,
+                        album character varying(100) DEFAULT \'n/a\'::character varying,
+                        comment character varying(250) DEFAULT \'n/a\'::character varying,
+                        ip character varying(64) NOT NULL,
+                        datetime timestamp without time zone NOT NULL,
+                        approved boolean DEFAULT false NOT NULL';
+                    break;
+                case 'surveys':
+                    $columnConfig = '
+                        id serial PRIMARY KEY,
+                        name character varying(75) NOT NULL,
+                        open boolean DEFAULT false NOT NULL';
+                    break;
+                default:
+                    throw new Exception('"'.$tableName.'" has no deployable configuration!');
+            }
+        }
+
+        return $dbh->query("CREATE TABLE IF NOT EXISTS $tableName ($columnConfig);");
+    }
+
+    function tableExists($dbh, $tableName)
+    {
+        return $dbh
+            ->query("SELECT EXISTS (SELECT 1 FROM pg_tables WHERE schemaname='public' AND tablename='$tableName')")
+            ->fetch()['exists'];
     }
