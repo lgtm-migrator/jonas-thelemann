@@ -1,9 +1,9 @@
-$(document).ready(function() {
-    $("#songform").validate({
+$(document).ready(function () {
+    $('#songform').validate({
         debug: true,
         errorClass: 'invalid',
         errorElement: 'div',
-        errorPlacement: function(error, element) {
+        errorPlacement: function (error, element) {
             var placement = $(element).data('error');
 
             if (placement) {
@@ -15,16 +15,16 @@ $(document).ready(function() {
         ignore: '.ignorevalidation',
         messages: {
             title: {
-                required: "Titel oder Künstler benötigt."
+                required: 'Titel oder Künstler benötigt.'
             },
             artist: {
-                required: "Titel oder Künstler benötigt."
+                required: 'Titel oder Künstler benötigt.'
             }
         },
         rules: {
             title: {
                 required: {
-                    depends: function(element) {
+                    depends: function (element) {
                         var artist = $('#artist');
                         return !(artist.length && artist.val().length);
                     }
@@ -32,7 +32,7 @@ $(document).ready(function() {
             },
             artist: {
                 required: {
-                    depends: function(element) {
+                    depends: function (element) {
                         var title = $('#title');
                         return !(title.length && title.val().length);
                     }
@@ -42,7 +42,7 @@ $(document).ready(function() {
                 maxlength: 200
             }
         },
-        submitHandler: function(form) {
+        submitHandler: function (form) {
             alert('submit');
         }
     });
