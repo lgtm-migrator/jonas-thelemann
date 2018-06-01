@@ -1,7 +1,7 @@
 <?php
-    function loadEnvFile($path = '.env', $override = false)
+    function loadEnvFile($folder, $file = '.env', $override = false)
     {
-        $dotenv = new Dotenv\Dotenv($path);
+        $dotenv = new Dotenv\Dotenv($folder, $file);
         ($override) ? $dotenv->overload() : $dotenv->load();
         return $dotenv;
     }
