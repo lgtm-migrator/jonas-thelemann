@@ -47,7 +47,14 @@
         if ($rootPointerInteger == 0) {
             $currentFolder = 'welcome';
         } else {
-            $currentFolder = basename($_SERVER['REQUEST_URI']);
+            preg_match_all(
+                '/^\/[^\.\s]+($|\/)/m',
+                parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH),
+                $matches,
+                PREG_SET_ORDER,
+                0
+            );
+            $currentFolder = basename($matches[0][0]);
         }
 
         $title = '';
