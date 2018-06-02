@@ -16,7 +16,6 @@
                         "labels": [
                             "traefik.backend=adminer",
                             "traefik.enable=true",
-                            "traefik.frontend.auth.basic=jonas:$$apr1$$k850e1u9$$WRBoSvyQSIRaMwQz6l6781",
                             "traefik.frontend.rule=Host:adminer.jonas-thelemann.test",
                             "traefik.port=8080"
                         ]
@@ -68,7 +67,6 @@
                             "traefik.backend=traefik",
                             "traefik.docker.network=jonas-thelemann-de_default",
                             "traefik.enable=true",
-                            "traefik.frontend.auth.basic=jonas:$$apr1$$k850e1u9$$WRBoSvyQSIRaMwQz6l6781",
                             "traefik.frontend.rule=Host:traefik.jonas-thelemann.test",
                             "traefik.port=8080"
                         ],
