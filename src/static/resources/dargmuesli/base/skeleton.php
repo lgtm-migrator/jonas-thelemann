@@ -100,7 +100,6 @@
                 <link href="'.$_SERVER['SERVER_ROOT_URL'].$_SERVER['REQUEST_URI'].'" rel="canonical">
                 <link href="'.$_SERVER['SERVER_ROOT_URL'].'/resources/dargmuesli/images/favicon.ico" type="image/x-icon" rel="icon">'
                 .getFeatureTranslation(['pkg/mtrl/mcss', 'drg/base/stl.mcss']).'
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             </head>
             <body>
                 <noscript>
