@@ -2,6 +2,15 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/surveys.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/survey/results.php';
+
+    $result = 'unknown';
+
+    if (!$_POST['album-group']
+        || !($_POST['title'] || $_POST['artist'])
+        || strlen($_POST['title']) > 200) {
+        $result = 'invalid';
+    }
 
     // Load .env file
     loadEnvFile($_SERVER['SERVER_ROOT'].'/credentials');
@@ -29,10 +38,12 @@
         $stmt->bindParam(':datetime', $datetime);
 
         if ($stmt->execute()) {
-            die(header('location:../../index.php?result=success'));
+            $result = 'success';
         } else {
-            die(header('location:../../index.php?result=failure'));
+            $result = 'failure';
         }
     } else {
-        die(header('location:../../index.php?result=closed'));
+        $result = 'closed';
     }
+
+    echo getSurveyResultForm($result);

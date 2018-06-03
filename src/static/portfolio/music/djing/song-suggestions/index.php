@@ -1,8 +1,15 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/survey/results.php';
 
     lastModified(getPageModTime());
+
+    $result = null;
+
+    if (isset($_POST['result'])) {
+        $result = $_POST['result'];
+    }
 
     $skeletonDescription = 'Eine einfache Möglichkeit, mir deine Musikwünsche zu übermitteln';
     $skeletonFeatures = ['pkg/jqv/js', 'pkg/jqv/de.js', 'lcl/ext/js'];
@@ -14,18 +21,7 @@
         <p>
             Hier kannst du deinen Musikwunsch eingeben.
         </p>
-        <div class="hidden row">
-            <div class="col s12">
-                <div class="card success">
-                    <div class="card-content">
-                        <span class="card-title">Vie&shy;len Dank!</span>
-                        <p>
-                            Deine Antwort wurde erfasst.
-                        <p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        '.getSurveyResultCard($result).'
         <div class="row">
             <form action="layout/extension/save.php" class="col row s12" id="songform" method="post">
                 <div class="col l2 m3 radio-input-field s12">
