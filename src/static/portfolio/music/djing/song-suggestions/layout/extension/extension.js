@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $('#songform').validate({
-        debug: true,
         errorClass: 'invalid',
         errorElement: 'div',
         errorPlacement: function (error, element) {
@@ -12,7 +11,9 @@ $(document).ready(function () {
                 error.insertAfter(element);
             }
         },
-        ignore: '.ignorevalidation',
+        groups: {
+            titleartist: 'title artist'
+        },
         messages: {
             title: {
                 required: 'Titel oder Künstler benötigt.'
@@ -41,9 +42,6 @@ $(document).ready(function () {
             comment: {
                 maxlength: 200
             }
-        },
-        submitHandler: function (form) {
-            alert('submit');
         }
     });
 });

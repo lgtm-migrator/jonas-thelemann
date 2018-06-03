@@ -23,7 +23,7 @@
 
         $stmt->bindParam(':title', $_POST['title']);
         $stmt->bindParam(':artist', $_POST['artist']);
-        $stmt->bindParam(':album', $_POST['albumgroup']);
+        $stmt->bindParam(':album', $_POST['album-group']);
         $stmt->bindParam(':comment', $_POST['comment']);
         $stmt->bindParam(':ip', $_SERVER['REMOTE_ADDR']);
         $stmt->bindParam(':datetime', $datetime);

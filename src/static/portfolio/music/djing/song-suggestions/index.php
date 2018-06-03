@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="row">
-            <form action="layout/extension/save.php" class="col row s12" id="songformm" method="post"><!---->
+            <form action="layout/extension/save.php" class="col row s12" id="songform" method="post">
                 <div class="col l2 m3 radio-input-field s12">
                     <fieldset>
                         <div>
