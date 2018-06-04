@@ -1,10 +1,10 @@
 'use strict';
 
 const gAutoprefixer = require('gulp-autoprefixer');
-const gBabel = require('gulp-babel');
 const gBabelMinify = require('gulp-babel-minify');
+const gBrowserify = require('browserify');
+const gBuffer = require('gulp-buffer');
 const gCached = require('gulp-cached');
-const gConcat = require('gulp-concat');
 const gComposer = require('gulp-composer');
 const gDel = require('del');
 const gFs = require('fs');
@@ -15,7 +15,7 @@ const gPath = require('path');
 const gRename = require('gulp-rename');
 const gSass = require('gulp-sass');
 const gSourcemaps = require('gulp-sourcemaps');
-const gStreamToPromise = require('gulp-stream-to-promise');
+const gTap = require('gulp-tap');
 const gVfs = require('vinyl-fs');
 const gYarn = require('gulp-yarn');
 const gZip = require('gulp-zip');
@@ -30,7 +30,7 @@ const distCredentialsFolder = distFolder + 'credentials/';
 const distServerFolder = distFolder + 'server/';
 const srcFolder = 'src/';
 const staticFolder = srcFolder + 'static/';
-const funcFolder = srcFolder + 'js/functions/';
+const funcFolder = srcFolder + 'js/';
 const styleFolder = srcFolder + 'css/sass/style/';
 const sassFile = srcFolder + 'css/sass/style/style.scss';
 const resFolder = distServerFolder + 'resources/';
@@ -41,7 +41,6 @@ const credentialsSrcGlob = 'credentials/**';
 const staticGlob = staticFolder + '**';
 const composerSrcGlob = 'vendor/**';
 const zipSrcGlob = distFolder + '**';
-const mod = (__dirname.includes(process.cwd()) ? process.cwd() : __dirname) + '/node_modules/';
 
 var buildInProgress = false;
 
@@ -103,13 +102,12 @@ function staticSrc_watch() {
 exports.staticSrc_watch = staticSrc_watch;
 
 function jsSrc() {
-    return gGulp.src(funcFolder + '*.js')
-        .pipe(gConcat('functions.js'))
-        .pipe(gBabel({
-            presets: [
-                [mod + 'babel-preset-env']
-            ]
+    return gGulp.src(funcFolder + 'functions.js', { read: false })
+        .pipe(gTap(function (file) {
+            console.log('bundling ' + file.path);
+            file.contents = gBrowserify(file.path, { debug: true }).transform('babelify', { presets: ['env'] }).bundle();
         }))
+        .pipe(gBuffer())
         .pipe(gGulp.dest(baseFolder))
         .pipe(gRename({
             extname: '.min.js'
