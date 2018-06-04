@@ -1,4 +1,6 @@
-function showCountdown(id, cronSched, dateParts, locale) {
+import { getPercentage, setDeterminate } from './prototyping.js';
+
+export function showCountdown(id, cronSched, dateParts, locale) {
     var nextCountdownDate = later.schedule(cronSched).next().getTime();
     var lastCountdownDate = later.schedule(cronSched).prev().getTime();
     var lastNextDateDifference = nextCountdownDate - lastCountdownDate;
@@ -12,7 +14,7 @@ function showCountdown(id, cronSched, dateParts, locale) {
 
     var interval = 1000;
 
-    setInterval(function() {
+    setInterval(function () {
         nextCountdownDate = later.schedule(cronSched).next(1).getTime();
         lastCountdownDate = later.schedule(cronSched).prev(1).getTime();
         lastNextDateDifference = nextCountdownDate - lastCountdownDate;
@@ -31,7 +33,7 @@ function showCountdown(id, cronSched, dateParts, locale) {
     }, interval);
 }
 
-function timeConverter(UNIX_timestamp) {
+export function timeConverter(UNIX_timestamp) {
     var a = new Date(UNIX_timestamp);
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var year = a.getFullYear();

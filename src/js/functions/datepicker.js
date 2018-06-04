@@ -1,4 +1,4 @@
-function initializeDatepicker(locale, selectYears = undefined, selectMonths = undefined, disable = undefined) {
+export function initializeDatepicker(locale, selectYears = undefined, selectMonths = undefined, disable = undefined) {
     // Strings and translations
     /**/
     var monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

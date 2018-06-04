@@ -3,15 +3,15 @@ var playerOneElementsLength = 0;
 var playerTwoElementsLength = 0;
 var playerThreeElementsLength = 0;
 var rows = 0;
-var winCountRed = 0;
-var winCountBlue = 0;
-var countRed = 0;
-var countBlue = 0;
+// var winCountRed = 0;
+// var winCountBlue = 0;
+// var countRed = 0;
+// var countBlue = 0;
 var dataRed = [];
 var dataBlue = [];
 
 var lineChart = document.getElementById('lineChart');
-var myChart = new Chart(lineChart, {
+new Chart(lineChart, {
     type: 'line',
     data: {
         datasets: [{
@@ -79,7 +79,7 @@ var myChart = new Chart(lineChart, {
     }
 });
 var doughnutChart = document.getElementById('doughnutChart');
-var myChart = new Chart(doughnutChart, {
+new Chart(doughnutChart, {
     type: 'doughnut',
     data: {
         labels: [
@@ -103,7 +103,7 @@ var myChart = new Chart(doughnutChart, {
     }
 });
 
-document.addEventListener('DOMContentLoaded', function (event) {
+document.addEventListener('DOMContentLoaded', function () {
     addPreloaderHtml('roundlist', 'big', 'green');
 });
 

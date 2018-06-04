@@ -18,10 +18,10 @@ image.onload = function () {
     imageloaded = true;
 
     unlockImage();
-}
+};
 image.src = '../../../layout/images/welcome.jpg';
 
-document.addEventListener('DOMContentLoaded', function (event) {
+document.addEventListener('DOMContentLoaded', function () {
     bodyElement = document.getElementsByTagName('body')[0];
     greetingButton = document.getElementById('greeting-button');
     greetingImage = document.getElementById('greeting-image');

@@ -1,11 +1,11 @@
-function setUpScrollSpy() {
+export function setUpScrollSpy() {
     var standard = true;
 
-    $('.scrollspy').each(function(index) {
+    $('.scrollspy').each(function () {
         if ($(this).prop('tagName') != 'SECTION') {
             standard = false;
 
-            $(this).on('click', function() {
+            $(this).on('click', function () {
                 if ($(this).hasClass('active')) {
                     history.replaceState({}, null, '#!');
 
@@ -26,8 +26,8 @@ function setUpScrollSpy() {
         });
     }
 
-    $('#toc-mobile').find('a').each(function(index) {
-        $(this).on('click', function(e) {
+    $('#toc-mobile').find('a').each(function () {
+        $(this).on('click', function (e) {
             e.preventDefault();
 
             history.replaceState({}, '', e.target.href);
@@ -44,7 +44,7 @@ function setUpScrollSpy() {
     });
 }
 
-function setUpPushPin(pinName) {
+export function setUpPushPin(pinName) {
     if (pinName == 'table of contents') {
         $('#toc').pushpin({
             top: $('#toc').offset().top,
@@ -58,7 +58,7 @@ function setUpPushPin(pinName) {
     }
 }
 
-function destroyPushPin(pinName) {
+export function destroyPushPin(pinName) {
     if (pinName == 'table of contents') {
         $('#toc').pushpin('remove');
     } else if (pinName == 'navigation') {
@@ -66,7 +66,7 @@ function destroyPushPin(pinName) {
     }
 }
 
-function setUpSideNav(navName) {
+export function setUpSideNav(navName) {
     if (navName == 'menu') {
         // $('#menu-button').sideNav({
         //     edge: 'left'

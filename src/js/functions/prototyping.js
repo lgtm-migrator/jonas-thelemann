@@ -1,26 +1,26 @@
-Element.prototype.remove = function() {
+Element.prototype.remove = function () {
     this.parentElement.removeChild(this);
-}
+};
 
-NodeList.prototype.remove = HTMLCollection.prototype.remove = function() {
+NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
     for (var i = this.length - 1; i >= 0; i--) {
         if (this[i] && this[i].parentElement) {
             this[i].parentElement.removeChild(this[i]);
         }
     }
-}
+};
 
-function nodeExists(node) {
+export function nodeExists(node) {
     var nodeExists = false;
 
-    if (typeof(node) != 'undefined' && node != null) {
+    if (typeof (node) != 'undefined' && node != null) {
         nodeExists = true;
     }
 
     return nodeExists;
 }
 
-function getLastLine(string) {
+export function getLastLine(string) {
     if (string.lastIndexOf('\n') > 0) {
         return string.substring(string.lastIndexOf('\n') + 1, string.length);
     } else {
@@ -28,11 +28,11 @@ function getLastLine(string) {
     }
 }
 
-function getQueryArray(url) {
+export function getQueryArray(url) {
     var queryArray = [];
     var queryParts = getQueryString(url).split('&');
 
-    queryParts.forEach(function(value, index, array) {
+    queryParts.forEach(function (value) {
         var queryPairs = value.split('=');
 
         queryArray.push(queryPairs);
@@ -41,7 +41,7 @@ function getQueryArray(url) {
     return queryArray;
 }
 
-function getQueryString(url) {
+export function getQueryString(url) {
     var getQueryString = '';
 
     if (url.includes('?')) {
@@ -51,7 +51,7 @@ function getQueryString(url) {
     return getQueryString;
 }
 
-function getQueryValue(queryArray, key) {
+export function getQueryValue(queryArray, key) {
     for (var i = 0; i < queryArray.length; i++) {
         if (queryArray[i][0] == key) {
             return queryArray[i][1];
@@ -59,11 +59,11 @@ function getQueryValue(queryArray, key) {
     }
 }
 
-function getWithoutQueryString(url) {
+export function getWithoutQueryString(url) {
     return url.replace(/\?.*/, '');
 }
 
-function tryParseJSON(jsonString) {
+export function tryParseJSON(jsonString) {
     try {
         var json = JSON.parse(jsonString);
 
@@ -73,9 +73,9 @@ function tryParseJSON(jsonString) {
     } catch (e) {
         return false;
     }
-};
+}
 
-function getPercentage(span, value) {
+export function getPercentage(span, value) {
     var percentage = null;
 
     percentage = 100 / span * value;
@@ -83,16 +83,16 @@ function getPercentage(span, value) {
     return percentage;
 }
 
-function isNumeric(n) {
+export function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-function toTimeZone(time, format, zone) {
+export function toTimeZone(time, format, zone) {
     return moment.tz(time, format, 'Etc/GMT').tz(zone);
 }
 
-function setDeterminate(percentage, id) {
-    idElement = document.getElementById(id);
+export function setDeterminate(percentage, id) {
+    var idElement = document.getElementById(id);
 
     idElement.classList.remove('indeterminate');
     idElement.classList.add('determinate');
@@ -100,8 +100,8 @@ function setDeterminate(percentage, id) {
     idElement.style.width = percentage + '%';
 }
 
-function setIndeterminate(id) {
-    idElement = document.getElementById(id);
+export function setIndeterminate(id) {
+    var idElement = document.getElementById(id);
 
     idElement.classList.remove('determinate');
     idElement.classList.add('indeterminate');

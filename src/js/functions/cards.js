@@ -2,13 +2,15 @@
 // cards.js
 /////////////////////////////////////////////////
 
+import { destroyPushPin, setUpPushPin } from './setup.js';
+
 /**
  * Lets cards disappear.
  *
  *
  * @param {*} cardToClose - The card to close.
  */
-function closeCard(cardToClose) {
+export function closeCard(cardToClose) {
 
     // Validate parameters
     if (!cardToClose) {
@@ -52,12 +54,14 @@ function closeCard(cardToClose) {
     }
 
     // Write cookie with "cards" and "lastupdate" property, that expires in 150 days
-    Cookies.set('closedCards', {
-        cards: closedCards,
-        lastupdate: Math.round(new Date().getTime() / 1000)
-    }, {
+    Cookies.set(
+        'closedCards', {
+            cards: closedCards,
+            lastupdate: Math.round(new Date().getTime() / 1000)
+        }, {
             expires: 150
-        });
+        }
+    );
 }
 
 /**
@@ -65,7 +69,7 @@ function closeCard(cardToClose) {
  *
  * @see {@link closeCard}
  */
-function setupCardClosers() {
+export function setupCardClosers() {
 
     // Get all cards' close buttons
     var cardCloseButtons = document.getElementsByClassName('card-close');

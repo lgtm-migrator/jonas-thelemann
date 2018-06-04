@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     addPreloaderHtml('top10', 'big', 'green');
     addPreloaderHtml('attacksperday', 'big', 'green');
     addPreloaderHtml('attacksperhours', 'big', 'green');
