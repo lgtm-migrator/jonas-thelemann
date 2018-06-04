@@ -56,6 +56,7 @@
         "gulp-cached": "^1.1.1",
         "gulp-composer": "^0.4.0",
         "gulp-eslint": "^4.0.2",
+        "gulp-phplint": "^0.5.1",
         "gulp-rename": "^1.2.2",
         "gulp-sass": "^4.0.1",
         "gulp-sourcemaps": "^2.6.0",
@@ -63,6 +64,7 @@
         "gulp-yarn": "^2.0.0",
         "gulp-zip": "^4.0.0",
         "jsdoc-to-markdown": "^4.0.1",
-        "merge-stream": "^1.0.1"
+        "merge-stream": "^1.0.1",
+        "plugin-error": "^1.0.1"
     }
 }

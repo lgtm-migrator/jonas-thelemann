@@ -7,11 +7,14 @@ const gBuffer = require('gulp-buffer');
 const gCached = require('gulp-cached');
 const gComposer = require('gulp-composer');
 const gDel = require('del');
+const gEslint = require('gulp-eslint');
 const gFs = require('fs');
 const gGulp = require('gulp');
 const gJsdoc2md = require('jsdoc-to-markdown');
 const gMergeStream = require('merge-stream');
 const gPath = require('path');
+const gPhplint = require('gulp-phplint');
+const gPluginError = require('plugin-error');
 const gRename = require('gulp-rename');
 const gSass = require('gulp-sass');
 const gSourcemaps = require('gulp-sourcemaps');
@@ -101,10 +104,40 @@ function staticSrc_watch() {
 
 exports.staticSrc_watch = staticSrc_watch;
 
+function phpLint() {
+    return gGulp.src('src/**/*.php')
+        // Lint and suppress output of valid files
+        .pipe(gPhplint('', { skipPassedFiles: true }))
+        // Fail on error
+        .pipe(gPhplint.reporter(function (file) {
+            var report = file.phplintReport || {};
+
+            if (report.error) {
+                throw new gPluginError('gulp-eslint', {
+                    plugin: 'PHPLintError',
+                    message: report.message + ' on line ' + report.line + ' of ' + report.filename
+                });
+            }
+        }));
+}
+
+exports.phpLint = phpLint;
+
+function jsLint() {
+    return gGulp.src('src/js/**/*.js')
+        // Lint JavaScript
+        .pipe(gEslint())
+        // Output to console
+        .pipe(gEslint.format())
+        // Fail on error
+        .pipe(gEslint.failAfterError());
+}
+
+exports.jsLint = jsLint;
+
 function jsSrc() {
     return gGulp.src(funcFolder + 'functions.js', { read: false })
         .pipe(gTap(function (file) {
-            console.log('bundling ' + file.path);
             file.contents = gBrowserify(file.path, { debug: true }).transform('babelify', { presets: ['env'] }).bundle();
         }))
         .pipe(gBuffer())
@@ -118,13 +151,6 @@ function jsSrc() {
 
 exports.jsSrc = jsSrc;
 
-function jsDoc() {
-    return gJsdoc2md.render({ files: funcFolder + '*.js' })
-        .then(output => gFs.writeFile('docs/js/functions.md', output, (error) => { console.log(error); }));
-}
-
-exports.jsDoc = jsDoc;
-
 function jsSrc_watch() {
     // Watch for any changes in source files to copy changes
     gGulp.watch(funcFolder)
@@ -134,6 +160,13 @@ function jsSrc_watch() {
 }
 
 exports.jsSrc_watch = jsSrc_watch;
+
+function jsDoc() {
+    return gJsdoc2md.render({ files: funcFolder + '*.js' })
+        .then(output => gFs.writeFile('docs/js/functions.md', output, (error) => { console.log(error); }));
+}
+
+exports.jsDoc = jsDoc;
 
 function css_compressed() {
     return gGulp.src(sassFile)
@@ -300,5 +333,49 @@ function zip_watch() {
 exports.zip_watch = zip_watch;
 
 // Build tasks
-gGulp.task('build', gGulp.series(dist_clean, gGulp.parallel(credentials, staticSrc, jsSrc, css_compressed, css_extended, gGulp.series(composer_update, composer_src), gGulp.series(yarn_update, yarn_src)), symlinks, zip));
-gGulp.task('default', gGulp.series('build', gGulp.parallel(credentials_watch, staticSrc_watch, jsSrc_watch, cssSrc_watch, composer_watch, yarn_watch, zip_watch)));
+gGulp.task(
+    'build',
+    gGulp.series(
+        dist_clean,
+        gGulp.series(
+            gGulp.parallel(
+                credentials,
+                staticSrc,
+                phpLint,
+                jsLint,
+                jsSrc,
+                css_compressed,
+                css_extended
+            ),
+            // Yarn needs to be in series with phpLint
+            // as the Yarn task does not return on linting errors.
+            gGulp.parallel(
+                gGulp.series(
+                    composer_update,
+                    composer_src
+                ),
+                gGulp.series(
+                    yarn_update,
+                    yarn_src
+                )
+            )
+        ),
+        symlinks,
+        zip
+    )
+);
+gGulp.task(
+    'default',
+    gGulp.series(
+        'build',
+        gGulp.parallel(
+            credentials_watch,
+            staticSrc_watch,
+            jsSrc_watch,
+            cssSrc_watch,
+            composer_watch,
+            yarn_watch,
+            zip_watch
+        )
+    )
+);
