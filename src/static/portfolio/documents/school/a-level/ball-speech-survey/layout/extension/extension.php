@@ -7,15 +7,15 @@
 
         if ($open) {
             $dbh = getDbh($_ENV['PGSQL_DATABASE']);
-            $stmt = $dbh->prepare("SELECT ip FROM alevelballspeech WHERE ip='".$_SERVER['REMOTE_ADDR']."'");
+            $stmt = $dbh->prepare("SELECT ip FROM alevelballspeech WHERE ip='".$_SERVER['HTTP_X_REAL_IP']."'");
             $stmt->execute();
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($row['chosenspeaker'] != $_POST['chosen']) {
-                $dbh->exec("UPDATE alevelballspeech SET chosenspeaker='".$_POST['chosen']."' WHERE ip='".$_SERVER['REMOTE_ADDR']."'");
+                $dbh->exec("UPDATE alevelballspeech SET chosenspeaker='".$_POST['chosen']."' WHERE ip='".$_SERVER['HTTP_X_REAL_IP']."'");
             }
 
-            $dbh->exec("INSERT INTO alevelballspeech(chosenspeaker, ip) VALUES ('".$_POST['chosen']."', '".$_SERVER['REMOTE_ADDR']."')");
+            $dbh->exec("INSERT INTO alevelballspeech(chosenspeaker, ip) VALUES ('".$_POST['chosen']."', '".$_SERVER['HTTP_X_REAL_IP']."')");
 
             echo 'ok;'.$_POST['chosen'];
         } else {

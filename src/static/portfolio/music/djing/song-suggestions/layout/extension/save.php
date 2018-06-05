@@ -34,7 +34,7 @@
         $stmt->bindParam(':artist', $_POST['artist']);
         $stmt->bindParam(':album', $_POST['album-group']);
         $stmt->bindParam(':comment', $_POST['comment']);
-        $stmt->bindParam(':ip', $_SERVER['REMOTE_ADDR']);
+        $stmt->bindParam(':ip', $_SERVER['HTTP_X_REAL_IP']);
         $stmt->bindParam(':datetime', $datetime);
 
         if ($stmt->execute()) {

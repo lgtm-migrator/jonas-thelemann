@@ -101,7 +101,7 @@
 
     function getRowForCurrentIp($dbh, $tableName)
     {
-        $sql = $dbh->prepare('SELECT * FROM "'.$tableName.'" WHERE ip=\''.$_SERVER['REMOTE_ADDR'].'\'');
+        $sql = $dbh->prepare('SELECT * FROM "'.$tableName.'" WHERE ip=\''.$_SERVER['HTTP_X_REAL_IP'].'\'');
         $sql->execute();
 
         return $sql->fetch(PDO::FETCH_ASSOC);

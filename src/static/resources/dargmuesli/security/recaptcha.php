@@ -9,7 +9,7 @@
         global $secret;
 
         $reCaptcha = new ReCaptcha($secret);
-        $verification = $reCaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
+        $verification = $reCaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['HTTP_X_REAL_IP']);
 
         if ($verification->isSuccess()) {
             return true;

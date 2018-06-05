@@ -9,7 +9,7 @@
     $open = false;
 
     $dbh = getDbh($_ENV['PGSQL_DATABASE']);
-    $stmt = $dbh->prepare("SELECT riese FROM awards WHERE ip='".$_SERVER['REMOTE_ADDR']."'");
+    $stmt = $dbh->prepare("SELECT riese FROM awards WHERE ip='".$_SERVER['HTTP_X_REAL_IP']."'");
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
