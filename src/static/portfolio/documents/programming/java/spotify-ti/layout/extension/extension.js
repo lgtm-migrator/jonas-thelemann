@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('DOMContentLoaded', function () {
     var hashElement = document.getElementById('var');
     var hashParams = getHashParams();
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
         var btn = document.querySelector('.btn');
 
-        btn.addEventListener('click', function(event) {
+        btn.addEventListener('click', function () {
             var range = document.createRange();
             var selection = window.getSelection();
 
@@ -48,12 +48,12 @@ function getHashParams() {
     var e,
         a = /\+/g,
         r = /([^&;=]+)=?([^&;]*)/g,
-        d = function(s) {
-            return decodeURIComponent(s.replace(a, " "));
+        d = function (s) {
+            return decodeURIComponent(s.replace(a, ' '));
         },
         q = window.location.hash.substring(1);
 
-    while (e = r.exec(q))
+    while (e == r.exec(q))
         hashParams[d(e[1])] = d(e[2]);
 
     return hashParams;

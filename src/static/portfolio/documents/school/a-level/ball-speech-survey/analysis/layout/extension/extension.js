@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('DOMContentLoaded', function () {
     var barChart = document.getElementById('barChart');
-    var myChart = new Chart(barChart, {
+    new Chart(barChart, {
         type: 'bar',
         data: {
             labels: [],

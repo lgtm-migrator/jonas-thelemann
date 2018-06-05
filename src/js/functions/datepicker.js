@@ -1,4 +1,4 @@
-function initializeDatepicker(locale, selectYears = undefined, selectMonths = undefined, disable = undefined) {
+export function initializeDatepicker(locale, selectYears = undefined, disable = undefined) {
     // Strings and translations
     /**/
     var monthsFull = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -10,8 +10,8 @@ function initializeDatepicker(locale, selectYears = undefined, selectMonths = un
     var weekdaysShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     /**/
     var weekdaysLetter = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
-    var showMonthsShort = undefined;
-    var showWeekdaysFull = undefined;
+    // var showMonthsShort = undefined;
+    // var showWeekdaysFull = undefined;
 
     // Buttons
     /**/
@@ -36,38 +36,38 @@ function initializeDatepicker(locale, selectYears = undefined, selectMonths = un
     var format = 'd mmmm, yyyy';
     /**/
     var formatSubmit = undefined;
-    var hiddenPrefix = undefined;
-    var hiddenSuffix = '_submit';
-    var hiddenName = undefined;
+    // var hiddenPrefix = undefined;
+    // var hiddenSuffix = '_submit';
+    // var hiddenName = undefined;
 
-    // Editable input
-    var editable = undefined;
+    //// Editable input
+    // var editable = undefined;
 
     // First day of the week
     /**/
     var firstDay = undefined;
 
-    // Date limits
-    var min = undefined;
-    var max = undefined;
+    // // Date limits
+    // var min = undefined;
+    // var max = undefined;
 
-    // Root picker container
-    var container = undefined;
+    // // Root picker container
+    // var container = undefined;
 
-    // Hidden input container
-    var containerHidden = undefined;
+    // // Hidden input container
+    // var containerHidden = undefined;
 
     // Close on a user action
     var closeOnSelect = true;
     var closeOnClear = true;
 
-    // Events
-    var onStart = undefined;
-    var onRender = undefined;
-    var onOpen = undefined;
-    var onClose = undefined;
-    var onSet = undefined;
-    var onStop = undefined;
+    // // Events
+    // var onStart = undefined;
+    // var onRender = undefined;
+    // var onOpen = undefined;
+    // var onClose = undefined;
+    // var onSet = undefined;
+    // var onStop = undefined;
 
     if (locale == 'de') {
         monthsFull = ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];

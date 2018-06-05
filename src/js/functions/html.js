@@ -1,4 +1,7 @@
-function addPreloaderHtml(id, size, color) {
+import { addPageButtonListeners } from './paging.js';
+import { nodeExists } from './prototyping.js';
+
+export function addPreloaderHtml(id, size, color) {
     var sizeHtml = '';
 
     if (size == 'big') {
@@ -33,7 +36,7 @@ function addPreloaderHtml(id, size, color) {
     </div>`;
 }
 
-function insertDatabaseTableHtml(dbhName, tableName, columnNames, limit, page, order, classes, id) {
+export function insertDatabaseTableHtml(dbhName, tableName, columnNames, limit, page, order, classes, id) {
     var xhr = new XMLHttpRequest();
     var data = new FormData();
 
@@ -50,7 +53,7 @@ function insertDatabaseTableHtml(dbhName, tableName, columnNames, limit, page, o
     data.append('classes', classes);
 
     xhr.open('POST', '/resources/dargmuesli/database/table.php', true);
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var targetElement = document.getElementById(id);
 
@@ -62,17 +65,17 @@ function insertDatabaseTableHtml(dbhName, tableName, columnNames, limit, page, o
 
             addPageButtonListeners(dbhName, tableName, columnNames, limit, order, classes, id);
         }
-    }
+    };
     xhr.send(data);
 }
 
-function insertDatabaseRankingsHtml(dbhName, data, id) {
+export function insertDatabaseRankingsHtml(dbhName, data, id) {
     var xhr = new XMLHttpRequest();
 
     data.append('dbhName', dbhName);
 
     xhr.open('POST', '/resources/dargmuesli/database/rankings.php', true);
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var targetElement = document.getElementById(id);
 
@@ -82,11 +85,11 @@ function insertDatabaseRankingsHtml(dbhName, data, id) {
                 console.log('No element with id "' + id + '" exists!');
             }
         }
-    }
+    };
     xhr.send(data);
 }
 
-function insertDatabaseRankingsListHtml(dbhName, tableName, columnName, limit, id) {
+export function insertDatabaseRankingsListHtml(dbhName, tableName, columnName, limit, id) {
     var data = new FormData();
 
     data.append('rankingType', 'list');
@@ -97,7 +100,7 @@ function insertDatabaseRankingsListHtml(dbhName, tableName, columnName, limit, i
     insertDatabaseRankingsHtml(dbhName, data, id);
 }
 
-function insertDatabaseRankingsMatrixHtml(dbhName, tableName, categories, id) {
+export function insertDatabaseRankingsMatrixHtml(dbhName, tableName, categories, id) {
     var data = new FormData();
 
     data.append('rankingType', 'matrix');

@@ -7,6 +7,6 @@ function contactformCallback(response) {
         if ((xhr.readyState == 4) && (xhr.status == 200)) {
             document.getElementById('address').innerHTML = xhr.responseText;
         }
-    }
+    };
     xhr.send('g-recaptcha-response=' + response);
 }

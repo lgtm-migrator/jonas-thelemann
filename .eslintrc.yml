@@ -1,7 +1,19 @@
 env:
+  browser: true
   es6: true
+  jquery: true
   node: true
 extends: 'eslint:recommended'
+globals:
+  Chart: false
+  Cookies: false
+  dragula: false
+  later: false
+  Materialize: false
+  moment: false
+  Prism: false
+parserOptions:
+  sourceType: module
 rules:
   indent:
      - error

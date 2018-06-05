@@ -16,7 +16,7 @@ function insideZone(speakerspot) {
 
 function figureClicked(me) {
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    xhttp.onreadystatechange = function () {
         if (xhttp.readyState == 4 && xhttp.status == 200) {
             var answerElements = xhttp.responseText.split(';');
             if (answerElements[0] == 'ok') {
@@ -51,12 +51,12 @@ function figureClicked(me) {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('DOMContentLoaded', function () {
     speakerspot = document.getElementById('speakerspot');
     var figures = document.getElementsByTagName('figure');
 
-    for (i = 0; i < figures.length; i++) {
-        figures[i].addEventListener('click', function(event) {
+    for (var i = 0; i < figures.length; i++) {
+        figures[i].addEventListener('click', function () {
             figureClicked(this);
         });
     }
@@ -65,11 +65,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
         insideZone(speakerspot);
     }
 
-    dragula([
+    dragula(
+        [
             document.querySelector('#speakerspot'),
             document.querySelector('#candidates')
         ], {
-            accepts: function(el, target, source, sibling) {
+            accepts: function (el, target) {
                 if (target.id == 'speakerspot' && !isSpeakerFilled()) { //target.hasChildNodes()
                     return true;
                 } else if (target.id == 'candidates') {
@@ -80,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
             },
             direction: 'horizontal',
         })
-        .on('out', function(el, container, source) {
+        .on('out', function (el, container, source) {
             console.log('out! container: ' + container.id + ', source: ' + source.id);
             if (source.id == 'speakerspot') {
                 if (container.id == 'speakerspot' && !isSpeakerFilled()) {
@@ -97,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 }
             }
         })
-        .on('over', function(el, container, source) {
+        .on('over', function (el, container, source) {
             console.log('over! container: ' + container.id + ', source: ' + source.id);
             if (container.id == 'speakerspot') {
                 insideZone(speakerspot);
@@ -105,14 +106,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 outsideZone(speakerspot);
             }
         })
-        .on('drop', function(el, target, source, sibling) {
+        .on('drop', function (el, target, source) {
             console.log('drop! target: ' + target.id + ', source: ' + source.id);
             if (target.id == 'speakerspot') {
                 document.getElementById('warningpopup').classList.remove('hidden');
             } else if (source.id == 'speakerspot' && target.id == 'candidates') {
                 document.getElementById('warningpopup').classList.remove('hidden');
             }
-        });;
+        });
     /*.on('cancel', function (el, container, source) {
         if (source.id == 'speakerspot' && source.hasChildNodes()) {
             source.style.width = '30%';

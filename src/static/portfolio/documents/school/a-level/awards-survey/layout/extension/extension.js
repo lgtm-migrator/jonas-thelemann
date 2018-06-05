@@ -8,16 +8,18 @@ function populateSelects() {
     teacherNames.sort();
 
     for (var i = 0; i < selects.length; i++) {
+        var j, opt;
+
         if (i < 50) {
-            for (var j = 0; j < studentNames.length; j++) {
-                var opt = document.createElement('option');
+            for (j = 0; j < studentNames.length; j++) {
+                opt = document.createElement('option');
                 opt.value = studentNames[j];
                 opt.innerHTML = studentNames[j];
                 selects[i].appendChild(opt);
             }
         } else {
-            for (var j = 0; j < teacherNames.length; j++) {
-                var opt = document.createElement('option');
+            for (j = 0; j < teacherNames.length; j++) {
+                opt = document.createElement('option');
                 opt.value = teacherNames[j];
                 opt.innerHTML = teacherNames[j];
                 selects[i].appendChild(opt);
@@ -27,7 +29,7 @@ function populateSelects() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('DOMContentLoaded', function () {
     populateSelects();
     $('select').material_select();
 });

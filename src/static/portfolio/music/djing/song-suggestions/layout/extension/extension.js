@@ -25,7 +25,7 @@ $(document).ready(function () {
         rules: {
             title: {
                 required: {
-                    depends: function (element) {
+                    depends: function () {
                         var artist = $('#artist');
                         return !(artist.length && artist.val().length);
                     }
@@ -33,7 +33,7 @@ $(document).ready(function () {
             },
             artist: {
                 required: {
-                    depends: function (element) {
+                    depends: function () {
                         var title = $('#title');
                         return !(title.length && title.val().length);
                     }

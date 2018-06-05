@@ -1,21 +1,24 @@
 'use strict';
 
 const gAutoprefixer = require('gulp-autoprefixer');
-const gBabel = require('gulp-babel');
 const gBabelMinify = require('gulp-babel-minify');
+const gBrowserify = require('browserify');
+const gBuffer = require('gulp-buffer');
 const gCached = require('gulp-cached');
-const gConcat = require('gulp-concat');
 const gComposer = require('gulp-composer');
 const gDel = require('del');
+const gEslint = require('gulp-eslint');
 const gFs = require('fs');
 const gGulp = require('gulp');
 const gJsdoc2md = require('jsdoc-to-markdown');
 const gMergeStream = require('merge-stream');
 const gPath = require('path');
+const gPhplint = require('gulp-phplint');
+const gPluginError = require('plugin-error');
 const gRename = require('gulp-rename');
 const gSass = require('gulp-sass');
 const gSourcemaps = require('gulp-sourcemaps');
-const gStreamToPromise = require('gulp-stream-to-promise');
+const gTap = require('gulp-tap');
 const gVfs = require('vinyl-fs');
 const gYarn = require('gulp-yarn');
 const gZip = require('gulp-zip');
@@ -30,7 +33,7 @@ const distCredentialsFolder = distFolder + 'credentials/';
 const distServerFolder = distFolder + 'server/';
 const srcFolder = 'src/';
 const staticFolder = srcFolder + 'static/';
-const funcFolder = srcFolder + 'js/functions/';
+const funcFolder = srcFolder + 'js/';
 const styleFolder = srcFolder + 'css/sass/style/';
 const sassFile = srcFolder + 'css/sass/style/style.scss';
 const resFolder = distServerFolder + 'resources/';
@@ -41,7 +44,6 @@ const credentialsSrcGlob = 'credentials/**';
 const staticGlob = staticFolder + '**';
 const composerSrcGlob = 'vendor/**';
 const zipSrcGlob = distFolder + '**';
-const mod = (__dirname.includes(process.cwd()) ? process.cwd() : __dirname) + '/node_modules/';
 
 var buildInProgress = false;
 
@@ -68,7 +70,7 @@ function credentials_watch() {
     // Watch for any changes in credential files to copy changes
     // Does currently not work as dotfiles cannot be watched with chokidar
     gGulp.watch(credentialsSrcGlob)
-        .on('all', function (event, path) {
+        .on('all', function () {
             credentials();
         });
 }
@@ -95,21 +97,50 @@ exports.staticSrc = staticSrc;
 function staticSrc_watch() {
     // Watch for any changes in source files to copy changes
     gGulp.watch(staticGlob)
-        .on('all', function (event, path) {
+        .on('all', function () {
             staticSrc();
         });
 }
 
 exports.staticSrc_watch = staticSrc_watch;
 
+function phpLint() {
+    return gGulp.src('src/**/*.php')
+        // Lint and suppress output of valid files
+        .pipe(gPhplint('', { skipPassedFiles: true }))
+        // Fail on error
+        .pipe(gPhplint.reporter(function (file) {
+            var report = file.phplintReport || {};
+
+            if (report.error) {
+                throw new gPluginError('gulp-eslint', {
+                    plugin: 'PHPLintError',
+                    message: report.message + ' on line ' + report.line + ' of ' + report.filename
+                });
+            }
+        }));
+}
+
+exports.phpLint = phpLint;
+
+function jsLint() {
+    return gGulp.src('src/js/**/*.js')
+        // Lint JavaScript
+        .pipe(gEslint())
+        // Output to console
+        .pipe(gEslint.format())
+        // Fail on error
+        .pipe(gEslint.failAfterError());
+}
+
+exports.jsLint = jsLint;
+
 function jsSrc() {
-    return gGulp.src(funcFolder + '*.js')
-        .pipe(gConcat('functions.js'))
-        .pipe(gBabel({
-            presets: [
-                [mod + 'babel-preset-env']
-            ]
+    return gGulp.src(funcFolder + 'functions.js', { read: false })
+        .pipe(gTap(function (file) {
+            file.contents = gBrowserify(file.path, { debug: true }).transform('babelify', { presets: ['env'] }).bundle();
         }))
+        .pipe(gBuffer())
         .pipe(gGulp.dest(baseFolder))
         .pipe(gRename({
             extname: '.min.js'
@@ -120,22 +151,22 @@ function jsSrc() {
 
 exports.jsSrc = jsSrc;
 
-function jsDoc() {
-    return gJsdoc2md.render({ files: funcFolder + '*.js' })
-        .then(output => gFs.writeFile('docs/js/functions.md', output, (error) => { console.log(error) }));
-}
-
-exports.jsDoc = jsDoc;
-
 function jsSrc_watch() {
     // Watch for any changes in source files to copy changes
     gGulp.watch(funcFolder)
-        .on('all', function (event, path) {
+        .on('all', function () {
             jsSrc();
         });
 }
 
 exports.jsSrc_watch = jsSrc_watch;
+
+function jsDoc() {
+    return gJsdoc2md.render({ files: funcFolder + '*.js' })
+        .then(output => gFs.writeFile('docs/js/functions.md', output, (error) => { console.log(error); }));
+}
+
+exports.jsDoc = jsDoc;
 
 function css_compressed() {
     return gGulp.src(sassFile)
@@ -169,7 +200,7 @@ exports.css_extended = css_extended;
 function cssSrc_watch() {
     // Watch for any changes in source files to copy changes
     gGulp.watch(styleFolder)
-        .on('all', function (event, path) {
+        .on('all', function () {
             css_compressed();
             css_extended();
         });
@@ -203,8 +234,8 @@ exports.composer_src = composer_src;
 
 function composer_watch() {
     // Watch for any changes in composer files to copy changes
-    gGulp.watch([composerSrcGlob, "composer.json"])
-        .on('all', function (event, path) {
+    gGulp.watch([composerSrcGlob, 'composer.json'])
+        .on('all', function () {
             composer_update();
             composer_src();
         });
@@ -214,7 +245,7 @@ exports.composer_watch = composer_watch;
 
 function yarn_update() {
     // Update package dependencies
-    return gGulp.src("package.json")
+    return gGulp.src('package.json')
         .pipe(gYarn());
 }
 
@@ -256,8 +287,8 @@ exports.yarn_src = yarn_src;
 
 function yarn_watch() {
     // Watch for any changes in yarn files to copy changes
-    gGulp.watch(["package.json"])
-        .on('all', function (event, path) {
+    gGulp.watch(['package.json'])
+        .on('all', function () {
             yarn_update();
             yarn_src();
         });
@@ -302,5 +333,49 @@ function zip_watch() {
 exports.zip_watch = zip_watch;
 
 // Build tasks
-gGulp.task('build', gGulp.series(dist_clean, gGulp.parallel(credentials, staticSrc, jsSrc, css_compressed, css_extended, gGulp.series(composer_update, composer_src), gGulp.series(yarn_update, yarn_src)), symlinks, zip));
-gGulp.task('default', gGulp.series('build', gGulp.parallel(credentials_watch, staticSrc_watch, jsSrc_watch, cssSrc_watch, composer_watch, yarn_watch, zip_watch)));
+gGulp.task(
+    'build',
+    gGulp.series(
+        dist_clean,
+        gGulp.series(
+            gGulp.parallel(
+                credentials,
+                staticSrc,
+                phpLint,
+                jsLint,
+                jsSrc,
+                css_compressed,
+                css_extended
+            ),
+            // Yarn needs to be in series with phpLint
+            // as the Yarn task does not return on linting errors.
+            gGulp.parallel(
+                gGulp.series(
+                    composer_update,
+                    composer_src
+                ),
+                gGulp.series(
+                    yarn_update,
+                    yarn_src
+                )
+            )
+        ),
+        symlinks,
+        zip
+    )
+);
+gGulp.task(
+    'default',
+    gGulp.series(
+        'build',
+        gGulp.parallel(
+            credentials_watch,
+            staticSrc_watch,
+            jsSrc_watch,
+            cssSrc_watch,
+            composer_watch,
+            yarn_watch,
+            zip_watch
+        )
+    )
+);

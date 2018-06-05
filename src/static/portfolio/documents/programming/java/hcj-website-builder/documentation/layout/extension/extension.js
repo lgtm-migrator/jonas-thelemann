@@ -1,8 +1,8 @@
-targetPage = "" + window.location.search;
-if (targetPage != "" && targetPage != "undefined")
+var targetPage = '' + window.location.search;
+if (targetPage != '' && targetPage != 'undefined')
     targetPage = targetPage.substring(1);
-if (targetPage.indexOf(":") != -1 || (targetPage != "" && !validURL(targetPage)))
-    targetPage = "undefined";
+if (targetPage.indexOf(':') != -1 || (targetPage != '' && !validURL(targetPage)))
+    targetPage = 'undefined';
 
 function validURL(url) {
     try {
@@ -10,7 +10,7 @@ function validURL(url) {
     } catch (error) {
         return false;
     }
-    var pos = url.indexOf(".html");
+    var pos = url.indexOf('.html');
     if (pos == -1 || pos != url.length - 5)
         return false;
     var allowNumber = false;
@@ -46,6 +46,6 @@ function validURL(url) {
 }
 
 function loadFrames() {
-    if (targetPage != "" && targetPage != "undefined")
+    if (targetPage != '' && targetPage != 'undefined')
         top.classFrame.location = top.targetPage;
 }

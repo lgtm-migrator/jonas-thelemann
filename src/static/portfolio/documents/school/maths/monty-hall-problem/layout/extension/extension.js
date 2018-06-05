@@ -2,26 +2,26 @@ var doorOne = null;
 var doorTwo = null;
 var doorThree = null;
 var carDoor = null;
-var chosenDoor = null;
+// var chosenDoor = null;
 var modDoor = null;
 var change = null;
 var instructionTextElement = null;
 var stage = 0;
-var clickable = true;
+// var clickable = true;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     doorOne = document.getElementById('doorOne');
     doorTwo = document.getElementById('doorTwo');
     doorThree = document.getElementById('doorThree');
     instructionTextElement = document.getElementById('instructions');
 
-    doorOne.addEventListener('click', function() {
+    doorOne.addEventListener('click', function () {
         chooseDoor('doorOne');
     });
-    doorTwo.addEventListener('click', function() {
+    doorTwo.addEventListener('click', function () {
         chooseDoor('doorTwo');
     });
-    doorThree.addEventListener('click', function() {
+    doorThree.addEventListener('click', function () {
         chooseDoor('doorThree');
     });
 });
@@ -89,7 +89,7 @@ function chooseDoor(choice) {
             modDoor = document.getElementById(modChoice);
             //var noChooseDoor = document.getElementById(String(6 - (parseInt(choice) + modChoice)));
 
-            setTimeout(function() {
+            setTimeout(function () {
                 modDoor.classList.remove('initial');
                 modDoor.classList.add('goat');
                 instructionTextElement.innerHTML = 'Bleibst du bei deiner Wahl oder möchtest du die andere Tür wählen?<br>Wähle eine der beiden verschlossenen Türen.';
@@ -114,11 +114,11 @@ function chooseDoor(choice) {
                 instructionTextElement.innerHTML = 'Verloren!';
             }
 
-            setTimeout(function() {
+            setTimeout(function () {
                 //Send input data to PostgreSQL database
                 var xhttp = new XMLHttpRequest();
 
-                xhttp.onreadystatechange = function() {
+                xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         if (this.responseText == 'success') {
                             doorOne.classList.remove('car');
@@ -148,7 +148,7 @@ function chooseDoor(choice) {
 }
 
 function getDoorId(number) {
-    doorId = '';
+    var doorId = '';
 
     if (number == 1) {
         doorId = 'doorOne';
@@ -162,7 +162,7 @@ function getDoorId(number) {
 }
 
 function getDoorNumber(id) {
-    doorNumber = '';
+    var doorNumber = '';
 
     if (id == 'doorOne') {
         doorNumber = 1;

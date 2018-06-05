@@ -2,12 +2,12 @@ var checkCount = 0;
 var subbut = null;
 var checkboxes = null;
 
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('DOMContentLoaded', function () {
     checkboxes = document.getElementsByClassName('chkbx');
     subbut = document.getElementById('subbut');
 
-    for (i = 0; i < checkboxes.length; i++) {
-        checkboxes[i].addEventListener('click', function() {
+    for (var i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].addEventListener('click', function () {
             checkChanged(this);
         });
     }
@@ -43,7 +43,7 @@ function checkChanged(element) {
 }
 
 function disableChecks() {
-    for (i = 0; i < checkboxes.length; i++) {
+    for (var i = 0; i < checkboxes.length; i++) {
         if (!checkboxes[i].checked) {
             checkboxes[i].disabled = true;
         }
@@ -51,7 +51,7 @@ function disableChecks() {
 }
 
 function enableChecks() {
-    for (i = 0; i < checkboxes.length; i++) {
+    for (var i = 0; i < checkboxes.length; i++) {
         checkboxes[i].disabled = false;
     }
 }

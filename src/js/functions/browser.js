@@ -1,3 +1,7 @@
+import { setupCardClosers } from './cards.js';
+import { nodeExists } from './prototyping.js';
+import { destroyPushPin, setUpPushPin, setUpScrollSpy, setUpSideNav } from './setup.js';
+
 $(document).ready(function () {
     Materialize.updateTextFields();
     $('select').material_select();
@@ -36,7 +40,7 @@ window.onpopstate = function (e) {
 
 window.setTimeout(offsetAnchor, 1);
 
-function offsetAnchor() {
+export function offsetAnchor() {
     if (location.hash != '') {
         var hashElement = document.querySelector(location.hash);
 
