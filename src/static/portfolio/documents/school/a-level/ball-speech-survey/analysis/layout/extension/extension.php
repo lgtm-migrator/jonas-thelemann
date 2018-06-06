@@ -19,7 +19,11 @@
 
     foreach ($candidates as $key => $value) {
         $stmt = $dbh->prepare("SELECT count(*) FROM \"alevel-ball-speech\" WHERE chosenspeaker='".$key."'");
-        $stmt->execute();
+
+        if (!$stmt->execute()) {
+            throw new PDOException($stmt->errorInfo()[2]);
+        }
+
         $candidates[$key] = intval($stmt->fetch(PDO::FETCH_ASSOC)['count']);
     }
 

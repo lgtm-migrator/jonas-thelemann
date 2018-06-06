@@ -10,7 +10,11 @@
 
     $dbh = getDbh($_ENV['PGSQL_DATABASE']);
     $stmt = $dbh->prepare("SELECT riese FROM awards WHERE ip='".$_SERVER['HTTP_X_REAL_IP']."'");
-    $stmt->execute();
+
+    if (!$stmt->execute()) {
+        throw new PDOException($stmt->errorInfo()[2]);
+    }
+
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($row) {

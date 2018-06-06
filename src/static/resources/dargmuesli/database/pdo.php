@@ -89,7 +89,9 @@
 
         // Run the SQL statement
         $sth = $dbh->prepare($sql);
-        $sth->execute();
+        if (!$stmt->execute()) {
+            throw new PDOException($stmt->errorInfo()[2]);
+        }
 
         // Add each row to array
         while ($result = $sth->fetch(PDO::FETCH_ASSOC)) {
@@ -102,7 +104,10 @@
     function getRowForCurrentIp($dbh, $tableName)
     {
         $sql = $dbh->prepare('SELECT * FROM "'.$tableName.'" WHERE ip=\''.$_SERVER['HTTP_X_REAL_IP'].'\'');
-        $sql->execute();
+
+        if (!$stmt->execute()) {
+            throw new PDOException($stmt->errorInfo()[2]);
+        }
 
         return $sql->fetch(PDO::FETCH_ASSOC);
     }

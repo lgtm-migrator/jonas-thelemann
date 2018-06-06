@@ -28,7 +28,11 @@
     for ($i = 0; $i < count($categoriesCode); ++$i) {
         if ($i < 49) {
             $stmt = $dbh->prepare('SELECT '.$categoriesCode[$i].', count(*) anzahl FROM (SELECT DISTINCT * FROM "alevel-magazine-awards") t WHERE '.$categoriesCode[$i]." <> '' GROUP BY ".$categoriesCode[$i].' ORDER BY anzahl DESC');
-            $stmt->execute();
+
+            if (!$stmt->execute()) {
+                throw new PDOException($stmt->errorInfo()[2]);
+            }
+
             $result = $stmt->fetchAll();
 
             $skeletonContent .= '
@@ -60,7 +64,11 @@
     for ($i = 0; $i < count($categoriesCode); ++$i) {
         if ($i > 48 && $i < 74) {
             $stmt = $dbh->prepare('SELECT '.$categoriesCode[$i].', count(*) anzahl FROM (SELECT DISTINCT * FROM "alevel-magazine-awards") t WHERE '.$categoriesCode[$i]." <> '' GROUP BY ".$categoriesCode[$i].' ORDER BY anzahl DESC');
-            $stmt->execute();
+
+            if (!$stmt->execute()) {
+                throw new PDOException($stmt->errorInfo()[2]);
+            }
+
             $result = $stmt->fetchAll();
 
             $skeletonContent .= '

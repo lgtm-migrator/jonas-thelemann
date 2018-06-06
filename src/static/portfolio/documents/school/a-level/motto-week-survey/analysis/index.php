@@ -28,7 +28,11 @@
 
     $dbh = getDbh($_ENV['PGSQL_DATABASE']);
     $stmt = $dbh->prepare($qString);
-    $stmt->execute();
+
+    if (!$stmt->execute()) {
+        throw new PDOException($stmt->errorInfo()[2]);
+    }
+
     $result = $stmt->fetchAll();
 
     $qString = '';

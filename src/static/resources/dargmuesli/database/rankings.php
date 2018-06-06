@@ -86,7 +86,11 @@
             }
 
             $stmt = $dbh->prepare($sql);
-            $stmt->execute();
+
+            if (!$stmt->execute()) {
+                throw new PDOException($stmt->errorInfo()[2]);
+            }
+
             $rankings = $stmt->fetchAll(PDO::FETCH_BOTH);
 
             echo getRankingsHtml($rankings);
