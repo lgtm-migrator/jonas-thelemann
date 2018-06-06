@@ -1,5 +1,6 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/whitelist.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/packages/composer/autoload.php';
 
     // Get an array containing all column names of a table in a database
@@ -39,7 +40,13 @@
 
     function getRowCount($dbh, $table)
     {
-        $dbhQuery = $dbh->query('SELECT COUNT(*) FROM '.pg_escape_string($table));
+        global $tableWhitelist;
+
+        if (!in_array($table, array_keys($tableWhitelist))) {
+            throw new Exception('"'.$table.'" is not whitelisted!');
+        }
+
+        $dbhQuery = $dbh->query('SELECT COUNT(*) FROM '.$table);
 
         if ($dbhQuery) {
             $rowCount = $dbhQuery->fetchColumn();
@@ -53,10 +60,20 @@
     // Get an array containing the result of a SELECT SQL statement
     function getRows($dbh, $table, $columns, $limit = null, $offset = null, $orderBys = null)
     {
+        global $tableWhitelist;
+
+        if (!in_array($table, array_keys($tableWhitelist))) {
+            throw new Exception('"'.$table.'" is not whitelisted!');
+        }
+
         $rows = array();
         $columnString = '';
 
         foreach ($columns as $column) {
+            if (!in_array($column, $tableWhitelist[$table])) {
+                throw new Exception('"'.$column.'" is not whitelisted!');
+            }
+
             if ($columnString != '') {
                 $columnString .= ', ';
             }
@@ -64,7 +81,7 @@
             $columnString .= $column;
         }
 
-        $sql = 'SELECT '.pg_escape_string($columnString).' FROM '.pg_escape_string($table);
+        $sql = 'SELECT '.$columnString.' FROM '.$table;
 
         if (isset($orderBys)) {
             $orderByString .= ' ORDER BY ';
@@ -72,11 +89,19 @@
             // Support ORDER BY for multiple columns
             foreach ($orderBys as $orderBy) {
                 foreach ($orderBy as $column => $direction) {
+                    if (!in_array($column, $tableWhitelist[$table])) {
+                        throw new Exception('"'.$column.'" is not whitelisted!');
+                    }
+
+                    if (!in_array($direction, ['ASC', 'DESC'])) {
+                        throw new Exception('"'.$direction.'" is neither "ASC" nor "DESC"!');
+                    }
+
                     if ($orderByString != null) {
                         $orderByString .= ', ';
                     }
 
-                    $orderByString .= pg_escape_string($column.' '.$direction);
+                    $orderByString .= $column.' '.$direction;
                 }
             }
 
@@ -85,11 +110,11 @@
 
         // Add optional parameters
         if ($limit) {
-            $sql .= ' LIMIT '.pg_escape_string($limit);
+            $sql .= ' LIMIT '.filter_var($limit, FILTER_SANITIZE_NUMBER_INT);
         }
 
         if ($offset) {
-            $sql .= ' OFFSET '.pg_escape_string($offset);
+            $sql .= ' OFFSET '.filter_var($offset, FILTER_SANITIZE_NUMBER_INT);
         }
 
         // Run the SQL statement
@@ -109,7 +134,13 @@
 
     function getRowForCurrentIp($dbh, $tableName)
     {
-        $sql = $dbh->prepare('SELECT '.pg_escape_string($tableName).' FROM :from WHERE ip = :ip');
+        global $tableWhitelist;
+
+        if (!in_array($tableName, array_keys($tableWhitelist))) {
+            throw new Exception('"'.$tableName.'" is not whitelisted!');
+        }
+
+        $sql = $dbh->prepare('SELECT '.$tableName.' FROM :from WHERE ip = :ip');
         $stmt->bindParam(':ip', $_SERVER['HTTP_X_REAL_IP']);
 
         if (!$stmt->execute()) {
@@ -119,33 +150,33 @@
         return $sql->fetch(PDO::FETCH_ASSOC);
     }
 
-    function initTable($dbh, $tableName, $columnConfig = null)
+    function initTable($dbh, $tableName)
     {
-        if (!$columnConfig) {
-            switch ($tableName) {
-                case 'dj_song_suggestions':
-                    $columnConfig = '
-                        id serial PRIMARY KEY,
-                        title character varying(100) DEFAULT \'n/a\'::character varying,
-                        artist character varying(100) DEFAULT \'n/a\'::character varying,
-                        album character varying(100) DEFAULT \'n/a\'::character varying,
-                        comment character varying(250) DEFAULT \'n/a\'::character varying,
-                        ip character varying(64) NOT NULL,
-                        datetime timestamp without time zone NOT NULL,
-                        approved boolean DEFAULT false NOT NULL';
-                    break;
-                case 'surveys':
-                    $columnConfig = '
-                        id serial PRIMARY KEY,
-                        name character varying(75) NOT NULL,
-                        open boolean DEFAULT false NOT NULL';
-                    break;
-                default:
-                    throw new Exception('"'.$tableName.'" has no deployable configuration!');
-            }
+        $columnConfig = null;
+
+        switch ($tableName) {
+            case 'dj_song_suggestions':
+                $columnConfig = '
+                    id serial PRIMARY KEY,
+                    title character varying(100) DEFAULT \'n/a\'::character varying,
+                    artist character varying(100) DEFAULT \'n/a\'::character varying,
+                    album character varying(100) DEFAULT \'n/a\'::character varying,
+                    comment character varying(250) DEFAULT \'n/a\'::character varying,
+                    ip character varying(64) NOT NULL,
+                    datetime timestamp without time zone NOT NULL,
+                    approved boolean DEFAULT false NOT NULL';
+                break;
+            case 'surveys':
+                $columnConfig = '
+                    id serial PRIMARY KEY,
+                    name character varying(75) NOT NULL,
+                    open boolean DEFAULT false NOT NULL';
+                break;
+            default:
+                throw new Exception('"'.$tableName.'" has no deployable configuration!');
         }
 
-        return $dbh->query('CREATE TABLE IF NOT EXISTS '.pg_escape_string($tableName).' ('.pg_escape_string($columnConfig).');');
+        return $dbh->query('CREATE TABLE IF NOT EXISTS '.$tableName.' ('.$columnConfig.');');
     }
 
     function tableExists($dbh, $tableName)

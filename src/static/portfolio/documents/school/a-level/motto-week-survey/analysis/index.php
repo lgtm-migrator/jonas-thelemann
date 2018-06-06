@@ -1,12 +1,14 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/whitelist.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
     lastModified(getPageModTime());
 
-    $categoriesCode = ['ip', 'monster', 'geschlechtertausch', 'ersterschultag', 'hippie', 'pyjama', 'bunt', 'vip', 'traumberuf', 'assi', 'diegroßen', 'streber', 'anything', 'derabend', 'mittelalter', 'lieblingsmannschaft', 'chemieunfall', 'lieblingstier', 'kindheitshelden', 'eskalation', 'gaypride'];
+    $categoriesCode = $tableWhitelist['a_level_motto_week'];
+    // $categoriesCode = ['ip', 'monster', 'geschlechtertausch', 'ersterschultag', 'hippie', 'pyjama', 'bunt', 'vip', 'traumberuf', 'assi', 'diegroßen', 'streber', 'anything', 'derabend', 'mittelalter', 'lieblingsmannschaft', 'chemieunfall', 'lieblingstier', 'kindheitshelden', 'eskalation', 'gaypride'];
     $categories = ['ip', 'Monster, Zombie, Hexe, Horror, Halloween', 'Geschlechtertausch', 'Erster Schultag', 'Hippie, 20er, 60er, XXer aus dem 20. Jahrhundert', 'Pyjama, lässig, verschlafen', 'Bunt, Mustermix, Bad Taste', 'VIP, roter Teppich, Promis', 'Traumberuf, Ich in 20 Jahren, Business', 'Assi, Nutten & Zuhälter', 'Die Großen der Geschichte', 'Streber, Spießer', 'Anything but clothes', 'Der Abend davor vs. der Morgen danach, Hangover', 'Mittelalter', 'Lieblingsmannschaft, -team', 'Chemieunfall', 'Lieblingstier', 'Kindheitshelden', 'Eskalation', 'Gaypride'];
     // insertDbRankingsMatrixHtml('REDACTED', 'a-level-motto-week', '[{"monster":"Monster"},{"geschlechtertausch":"Geschlechtertausch"},{"ersterschultag":"Erster Schultag"}]', 'top10');
 
@@ -21,7 +23,7 @@
             $qString .= ' UNION ';
         }
 
-        $qString .= 'SELECT '.pg_escape_string($categoriesCode[$i]).' AS name, (SELECT count(*) FROM alevel_mottoweek WHERE '.pg_escape_string($categoriesCode[$i]).' = true) AS anzahl';
+        $qString .= 'SELECT '.$categoriesCode[$i].' AS name, (SELECT count(*) FROM alevel_mottoweek WHERE '.$categoriesCode[$i].' = true) AS anzahl';
     }
 
     $qString .= ' ORDER BY anzahl DESC';

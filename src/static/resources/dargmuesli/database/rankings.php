@@ -1,6 +1,7 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/packages/composer/autoload.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/whitelist.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/text/markuplanguage.php';
 
     $dbhName = $_POST['dbhName'];
@@ -17,6 +18,16 @@
 
         // Continue only if PDO instance was found
         if ($dbh != null) {
+            $tableName = $_POST['tableName'];
+
+            if (empty($tableName)) {
+                $tableName = null;
+            }
+
+            if (!in_array($tableName, array_keys($tableWhitelist))) {
+                throw new Exception('"'.$tableName.'" is not whitelisted!');
+            }
+
             $rankingType = $_POST['rankingType'];
 
             if (empty($rankingType)) {
@@ -27,16 +38,14 @@
 
             switch ($rankingType) {
                 case 'list':
-                    $tableName = $_POST['tableName'];
-
-                    if (empty($tableName)) {
-                        $tableName = null;
-                    }
-
                     $columnName = $_POST['columnName'];
 
                     if (empty($columnName)) {
                         $columnName = null;
+                    }
+
+                    if (!in_array($columnName, $tableWhitelist[$tableName])) {
+                        throw new Exception('"'.$columnName.'" is not whitelisted!');
                     }
 
                     $limit = $_POST['limit'];
@@ -46,17 +55,11 @@
                     }
 
                     if ($tableName != null && $columnName != null && $limit != null) {
-                        $sql = 'SELECT '.pg_escape_string($columnName).', count(*) AS "quantity" FROM '.pg_escape_string($tableName).' GROUP BY '.pg_escape_string($columnName).' ORDER BY "quantity" DESC LIMIT '.pg_escape_string($limit);
+                        $sql = 'SELECT '.$columnName.', count(*) AS "quantity" FROM '.$tableName.' GROUP BY '.$columnName.' ORDER BY "quantity" DESC LIMIT '.filter_var($limit, FILTER_SANITIZE_NUMBER_INT);
                     }
 
                     break;
                 case 'matrix':
-                    $tableName = $_POST['tableName'];
-
-                    if (empty($tableName)) {
-                        $tableName = null;
-                    }
-
                     $categories = json_decode($_POST['categories'], true);
 
                     if (empty($categories)) {
@@ -76,12 +79,19 @@
                                 $sql .= ' UNION ';
                             }
 
-                            $sql .= 'SELECT '.pg_escape_string($categoryName).' AS "name", (SELECT count(*) FROM '.pg_escape_string($tableName).' WHERE "'.pg_escape_string($categoryKey).'" = true) AS "quantity"';
+                            if (!in_array($categoryKey, $tableWhitelist[$tableName])) {
+                                throw new Exception('"'.$categoryKey.'" is not whitelisted!');
+                            }
+
+                            $sql .= 'SELECT '.$dbh->quote($categoryName).' AS "name", (SELECT count(*) FROM '.$tableName.' WHERE '.$categoryKey.' = true) AS "quantity"';
                         }
 
                         $sql .= ' ORDER BY "quantity" DESC';
                     }
 
+                    break;
+                default:
+                    throw new Exception('"'.$rankingType.'" is a valid ranking type!');
                     break;
             }
 

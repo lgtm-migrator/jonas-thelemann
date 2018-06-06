@@ -14,7 +14,7 @@
     // var dataBlue = <?php echo json_encode($dataBlue);
 
     $page = 1;
-    $tableName = 'monty-hall-problem';
+    $tableName = 'monty_hall_problem';
     $dbh = getDbh($_ENV['PGSQL_DATABASE']);
 
     if (isset($_GET['page']) && is_numeric($_GET['page'])) {
@@ -22,7 +22,7 @@
     }
 
     $dataResultCount = null;
-    $stmt = $dbh->prepare('SELECT COUNT(*) FROM '.pg_escape_string($tableName).' WHERE player = :player');
+    $stmt = $dbh->prepare('SELECT COUNT(*) FROM '.$tableName.' WHERE player = :player');
     $stmt->bindParam(':player', $player);
 
     foreach ([1, 2, 3] as $player) {
@@ -42,7 +42,7 @@
 
     $counter = 0;
 
-    foreach ($dbh->query('SELECT * FROM '.pg_escape_string($tableName)) as $dbLine) {
+    foreach ($dbh->query('SELECT * FROM '.$tableName) as $dbLine) {
         ++$counter;
 
         if ($dbLine['change'] == true) {
