@@ -10,7 +10,7 @@
         <title>
             Tools
         </title>
-        <link href="<?php echo $_SERVER['SERVER_ROOT_URL']; ?>/layout/images/favicon.ico" rel="icon" type="image/x-icon">
+        <link href="/layout/images/favicon.ico" rel="icon" type="image/x-icon">
         <script src="layout/extension/extension.js"></script>
         <script src="https://code.jquery.com/jquery-latest.js"></script>
     </head>

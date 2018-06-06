@@ -26,7 +26,7 @@
             // Display a colletion item
             $sitemapHtml .= '
             <li>
-                <a class="collection-item" href="'.$_SERVER['SERVER_ROOT_URL'].DIRECTORY_SEPARATOR.$directoryArrayKey.$directoryArrayKeys[$i].'" title="'.$directoryArrayKeys[$i].'">
+                <a class="collection-item" href="/'.$directoryArrayKey.$directoryArrayKeys[$i].'" title="'.$directoryArrayKeys[$i].'">
                     '.$directoryArrayKeys[$i].'
                 </a>';
 
@@ -85,7 +85,7 @@
                 // Display a colletion item
                 $sitemapXmlPage .= '
                 <url>
-                    <loc>'.$_SERVER['SERVER_ROOT_URL'].DIRECTORY_SEPARATOR.$hostPath.'</loc>
+                    <loc>'.$_SERVER['SERVER_ROOT_URL'].'/'.$hostPath.'</loc>
                     <lastmod>'.$lastModification.'</lastmod>
                     <changefreq>'.getChangeFreq($lastModification).'</changefreq>
                     <priority>'.getUrlPriority($hostPath).'</priority>

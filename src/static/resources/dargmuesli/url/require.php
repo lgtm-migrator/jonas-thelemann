@@ -132,10 +132,10 @@
                             $link = $lclPath.$featurePath;
                             break;
                         case 'drg':
-                            $link = $_SERVER['SERVER_ROOT_URL'].$drgPath.$featurePath;
+                            $link = $drgPath.$featurePath;
                             break;
                         case 'pkg':
-                            $link = $_SERVER['SERVER_ROOT_URL'].$pkgPath.$featurePath;
+                            $link = $pkgPath.$featurePath;
                             break;
                         case 'ext':
                             $link = $featurePath;
@@ -166,7 +166,8 @@
         return $featureTranslation;
     }
 
-    function is_type($link, $type) {
+    function is_type($link, $type)
+    {
         $typeArray = null;
         $link = parse_url($link, PHP_URL_PATH);
 
