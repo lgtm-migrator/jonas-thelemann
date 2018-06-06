@@ -21,6 +21,7 @@
         "phpmailer/phpmailer": "^5.2",
         "respect/validation": "^1.1",
         "thesoftwarefanatics/php-html-parser": "^1.8",
-        "vlucas/phpdotenv": "^2.4"
+        "vlucas/phpdotenv": "^2.4",
+        "vanderlee/syllable": "^1.4"
     }
 }
