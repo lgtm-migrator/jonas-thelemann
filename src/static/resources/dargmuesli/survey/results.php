@@ -63,7 +63,7 @@
                     <form action="'.$action.'" id="resultform" method="post">
                         <input name="result" type="hidden" value="'.$result.'">
                     </form>
-                    <script src="'.$_SERVER['SERVER_ROOT_URL'].'/resources/dargmuesli/survey/submit.js'.'"></script>
+                    <script src="/resources/dargmuesli/survey/submit.js'.'"></script>
                 </body>
             </html>');
     }

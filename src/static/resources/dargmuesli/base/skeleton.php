@@ -88,10 +88,10 @@
                 <meta content="'.$description.'" property="og:description">
                 <meta content="'.$keywords.'" name="keywords">
                 <meta content="'.$keywords.'" itemprop="keywords">
-                <meta content="'.$_SERVER['SERVER_ROOT_URL'].'/resources/dargmuesli/images/logo.png" property="og:image">
-                <meta content="'.$_SERVER['SERVER_ROOT_URL'].'/resources/dargmuesli/images/logo.png" itemprop="thumbnailUrl">
-                <meta content="'.$_SERVER['SERVER_ROOT_URL'].$_SERVER['REQUEST_URI'].'" property="og:url">
-                <meta content="'.$_SERVER['SERVER_ROOT_URL'].$_SERVER['REQUEST_URI'].'" itemprop="sameAs url">
+                <meta content="/resources/dargmuesli/images/logo.png" property="og:image">
+                <meta content="/resources/dargmuesli/images/logo.png" itemprop="thumbnailUrl">
+                <meta content="'.$_SERVER['REQUEST_URI'].'" property="og:url">
+                <meta content="'.$_SERVER['REQUEST_URI'].'" itemprop="sameAs url">
                 <meta content="de" itemprop="inLanguage">
                 <meta content="true" itemprop="isAccessibleForFree">
                 <meta content="true" itemprop="isFamilyFriendly">
@@ -147,7 +147,7 @@
                                     menu
                                 </i>
                             </a>
-                            <a href="'.$_SERVER['SERVER_ROOT_URL'].'/" class="brand-logo">
+                            <a href="/" class="brand-logo">
                                 <span itemprop="name">
                                     Jonas Thelemann
                                 </span>
@@ -196,12 +196,12 @@
                                     Website
                                 </h5>
                                 <div>
-                                    <a class="grey-text text-lighten-3" href="'.$_SERVER['SERVER_ROOT_URL'].'/sitemap" itemprop="url" title="Sitemap">
+                                    <a class="grey-text text-lighten-3" href="/sitemap" itemprop="url" title="Sitemap">
                                         Sitemap
                                     </a>
                                 </div>
                                 <div itemprop="publishingPrinciples">
-                                    <a class="grey-text text-lighten-3" href="'.$_SERVER['SERVER_ROOT_URL'].'/imprint" itemprop="url" title="Imprint">
+                                    <a class="grey-text text-lighten-3" href="/imprint" itemprop="url" title="Imprint">
                                         Impressum
                                     </a>
                                 </div>
