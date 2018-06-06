@@ -56,7 +56,7 @@
         }
 
         // if (!$firstErrorLogged) {
-            echo '
+        echo '
             <section>
                 <h2>
                     DE
@@ -127,5 +127,5 @@
 
     function showDebug($var)
     {
-        highlight_string("<?php\n\$data =\n" . var_export($var, true) . ";\n?>");
+        highlight_string('<?php\n\$data =\n' . var_export($var, true) . ';\n?>');
     }

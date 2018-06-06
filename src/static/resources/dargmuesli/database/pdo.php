@@ -51,7 +51,7 @@
         $columnString = '';
 
         foreach ($columns as $column) {
-            if (!$columnString == '') {
+            if ($columnString != '') {
                 $columnString .= ', ';
             }
 
