@@ -7,9 +7,246 @@
 
     if ($open) {
         if (isset($_GET['method'])) {
-            $dbh->exec("UPDATE awards SET riese='".$_POST['Riese']."' WHERE ip='".$_SERVER['HTTP_X_REAL_IP']."'");
+            $stmt = $dbh->prepare('UPDATE awards SET riese = :riese WHERE ip = :ip ');
+            $stmt->bindParam(':riese', $_POST['Riese']);
+            $stmt->bindParam(':ip', $_SERVER['HTTP_X_REAL_IP']);
+
+            if (!$stmt->execute()) {
+                throw new PDOException($stmt->errorInfo()[2]);
+            }
         } else {
-            $dbh->exec("INSERT INTO awards(gotteskind, partyraucher, frisur, mami, sarkasmus, träumer, shopaholik, markenwerbetafel, sextanerblase, auslandskorrespondent, dam, daw, seeles, hobbypsychologe, sanitäter, schauspieler, handysuchti, vielfraß, ehepaar, weltenbummler, starfotograf, stock, wutbürger, backmeister, ordnungsamt, chemiker, diskussion, quasselstrippe, hausaufgabe, öko, revoluzzer, sauklaue, girl, vorgelernt, entscheidungsunfähig, prinzessin, sprachtalent, gemein, genie, punktefeilscher, anti, männerschwarm, frauenheld, festivalgänger, altphilologe, rock, klausurnachbar, naturbursche, riese, drecksack, organisationsdesaster, junggeselle, schlaftablette, feministin, notenwürfler, punktelieferant, ähm, pause, seelel, unterricht, eingebildet, spät, unbekannt, schülerliebling, miesepeter, moralapostel, verplant, dressed, kopierkönig, grinsekatze, tafelbild, gartenzwerg, übermotiviert, sprücheklopfer, ip) VALUES ('".$_POST['Gotteskind']."', '".$_POST['Partyraucher']."', '".$_POST['Frisur']."', '".$_POST['Mami']."', '".$_POST['Sarkasmus']."', '".$_POST['Träumer']."', '".$_POST['Shopaholik']."', '".$_POST['Markenwerbetafel']."', '".$_POST['Sextanerblase']."', '".$_POST['Auslandskorrespondent']."', '".$_POST['DAM']."', '".$_POST['DAW']."', '".$_POST['SeeleS']."', '".$_POST['Hobbypsychologe']."', '".$_POST['Sanitäter']."', '".$_POST['Schauspieler']."', '".$_POST['Handysuchti']."', '".$_POST['Vielfraß']."', '".$_POST['Ehepaar1'].' und '.$_POST['Ehepaar2']."', '".$_POST['Weltenbummler']."', '".$_POST['Starfotograf']."', '".$_POST['Stock']."', '".$_POST['Wutbürger']."', '".$_POST['Backmeister']."', '".$_POST['Ordnungsamt']."', '".$_POST['Chemiker']."', '".$_POST['Diskussion']."', '".$_POST['Quasselstrippe']."', '".$_POST['Hausaufgabe']."', '".$_POST['Öko']."', '".$_POST['Revoluzzer']."', '".$_POST['Sauklaue']."', '".$_POST['Girl']."', '".$_POST['Vorgelernt']."', '".$_POST['Entscheidungsunfähig']."', '".$_POST['Prinzessin']."', '".$_POST['Sprachtalent']."', '".$_POST['Gemein']."', '".$_POST['Genie']."', '".$_POST['Punktefeilscher']."', '".$_POST['Anti']."', '".$_POST['Männerschwarm']."', '".$_POST['Frauenheld']."', '".$_POST['Festivalgänger']."', '".$_POST['Altphilologe']."', '".$_POST['Rock']."', '".$_POST['Klausurnachbar']."', '".$_POST['Naturbursche']."', '".$_POST['Riese']."', '".$_POST['Drecksack']."', '".$_POST['Organisationsdesaster']."', '".$_POST['Junggeselle']."', '".$_POST['Schlaftablette']."', '".$_POST['Feministin']."', '".$_POST['Notenwürfler']."', '".$_POST['Punktelieferant']."', '".$_POST['Ähm']."', '".$_POST['Pause']."', '".$_POST['SeeleL']."', '".$_POST['Unterricht']."', '".$_POST['Eingebildet']."', '".$_POST['Spät']."', '".$_POST['Unbekannt']."', '".$_POST['Schülerliebling']."', '".$_POST['Miesepeter']."', '".$_POST['Moralapostel']."', '".$_POST['Verplant']."', '".$_POST['Dressed']."', '".$_POST['Kopierkönig']."', '".$_POST['Grinsekatze']."', '".$_POST['Tafelbild']."', '".$_POST['Gartenzwerg']."', '".$_POST['Übermotiviert']."', '".$_POST['Sprücheklopfer']."', '".$_SERVER['HTTP_X_REAL_IP']."')");
+            $stmt = $dbh->prepare('INSERT INTO awards(
+                gotteskind,
+                partyraucher,
+                frisur,
+                mami,
+                sarkasmus,
+                träumer,
+                shopaholik,
+                markenwerbetafel,
+                sextanerblase,
+                auslandskorrespondent,
+                dam,
+                daw,
+                seeles,
+                hobbypsychologe,
+                sanitäter,
+                schauspieler,
+                handysuchti,
+                vielfraß,
+                ehepaar,
+                weltenbummler,
+                starfotograf,
+                stock,
+                wutbürger,
+                backmeister,
+                ordnungsamt,
+                chemiker,
+                diskussion,
+                quasselstrippe,
+                hausaufgabe,
+                öko,
+                revoluzzer,
+                sauklaue,
+                girl,
+                vorgelernt,
+                entscheidungsunfähig,
+                prinzessin,
+                sprachtalent,
+                gemein,
+                genie,
+                punktefeilscher,
+                anti,
+                männerschwarm,
+                frauenheld,
+                festivalgänger,
+                altphilologe,
+                rock,
+                klausurnachbar,
+                naturbursche,
+                riese,
+                drecksack,
+                organisationsdesaster,
+                junggeselle,
+                schlaftablette,
+                feministin,
+                notenwürfler,
+                punktelieferant,
+                ähm,
+                pause,
+                seelel,
+                unterricht,
+                eingebildet,
+                spät,
+                unbekannt,
+                schülerliebling,
+                miesepeter,
+                moralapostel,
+                verplant,
+                dressed,
+                kopierkönig,
+                grinsekatze,
+                tafelbild,
+                gartenzwerg,
+                übermotiviert,
+                sprücheklopfer,
+                ip
+                ) VALUES (
+                :gotteskind,
+                :partyraucher,
+                :frisur,
+                :mami,
+                :sarkasmus,
+                :träumer,
+                :shopaholik,
+                :markenwerbetafel,
+                :sextanerblase,
+                :auslandskorrespondent,
+                :dam,
+                :daw,
+                :seeles,
+                :hobbypsychologe,
+                :sanitäter,
+                :schauspieler,
+                :handysuchti,
+                :vielfraß,
+                :ehepaar,
+                :weltenbummler,
+                :starfotograf,
+                :stock,
+                :wutbürger,
+                :backmeister,
+                :ordnungsamt,
+                :chemiker,
+                :diskussion,
+                :quasselstrippe,
+                :hausaufgabe,
+                :öko,
+                :revoluzzer,
+                :sauklaue,
+                :girl,
+                :vorgelernt,
+                :entscheidungsunfähig,
+                :prinzessin,
+                :sprachtalent,
+                :gemein,
+                :genie,
+                :punktefeilscher,
+                :anti,
+                :männerschwarm,
+                :frauenheld,
+                :festivalgänger,
+                :altphilologe,
+                :rock,
+                :klausurnachbar,
+                :naturbursche,
+                :riese,
+                :drecksack,
+                :organisationsdesaster,
+                :junggeselle,
+                :schlaftablette,
+                :feministin,
+                :notenwürfler,
+                :punktelieferant,
+                :ähm,
+                :pause,
+                :seelel,
+                :unterricht,
+                :eingebildet,
+                :spät,
+                :unbekannt,
+                :schülerliebling,
+                :miesepeter,
+                :moralapostel,
+                :verplant,
+                :dressed,
+                :kopierkönig,
+                :grinsekatze,
+                :tafelbild,
+                :gartenzwerg,
+                :übermotiviert,
+                :sprücheklopfer,
+                :ip
+            )');
+            $stmt->bindParam(':gotteskind', $_SERVER['gotteskind']);
+            $stmt->bindParam(':partyraucher', $_SERVER['Partyraucher']);
+            $stmt->bindParam(':frisur', $_SERVER['Frisur']);
+            $stmt->bindParam(':mami', $_SERVER['Mami']);
+            $stmt->bindParam(':sarkasmus', $_SERVER['Sarkasmus']);
+            $stmt->bindParam(':träumer', $_SERVER['Träumer']);
+            $stmt->bindParam(':shopaholik', $_SERVER['Shopaholik']);
+            $stmt->bindParam(':markenwerbetafel', $_SERVER['Markenwerbetafel']);
+            $stmt->bindParam(':sextanerblase', $_SERVER['Sextanerblase']);
+            $stmt->bindParam(':auslandskorrespondent', $_SERVER['Auslandskorrespondent']);
+            $stmt->bindParam(':dam', $_SERVER['DAM']);
+            $stmt->bindParam(':daw', $_SERVER['DAW']);
+            $stmt->bindParam(':seeles', $_SERVER['SeeleS']);
+            $stmt->bindParam(':hobbypsychologe', $_SERVER['Hobbypsychologe']);
+            $stmt->bindParam(':sanitäter', $_SERVER['Sanitäter']);
+            $stmt->bindParam(':schauspieler', $_SERVER['Schauspieler']);
+            $stmt->bindParam(':handysuchti', $_SERVER['Handysuchti']);
+            $stmt->bindParam(':vielfraß', $_SERVER['Vielfraß']);
+            $stmt->bindParam(':ehepaar', $_SERVER['Ehepaar']);
+            $stmt->bindParam(':weltenbummler', $_SERVER['Weltenbummler']);
+            $stmt->bindParam(':starfotograf', $_SERVER['Starfotograf']);
+            $stmt->bindParam(':stock', $_SERVER['Stock']);
+            $stmt->bindParam(':wutbürger', $_SERVER['Wutbürger']);
+            $stmt->bindParam(':backmeister', $_SERVER['Backmeister']);
+            $stmt->bindParam(':ordnungsamt', $_SERVER['Ordnungsamt']);
+            $stmt->bindParam(':chemiker', $_SERVER['Chemiker']);
+            $stmt->bindParam(':diskussion', $_SERVER['Diskussion']);
+            $stmt->bindParam(':quasselstrippe', $_SERVER['Quasselstrippe']);
+            $stmt->bindParam(':hausaufgabe', $_SERVER['Hausaufgabe']);
+            $stmt->bindParam(':öko', $_SERVER['Öko']);
+            $stmt->bindParam(':revoluzzer', $_SERVER['Revoluzzer']);
+            $stmt->bindParam(':sauklaue', $_SERVER['Sauklaue']);
+            $stmt->bindParam(':girl', $_SERVER['Girl']);
+            $stmt->bindParam(':vorgelernt', $_SERVER['Vorgelernt']);
+            $stmt->bindParam(':entscheidungsunfähig', $_SERVER['Entscheidungsunfähig']);
+            $stmt->bindParam(':prinzessin', $_SERVER['Prinzessin']);
+            $stmt->bindParam(':sprachtalent', $_SERVER['Sprachtalent']);
+            $stmt->bindParam(':gemein', $_SERVER['Gemein']);
+            $stmt->bindParam(':genie', $_SERVER['Genie']);
+            $stmt->bindParam(':punktefeilscher', $_SERVER['Punktefeilscher']);
+            $stmt->bindParam(':anti', $_SERVER['Anti']);
+            $stmt->bindParam(':männerschwarm', $_SERVER['Männerschwarm']);
+            $stmt->bindParam(':frauenheld', $_SERVER['Frauenheld']);
+            $stmt->bindParam(':festivalgänger', $_SERVER['Festivalgänger']);
+            $stmt->bindParam(':altphilologe', $_SERVER['Altphilologe']);
+            $stmt->bindParam(':rock', $_SERVER['Rock']);
+            $stmt->bindParam(':klausurnachbar', $_SERVER['Klausurnachbar']);
+            $stmt->bindParam(':naturbursche', $_SERVER['Naturbursche']);
+            $stmt->bindParam(':riese', $_SERVER['Riese']);
+            $stmt->bindParam(':drecksack', $_SERVER['Drecksack']);
+            $stmt->bindParam(':organisationsdesaster', $_SERVER['Organisationsdesaster']);
+            $stmt->bindParam(':junggeselle', $_SERVER['Junggeselle']);
+            $stmt->bindParam(':schlaftablette', $_SERVER['Schlaftablette']);
+            $stmt->bindParam(':feministin', $_SERVER['Feministin']);
+            $stmt->bindParam(':notenwürfler', $_SERVER['Notenwürfler']);
+            $stmt->bindParam(':punktelieferant', $_SERVER['Punktelieferant']);
+            $stmt->bindParam(':ähm', $_SERVER['Ähm']);
+            $stmt->bindParam(':pause', $_SERVER['Pause']);
+            $stmt->bindParam(':seelel', $_SERVER['SeeleL']);
+            $stmt->bindParam(':unterricht', $_SERVER['Unterricht']);
+            $stmt->bindParam(':eingebildet', $_SERVER['Eingebildet']);
+            $stmt->bindParam(':spät', $_SERVER['Spät']);
+            $stmt->bindParam(':unbekannt', $_SERVER['Unbekannt']);
+            $stmt->bindParam(':schülerliebling', $_SERVER['Schülerliebling']);
+            $stmt->bindParam(':miesepeter', $_SERVER['Miesepeter']);
+            $stmt->bindParam(':moralapostel', $_SERVER['Moralapostel']);
+            $stmt->bindParam(':verplant', $_SERVER['Verplant']);
+            $stmt->bindParam(':dressed', $_SERVER['Dressed']);
+            $stmt->bindParam(':kopierkönig', $_SERVER['Kopierkönig']);
+            $stmt->bindParam(':grinsekatze', $_SERVER['Grinsekatze']);
+            $stmt->bindParam(':tafelbild', $_SERVER['Tafelbild']);
+            $stmt->bindParam(':gartenzwerg', $_SERVER['Gartenzwerg']);
+            $stmt->bindParam(':übermotiviert', $_SERVER['Übermotiviert']);
+            $stmt->bindParam(':sprücheklopfer', $_SERVER['Sprücheklopfer']);
+            $stmt->bindParam(':ip', $_SERVER['HTTP_X_REAL_IP']);
+
+            if (!$stmt->execute()) {
+                throw new PDOException($stmt->errorInfo()[2]);
+            }
         }
     }
 

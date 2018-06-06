@@ -21,7 +21,7 @@
             $qString .= ' UNION ';
         }
 
-        $qString .= "SELECT '".$categoriesCode[$i]."' AS name, (SELECT count(*) FROM \"alevel-mottoweek\" WHERE ".$categoriesCode[$i].' = true) AS anzahl';
+        $qString .= 'SELECT '.pg_escape_string($categoriesCode[$i]).' AS name, (SELECT count(*) FROM alevel_mottoweek WHERE '.pg_escape_string($categoriesCode[$i]).' = true) AS anzahl';
     }
 
     $qString .= ' ORDER BY anzahl DESC';

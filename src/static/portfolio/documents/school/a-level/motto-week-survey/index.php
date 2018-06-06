@@ -7,7 +7,8 @@
     lastModified(getPageModTime());
 
     $dbh = getDbh($_ENV['PGSQL_DATABASE']);
-    $stmt = $dbh->prepare('SELECT ip, monster, geschlechtertausch, ersterschultag, hippie, pyjama, bunt, vip, traumberuf, assi, diegroßen, streber, anything, derabend, mittelalter, lieblingsmannschaft, chemieunfall, lieblingstier, kindheitshelden, eskalation, gaypride FROM "alevel-mottoweek" WHERE ip="'.$_SERVER['HTTP_X_REAL_IP'].'"');
+    $stmt = $dbh->prepare('SELECT ip, monster, geschlechtertausch, ersterschultag, hippie, pyjama, bunt, vip, traumberuf, assi, diegroßen, streber, anything, derabend, mittelalter, lieblingsmannschaft, chemieunfall, lieblingstier, kindheitshelden, eskalation, gaypride FROM alevel_mottoweek WHERE ip = :ip');
+    $stmt->bindParam(':ip', $_SERVER['HTTP_X_REAL_IP']);
 
     if (!$stmt->execute()) {
         throw new PDOException($stmt->errorInfo()[2]);

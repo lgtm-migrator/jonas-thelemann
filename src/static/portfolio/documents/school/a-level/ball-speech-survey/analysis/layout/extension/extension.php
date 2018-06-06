@@ -18,7 +18,8 @@
     }
 
     foreach ($candidates as $key => $value) {
-        $stmt = $dbh->prepare("SELECT count(*) FROM \"alevel-ball-speech\" WHERE chosenspeaker='".$key."'");
+        $stmt = $dbh->prepare('SELECT count(*) FROM alevel_ball_speech WHERE chosenspeaker = :chosenspeaker');
+        $stmt->bindParam(':chosenspeaker', $key);
 
         if (!$stmt->execute()) {
             throw new PDOException($stmt->errorInfo()[2]);

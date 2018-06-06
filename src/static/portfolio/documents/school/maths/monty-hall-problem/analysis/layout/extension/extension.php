@@ -21,12 +21,17 @@
         $page = intval($_GET['page']);
     }
 
-    $dataResult = $dbh->query('SELECT COUNT(*) FROM "'.$tableName.'" WHERE player=1');
-    $dataResultCountPlayerOne = $dataResult->fetchColumn();
-    $dataResult = $dbh->query('SELECT COUNT(*) FROM "'.$tableName.'" WHERE player=2');
-    $dataResultCountPlayerTwo = $dataResult->fetchColumn();
-    $dataResult = $dbh->query('SELECT COUNT(*) FROM "'.$tableName.'" WHERE player=3');
-    $dataResultCountPlayerThree = $dataResult->fetchColumn();
+    $dataResultCount = null;
+    $stmt = $dbh->prepare('SELECT COUNT(*) FROM '.pg_escape_string($tableName).' WHERE player = :player');
+    $stmt->bindParam(':player', $player);
+
+    foreach ([1, 2, 3] as $player) {
+        if (!$stmt->execute()) {
+            throw new PDOException($stmt->errorInfo()[2]);
+        }
+
+        $dataResultCount[$player - 1] = $stmt->fetchColumn();
+    }
 
     $winCountRed = null;
     $countRed = null;
@@ -37,7 +42,7 @@
 
     $counter = 0;
 
-    foreach ($dbh->query('SELECT * FROM "'.$tableName.'"') as $dbLine) {
+    foreach ($dbh->query('SELECT * FROM '.pg_escape_string($tableName)) as $dbLine) {
         ++$counter;
 
         if ($dbLine['change'] == true) {

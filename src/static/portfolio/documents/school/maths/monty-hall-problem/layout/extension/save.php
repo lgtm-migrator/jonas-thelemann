@@ -12,7 +12,15 @@
             $dbh = getDbh($_ENV['PGSQL_DATABASE']);
 
             // Insert the form values into the database
-            $dbh->exec("INSERT INTO \"monty-hall-problem\" (player, moderator, car, change) VALUES ('".$chosenDoor."', '".$modDoor."', '".$carDoor."', '".$change."')");
+            $stmt = $dbh->prepare('INSERT INTO monty_hall_problem (player, moderator, car, change) VALUES (:player, :moderator, :car, :change)');
+            $stmt->bindParam(':player', $chosenDoor);
+            $stmt->bindParam(':moderator', $modDoor);
+            $stmt->bindParam(':car', $carDoor);
+            $stmt->bindParam(':change', $change);
+
+            if (!$stmt->execute()) {
+                throw new PDOException($stmt->errorInfo()[2]);
+            }
 
             echo 'success';
         } else {

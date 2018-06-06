@@ -46,7 +46,7 @@
                     }
 
                     if ($tableName != null && $columnName != null && $limit != null) {
-                        $sql = 'SELECT '.$columnName.', count(*) AS "quantity" FROM '.$_POST['tableName'].' GROUP BY '.$columnName.' ORDER BY "quantity" DESC LIMIT '.$limit;
+                        $sql = 'SELECT '.pg_escape_string($columnName).', count(*) AS "quantity" FROM '.pg_escape_string($tableName).' GROUP BY '.pg_escape_string($columnName).' ORDER BY "quantity" DESC LIMIT '.pg_escape_string($limit);
                     }
 
                     break;
@@ -76,7 +76,7 @@
                                 $sql .= ' UNION ';
                             }
 
-                            $sql .= 'SELECT \''.$categoryName.'\' AS "name", (SELECT count(*) FROM "'.$tableName.'" WHERE "'.$categoryKey.'" = true) AS "quantity"';
+                            $sql .= 'SELECT '.pg_escape_string($categoryName).' AS "name", (SELECT count(*) FROM '.pg_escape_string($tableName).' WHERE "'.pg_escape_string($categoryKey).'" = true) AS "quantity"';
                         }
 
                         $sql .= ' ORDER BY "quantity" DESC';

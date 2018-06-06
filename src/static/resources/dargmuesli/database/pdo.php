@@ -6,9 +6,15 @@
     function getColumnNames($dbh, $tableName)
     {
         $columns = array();
+        $stmt = $dbh->prepare('SELECT * FROM information_schema.columns WHERE table_name = :name');
+        $stmt->bindParam(':name', $_GET['name']);
+
+        if (!$stmt->execute()) {
+            throw new PDOException($stmt->errorInfo()[2]);
+        }
 
         // Iterate over all columns of the table
-        foreach ($dbh->query('SELECT * FROM information_schema.columns WHERE table_name = \''.$_GET['name'].'\'') as $dbLine) {
+        foreach ($smtp->fetch() as $dbLine) {
             array_push($columns, $dbLine['column_name']);
         }
 
@@ -33,7 +39,7 @@
 
     function getRowCount($dbh, $table)
     {
-        $dbhQuery = $dbh->query('SELECT COUNT(*) FROM "'.$table.'"');
+        $dbhQuery = $dbh->query('SELECT COUNT(*) FROM '.pg_escape_string($table));
 
         if ($dbhQuery) {
             $rowCount = $dbhQuery->fetchColumn();
@@ -58,43 +64,43 @@
             $columnString .= $column;
         }
 
-        $sql = 'SELECT '.$columnString.' FROM "'.$table.'"';
+        $sql = 'SELECT '.pg_escape_string($columnString).' FROM '.pg_escape_string($table);
 
         if (isset($orderBys)) {
-            $sql .= ' ORDER BY ';
+            $orderByString .= ' ORDER BY ';
 
             // Support ORDER BY for multiple columns
             foreach ($orderBys as $orderBy) {
-                //$orderByKeys = array_keys($orderBy);
-                //var_dump($orderByKeys);
-
                 foreach ($orderBy as $column => $direction) {
-                    // if (array_search($column, $orderByKeys) > 0) {
-                    //     $sql .= ', ';
-                    // }
+                    if ($orderByString != null) {
+                        $orderByString .= ', ';
+                    }
 
-                    $sql .= $column.' '.$direction;
+                    $orderByString .= pg_escape_string($column.' '.$direction);
                 }
             }
+
+            $sql .= $orderByString;
         }
 
         // Add optional parameters
         if ($limit) {
-            $sql .= ' LIMIT '.$limit;
+            $sql .= ' LIMIT '.pg_escape_string($limit);
         }
 
         if ($offset) {
-            $sql .= ' OFFSET '.$offset;
+            $sql .= ' OFFSET '.pg_escape_string($offset);
         }
 
         // Run the SQL statement
-        $sth = $dbh->prepare($sql);
+        $stmt = $dbh->prepare($sql);
+
         if (!$stmt->execute()) {
             throw new PDOException($stmt->errorInfo()[2]);
         }
 
         // Add each row to array
-        while ($result = $sth->fetch(PDO::FETCH_ASSOC)) {
+        while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
             array_push($rows, $result);
         }
 
@@ -103,7 +109,8 @@
 
     function getRowForCurrentIp($dbh, $tableName)
     {
-        $sql = $dbh->prepare('SELECT * FROM "'.$tableName.'" WHERE ip=\''.$_SERVER['HTTP_X_REAL_IP'].'\'');
+        $sql = $dbh->prepare('SELECT '.pg_escape_string($tableName).' FROM :from WHERE ip = :ip');
+        $stmt->bindParam(':ip', $_SERVER['HTTP_X_REAL_IP']);
 
         if (!$stmt->execute()) {
             throw new PDOException($stmt->errorInfo()[2]);
@@ -138,12 +145,12 @@
             }
         }
 
-        return $dbh->query("CREATE TABLE IF NOT EXISTS $tableName ($columnConfig);");
+        return $dbh->query('CREATE TABLE IF NOT EXISTS '.pg_escape_string($tableName).' ('.pg_escape_string($columnConfig).');');
     }
 
     function tableExists($dbh, $tableName)
     {
         return $dbh
-            ->query("SELECT EXISTS (SELECT 1 FROM pg_tables WHERE schemaname='public' AND tablename='$tableName')")
+            ->query('SELECT EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = public AND tablename = $tableName)')
             ->fetch()['exists'];
     }
