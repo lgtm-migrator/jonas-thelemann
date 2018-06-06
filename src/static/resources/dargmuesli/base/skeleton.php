@@ -73,9 +73,11 @@
         <!DOCTYPE html>
         <html dir="ltr" itemscope itemtype="https://schema.org/ProfilePage" lang="de">
             <head>
-                <meta charset="UTF-8">
-                <meta content="UTF-8" itemprop="encoding">
-                <meta content="#EE976E" name="theme-color">
+                <meta charset="utf-8">
+                <meta content="utf-8" itemprop="encoding">
+                <meta content="#ee976e" name="theme-color">
+                <meta content="#ee976e" name="msapplication-TileColor">
+                <meta content="/resources/dargmuesli/images/browserconfig.xml" name="msapplication-config">
                 <meta content="IE=edge" http-equiv="X-UA-Compatible">
                 <meta content="width=device-width, initial-scale=1.0" name="viewport">
                 <meta content="website" property="og:type">
@@ -97,8 +99,11 @@
                 <title itemprop="name">
                     '.$title.' - Jonas Thelemann
                 </title>
-                <link href="'.$_SERVER['SERVER_ROOT_URL'].$_SERVER['REQUEST_URI'].'" rel="canonical">
-                <link href="'.$_SERVER['SERVER_ROOT_URL'].'/resources/dargmuesli/images/favicon.ico" type="image/x-icon" rel="icon">'
+                <link href="'.$_SERVER['REQUEST_URI'].'" rel="canonical">
+                <link href="/resources/dargmuesli/images/favicon.ico" type="image/x-icon" rel="icon">
+                <link href="/resources/dargmuesli/images/site.webmanifest" rel="manifest">
+                <link href="/resources/dargmuesli/images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+                <link color="#ee976e" href="/resources/dargmuesli/images/safari-pinned-tab.svg" rel="mask-icon">'
                 .getFeatureTranslation(['pkg/mtrl/mcss', 'drg/base/stl.mcss']).'
             </head>
             <body>
