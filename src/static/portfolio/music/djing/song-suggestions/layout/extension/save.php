@@ -3,6 +3,9 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/surveys.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/survey/results.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/text/strings.php';
+
+    array_filter($_POST, 'trimValue');
 
     $result = 'unknown';
 
