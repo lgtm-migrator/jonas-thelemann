@@ -9,8 +9,6 @@ RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc
 # Update and upgrade
 RUN \
     apt-get update && \
-    apt-get -y upgrade && \
-    apt-get purge php5* && \
     apt-get install -y php7.2 unzip
 
 WORKDIR /app
@@ -50,13 +48,9 @@ RUN a2enconf $PROJECT_NAME
 RUN a2dissite *
 RUN a2ensite $PROJECT_NAME
 
-# Update and upgrade
-RUN \
-    apt-get update && \
-    apt-get -y upgrade
-
 # Enable extensions
-RUN apt-get install -y \
+RUN apt-get update \
+    && apt-get install -y \
     libpq-dev \
     && docker-php-ext-install \
     pdo_pgsql
