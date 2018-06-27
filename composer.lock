@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "gettext/gettext",
-            "version": "v4.5.0",
+            "version": "v4.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/Gettext.git",
-                "reference": "81c05cb213e8e4828db7aabd9dd363367ebca9f2"
+                "reference": "cae84aff39a87e07bd6e5cddb5adb720a0ffa357"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/Gettext/zipball/81c05cb213e8e4828db7aabd9dd363367ebca9f2",
-                "reference": "81c05cb213e8e4828db7aabd9dd363367ebca9f2",
+                "url": "https://api.github.com/repos/oscarotero/Gettext/zipball/cae84aff39a87e07bd6e5cddb5adb720a0ffa357",
+                "reference": "cae84aff39a87e07bd6e5cddb5adb720a0ffa357",
                 "shasum": ""
             },
             "require": {
@@ -26,7 +26,7 @@
             },
             "require-dev": {
                 "illuminate/view": "*",
-                "phpunit/phpunit": "^4.8|^5.7",
+                "phpunit/phpunit": "^4.8|^5.7|^6.5",
                 "squizlabs/php_codesniffer": "^3.0",
                 "symfony/yaml": "~2",
                 "twig/extensions": "*",
@@ -66,7 +66,7 @@
                 "po",
                 "translation"
             ],
-            "time": "2018-04-23T17:22:10+00:00"
+            "time": "2018-06-26T16:51:09+00:00"
         },
         {
             "name": "gettext/languages",
