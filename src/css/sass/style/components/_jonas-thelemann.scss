@@ -274,7 +274,10 @@ button:focus {
 .form-error {
     color: #F44336;
     font-size: .8rem;
-    margin: 4px 0px;
+}
+
+.input-field label {
+    transition: none;
 }
 
 div.submit {
