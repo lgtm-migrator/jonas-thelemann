@@ -39,7 +39,6 @@
                         && file_exists($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR.'index.php')
                         && !file_exists($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR.'.hidden')
                     ) {
-
                     if (is_array($detailPaths) && startsWith($detailPaths, $directoryName.DIRECTORY_SEPARATOR.$folderName)) {
 
                         // Scan child directories for given paths
