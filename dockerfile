@@ -37,10 +37,10 @@ RUN mkdir -p $APACHE_DIR
 COPY --from=node /app/dist/jonas-thelemann.de "$APACHE_DIR/"
 
 # Copy Apache and PHP config files
-COPY docker/conf/certs/* "/etc/ssl/certs/"
-COPY docker/conf/apache/conf/* "$APACHE_CONFDIR/conf-available/"
-COPY docker/conf/apache/site/* "$APACHE_CONFDIR/sites-available/"
-COPY docker/conf/php/* "$PHP_INI_DIR/"
+COPY docker/jonas-thelemann.de/certs/* "/etc/ssl/certs/"
+COPY docker/jonas-thelemann.de/apache/conf/* "$APACHE_CONFDIR/conf-available/"
+COPY docker/jonas-thelemann.de/apache/site/* "$APACHE_CONFDIR/sites-available/"
+COPY docker/jonas-thelemann.de/php/* "$PHP_INI_DIR/"
 
 # Enable mods, config and site
 RUN a2enmod $PROJECT_MODS

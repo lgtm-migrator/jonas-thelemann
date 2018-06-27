@@ -19,7 +19,10 @@
                             "traefik.frontend.rule=Host:adminer.jonas-thelemann.test",
                             "traefik.port=8080"
                         ]
-                    }
+                    },
+                    "volumes": [
+                        "./docker/adminer/adminer.css:/var/www/html/adminer.css"
+                    ]
                 },
                 "apache": {
                     "image": "localhost:5000/dargmuesli/jonas-thelemann.de",
@@ -37,7 +40,7 @@
                     },
                     "volumes": [
                         "./dist/jonas-thelemann.de:/var/www/jonas-thelemann.de",
-                        "./docker/conf/certs:/etc/ssl/certs"
+                        "./docker/jonas-thelemann.de/certs:/etc/ssl/certs"
                     ]
                 },
                 "postgres": {
@@ -100,7 +103,7 @@
                     ],
                     "volumes": [
                         "/var/run/docker.sock:/var/run/docker.sock",
-                        "./docker/conf/certs:/etc/ssl/certs"
+                        "./docker/jonas-thelemann.de/certs:/etc/ssl/certs"
                     ]
                 }
             },
