@@ -19,7 +19,10 @@
                             "traefik.frontend.rule=Host:adminer.jonas-thelemann.test",
                             "traefik.port=8080"
                         ]
-                    }
+                    },
+                    "volumes": [
+                        "./docker/adminer/adminer.css:/var/www/html/adminer.css"
+                    ]
                 },
                 "apache": {
                     "image": "localhost:5000/dargmuesli/jonas-thelemann.de",
