@@ -37,7 +37,7 @@
                     },
                     "volumes": [
                         "./dist/jonas-thelemann.de:/var/www/jonas-thelemann.de",
-                        "./docker/conf/certs:/etc/ssl/certs"
+                        "./docker/jonas-thelemann.de/certs:/etc/ssl/certs"
                     ]
                 },
                 "postgres": {
@@ -100,7 +100,7 @@
                     ],
                     "volumes": [
                         "/var/run/docker.sock:/var/run/docker.sock",
-                        "./docker/conf/certs:/etc/ssl/certs"
+                        "./docker/jonas-thelemann.de/certs:/etc/ssl/certs"
                     ]
                 }
             },
