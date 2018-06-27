@@ -82,6 +82,7 @@
         global $navigationTranslations;
 
         $syllable = new Syllable('de-1996');
+        $syllable->setCacheDir(__DIR__ . '/../cache');
         $navigationTranslation = '';
 
         if (array_key_exists($word, $navigationTranslations)) {
