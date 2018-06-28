@@ -15,10 +15,10 @@
         "issues": "https://github.com/Dargmuesli/jonas-thelemann.de/issues"
     },
     "require": {
-        "gettext/gettext": "^4.3",
+        "gettext/gettext": "^4.6",
         "google/recaptcha": "^1.1",
-        "mtdowling/cron-expression": "^1.1",
-        "phpmailer/phpmailer": "^5.2",
+        "mtdowling/cron-expression": "^1.2",
+        "phpmailer/phpmailer": "^6.0",
         "respect/validation": "^1.1",
         "thesoftwarefanatics/php-html-parser": "^1.8",
         "vlucas/phpdotenv": "^2.4",
