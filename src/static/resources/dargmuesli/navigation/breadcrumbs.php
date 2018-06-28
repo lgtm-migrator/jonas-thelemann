@@ -11,14 +11,14 @@
         $folder = substr($dir, strrpos($dir, '/') + 1, strlen($dir));
         $breadcrumbsHtml = null;
 
-        if (isset($dirs[1]) && $dirs[1] == 'portfolio') {
+        if (isset($dirs[0]) && $dirs[0] == '') {
             $dirs = array_splice($dirs, 1, count($dirs) - 1);
         }
 
         if (!$error) {
             $breadcrumbsHtml = '<a class="breadcrumb" href="#!"></a>';
 
-            if (count($dirs) == 1) {
+            if (count($dirs) == 0) {
                 $breadcrumbsHtml .= '
                 <div class="breadcrumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <a class="breadcrumb" href="#!" itemprop="item">
@@ -30,7 +30,7 @@
                 </div>';
             } else {
                 for ($i = 0; $i < count($dirs); ++$i) {
-                    if ($dirs[$i] != '' && $dirs[$i] != 'portfolio') {
+                    if ($dirs[$i] != '' && ($dirs[$i] != 'portfolio') || ($i == count($dirs) - 1)) {
                         $translatedDirsI = getNavigationTranslation($dirs[$i]);
 
                         if ($translatedDirsI != '') {
