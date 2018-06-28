@@ -28,9 +28,9 @@
 
             // Display active welcome link on welcome page
             $menuHtml .= getMenuHtmlItem(getNavigationTranslation('welcome'), '#!', array('active'));
-        } elseif ($rootPointerInteger == 1 && in_array($currentFolder, array('imprint', 'sitemap'))) {
+        } elseif ($rootPointerInteger == 1 && in_array($currentFolder, array('imprint', 'portfolio', 'sitemap'))) {
 
-            // Display welcome and imprint or sitemap link for imprint and sitemap page
+            // Display welcome and imprint, portfolio or sitemap link for imprint and sitemap page
             $menuHtml .= getMenuHtmlItem(getNavigationTranslation('welcome'), '../')
                         .getMenuHtmlItem(getNavigationTranslation($currentFolder), '../'.$currentFolder.'/#!', array('active'));
         } elseif ($rootPointerInteger == 2) {

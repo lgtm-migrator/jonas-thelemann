@@ -171,7 +171,7 @@
                     </div>
                     <div class="col s12 m9 l8">
                         <main itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
-                            <h1 class="header" itemprop="headline">
+                            <h1 class="header" id="heading" itemprop="headline">
                                 '.$titleShy.'
                             </h1>
                             <p class="caption" itemprop="about alternativeHeadline">
@@ -184,7 +184,7 @@
                     </div>
                     <div class="col s12 l2">
                         <div id="toc">'
-                            .getTableOfContentsHtml($content).'
+                            .getTableOfContentsHtml($content, $title).'
                         </div>
                     </div>
                 </div>

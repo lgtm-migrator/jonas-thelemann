@@ -52,6 +52,7 @@
         'motto-week-survey' => 'Mottowoche',
         'mumble' => 'Mumble',
         'music' => 'Musik',
+        'portfolio' => 'Portfolio',
         'prank' => 'Streich',
         'programming' => 'Programmierung',
         'prom' => 'Abiball',
