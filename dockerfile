@@ -32,6 +32,13 @@ ENV APACHE_DIR /var/www/$PROJECT_NAME/
 ENV APACHE_CONFDIR /etc/apache2/
 ENV PHP_INI_DIR /usr/local/etc/php/
 
+# Enable extensions
+RUN apt-get update \
+    && apt-get install -y \
+    libpq-dev \
+    && docker-php-ext-install \
+    pdo_pgsql
+
 # Create Apache directory and copy the files
 RUN mkdir -p $APACHE_DIR
 COPY --from=node /app/dist/jonas-thelemann.de "$APACHE_DIR/"
@@ -47,13 +54,6 @@ RUN a2enmod $PROJECT_MODS
 RUN a2enconf $PROJECT_NAME
 RUN a2dissite *
 RUN a2ensite $PROJECT_NAME
-
-# Enable extensions
-RUN apt-get update \
-    && apt-get install -y \
-    libpq-dev \
-    && docker-php-ext-install \
-    pdo_pgsql
 
 # Update workdir to server files' location
 WORKDIR $APACHE_DIR/server
