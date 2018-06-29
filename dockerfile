@@ -43,6 +43,9 @@ RUN apt-get update \
 RUN mkdir -p $APACHE_DIR
 COPY --from=node /app/dist/jonas-thelemann.de "$APACHE_DIR/"
 
+# Change server files' owner
+RUN chown www-data:www-data -R $APACHE_DIR/server
+
 # Copy Apache and PHP config files
 COPY docker/jonas-thelemann.de/certs/* "/etc/ssl/certs/"
 COPY docker/jonas-thelemann.de/apache/conf/* "$APACHE_CONFDIR/conf-available/"
