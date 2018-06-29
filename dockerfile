@@ -28,9 +28,9 @@ ENV PROJECT_NAME jonas-thelemann.de
 ENV PROJECT_MODS headers macro rewrite ssl
 
 # Apache & PHP variables
-ENV APACHE_DIR /var/www/$PROJECT_NAME/
-ENV APACHE_CONFDIR /etc/apache2/
-ENV PHP_INI_DIR /usr/local/etc/php/
+ENV APACHE_DIR /var/www/$PROJECT_NAME
+ENV APACHE_CONFDIR /etc/apache2
+ENV PHP_INI_DIR /usr/local/etc/php
 
 # Enable extensions
 RUN apt-get update \
@@ -41,16 +41,16 @@ RUN apt-get update \
 
 # Create Apache directory and copy the files
 RUN mkdir -p $APACHE_DIR
-COPY --from=node /app/dist/jonas-thelemann.de "$APACHE_DIR/"
+COPY --from=node /app/dist/jonas-thelemann.de $APACHE_DIR/
 
 # Change server files' owner
 RUN chown www-data:www-data -R $APACHE_DIR/server
 
 # Copy Apache and PHP config files
-COPY docker/jonas-thelemann.de/certs/* "/etc/ssl/certs/"
-COPY docker/jonas-thelemann.de/apache/conf/* "$APACHE_CONFDIR/conf-available/"
-COPY docker/jonas-thelemann.de/apache/site/* "$APACHE_CONFDIR/sites-available/"
-COPY docker/jonas-thelemann.de/php/* "$PHP_INI_DIR/"
+COPY docker/jonas-thelemann.de/certs/* /etc/ssl/certs/
+COPY docker/jonas-thelemann.de/apache/conf/* $APACHE_CONFDIR/conf-available/
+COPY docker/jonas-thelemann.de/apache/site/* $APACHE_CONFDIR/sites-available/
+COPY docker/jonas-thelemann.de/php/* $PHP_INI_DIR/
 
 # Enable mods, config and site
 RUN a2enmod $PROJECT_MODS
