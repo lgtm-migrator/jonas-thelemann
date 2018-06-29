@@ -111,7 +111,7 @@ Use the `production/docker-compose.yml` file to deploy the predefined stack on a
 `.env` contains environment variables for the stack file itself. Use a command similar to this for deployment where `-E` indicates preserved environment variables for `sudo` use:
 
 ```Bash
-sudo -E docker stack deploy -c docker-compose.yml jonas-thelemann-de
+export $(cat .env | xargs) && sudo -E docker stack deploy -c docker-compose.yml jonas-thelemann-de
 ```
 
 `traefik.env` sets provider credentials for DNS authentication as environment variables for the traefik service.
