@@ -6,18 +6,22 @@ RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-cert
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
 
-# Update and upgrade
+# Update and install PHP
 RUN \
     apt-get update && \
     apt-get install -y php7.2 unzip
 
+# Install Gulp
+RUN yarn global add gulp-cli
+RUN yarn add gulp@4 -D
+
 WORKDIR /app
 
+# Import project files
 COPY ./ /app/
 COPY package.json yarn.lock ./
 
-RUN yarn global add gulp-cli
-RUN yarn add gulp@4 -D
+# Build project
 RUN gulp build
 
 # Base image
@@ -39,6 +43,9 @@ RUN apt-get update \
     && docker-php-ext-install \
     pdo_pgsql
 
+# Update workdir to server files' location
+WORKDIR $APACHE_DIR/server
+
 # Create Apache directory and copy the files
 RUN mkdir -p $APACHE_DIR
 COPY --from=node /app/dist/jonas-thelemann.de $APACHE_DIR/
@@ -57,6 +64,3 @@ RUN a2enmod $PROJECT_MODS
 RUN a2enconf $PROJECT_NAME
 RUN a2dissite *
 RUN a2ensite $PROJECT_NAME
-
-# Update workdir to server files' location
-WORKDIR $APACHE_DIR/server
