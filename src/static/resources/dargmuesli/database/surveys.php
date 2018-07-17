@@ -8,5 +8,5 @@
             throw new PDOException($stmt->errorInfo()[2]);
         }
 
-        return $stmt->fetch();
+        return $stmt->fetch()['open'];
     }
