@@ -1,14 +1,21 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/whitelist.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/packages/composer/autoload.php';
 
     // Get an array containing all column names of a table in a database
     function getColumnNames($dbh, $tableName)
     {
         $columns = array();
+        $stmt = $dbh->prepare('SELECT * FROM information_schema.columns WHERE table_name = :name');
+        $stmt->bindParam(':name', $_GET['name']);
+
+        if (!$stmt->execute()) {
+            throw new PDOException($stmt->errorInfo()[2]);
+        }
 
         // Iterate over all columns of the table
-        foreach ($dbh->query('SELECT * FROM information_schema.columns WHERE table_name = \''.$_GET['name'].'\'') as $dbLine) {
+        foreach ($smtp->fetch() as $dbLine) {
             array_push($columns, $dbLine['column_name']);
         }
 
@@ -33,7 +40,13 @@
 
     function getRowCount($dbh, $table)
     {
-        $dbhQuery = $dbh->query('SELECT COUNT(*) FROM "'.$table.'"');
+        global $tableWhitelist;
+
+        if (!in_array($table, array_keys($tableWhitelist))) {
+            throw new Exception('"'.$table.'" is not whitelisted!');
+        }
+
+        $dbhQuery = $dbh->query('SELECT COUNT(*) FROM '.$table);
 
         if ($dbhQuery) {
             $rowCount = $dbhQuery->fetchColumn();
@@ -47,52 +60,72 @@
     // Get an array containing the result of a SELECT SQL statement
     function getRows($dbh, $table, $columns, $limit = null, $offset = null, $orderBys = null)
     {
+        global $tableWhitelist;
+
+        if (!in_array($table, array_keys($tableWhitelist))) {
+            throw new Exception('"'.$table.'" is not whitelisted!');
+        }
+
         $rows = array();
         $columnString = '';
 
         foreach ($columns as $column) {
-            if (!$columnString == '') {
+            if (!in_array($column, $tableWhitelist[$table])) {
+                throw new Exception('"'.$column.'" is not whitelisted!');
+            }
+
+            if ($columnString != '') {
                 $columnString .= ', ';
             }
 
             $columnString .= $column;
         }
 
-        $sql = 'SELECT '.$columnString.' FROM "'.$table.'"';
+        $sql = 'SELECT '.$columnString.' FROM '.$table;
 
         if (isset($orderBys)) {
-            $sql .= ' ORDER BY ';
+            $orderByString .= ' ORDER BY ';
 
             // Support ORDER BY for multiple columns
             foreach ($orderBys as $orderBy) {
-                //$orderByKeys = array_keys($orderBy);
-                //var_dump($orderByKeys);
-
                 foreach ($orderBy as $column => $direction) {
-                    // if (array_search($column, $orderByKeys) > 0) {
-                    //     $sql .= ', ';
-                    // }
+                    if (!in_array($column, $tableWhitelist[$table])) {
+                        throw new Exception('"'.$column.'" is not whitelisted!');
+                    }
 
-                    $sql .= $column.' '.$direction;
+                    if (!in_array($direction, ['ASC', 'DESC'])) {
+                        throw new Exception('"'.$direction.'" is neither "ASC" nor "DESC"!');
+                    }
+
+                    if ($orderByString != null) {
+                        $orderByString .= ', ';
+                    }
+
+                    $orderByString .= $column.' '.$direction;
                 }
             }
+
+            $sql .= $orderByString;
         }
 
         // Add optional parameters
         if ($limit) {
-            $sql .= ' LIMIT '.$limit;
+            $sql .= ' LIMIT '.filter_var($limit, FILTER_SANITIZE_NUMBER_INT);
         }
 
         if ($offset) {
-            $sql .= ' OFFSET '.$offset;
+            $sql .= ' OFFSET '.filter_var($offset, FILTER_SANITIZE_NUMBER_INT);
         }
 
         // Run the SQL statement
-        $sth = $dbh->prepare($sql);
-        $sth->execute();
+        $stmt = $dbh->prepare($sql);
+
+        if (!$stmt->execute()) {
+            throw new PDOException($stmt->errorInfo()[2]);
+        }
 
         // Add each row to array
-        while ($result = $sth->fetch(PDO::FETCH_ASSOC)) {
+        while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
             array_push($rows, $result);
         }
 
@@ -101,44 +134,70 @@
 
     function getRowForCurrentIp($dbh, $tableName)
     {
-        $sql = $dbh->prepare('SELECT * FROM "'.$tableName.'" WHERE ip=\''.$_SERVER['HTTP_X_REAL_IP'].'\'');
-        $sql->execute();
+        global $tableWhitelist;
+
+        if (!in_array($tableName, array_keys($tableWhitelist))) {
+            throw new Exception('"'.$tableName.'" is not whitelisted!');
+        }
+
+        $sql = $dbh->prepare('SELECT '.$tableName.' FROM :from WHERE ip = :ip');
+        $stmt->bindParam(':ip', $_SERVER['HTTP_X_REAL_IP']);
+
+        if (!$stmt->execute()) {
+            throw new PDOException($stmt->errorInfo()[2]);
+        }
 
         return $sql->fetch(PDO::FETCH_ASSOC);
     }
 
-    function initTable($dbh, $tableName, $columnConfig = null)
+    function initTable($dbh, $tableName)
     {
-        if (!$columnConfig) {
-            switch ($tableName) {
-                case 'dj_song_suggestions':
-                    $columnConfig = '
-                        id serial PRIMARY KEY,
-                        title character varying(100) DEFAULT \'n/a\'::character varying,
-                        artist character varying(100) DEFAULT \'n/a\'::character varying,
-                        album character varying(100) DEFAULT \'n/a\'::character varying,
-                        comment character varying(250) DEFAULT \'n/a\'::character varying,
-                        ip character varying(64) NOT NULL,
-                        datetime timestamp without time zone NOT NULL,
-                        approved boolean DEFAULT false NOT NULL';
-                    break;
-                case 'surveys':
-                    $columnConfig = '
-                        id serial PRIMARY KEY,
-                        name character varying(75) NOT NULL,
-                        open boolean DEFAULT false NOT NULL';
-                    break;
-                default:
-                    throw new Exception('"'.$tableName.'" has no deployable configuration!');
+        $columnConfig = null;
+        $sqlIntegration = null;
+
+        switch ($tableName) {
+            case 'dj_song_suggestions':
+                $columnConfig = '
+                    id serial PRIMARY KEY,
+                    title character varying(100) DEFAULT \'n/a\'::character varying,
+                    artist character varying(100) DEFAULT \'n/a\'::character varying,
+                    album character varying(100) DEFAULT \'n/a\'::character varying,
+                    comment character varying(250) DEFAULT \'n/a\'::character varying,
+                    ip character varying(64) NOT NULL,
+                    datetime timestamp without time zone NOT NULL,
+                    approved boolean DEFAULT false NOT NULL';
+                $sqlIntegration = 'INSERT INTO surveys (name, open) VALUES (\'dj_song_suggestions\', false);';
+                break;
+            case 'surveys':
+                $columnConfig = '
+                    id serial PRIMARY KEY,
+                    name character varying(75) NOT NULL,
+                    open boolean DEFAULT false NOT NULL';
+                break;
+            default:
+                throw new Exception('"'.$tableName.'" has no deployable configuration!');
+        }
+
+        $stmt = $dbh->query('CREATE TABLE IF NOT EXISTS '.$tableName.' ('.$columnConfig.');');
+
+        if (!$stmt) {
+            throw new PDOException($stmt->errorInfo()[2]);
+        }
+
+        if (!is_null($sqlIntegration)) {
+            $stmt = $dbh->query($sqlIntegration);
+
+            if (!$stmt) {
+                throw new PDOException($stmt->errorInfo()[2]);
             }
         }
 
-        return $dbh->query("CREATE TABLE IF NOT EXISTS $tableName ($columnConfig);");
+        return $stmt;
     }
 
     function tableExists($dbh, $tableName)
     {
         return $dbh
-            ->query("SELECT EXISTS (SELECT 1 FROM pg_tables WHERE schemaname='public' AND tablename='$tableName')")
+            ->query('SELECT EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = public AND tablename = $tableName)')
             ->fetch()['exists'];
     }

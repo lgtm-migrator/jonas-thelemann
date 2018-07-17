@@ -1,7 +1,8 @@
-/dist
-/node_modules
-/src/static/stuff
-/vendor
+/dist/
+/docker/secrets/
+/node_modules/
+/src/static/stuff/
+/vendor/
 /docker-compose.yml
 .htpasswd
 *.crt

@@ -8,40 +8,37 @@
 //<script>
     try {
         if (location.href.indexOf('is-external=true') == -1) {
-            parent.document.title="Overview";
+            parent.document.title = 'Overview';
         }
     }
     catch(err) {
     }
 //</script>
 <?php
-
         } elseif ($_GET['i'] == 2) {
             ?>
 //<script>
-    allClassesLink = document.getElementById("allclasses_navbar_top");
+    allClassesLink = document.getElementById('allclasses_navbar_top');
     if(window==top) {
-        allClassesLink.style.display = "block";
+        allClassesLink.style.display = 'block';
     }
     else {
-        allClassesLink.style.display = "none";
+        allClassesLink.style.display = 'none';
     }
 //</script>
 <?php
-
         } elseif ($_GET['i'] == 3) {
             ?>
 //<script>
-    allClassesLink = document.getElementById("allclasses_navbar_bottom");
+    allClassesLink = document.getElementById('allclasses_navbar_bottom');
     if(window==top) {
-        allClassesLink.style.display = "block";
+        allClassesLink.style.display = 'block';
     }
     else {
-        allClassesLink.style.display = "none";
+        allClassesLink.style.display = 'none';
     }
 //</script>
 <?php
-
         }
     }
 ?>

@@ -1,15 +1,8 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
-    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/survey/results.php';
 
     lastModified(getPageModTime());
-
-    $result = null;
-
-    if (isset($_POST['result'])) {
-        $result = $_POST['result'];
-    }
 
     $skeletonDescription = 'Eine einfache Möglichkeit, mir deine Musikwünsche zu übermitteln';
     $skeletonFeatures = ['pkg/jqv/js', 'pkg/jqv/de.js', 'lcl/ext/js'];
@@ -21,9 +14,8 @@
         <p>
             Hier kannst du deinen Musikwunsch eingeben.
         </p>
-        '.getSurveyResultCard($result).'
         <div class="row">
-            <form action="layout/extension/save.php" class="col row s12" id="songform" method="post">
+            <form action="layout/extension/extension.php" class="col row s12" id="songform" method="post">
                 <div class="col l2 m3 radio-input-field s12">
                     <fieldset>
                         <div>
@@ -73,6 +65,19 @@
                     </button>
                 </div>
             </form>
+        </div>
+        <div id="result-modal" class="modal">
+            <div class="modal-content">
+                <h4 id="result-modal-heading">
+                </h4>
+                <p id="result-modal-content">
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">
+                    OK
+                </a>
+            </div>
         </div>
     </section>';
 

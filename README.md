@@ -27,6 +27,12 @@ To keep confidential data, like usernames and passwords, out of the source code 
 - postgres_db
 - postgres_user
 
+PowerShell on Windows adds a carriage return at the end of strings piped to the `docker secret create` command. A workaround can be that you create secrets from files that do not contain a trailing newline. They can be written using:
+
+```PowerShell
+"secret data" | Out-File secret_name -NoNewline
+```
+
 ### DNS
 The default configuration assumes that the local development is done on `jonas-thelemann.test`. Therefore one needs to configure the local DNS resolution to make this address resolvable. This can either be done by simply adding this domain and all subdomains to the operation system's hosts file or by settings up a local DNS server. An advantage of the latter method is that subdomain wildcards can be used and thus not every subdomain needs to be defined separately.
 

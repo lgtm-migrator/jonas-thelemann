@@ -26,3 +26,8 @@
             throw new Exception('"'.$haystack.'" is neither a string nor an array!');
         }
     }
+
+    function trimValue(&$value)
+    {
+        $value = trim($value);
+    }
