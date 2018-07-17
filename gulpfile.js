@@ -278,7 +278,7 @@ function yarn_src() {
         .pipe(gGulp.dest(depYarnFolder + 'moment/')),
     gGulp.src(['node_modules/moment-timezone/moment-timezone.js', 'node_modules/moment-timezone/builds/*.js'])
         .pipe(gGulp.dest(depYarnFolder + 'moment-timezone/')),
-    gGulp.src('node_modules/prismjs/{components/*.js,plugins/*,themes/*.css,prism.js}')
+    gGulp.src('node_modules/prismjs/{components/*.js,plugins/**,themes/*.css,prism.js}')
         .pipe(gGulp.dest(depYarnFolder + 'prismjs/'))];
     return gMergeStream(streamArray);
 }
