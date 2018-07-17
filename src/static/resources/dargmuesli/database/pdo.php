@@ -178,13 +178,14 @@
                 throw new Exception('"'.$tableName.'" has no deployable configuration!');
         }
 
+        $tableExists = tableExists($dbh, $tableName);
         $stmt = $dbh->query('CREATE TABLE IF NOT EXISTS '.$tableName.' ('.$columnConfig.');');
 
         if (!$stmt) {
             throw new PDOException($stmt->errorInfo()[2]);
         }
 
-        if (!is_null($sqlIntegration)) {
+        if (!is_null($sqlIntegration) && !$tableExists) {
             $stmt = $dbh->query($sqlIntegration);
 
             if (!$stmt) {
