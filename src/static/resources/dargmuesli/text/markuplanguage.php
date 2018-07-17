@@ -30,6 +30,7 @@
 
     function getIndentedML($string, $count = 0)
     {
+        $lastCount = 0;
         $indentedString = '';
         $selfClosingTags = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'menuitem', 'meta', 'param', 'source', 'track', 'wbr'];
 
@@ -41,7 +42,11 @@
             preg_match('/<\/([a-z0-9]*)[>\s]/', $line, $closingMatches);
 
             if ($closingMatches && !$openingMatches) {
-                --$count;
+                if ($closingMatches[1] != 'code') {
+                    --$count;
+                } else {
+                    $count = $lastCount;
+                }
             }
 
             for ($i = 0; $i < $count; ++$i) {
@@ -49,7 +54,12 @@
             }
 
             if ($openingMatches && !in_array($openingMatches[1], $selfClosingTags) && !$closingMatches) {
-                ++$count;
+                if ($openingMatches[1] != 'code') {
+                    ++$count;
+                } else {
+                    $lastCount = $count;
+                    $count = 0;
+                }
             }
 
             $trimmedLine = trim($line);
