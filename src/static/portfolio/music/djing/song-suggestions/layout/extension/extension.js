@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('.modal').modal();
     $('#songform').validate({
         errorClass: 'invalid',
         errorElement: 'div',
@@ -42,6 +43,39 @@ $(document).ready(function () {
             comment: {
                 maxlength: 200
             }
+        },
+        submitHandler: function (form) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'layout/extension/extension.php', true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    switch (xhr.status) {
+                        case 403:
+                            document.getElementById('result-modal-heading').innerHTML = 'Geschlossen!';
+                            document.getElementById('result-modal-content').innerHTML = 'Diese Umfrage ist leider schon beendet.';
+                            break;
+                        case 500:
+                            document.getElementById('result-modal-heading').innerHTML = 'Fehler!';
+                            document.getElementById('result-modal-content').innerHTML = 'Es kam zu einem internen Fehler.';
+                            break;
+                        case 400:
+                            document.getElementById('result-modal-heading').innerHTML = 'Eingabeproblem!';
+                            document.getElementById('result-modal-content').innerHTML = 'Die abgeschickten Daten waren ungültig.';
+                            break;
+                        case 200:
+                            document.getElementById('result-modal-heading').innerHTML = 'Vielen Dank!';
+                            document.getElementById('result-modal-content').innerHTML = 'Deine Antwort wurde erfasst.';
+                            form.resetForm();
+                            break;
+                        default:
+                            document.getElementById('result-modal-heading').innerHTML = 'Fehler!';
+                            document.getElementById('result-modal-content').innerHTML = 'Es kam zu einem unbekannten Fehler #' + xhr.status;
+                    }
+
+                    $('#result-modal').modal('open');
+                }
+            };
+            xhr.send(new FormData(form));
         }
     });
 });
