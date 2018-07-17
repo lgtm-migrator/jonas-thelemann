@@ -98,9 +98,10 @@
                     <br>
                     # Belegung per Medium
                     alias space=\'df -h\'
-                    <br>
-                    ##########
-                    <br>
+                </code>
+            </pre>
+            <pre>
+                <code class="language-bash line-numbers">
                     # Inhalt des aktuellen Ordners
                     alias l=\'ls -la\'
                 </code>
