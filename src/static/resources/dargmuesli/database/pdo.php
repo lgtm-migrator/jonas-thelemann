@@ -153,6 +153,7 @@
     function initTable($dbh, $tableName)
     {
         $columnConfig = null;
+        $sqlIntegration = null;
 
         switch ($tableName) {
             case 'dj_song_suggestions':
@@ -165,6 +166,7 @@
                     ip character varying(64) NOT NULL,
                     datetime timestamp without time zone NOT NULL,
                     approved boolean DEFAULT false NOT NULL';
+                $sqlIntegration = 'INSERT INTO surveys (name, open) VALUES (\'dj_song_suggestions\', false);';
                 break;
             case 'surveys':
                 $columnConfig = '
@@ -176,7 +178,21 @@
                 throw new Exception('"'.$tableName.'" has no deployable configuration!');
         }
 
-        return $dbh->query('CREATE TABLE IF NOT EXISTS '.$tableName.' ('.$columnConfig.');');
+        $stmt = $dbh->query('CREATE TABLE IF NOT EXISTS '.$tableName.' ('.$columnConfig.');');
+
+        if (!$stmt) {
+            throw new PDOException($stmt->errorInfo()[2]);
+        }
+
+        if (!is_null($sqlIntegration)) {
+            $stmt = $dbh->query($sqlIntegration);
+
+            if (!$stmt) {
+                throw new PDOException($stmt->errorInfo()[2]);
+            }
+        }
+
+        return $stmt;
     }
 
     function tableExists($dbh, $tableName)
