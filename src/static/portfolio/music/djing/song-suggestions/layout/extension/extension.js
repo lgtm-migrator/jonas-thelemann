@@ -50,22 +50,26 @@ $(document).ready(function () {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4) {
                     switch (xhr.status) {
-                        case 403:
-                            document.getElementById('result-modal-heading').innerHTML = 'Geschlossen!';
-                            document.getElementById('result-modal-content').innerHTML = 'Diese Umfrage ist leider schon beendet.';
-                            break;
-                        case 500:
-                            document.getElementById('result-modal-heading').innerHTML = 'Fehler!';
-                            document.getElementById('result-modal-content').innerHTML = 'Es kam zu einem internen Fehler.';
+                        case 200:
+                            document.getElementById('result-modal-heading').innerHTML = 'Vielen Dank!';
+                            document.getElementById('result-modal-content').innerHTML = 'Deine Antwort wurde erfasst.';
+                            form.resetForm();
                             break;
                         case 400:
                             document.getElementById('result-modal-heading').innerHTML = 'Eingabeproblem!';
                             document.getElementById('result-modal-content').innerHTML = 'Die abgeschickten Daten waren ungültig.';
                             break;
-                        case 200:
-                            document.getElementById('result-modal-heading').innerHTML = 'Vielen Dank!';
-                            document.getElementById('result-modal-content').innerHTML = 'Deine Antwort wurde erfasst.';
-                            form.resetForm();
+                        case 403:
+                            document.getElementById('result-modal-heading').innerHTML = 'Geschlossen!';
+                            document.getElementById('result-modal-content').innerHTML = 'Diese Umfrage ist leider schon beendet.';
+                            break;
+                        case 429:
+                            document.getElementById('result-modal-heading').innerHTML = 'Limit erreicht!';
+                            document.getElementById('result-modal-content').innerHTML = 'Den Server erreichten zu viele Anfragen.';
+                            break;
+                        case 500:
+                            document.getElementById('result-modal-heading').innerHTML = 'Fehler!';
+                            document.getElementById('result-modal-content').innerHTML = 'Es kam zu einem internen Fehler.';
                             break;
                         default:
                             document.getElementById('result-modal-heading').innerHTML = 'Fehler!';

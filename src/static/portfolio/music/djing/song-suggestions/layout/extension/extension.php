@@ -1,9 +1,8 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
-    // include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/ratelimiting.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/ratelimiting.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/surveys.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
-    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/survey/results.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/text/strings.php';
 
     array_filter($_POST, 'trimValue');
@@ -35,11 +34,11 @@
         return http_response_code(403);
     }
 
-    // if (!noMoreThanNInI($dbh, 100, '1 hour', 'dj_song_suggestions', 'datetime')) {
+    if (!noMoreThanNInI($dbh, 50, '24 hour', 'dj_song_suggestions', 'datetime')) {
 
-    //     // Rate limiting
-    //     return http_response_code(429);
-    // }
+        // Rate limiting
+        return http_response_code(429);
+    }
 
     $stmt = $dbh->prepare('INSERT INTO dj_song_suggestions (title, artist, album, comment, ip, datetime) VALUES (:title, :artist, :album, :comment, :ip, :datetime)');
 
