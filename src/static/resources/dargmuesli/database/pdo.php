@@ -182,18 +182,16 @@
         $stmt = $dbh->query('CREATE TABLE IF NOT EXISTS '.$tableName.' ('.$columnConfig.');');
 
         if (!$stmt) {
-            throw new PDOException($stmt->errorInfo()[2]);
+            throw new PDOException('Could not create table "'.$tableName.'".');
         }
 
         if (!is_null($sqlIntegration) && !$tableExists) {
             $stmt = $dbh->query($sqlIntegration);
 
             if (!$stmt) {
-                throw new PDOException($stmt->errorInfo()[2]);
+                throw new PDOException('Could not execute SQL integration instruction "'.$sqlIntegration.'".');
             }
         }
-
-        return $stmt;
     }
 
     function tableExists($dbh, $tableName)

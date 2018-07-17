@@ -23,9 +23,7 @@
 
     // Initialize the required tables
     foreach (array('surveys', 'dj_song_suggestions') as $tableName) {
-        if (!initTable($dbh, $tableName)) {
-            throw new Exception('Could not initialize table "'.$tableName.'"!');
-        }
+        initTable($dbh, $tableName);
     }
 
     if (!isSurveyOpen($dbh, 'dj_song_suggestions')) {
