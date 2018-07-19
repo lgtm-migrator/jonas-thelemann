@@ -1,7 +1,7 @@
 <?php
-    set_error_handler('errorHandler');
-    set_exception_handler('exceptionHandler');
-    register_shutdown_function('shutdownHandler');
+    set_error_handler('error_handler');
+    set_exception_handler('exception_handler');
+    register_shutdown_function('shutdown_handler');
     ini_set('display_errors', 'off');
     error_reporting(E_ALL);
 
@@ -10,7 +10,7 @@
     $_SERVER['SERVER_ROOT_URL'] = $protocol.$_SERVER['HTTP_HOST'];
     $simpleLogging = strrchr($_SERVER['SERVER_NAME'], '.') == '.test' ? false : true;
 
-    function errorHandler($errorLevel, $errorMessage, $errorFile, $errorLine, $errorContext)
+    function error_handler($errorLevel, $errorMessage, $errorFile, $errorLine, $errorContext)
     {
         switch ($errorLevel) {
             case E_ERROR:               throw new ErrorException($errorMessage, 0, $errorLevel, $errorFile, $errorLine);
@@ -34,7 +34,7 @@
         return true;
     }
 
-    function shutdownHandler()
+    function shutdown_handler()
     {
         $lastError = error_get_last();
 
@@ -43,7 +43,7 @@
         }
     }
 
-    function exceptionHandler(Exception $exception)
+    function exception_handler(Exception $exception)
     {
         global $simpleLogging;
 
@@ -119,7 +119,7 @@
     {
     }
 
-    function showDebug($var)
+    function show_debug($var)
     {
         highlight_string('<?php\n\$data =\n' . var_export($var, true) . ';\n?>');
     }

@@ -3,7 +3,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
     $open = false;
-    $dbh = getDbh($_ENV['PGSQL_DATABASE']);
+    $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
     $stmt = $dbh->prepare('SELECT ip FROM mottos WHERE ip = :ip');
     $stmt->bindParam(':ip', $_SERVER['HTTP_X_REAL_IP']);
 

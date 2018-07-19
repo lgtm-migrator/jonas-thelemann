@@ -3,7 +3,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
     include_once 'layout/extension/extension.php';
 
-    lastModified(getPageModTime());
+    last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Zwei virale YouTube Videos am Tag vom 1. bis zum 24. Dezember';
     $skeletonFeatures = ['pkg/ltr/mjs', 'pkg/mmnt/wlcls.mjs', 'pkg/mmnttz/wdt.mjs', 'lcl/ext/js', 'lcl/ext/css'];
@@ -14,7 +14,7 @@
         </h2>
         <div class="row">
             <div class="col s12" id="calendarcontainer">
-                '.getCalendarDoorHtml().'
+                '.get_calendar_door_html().'
             </div>
             <div class="col s12">
                 <p>
@@ -81,4 +81,4 @@
         </div>
     </section>';
 
-    outputHtml($skeletonDescription, $skeletonContent, $skeletonFeatures);
+    output_html($skeletonDescription, $skeletonContent, $skeletonFeatures);

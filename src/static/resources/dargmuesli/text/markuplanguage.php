@@ -1,7 +1,7 @@
 <?php
     use PHPHtmlParser\Dom;
 
-    function getFaqHtml($faq) {
+    function get_faq_html($faq) {
         $faqHtml = '
         <ul class="collapsible popout" data-collapsible="accordion">';
 
@@ -28,7 +28,7 @@
         return $faqHtml;
     }
 
-    function getIndentedML($string, $count = 0)
+    function get_indented_ml($string, $count = 0)
     {
         $lastCount = 0;
         $indentedString = '';
@@ -72,7 +72,7 @@
         return $indentedString;
     }
 
-    function getPaginationHtml($page, $count, $limit) {
+    function get_pagination_html($page, $count, $limit) {
         $pageCount = ceil($count / $limit);
 
         $paginationHtml = '
@@ -181,7 +181,7 @@
         return $paginationHtml;
     }
 
-    function getRankingsHtml($rankings) {
+    function get_rankings_html($rankings) {
         if (empty($rankings) || !is_array($rankings)) {
             $rankings = null;
         }
@@ -203,7 +203,7 @@
         return $rankingHtml;
     }
 
-    function getSurveyStatusHtml($notes, $displayAnalysisLink) {
+    function get_survey_status_html($notes, $displayAnalysisLink) {
         $surveyStatusHtml = '
         <section id="status" class="section scrollspy">
             <h2>
@@ -269,7 +269,7 @@
         return $surveyStatusHtml;
     }
 
-    function getTableHtml($th, $td, $classes) {
+    function get_table_html($th, $td, $classes) {
         $tableHtml = '
         <table>
             <thead>
@@ -320,7 +320,7 @@
         return $tableHtml;
     }
 
-    function getWithoutShy($string)
+    function get_without_shy($string)
     {
         // Replace all occurrences of the "shy"-string
         return str_replace('&shy;', '', $string);

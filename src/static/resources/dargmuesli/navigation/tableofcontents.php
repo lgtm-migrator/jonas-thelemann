@@ -1,7 +1,7 @@
 <?php
     use PHPHtmlParser\Dom;
 
-    function getTableOfContentsHtml($content, $titleFallback = null)
+    function get_table_of_contents_html($content, $titleFallback = null)
     {
         $dom = new Dom();
         $dom->load($content, ['whitespaceTextNode' => false, 'preserveLineBreaks' => true]);

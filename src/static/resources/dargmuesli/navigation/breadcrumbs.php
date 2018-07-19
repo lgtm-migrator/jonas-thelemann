@@ -2,7 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/navigation/translation.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/url/rootpointer.php';
 
-    function getBreadcrumbsHtml($title)
+    function get_breadcrumbs_html($title)
     {
         $error = boolval(preg_match_all('/\\b([0-9][0-9][0-9])\\b/', $title));
         $loc = $_SERVER['REQUEST_URI'];
@@ -23,7 +23,7 @@
                 <div class="breadcrumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                     <a class="breadcrumb" href="#!" itemprop="item">
                         <span itemprop="name">
-                            '.getNavigationTranslation('welcome').'
+                            '.get_navigation_translation('welcome').'
                         </span>
                     </a>
                     <meta itemprop="position" content="0">
@@ -31,7 +31,7 @@
             } else {
                 for ($i = 0; $i < count($dirs); ++$i) {
                     if ($dirs[$i] != '' && ($dirs[$i] != 'portfolio') || ($i == count($dirs) - 1)) {
-                        $translatedDirsI = getNavigationTranslation($dirs[$i]);
+                        $translatedDirsI = get_navigation_translation($dirs[$i]);
 
                         if ($translatedDirsI != '') {
                             if ($i == count($dirs) - 1) {
@@ -47,7 +47,7 @@
                             } else {
                                 $breadcrumbsHtml .= '
                                 <div class="breadcrumb" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                                    <a class="breadcrumb" href="'.getRootPointerString(count($dirs) - $i - 1).'" itemprop="item">
+                                    <a class="breadcrumb" href="'.get_root_pointer_string(count($dirs) - $i - 1).'" itemprop="item">
                                         <span itemprop="name">
                                             '.$translatedDirsI.'
                                         </span>
@@ -62,7 +62,7 @@
         } else {
             $breadcrumbsHtml = '
             <a class="breadcrumb" href="#!" itemprop="item">
-                '.getNavigationTranslation('error').'
+                '.get_navigation_translation('error').'
             </a>';
         }
 

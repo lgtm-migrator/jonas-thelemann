@@ -1,5 +1,5 @@
 <?php
-    function writeFile($filePath, $content)
+    function write_file($filePath, $content)
     {
         $resource = fopen($filePath, 'w') or die('Unable to write file!');
 
@@ -9,7 +9,7 @@
         echo 'ok';
     }
 
-    function getChangeFreq($lastModification)
+    function get_change_freq($lastModification)
     {
         $now = new DateTime();
         $lastModification = new DateTime($lastModification);

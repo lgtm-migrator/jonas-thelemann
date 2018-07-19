@@ -2,7 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
 
-    lastModified(getPageModTime());
+    last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Ein Vorschlag für die Reihenfolge der Einarbeitung in wichtige Themen von Java';
     $skeletonFeatures = ['lcl/ext/css'];
@@ -131,4 +131,4 @@
     </ol>
     Wenn nicht anders angegeben, gehören die Aufgaben ins presenter-Package. Dies wird das Package sein, in dem Ihr hauptsächlich arbeitet. Ein kleinerer Teil eurer Arbeit findet im model-Package statt.';
 
-    outputHtml($skeletonDescription, $skeletonContent, $skeletonFeatures);
+    output_html($skeletonDescription, $skeletonContent, $skeletonFeatures);

@@ -14,7 +14,7 @@
     if ($dbhName != null) {
 
         // Get right PDO instance
-        $dbh = getDbh($dbhName);
+        $dbh = get_dbh($dbhName);
 
         // Continue only if PDO instance was found
         if ($dbh != null) {
@@ -103,6 +103,6 @@
 
             $rankings = $stmt->fetchAll(PDO::FETCH_BOTH);
 
-            echo getRankingsHtml($rankings);
+            echo get_rankings_html($rankings);
         }
     }

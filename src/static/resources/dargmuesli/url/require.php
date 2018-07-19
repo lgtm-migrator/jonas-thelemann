@@ -95,7 +95,7 @@
         ),
     );
 
-    function getFeatureTranslation($featureArray)
+    function get_feature_translation($featureArray)
     {
         if (!empty($featureArray) && !is_array($featureArray)) {
             return;

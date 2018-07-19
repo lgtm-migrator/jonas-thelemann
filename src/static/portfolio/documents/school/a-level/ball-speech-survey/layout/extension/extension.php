@@ -6,7 +6,7 @@
         $open = false;
 
         if ($open) {
-            $dbh = getDbh($_ENV['PGSQL_DATABASE']);
+            $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
             $stmt = $dbh->prepare('SELECT ip FROM alevelballspeech WHERE ip = :ip');
             $stmt->bindParam(':ip', $_SERVER['HTTP_X_REAL_IP']);
 
@@ -42,23 +42,23 @@
 
     $finished = true;
 
-    $dbh = getDbh($_ENV['PGSQL_DATABASE']);
+    $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
     $candidateNames = array(
         'Elisabeth Schwab',
         'Jonas Thelemann',
         'Rosa Freytag',
     );
 
-    function getPopulatedCandidateSurvey($skeletonContent)
+    function get_populated_candidate_survey($skeletonContent)
     {
         global $finished;
         global $dbh;
 
-        $rowForCurrentIp = getRowForCurrentIp($dbh, 'alevel-ball-speech');
+        $rowForCurrentIp = get_row_for_current_ip($dbh, 'alevel-ball-speech');
         $statusHtml = '';
 
         if ($finished) {
-            $statusHtml = getSurveyStatusHtml(array('demo', 'privacy'), true);
+            $statusHtml = get_survey_status_html(array('demo', 'privacy'), true);
         }
 
         $alertHtml = '
@@ -118,9 +118,9 @@
     //     $chosenSpeaker = $candidateNames[2];
     // }
 
-    $chSpCensoredNameStar = getCensoredNameStar(getFirstName($chosenSpeaker));
-    $chSpCensoredNameLine = getCensoredNameLine(getFirstName($chosenSpeaker));
-    $chSpCensoredFullNameStar = getCensoredFullNameStar($chosenSpeaker);
+    $chSpCensoredNameStar = get_censored_name_star(get_first_name($chosenSpeaker));
+    $chSpCensoredNameLine = get_censored_name_line(get_first_name($chosenSpeaker));
+    $chSpCensoredFullNameStar = get_censored_full_name_star($chosenSpeaker);
 
     $skeletonContent .= '<figure id="candidate'.$chSpCensoredNameStar.'" class="draggable drag-drop">
         <img alt="'.$chSpCensoredNameLine.'" src="layout/images/'.$chSpCensoredNameLine.'.png">

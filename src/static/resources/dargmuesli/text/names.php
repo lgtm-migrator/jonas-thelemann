@@ -1,15 +1,15 @@
 <?php
-    function getFirstName($fullName)
+    function get_first_name($fullName)
     {
-        getNamePart($fullName, true);
+        get_name_part($fullName, true);
     }
 
-    function getLastName($fullName)
+    function get_last_name($fullName)
     {
-        getNamePart($fullName, false);
+        get_name_part($fullName, false);
     }
 
-    function getCensoredName($name, $rtStarCensoring)
+    function get_censored_name($name, $rtStarCensoring)
     {
         if ($rtStarCensoring) {
             return preg_replace('/(\\B\\p{L})/Uu', '*', $name);
@@ -18,32 +18,32 @@
         }
     }
 
-    function getCensoredNameStar($name)
+    function get_censored_name_star($name)
     {
-        getCensoredName($name, false);
+        get_censored_name($name, false);
     }
 
-    function getCensoredNameLine($name)
+    function get_censored_name_line($name)
     {
-        getCensoredName($name, true);
+        get_censored_name($name, true);
     }
 
-    function getCensoredFullName($fullName, $rtStarCensoring)
+    function get_censored_full_name($fullName, $rtStarCensoring)
     {
-        return getCensoredName(getFirstName($fullName), $rtStarCensoring).' '.getCensoredName(getLastName($fullName), $rtStarCensoring);
+        return get_censored_name(get_first_name($fullName), $rtStarCensoring).' '.get_censored_name(get_last_name($fullName), $rtStarCensoring);
     }
 
-    function getCensoredFullNameStar($fullName)
+    function get_censored_full_name_star($fullName)
     {
-        getCensoredFullName($fullName, false);
+        get_censored_full_name($fullName, false);
     }
 
-    function getCensoredFullNameLine($fullName)
+    function get_censored_full_name_line($fullName)
     {
-        getCensoredFullName($fullName, true);
+        get_censored_full_name($fullName, true);
     }
 
-    function getNamePart($fullName, $rtFirstName)
+    function get_name_part($fullName, $rtFirstName)
     {
         $parts = explode(' ', $fullName);
         $lastName = array_pop($parts);

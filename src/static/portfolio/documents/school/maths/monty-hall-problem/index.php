@@ -2,7 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
 
-    lastModified(getPageModTime());
+    last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Spielerische Darstellung des Ziegenproblems für den Mathematikunterricht';
     $skeletonFeatures = ['lcl/ext/css', 'lcl/ext/js'];
@@ -74,4 +74,4 @@
         <img src="layout/images/goat.png" alt="Goat">
     </div>';
 
-    outputHtml($skeletonDescription, $skeletonContent, $skeletonFeatures);
+    output_html($skeletonDescription, $skeletonContent, $skeletonFeatures);

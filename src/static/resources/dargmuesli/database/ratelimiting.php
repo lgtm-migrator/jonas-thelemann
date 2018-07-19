@@ -1,7 +1,7 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/whitelist.php';
 
-    function noMoreThanNInI($dbh, $n, $interval, $table, $column)
+    function no_more_than_n_in_i($dbh, $n, $interval, $table, $column)
     {
         global $tableWhitelist;
 
