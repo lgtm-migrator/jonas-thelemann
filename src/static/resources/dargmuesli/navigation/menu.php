@@ -107,14 +107,25 @@
                     if ($nameOriginal != $currentFolder && $nameOriginal != $parentFolder) {
 
                         // Display parallel folder without subdirectories
-                        $menuHtml .= '
-                        <li itemscope itemtype="https://schema.org/ListItem">
-                            <a class="waves-effect waves-primary" itemprop="item" href="'.$linkPrefix.$nameOriginal.'/" title="'.$nameTranslated.'">
-                                <span class="truncate" itemprop="name">
-                                    '.$nameTranslated.'
-                                </span>
-                            </a>
-                            <meta itemprop="position" content="'.useCounter().'">';
+                        if ($hasSubfolders || $rootPointerInteger == 0) {
+                            $menuHtml .= '
+                            <li itemscope itemtype="https://schema.org/ListItem">
+                                <a class="waves-effect waves-primary" itemprop="item" href="'.$linkPrefix.$nameOriginal.'/" title="'.$nameTranslated.'">
+                                    <span class="truncate" itemprop="name">
+                                        '.$nameTranslated.'
+                                    </span>
+                                </a>
+                                <meta itemprop="position" content="'.useCounter().'">';
+                        } else {
+                            $menuHtml .= '
+                            <li itemscope itemtype="https://schema.org/ListItem">
+                                <a class="waves-effect waves-primary" itemprop="item" href="'.$linkPrefix.$linkPrefix.$nameOriginal.'/" title="'.$nameTranslated.'">
+                                    <span class="truncate" itemprop="name">
+                                        '.$nameTranslated.'
+                                    </span>
+                                </a>
+                                <meta itemprop="position" content="'.useCounter().'">';
+                        }
                     } else {
 
                         // Display parallel folder with subdirectories and check if it is the last-level case
