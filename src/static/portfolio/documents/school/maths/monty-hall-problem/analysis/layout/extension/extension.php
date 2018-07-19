@@ -15,7 +15,7 @@
 
     $page = 1;
     $tableName = 'monty_hall_problem';
-    $dbh = getDbh($_ENV['PGSQL_DATABASE']);
+    $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
 
     if (isset($_GET['page']) && is_numeric($_GET['page'])) {
         $page = intval($_GET['page']);

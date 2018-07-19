@@ -2,7 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
 
-    lastModified(getPageModTime());
+    last_modified(get_page_mod_time());
 
     $page = 1;
     $limit = 50;
@@ -41,4 +41,4 @@
         <div class="center-align" id="roundlist"></div>
     </section>';
 
-    outputHtml($skeletonDescription, $skeletonContent, $skeletonFeatures);
+    output_html($skeletonDescription, $skeletonContent, $skeletonFeatures);

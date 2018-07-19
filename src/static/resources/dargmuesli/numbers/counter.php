@@ -1,7 +1,7 @@
 <?php
     $counter = -1;
 
-    function useCounter()
+    function use_counter()
     {
         global $counter;
 

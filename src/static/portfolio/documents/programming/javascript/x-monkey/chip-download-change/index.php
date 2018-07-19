@@ -2,7 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
 
-    lastModified(getPageModTime());
+    last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Ein XMonkey-Tool zur Optimierung von chip.de';
     $skeletonContent = '
@@ -47,4 +47,4 @@
         </section>
     </section>';
 
-    outputHtml($skeletonDescription, $skeletonContent);
+    output_html($skeletonDescription, $skeletonContent);

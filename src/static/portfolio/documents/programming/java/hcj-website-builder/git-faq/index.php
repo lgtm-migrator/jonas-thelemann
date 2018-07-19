@@ -2,7 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
 
-    lastModified(getPageModTime());
+    last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Oft gestellte Fragen zum Umgang mit Github und Eclipse';
     $skeletonFeatures = ['lcl/ext/css', 'lcl/ext/js'];
@@ -366,4 +366,4 @@
         </div>
     </section>';
 
-    outputHtml($skeletonDescription, $skeletonContent, $skeletonFeatures);
+    output_html($skeletonDescription, $skeletonContent, $skeletonFeatures);

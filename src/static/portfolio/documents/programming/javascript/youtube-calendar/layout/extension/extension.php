@@ -5,7 +5,7 @@
 
     if (isset($_POST['task'])) {
         if ($_POST['task'] == 'current') {
-            echo getCurrentVideoData();
+            echo get_current_video_data();
         }
     } elseif (isset($_GET['task'])) {
         if ($_GET['task'] == 'archive' && isset($_GET['date_submit']) && isset($_GET['time'])) {
@@ -19,9 +19,9 @@
             $videoData = null;
 
             if ($_GET['time'] == 1) {
-                $videoData = getVideoData($dateYear, $dateMonth, getArrayFromRange($dateDay.'-'.$dateDay), 0);
+                $videoData = get_video_data($dateYear, $dateMonth, get_array_from_range($dateDay.'-'.$dateDay), 0);
             } elseif ($_GET['time'] == 2) {
-                $videoData = getVideoData($dateYear, $dateMonth, getArrayFromRange($dateDay.'-'.$dateDay), 12);
+                $videoData = get_video_data($dateYear, $dateMonth, get_array_from_range($dateDay.'-'.$dateDay), 12);
             }
 
             $dayData = json_decode($videoData, true)[0];
@@ -34,14 +34,14 @@
         }
     }
 
-    function getCurrentVideoData()
+    function get_current_video_data()
     {
         $dateArray = explode(';', date('Y;n;j;G'));
 
-        return getVideoData($dateArray[0], $dateArray[1], getArrayFromRange('1-'.$dateArray[2]), $dateArray[3]);
+        return get_video_data($dateArray[0], $dateArray[1], get_array_from_range('1-'.$dateArray[2]), $dateArray[3]);
     }
 
-    function getArrayFromRange($range)
+    function get_array_from_range($range)
     {
         $arr = array();
 
@@ -60,7 +60,7 @@
         return $arr;
     }
 
-    function getVideoData($year, $month, $days, $hour)
+    function get_video_data($year, $month, $days, $hour)
     {
         global $videos;
 
@@ -118,7 +118,7 @@
         }
     }
 
-    function getCalendarDoorHtml()
+    function get_calendar_door_html()
     {
         $calendarDoorHtml = '';
 

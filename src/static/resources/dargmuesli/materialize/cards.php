@@ -1,9 +1,9 @@
 <?php
-    function getCardHtml($id, $title, $content)
+    function get_card_html($id, $title, $content)
     {
         $cardHtml = null;
 
-        if (isCardOpen($id)) {
+        if (is_card_open($id)) {
             $cardHtml = '
             <div class="card light-blue grey-text text-lighten-4" id="'.$id.'">
                 <div class="card-content">
@@ -25,7 +25,7 @@
         return $cardHtml;
     }
 
-    function isCardOpen($cardId)
+    function is_card_open($cardId)
     {
         if (isset($_COOKIE['closedCards'])) {
             $closedCards = json_decode($_COOKIE['closedCards'], true);

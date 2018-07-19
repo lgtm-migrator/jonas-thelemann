@@ -1,5 +1,5 @@
 <?php
-    function getCookieModTimes()
+    function get_cookie_mod_times()
     {
         $cookieModTimes = [];
 
@@ -14,9 +14,9 @@
         return $cookieModTimes;
     }
 
-    function getPageModTime()
+    function get_page_mod_time()
     {
-        $cookieModTimes = getCookieModTimes();
+        $cookieModTimes = get_cookie_mod_times();
         $cookieModTimesCount = count($cookieModTimes);
 
         $lastChangeStatic = max(array_map('filemtime', array_filter(get_included_files(), 'is_file')));
@@ -31,7 +31,7 @@
         return max($lastChangeStatic, $lastChangeDynamic);
     }
 
-    function lastModified($timestamp, $identifier = '', $strict = false)
+    function last_modified($timestamp, $identifier = '', $strict = false)
     {
         if (headers_sent()) {
             return false;

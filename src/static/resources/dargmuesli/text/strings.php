@@ -1,8 +1,8 @@
 <?php
-    function startsWith($haystack, $needle)
+    function starts_with($haystack, $needle)
     {
         if (is_array($haystack)) {
-            $startsWith = false;
+            $starts_with = false;
 
             foreach ($haystack as $haystackItem) {
                 if (!is_string($haystackItem)) {
@@ -10,12 +10,12 @@
                 }
 
                 if (substr($haystackItem, 0, strlen($needle)) === $needle) {
-                    $startsWith = true;
+                    $starts_with = true;
                     break;
                 }
             }
 
-            return $startsWith;
+            return $starts_with;
         } elseif (is_string($haystack)) {
             if (substr($haystack, 0, strlen($needle)) === $needle) {
                 return true;
@@ -27,7 +27,7 @@
         }
     }
 
-    function trimValue(&$value)
+    function trim_value(&$value)
     {
         $value = trim($value);
     }

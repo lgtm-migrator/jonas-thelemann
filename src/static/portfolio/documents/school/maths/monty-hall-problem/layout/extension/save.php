@@ -9,7 +9,7 @@
         $change = filter_var(boolval($_POST['change']), FILTER_SANITIZE_STRING);
 
         if (filter_var($chosenDoor, FILTER_VALIDATE_INT) && filter_var($modDoor, FILTER_VALIDATE_INT) && filter_var($carDoor, FILTER_VALIDATE_INT) && filter_var($change, FILTER_VALIDATE_BOOLEAN)) {
-            $dbh = getDbh($_ENV['PGSQL_DATABASE']);
+            $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
 
             // Insert the form values into the database
             $stmt = $dbh->prepare('INSERT INTO monty_hall_problem (player, moderator, car, change) VALUES (:player, :moderator, :car, :change)');

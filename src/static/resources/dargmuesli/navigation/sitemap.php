@@ -1,13 +1,13 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/directory.php';
 
-    function getSitemapHtml($directoryArray = null, $directoryArrayKey = null)
+    function get_sitemap_html($directoryArray = null, $directoryArrayKey = null)
     {
         global $protocol;
 
         // Initialize directory array
         if (!isset($directoryArray)) {
-            $directoryArray = getWebDirectoryArray($_SERVER['DOCUMENT_ROOT'], null, '*');
+            $directoryArray = get_web_directory_array($_SERVER['DOCUMENT_ROOT'], null, '*');
         }
 
         // Initialize directory array key
@@ -32,7 +32,7 @@
 
             // Integrate subfolders
             if (!empty($directoryArray[$directoryArrayKeys[$i]])) {
-                $sitemapHtml .= PHP_EOL.getSitemapHtml($directoryArray[$directoryArrayKeys[$i]], $directoryArrayKey.$directoryArrayKeys[$i].DIRECTORY_SEPARATOR);
+                $sitemapHtml .= PHP_EOL.get_sitemap_html($directoryArray[$directoryArrayKeys[$i]], $directoryArrayKey.$directoryArrayKeys[$i].DIRECTORY_SEPARATOR);
             }
 
             $sitemapHtml .= '
@@ -45,24 +45,24 @@
         return $sitemapHtml;
     }
 
-    function getSitemapXml()
+    function get_sitemap_xml()
     {
         $sitemapXml = '<?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
-            .getSitemapXmlUrl().'
+            .get_sitemap_xml_url().'
         </urlset>';
 
         return $sitemapXml;
     }
 
-    function getSitemapXmlUrl($directoryArray = null, $directoryArrayKey = null)
+    function get_sitemap_xml_url($directoryArray = null, $directoryArrayKey = null)
     {
         global $protocol;
         $sitemapXmlPage = '';
 
         // Initialize directory array
         if (!isset($directoryArray)) {
-            $directoryArray = getWebDirectoryArray($_SERVER['DOCUMENT_ROOT'], null, '*');
+            $directoryArray = get_web_directory_array($_SERVER['DOCUMENT_ROOT'], null, '*');
         }
 
         // Initialize directory array key
@@ -87,21 +87,21 @@
                 <url>
                     <loc>'.$_SERVER['SERVER_ROOT_URL'].'/'.$hostPath.'</loc>
                     <lastmod>'.$lastModification.'</lastmod>
-                    <changefreq>'.getChangeFreq($lastModification).'</changefreq>
-                    <priority>'.getUrlPriority($hostPath).'</priority>
+                    <changefreq>'.get_change_freq($lastModification).'</changefreq>
+                    <priority>'.get_url_priority($hostPath).'</priority>
                 </url>';
             }
 
             // Integrate subfolders
             if (!empty($directoryArray[$directoryArrayKeys[$i]])) {
-                $sitemapXmlPage .= getSitemapXmlUrl($directoryArray[$directoryArrayKeys[$i]], $hostPath);
+                $sitemapXmlPage .= get_sitemap_xml_url($directoryArray[$directoryArrayKeys[$i]], $hostPath);
             }
         }
 
         return $sitemapXmlPage;
     }
 
-    function getUrlPriority($url)
+    function get_url_priority($url)
     {
         $priority = 1.1 - substr_count($url, '/') * 0.1;
 

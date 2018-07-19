@@ -5,7 +5,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/text/names.php';
     include_once 'layout/extension/extension.php';
 
-    lastModified(getPageModTime());
+    last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Eine Umfrage zur Abschlussrede auf dem Abiball 2016 des Friedrichsgymnasiums in Kassel';
     $skeletonFeatures = ['lcl/ext/css', 'lcl/ext/js', 'pkg/drgl/mjs', 'pkg/drgl/mcss'];
@@ -32,6 +32,6 @@
         </div>
     </section>';
 
-    $skeletonContent = getPopulatedCandidateSurvey($skeletonContent);
+    $skeletonContent = get_populated_candidate_survey($skeletonContent);
 
-    outputHtml($skeletonDescription, $skeletonContent, $skeletonFeatures);
+    output_html($skeletonDescription, $skeletonContent, $skeletonFeatures);

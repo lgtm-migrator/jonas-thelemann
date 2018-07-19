@@ -8,7 +8,7 @@
                     <h2>
                         In&shy;halts&shy;ver&shy;zeich&shy;nis
                     </h2>
-                    '.getSitemapHtml().'
+                    '.get_sitemap_html().'
                 </section>';
 
-    outputHtml($skeletonDescription, $skeletonContent);
+    output_html($skeletonDescription, $skeletonContent);

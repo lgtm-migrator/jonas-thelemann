@@ -2,7 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
 
-    lastModified(getPageModTime());
+    last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Infomationen über meine Projekte in der Programmiersprache Javascript';
     $skeletonContent = '
@@ -37,4 +37,4 @@
         Integer ut lacus blandit, ultrices orci ac, imperdiet quam. Donec interdum ligula sed risus efficitur laoreet. Nulla rhoncus consectetur turpis, sollicitudin bibendum felis sollicitudin vitae. Proin a ex consequat nisl ultrices lobortis. Proin congue, lorem vitae ultricies pharetra, sem lectus blandit massa, in aliquam ex turpis a ex. Pellentesque suscipit ipsum nulla, vitae viverra nunc sodales vitae. Donec in lectus sem. Maecenas cursus bibendum eros, vitae auctor lectus bibendum nec. Vivamus ut nibh non mi porta semper hendrerit nec quam. Duis aliquam ut tortor a sollicitudin. Nam mattis purus et urna convallis gravida. Aliquam non eros sit amet diam commodo accumsan. Ut placerat ante sed metus commodo sollicitudin.
     </p>';
 
-    outputHtml($skeletonDescription, $skeletonContent);
+    output_html($skeletonDescription, $skeletonContent);

@@ -4,7 +4,7 @@
 
     use ReCaptcha\ReCaptcha;
 
-    function verifyReCaptcha($response)
+    function verify_recaptcha($response)
     {
         global $secret;
 

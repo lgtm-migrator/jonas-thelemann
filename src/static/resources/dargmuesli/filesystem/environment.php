@@ -1,5 +1,5 @@
 <?php
-    function loadEnvFile($folder, $file = '.env', $override = false)
+    function load_env_file($folder, $file = '.env', $override = false)
     {
         $dotenv = new Dotenv\Dotenv($folder, $file);
         ($override) ? $dotenv->overload() : $dotenv->load();

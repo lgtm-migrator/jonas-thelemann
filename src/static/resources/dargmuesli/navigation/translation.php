@@ -78,7 +78,7 @@
         'zoner-photo-studio' => 'Zoner Photo Studio'
     );
 
-    function getNavigationTranslation($word, $isShy = false, $isCode = false)
+    function get_navigation_translation($word, $isShy = false, $isCode = false)
     {
         global $navigationTranslations;
 

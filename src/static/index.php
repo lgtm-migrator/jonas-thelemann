@@ -2,7 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
 
-    lastModified(getPageModTime());
+    last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Auf der Website von Jonas Thelemann';
     $skeletonFeatures = ['lcl/ext/js']; //  => 'sha384-y7DEEmz8XUVLfZqIdQzoEKloivYc0666nZd2xfuAXg6FPvLoxoEl1cGb5Z06WFOz'
@@ -139,4 +139,4 @@
         </section>
     </section>';
 
-    outputHtml($skeletonDescription, $skeletonContent, $skeletonFeatures);
+    output_html($skeletonDescription, $skeletonContent, $skeletonFeatures);

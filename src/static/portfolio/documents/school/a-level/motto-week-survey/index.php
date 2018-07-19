@@ -4,9 +4,9 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
-    lastModified(getPageModTime());
+    last_modified(get_page_mod_time());
 
-    $dbh = getDbh($_ENV['PGSQL_DATABASE']);
+    $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
     $stmt = $dbh->prepare('SELECT ip, monster, geschlechtertausch, ersterschultag, hippie, pyjama, bunt, vip, traumberuf, assi, diegroßen, streber, anything, derabend, mittelalter, lieblingsmannschaft, chemieunfall, lieblingstier, kindheitshelden, eskalation, gaypride FROM alevel_mottoweek WHERE ip = :ip');
     $stmt->bindParam(':ip', $_SERVER['HTTP_X_REAL_IP']);
 
@@ -215,4 +215,4 @@
         </button>
     </form>';
 
-    outputHtml($skeletonDescription, $skeletonContent, $skeletonFeatures);
+    output_html($skeletonDescription, $skeletonContent, $skeletonFeatures);

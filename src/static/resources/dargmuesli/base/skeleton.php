@@ -10,7 +10,7 @@
 
     $displayDisclaimer = true;
 
-    function isCardOpen($cardId)
+    function is_card_open($cardId)
     {
         if (isset($_COOKIE['closedCards'])) {
             $closedCardsCookie = json_decode($_COOKIE['closedCards'], true);
@@ -36,7 +36,7 @@
         }
     }
 
-    function outputHtml($description, $content, $features = [], $keywords = 'jonas, thelemann')
+    function output_html($description, $content, $features = [], $keywords = 'jonas, thelemann')
     {
         global $displayDisclaimer;
         global $rootPointerInteger;
@@ -59,14 +59,14 @@
 
         $title = '';
         $titleShy = '';
-        $featureTranslation = getFeatureTranslation($features);
+        $featureTranslation = get_feature_translation($features);
 
         if (isset($_GET['errorCode'])) {
             $title = $_GET['errorCode'];
             $titleShy = $_GET['errorCode'];
         } else {
-            $title = getNavigationTranslation($currentFolder);
-            $titleShy = getNavigationTranslation($currentFolder, true);
+            $title = get_navigation_translation($currentFolder);
+            $titleShy = get_navigation_translation($currentFolder, true);
         }
 
         $html = '
@@ -104,7 +104,7 @@
                 <link href="/resources/dargmuesli/images/site.webmanifest" rel="manifest">
                 <link href="/resources/dargmuesli/images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
                 <link color="#ee976e" href="/resources/dargmuesli/images/safari-pinned-tab.svg" rel="mask-icon">'
-                .getFeatureTranslation(['pkg/mtrl/mcss', 'drg/base/stl.mcss']).'
+                .get_feature_translation(['pkg/mtrl/mcss', 'drg/base/stl.mcss']).'
             </head>
             <body>
                 <noscript>
@@ -119,7 +119,7 @@
                     </div>
                 </noscript>';
 
-        if ($displayDisclaimer && isCardOpen('wipinfocard')) {
+        if ($displayDisclaimer && is_card_open('wipinfocard')) {
             $html .= '
             <div class="card light-blue grey-text text-lighten-4" id="wipinfocard">
                 <div class="card-content">
@@ -161,13 +161,13 @@
                     </nav>
                     <div class="row container" id="breadcrumbcontainer">
                         <div class="col s12 m9 offset-m3 l10 offset-l2" id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
-                            '.getBreadcrumbsHtml($title).'
+                            '.get_breadcrumbs_html($title).'
                         </div>
                     </div>
                 </header>
                 <div class="row container" id="main">
                     <div class="col s12 m3 l2" id="nav">
-                        '.getMenuHtml().'
+                        '.get_menu_html().'
                     </div>
                     <div class="col s12 m9 l8">
                         <main itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
@@ -184,7 +184,7 @@
                     </div>
                     <div class="col s12 l2">
                         <div id="toc">'
-                            .getTableOfContentsHtml($content, $title).'
+                            .get_table_of_contents_html($content, $title).'
                         </div>
                     </div>
                 </div>
@@ -234,11 +234,11 @@
                         </div>
                     </div>
                 </footer>'
-                .getFeatureTranslation(['pkg/jq/mjs', 'pkg/mtrl/mjs', 'pkg/jsck/js', 'drg/gtm/mjs', 'drg/base/func.js'])
+                .get_feature_translation(['pkg/jq/mjs', 'pkg/mtrl/mjs', 'pkg/jsck/js', 'drg/gtm/mjs', 'drg/base/func.js'])
                 .$featureTranslation
-                .getFeatureTranslation(['drg/base/opt.js']).'
+                .get_feature_translation(['drg/base/opt.js']).'
             </body>
         </html>';
 
-        echo getIndentedML($html);
+        echo get_indented_ml($html);
     }

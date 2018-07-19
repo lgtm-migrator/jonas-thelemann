@@ -4,8 +4,8 @@
 
     if (!empty($_POST)) {
         if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
-            if (verifyReCaptcha($_POST['g-recaptcha-response'])) {
-                echo getIndentedML('
+            if (verify_recaptcha($_POST['g-recaptcha-response'])) {
+                echo get_indented_ml('
                     <address>
                         <p>
                             <span itemprop="name">Jonas Thelemann</span>

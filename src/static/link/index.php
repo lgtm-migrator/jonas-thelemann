@@ -15,4 +15,4 @@
         </p>
     </section>';
 
-    outputHtml($skeletonDescription, $skeletonContent);
+    output_html($skeletonDescription, $skeletonContent);

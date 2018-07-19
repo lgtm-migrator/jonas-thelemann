@@ -2,15 +2,15 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
-    // echo json_encode(getAnonymizedNames(array_keys($candidates)));
-    // echo json_encode(getAnonymizedNames(array_values($candidates)));
+    // echo json_encode(get_anonymized_names(array_keys($candidates)));
+    // echo json_encode(get_anonymized_names(array_values($candidates)));
 
     $candidates = ['candidateelisabeth' => 0, 'candidatejonas' => 0, 'candidaterosa' => 0, 'nobody' => 0];
     $candidateNames = ['Elisabeth Schwab', 'Jonas Thelemann', 'Rosa Freytag', 'Niemand'];
 
-    $dbh = getDbh($_ENV['PGSQL_DATABASE']);
+    $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
 
-    function getAnonymizedNames($names)
+    function get_anonymized_names($names)
     {
         $anonymizedNames = preg_replace('/(\\B\\p{L})/Uu', '*', $names);
 
@@ -28,10 +28,10 @@
         $candidates[$key] = intval($stmt->fetch(PDO::FETCH_ASSOC)['count']);
     }
 
-    $candidates = newKeys($candidates, $candidateNames);
+    $candidates = new_keys($candidates, $candidateNames);
     arsort($candidates);
 
-    function newKeys($array, $newkeys)
+    function new_keys($array, $newkeys)
     {
         if (count($array) !== count($newkeys)) {
             return false;

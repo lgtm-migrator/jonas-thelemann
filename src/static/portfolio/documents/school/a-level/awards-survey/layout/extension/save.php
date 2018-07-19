@@ -3,7 +3,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
     $open = false;
-    $dbh = getDbh($_ENV['PGSQL_DATABASE']);
+    $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
 
     if ($open) {
         if (isset($_GET['method'])) {

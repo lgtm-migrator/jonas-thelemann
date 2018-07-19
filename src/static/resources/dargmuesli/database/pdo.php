@@ -4,7 +4,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/packages/composer/autoload.php';
 
     // Get an array containing all column names of a table in a database
-    function getColumnNames($dbh, $tableName)
+    function get_column_names($dbh, $tableName)
     {
         $columns = array();
         $stmt = $dbh->prepare('SELECT * FROM information_schema.columns WHERE table_name = :name');
@@ -23,10 +23,10 @@
     }
 
     // Get the PDO instance for a database
-    function getDbh($dbhName)
+    function get_dbh($dbhName)
     {
         // Load .env file
-        loadEnvFile($_SERVER['SERVER_ROOT'].'/credentials');
+        load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
 
         // Limit table access
         $whiteList = array($_ENV['PGSQL_DATABASE'], 'server');
@@ -38,7 +38,7 @@
         }
     }
 
-    function getRowCount($dbh, $table)
+    function get_row_count($dbh, $table)
     {
         global $tableWhitelist;
 
@@ -58,7 +58,7 @@
     }
 
     // Get an array containing the result of a SELECT SQL statement
-    function getRows($dbh, $table, $columns, $limit = null, $offset = null, $orderBys = null)
+    function get_rows($dbh, $table, $columns, $limit = null, $offset = null, $orderBys = null)
     {
         global $tableWhitelist;
 
@@ -132,7 +132,7 @@
         return $rows;
     }
 
-    function getRowForCurrentIp($dbh, $tableName)
+    function get_row_for_current_ip($dbh, $tableName)
     {
         global $tableWhitelist;
 
@@ -150,7 +150,7 @@
         return $sql->fetch(PDO::FETCH_ASSOC);
     }
 
-    function initTable($dbh, $tableName)
+    function init_table($dbh, $tableName)
     {
         $columnConfig = null;
         $sqlIntegration = null;
@@ -178,7 +178,7 @@
                 throw new Exception('"'.$tableName.'" has no deployable configuration!');
         }
 
-        $tableExists = tableExists($dbh, $tableName);
+        $tableExists = table_exists($dbh, $tableName);
         $stmt = $dbh->query('CREATE TABLE IF NOT EXISTS '.$tableName.' ('.$columnConfig.');');
 
         if (!$stmt) {
@@ -194,7 +194,7 @@
         }
     }
 
-    function tableExists($dbh, $tableName)
+    function table_exists($dbh, $tableName)
     {
         return $dbh
             ->query('SELECT EXISTS (SELECT 1 FROM pg_tables WHERE schemaname = \'public\' AND tablename = \''.$tableName.'\')')

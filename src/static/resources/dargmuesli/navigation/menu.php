@@ -4,7 +4,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/numbers/counter.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/url/rootpointer.php';
 
-    function getMenuHtml()
+    function get_menu_html()
     {
         // Link to included variables
         global $rootPointerInteger;
@@ -22,21 +22,21 @@
         if ($isErrorPage) {
 
             // Display welcome and error link on error pages
-            $menuHtml .= getMenuHtmlItem(getNavigationTranslation('welcome'), $_SERVER['SERVER_ROOT_URL'])
-                        .getMenuHtmlItem(getNavigationTranslation('error'), $_SERVER['SERVER_ROOT_URL'].$_SERVER['REQUEST_URI'].'#!', array('active'));
+            $menuHtml .= get_menu_html_item(get_navigation_translation('welcome'), $_SERVER['SERVER_ROOT_URL'])
+                        .get_menu_html_item(get_navigation_translation('error'), $_SERVER['SERVER_ROOT_URL'].$_SERVER['REQUEST_URI'].'#!', array('active'));
         } elseif ($rootPointerInteger == 0) {
 
             // Display active welcome link on welcome page
-            $menuHtml .= getMenuHtmlItem(getNavigationTranslation('welcome'), '#!', array('active'));
+            $menuHtml .= get_menu_html_item(get_navigation_translation('welcome'), '#!', array('active'));
         } elseif ($rootPointerInteger == 1 && in_array($currentFolder, array('imprint', 'portfolio', 'sitemap'))) {
 
             // Display welcome and imprint, portfolio or sitemap link for imprint and sitemap page
-            $menuHtml .= getMenuHtmlItem(getNavigationTranslation('welcome'), '../')
-                        .getMenuHtmlItem(getNavigationTranslation($currentFolder), '../'.$currentFolder.'/#!', array('active'));
+            $menuHtml .= get_menu_html_item(get_navigation_translation('welcome'), '../')
+                        .get_menu_html_item(get_navigation_translation($currentFolder), '../'.$currentFolder.'/#!', array('active'));
         } elseif ($rootPointerInteger == 2) {
 
             // Display inactive welcome link on portfolio's direct subfolders
-            $menuHtml .= getMenuHtmlItem(getNavigationTranslation('welcome'), '../../');
+            $menuHtml .= get_menu_html_item(get_navigation_translation('welcome'), '../../');
         }
 
         // Create default folder navigation
@@ -51,7 +51,7 @@
                 $searchFolder = dirname($_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI']);
             }
 
-            $directoryArray = getWebDirectoryArray($searchFolder, array($searchFolder.DIRECTORY_SEPARATOR.$currentFolder));
+            $directoryArray = get_web_directory_array($searchFolder, array($searchFolder.DIRECTORY_SEPARATOR.$currentFolder));
             $hasSubfolders = false;
 
             foreach ($directoryArray as $folderName => $subFolders) {
@@ -63,9 +63,9 @@
 
             // Scan parent directory or display directory-up link (for all levels above two)
             if (!$hasSubfolders && $rootPointerInteger != 0) {
-                $directoryArray = getWebDirectoryArray(dirname($searchFolder), array(dirname($searchFolder).DIRECTORY_SEPARATOR.$parentFolder));
+                $directoryArray = get_web_directory_array(dirname($searchFolder), array(dirname($searchFolder).DIRECTORY_SEPARATOR.$parentFolder));
             } elseif ($rootPointerInteger > 2) {
-                $menuHtml .= getMenuHtmlItem(getNavigationTranslation('up'), '../', array('center-align'), 'arrow_upward');
+                $menuHtml .= get_menu_html_item(get_navigation_translation('up'), '../', array('center-align'), 'arrow_upward');
             }
 
             $directoryArrayOrdered = array();
@@ -78,7 +78,7 @@
                 foreach ($directoryArray as $folderName => $subFolders) {
 
                     // Assign folder name to translated folder name
-                    $directoryArrayOrdered[getNavigationTranslation($folderName)] = $folderName;
+                    $directoryArrayOrdered[get_navigation_translation($folderName)] = $folderName;
 
                     if (count($subFolders) > 0) {
 
@@ -86,7 +86,7 @@
                         foreach ($subFolders as $folderNameSublevel => $subsubFolders) {
 
                             // Assign subfolder name to translated subfolder name
-                            $directoryArraySublevelOrdered[getNavigationTranslation($folderNameSublevel)] = $folderNameSublevel;
+                            $directoryArraySublevelOrdered[get_navigation_translation($folderNameSublevel)] = $folderNameSublevel;
                         }
 
                         // Sort subfolder names' translation alphabetically
@@ -114,7 +114,7 @@
                                     '.$nameTranslated.'
                                 </span>
                             </a>
-                            <meta itemprop="position" content="'.useCounter().'">';
+                            <meta itemprop="position" content="'.use_counter().'">';
                     } else {
 
                         // Display parallel folder with subdirectories and check if it is the last-level case
@@ -127,7 +127,7 @@
                                         '.$nameTranslated.'
                                     </span>
                                 </a>
-                                <meta itemprop="position" content="'.useCounter().'">
+                                <meta itemprop="position" content="'.use_counter().'">
                                 <ul>';
                         } else {
                             $menuHtml .= '
@@ -137,7 +137,7 @@
                                         '.$nameTranslated.'
                                     </span>
                                 </a>
-                                <meta itemprop="position" content="'.useCounter().'">
+                                <meta itemprop="position" content="'.use_counter().'">
                                 <ul>';
                         }
 
@@ -146,16 +146,16 @@
                             if ($hasSubfolders) {
 
                                 // Display selected folder's subfolders
-                                $menuHtml .= getMenuHtmlItem($nameTranslatedSublevel, $nameOriginalSublevel.'/');
+                                $menuHtml .= get_menu_html_item($nameTranslatedSublevel, $nameOriginalSublevel.'/');
                             } else {
                                 if ($nameOriginalSublevel == $currentFolder) {
 
                                     // Display selected folder's subfolders
-                                    $menuHtml .= getMenuHtmlItem($nameTranslatedSublevel, $linkPrefix.$nameOriginalSublevel.'/#!', array('active'));
+                                    $menuHtml .= get_menu_html_item($nameTranslatedSublevel, $linkPrefix.$nameOriginalSublevel.'/#!', array('active'));
                                 } else {
 
                                     // Display selected folder's subfolders
-                                    $menuHtml .= getMenuHtmlItem($nameTranslatedSublevel, $linkPrefix.$nameOriginalSublevel.'/');
+                                    $menuHtml .= get_menu_html_item($nameTranslatedSublevel, $linkPrefix.$nameOriginalSublevel.'/');
                                 }
                             }
                         }
@@ -176,7 +176,7 @@
         return $menuHtml;
     }
 
-    function getMenuHtmlItem($name, $link, $classes = null, $icon = null)
+    function get_menu_html_item($name, $link, $classes = null, $icon = null)
     {
         $classes = (is_array($classes)) ? join(' ', $classes).' ' : '';
 
@@ -198,8 +198,8 @@
         $menutHtmlItem .= '
                     </span>
                 </a>
-            <meta itemprop="position" content="'.useCounter().'">
+            <meta itemprop="position" content="'.use_counter().'">
         </li>';
 
-        return getIndentedML($menutHtmlItem);
+        return get_indented_ml($menutHtmlItem);
     }

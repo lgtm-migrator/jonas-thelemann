@@ -10,14 +10,14 @@
      * @return  directoryArray  An array of directories.
      * @throws  Exception   If $directoryName is not a valid directory.
      */
-    function getWebDirectoryArray($directoryName, $detailPaths = null, $levels = 0)
+    function get_web_directory_array($directoryName, $detailPaths = null, $levels = 0)
     {
         // Validate the directory
         if (!is_dir($directoryName)) {
             throw new Exception('"'.$directoryName.'" is not a valid directory!');
         }
 
-        if (!startsWith($directoryName, $_SERVER['SERVER_ROOT'])) {
+        if (!starts_with($directoryName, $_SERVER['SERVER_ROOT'])) {
             throw new Exception('"'.$directoryName.'" is not within server root!');
         }
 
@@ -39,18 +39,18 @@
                         && file_exists($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR.'index.php')
                         && !file_exists($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR.'.hidden')
                     ) {
-                    if (is_array($detailPaths) && startsWith($detailPaths, $directoryName.DIRECTORY_SEPARATOR.$folderName)) {
+                    if (is_array($detailPaths) && starts_with($detailPaths, $directoryName.DIRECTORY_SEPARATOR.$folderName)) {
 
                         // Scan child directories for given paths
-                        $directoryArray[$folderName] = getWebDirectoryArray($directoryName.DIRECTORY_SEPARATOR.$folderName, $detailPaths, $levels - 1);
+                        $directoryArray[$folderName] = get_web_directory_array($directoryName.DIRECTORY_SEPARATOR.$folderName, $detailPaths, $levels - 1);
                     } elseif (is_int($levels) && $levels > 0) {
 
                         // Scan child directories to a certain depth
-                        $directoryArray[$folderName] = getWebDirectoryArray($directoryName.DIRECTORY_SEPARATOR.$folderName, null, '*');
+                        $directoryArray[$folderName] = get_web_directory_array($directoryName.DIRECTORY_SEPARATOR.$folderName, null, '*');
                     } elseif (is_string($levels) && $levels == '*') {
 
                         // Scan child directories recursively
-                        $directoryArray[$folderName] = getWebDirectoryArray($directoryName.DIRECTORY_SEPARATOR.$folderName, null, '*');
+                        $directoryArray[$folderName] = get_web_directory_array($directoryName.DIRECTORY_SEPARATOR.$folderName, null, '*');
                     } else {
                         $directoryArray[$folderName] = array();
                     }

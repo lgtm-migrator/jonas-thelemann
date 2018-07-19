@@ -1,5 +1,5 @@
 <?php
-    function getLastCountdownDate($countdownCrons)
+    function get_last_countdown_date($countdownCrons)
     {
         if (is_array($countdownCrons) && count($countdownCrons) > 0) {
             $lastRunTime = null;
@@ -14,7 +14,7 @@
         }
     }
 
-    function getNextCountdownDate($countdownCrons) {
+    function get_next_countdown_date($countdownCrons) {
         if (is_array($countdownCrons) && count($countdownCrons) > 0) {
             $nextRunTime = null;
 

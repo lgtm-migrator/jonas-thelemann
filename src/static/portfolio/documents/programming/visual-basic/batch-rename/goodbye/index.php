@@ -2,7 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
 
-    lastModified(getPageModTime());
+    last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Infomationen über das Projekt \'Batch Rename\' von Jonas Thelemann';
     $skeletonContent = '
@@ -18,4 +18,4 @@
         dein BatchRename-Team!
     </p>';
 
-    outputHtml($skeletonDescription, $skeletonContent);
+    output_html($skeletonDescription, $skeletonContent);

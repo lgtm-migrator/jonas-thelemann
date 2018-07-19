@@ -1,5 +1,5 @@
 <?php
-    function isSurveyOpen($dbh, $surveyName)
+    function is_survey_open($dbh, $surveyName)
     {
         $stmt = $dbh->prepare('SELECT open FROM surveys WHERE name = :name');
         $stmt->bindParam(':name', $surveyName);

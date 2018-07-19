@@ -2,9 +2,9 @@
     $rootPointerInteger = null;
     $rootPointerString = null;
 
-    intitializeRootPointer();
+    intitialize_root_pointer();
 
-    function getRootPointerString($level)
+    function get_root_pointer_string($level)
     {
         $rootPointerString = '';
 
@@ -15,11 +15,11 @@
         return $rootPointerString;
     }
 
-    function intitializeRootPointer()
+    function intitialize_root_pointer()
     {
         global $rootPointerInteger;
         global $rootPointerString;
 
         $rootPointerInteger = substr_count($_SERVER['REQUEST_URI'], '/') - 1;
-        $rootPointerString = getRootPointerString($rootPointerInteger);
+        $rootPointerString = get_root_pointer_string($rootPointerInteger);
     }

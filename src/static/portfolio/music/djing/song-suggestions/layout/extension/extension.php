@@ -5,7 +5,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/text/strings.php';
 
-    array_filter($_POST, 'trimValue');
+    array_filter($_POST, 'trim_value');
 
     if (!isset($_POST['album-group'])
         || !(isset($_POST['title']) || isset($_POST['artist']))
@@ -16,23 +16,23 @@
     }
 
     // Load .env file
-    loadEnvFile($_SERVER['SERVER_ROOT'].'/credentials');
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
 
     // Get database handle
-    $dbh = getDbh($_ENV['PGSQL_DATABASE']);
+    $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
 
     // Initialize the required tables
     foreach (array('surveys', 'dj_song_suggestions') as $tableName) {
-        initTable($dbh, $tableName);
+        init_table($dbh, $tableName);
     }
 
-    if (!isSurveyOpen($dbh, 'dj_song_suggestions')) {
+    if (!is_survey_open($dbh, 'dj_song_suggestions')) {
 
         // Forbidden
         return http_response_code(403);
     }
 
-    if (!noMoreThanNInI($dbh, 50, '24 hour', 'dj_song_suggestions', 'datetime')) {
+    if (!no_more_than_n_in_i($dbh, 50, '24 hour', 'dj_song_suggestions', 'datetime')) {
 
         // Rate limiting
         return http_response_code(429);

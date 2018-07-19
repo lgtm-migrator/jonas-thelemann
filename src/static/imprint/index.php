@@ -2,7 +2,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
 
-    lastModified(getPageModTime());
+    last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Das Impressum dieser Website mit Kontakt, Bildrechten, Haftungsausschluss und Datenschutzerklärung';
     $skeletonFeatures = ['lcl/ext/js', 'ext/recaptcha/de-async-defer'];
@@ -282,4 +282,4 @@
         </section>
     </section>';
 
-    outputHtml($skeletonDescription, $skeletonContent, $skeletonFeatures);
+    output_html($skeletonDescription, $skeletonContent, $skeletonFeatures);

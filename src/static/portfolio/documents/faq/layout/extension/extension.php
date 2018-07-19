@@ -4,4 +4,4 @@
 
     global $faq;
 
-    $faqHtml = getFaqHtml($faq);
+    $faqHtml = get_faq_html($faq);
