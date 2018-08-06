@@ -2879,9 +2879,9 @@ gulp-notify@^3.2.0:
     plugin-error "^0.1.2"
     through2 "^2.0.3"
 
-gulp-phplint@^0.8.0:
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/gulp-phplint/-/gulp-phplint-0.8.0.tgz#584a2fac23f4dcc96213bddef4d03ed06201d9ad"
+gulp-phplint@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/gulp-phplint/-/gulp-phplint-0.9.0.tgz#69a4749f3f54efe26ce14e7a94f915c51aa3b375"
   dependencies:
     chalk "^2.4.1"
     escape-string-regexp "^1.0.5"
