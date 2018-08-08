@@ -14,20 +14,42 @@
             Hier eine Auswahl meiner zu <a href="https://www.mixcloud.com/" target="_blank" title="Mixcloud">Mixcloud</a> hochgeladenen Sets.
         </p>
         <p>
-            <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fcreal%2Fcreal-trap-nation-mix-2018-05%2F" frameborder="0" >
-            </iframe>
-            <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fcreal%2Fcreal-future-house-mix-arm-2018-07-01%2F" frameborder="0" >
-            </iframe>
-            <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fcreal%2Fcreal-trap-nation-mix-2018-04%2F" frameborder="0" >
-            </iframe>
-            <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fcreal%2Fcreal-trap-nation-mix-2018-03%2F" frameborder="0" >
-            </iframe>
-            <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fcreal%2Fcreal-trap-nation-mix-2018-02%2F" frameborder="0" >
-            </iframe>
-            <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fcreal%2Fmuesli-mix-2-v2%2F" frameborder="0" >
-            </iframe>
-            <iframe width="100%" height="120" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&feed=%2Fcreal%2Fmuesli-mix-1-v2%2F" frameborder="0" >
-            </iframe>
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header">
+                        Muesli Mixes
+                    </div>
+                    <div class="collapsible-body">
+                        <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Fcreal%2Fplaylists%2Fmuesli-mixes%2F" frameborder="0">
+                        </iframe>
+                        <div class="center-align">
+                            <a class="waves-effect waves-light btn" href="https://www.mixcloud.com/creal/playlists/muesli-mixes/" target="_blank" title="Muesli Mixes">
+                                <i class="material-icons right">
+                                    open_in_new
+                                </i>
+                                Zur Playlist
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header">
+                        Trap Nation Monthly Mixes
+                    </div>
+                    <div class="collapsible-body">
+                        <iframe width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=%2Fcreal%2Fplaylists%2Ftrap-nation-monthly-mixes%2F" frameborder="0">
+                        </iframe>
+                        <div class="center-align">
+                            <a class="waves-effect waves-light btn" href="https://www.mixcloud.com/creal/playlists/trap-nation-monthly-mixes/" target="_blank" title="Trap Nation Monthly Mixes">
+                                <i class="material-icons right">
+                                    open_in_new
+                                </i>
+                                Zur Playlist
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </p>
     </section>';
 
