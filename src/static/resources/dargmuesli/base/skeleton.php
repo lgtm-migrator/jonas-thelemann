@@ -141,23 +141,21 @@
         $html .= '
                 <header itemscope itemtype="https://schema.org/WPHeader">
                     <nav>
-                        <div class="center nav-wrapper">
-                            <a class="button-collapse top-nav left full hide-on-med-and-up" data-activates="nav-mobile" href="#" id="menu-button">
-                                <i class="material-icons">
-                                    menu
-                                </i>
-                            </a>
-                            <a href="/" class="brand-logo">
-                                <span itemprop="name">
-                                    Jonas Thelemann
-                                </span>
-                            </a>
-                            <a class="button-collapse top-nav right full hide-on-large-only" data-activates="toc-mobile" href="#" id="toc-button">
-                                <i class="material-icons">
-                                    format_list_bulleted
-                                </i>
-                            </a>
-                        </div>
+                        <a class="button-collapse top-nav left full hide-on-med-and-up" data-activates="nav-mobile" href="#" id="menu-button">
+                            <i class="material-icons">
+                                menu
+                            </i>
+                        </a>
+                        <a href="/" class="brand-logo">
+                            <span itemprop="name">
+                                Jonas Thelemann
+                            </span>
+                        </a>
+                        <a class="button-collapse top-nav right full hide-on-large-only" data-activates="toc-mobile" href="#" id="toc-button">
+                            <i class="material-icons">
+                                format_list_bulleted
+                            </i>
+                        </a>
                     </nav>
                     <div class="row container" id="breadcrumbcontainer">
                         <div class="col s12 m9 offset-m3 l10 offset-l2" id="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">

@@ -289,9 +289,14 @@ input[type="text"], textarea.materialize-textarea {
 }
 // Navigation
 
-nav .brand-logo {
-    left: 50%;
-    transform: translateX(-50%);
+nav {
+    display: flex;
+    justify-content: space-around;
+
+    .brand-logo {
+        font-size: 5vw;
+        white-space: nowrap;
+    }
 }
 
 ul.side-nav.fixed li {
@@ -330,6 +335,10 @@ ul.side-nav.fixed li {
         will-change: auto;
         backface-visibility: visible;
         transform: none;
+    }
+
+    nav .brand-logo {
+        font-size: 2.1rem;
     }
 }
 
