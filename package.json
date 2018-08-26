@@ -50,7 +50,7 @@
         "del": "^3.0.0",
         "eslint": "^5.0.1",
         "gulp": "^4.0.0",
-        "gulp-autoprefixer": "^5.0.0",
+        "gulp-autoprefixer": "^6.0.0",
         "gulp-babel-minify": "^0.4.3",
         "gulp-buffer": "^0.0.2",
         "gulp-cached": "^1.1.1",
