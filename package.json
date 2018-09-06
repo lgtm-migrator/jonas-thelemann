@@ -47,6 +47,7 @@
         "babel-preset-env": "^1.7.0",
         "babelify": "^8.0.0",
         "browserify": "^16.2.2",
+        "date-diff": "^0.2.0",
         "del": "^3.0.0",
         "eslint": "^5.0.1",
         "gulp": "^4.0.0",
@@ -65,6 +66,7 @@
         "gulp-zip": "^4.1.0",
         "jsdoc-to-markdown": "^4.0.1",
         "merge-stream": "^1.0.1",
-        "plugin-error": "^1.0.1"
+        "plugin-error": "^1.0.1",
+        "through2": "^2.0.3"
     }
 }

@@ -1,24 +1,28 @@
 'use strict';
 
+const exec = require('child_process').exec;
+const fs = require('fs');
+const path = require('path');
+
 const gAutoprefixer = require('gulp-autoprefixer');
 const gBabelMinify = require('gulp-babel-minify');
 const gBrowserify = require('browserify');
 const gBuffer = require('gulp-buffer');
 const gCached = require('gulp-cached');
 const gComposer = require('gulp-composer');
+const gDateDiff = require('date-diff');
 const gDel = require('del');
 const gEslint = require('gulp-eslint');
-const gFs = require('fs');
 const gGulp = require('gulp');
 const gJsdoc2md = require('jsdoc-to-markdown');
 const gMergeStream = require('merge-stream');
-const gPath = require('path');
 const gPhplint = require('gulp-phplint');
 const gPluginError = require('plugin-error');
 const gRename = require('gulp-rename');
 const gSass = require('gulp-sass');
 const gSourcemaps = require('gulp-sourcemaps');
 const gTap = require('gulp-tap');
+const gThrough = require('through2');
 const gVfs = require('vinyl-fs');
 const gYarn = require('gulp-yarn');
 const gZip = require('gulp-zip');
@@ -26,7 +30,7 @@ const gZip = require('gulp-zip');
 // const debug = require('gulp-debug');
 // .pipe(debug())
 
-var pkg = JSON.parse(gFs.readFileSync('./package.json'));
+var pkg = JSON.parse(fs.readFileSync('./package.json'));
 
 const distFolder = 'dist/' + pkg.name + '/';
 const distCredentialsFolder = distFolder + 'credentials/';
@@ -52,7 +56,7 @@ gGulp.dest = gVfs.dest;
 
 function dist_clean() {
     // Delete all files from dist folder
-    return gDel([distFolder + '**', '!' + distFolder.replace(/\/$/, ''), gPath.dirname(distFolder) + '/' + pkg.name + '.zip']);
+    return gDel([distFolder + '**', '!' + distFolder.replace(/\/$/, ''), path.dirname(distFolder) + '/' + pkg.name + '.zip']);
 }
 
 exports.dist_clean = dist_clean;
@@ -102,10 +106,89 @@ function staticSrc_watch() {
         });
 }
 
+function getChangeFreq(lastModification) {
+    let interval = new gDateDiff(new Date(), new Date(lastModification));
+
+    if (interval.years() < 5) {
+        if (interval.years() < 1) {
+            if (interval.months() < 1) {
+                if (interval.days() < 7) {
+                    if (interval.days() < 1) {
+                        return 'hourly';
+                    } else {
+                        return 'daily';
+                    }
+                } else {
+                    return 'weekly';
+                }
+            } else {
+                return 'monthly';
+            }
+        } else {
+            return 'yearly';
+        }
+    } else {
+        return 'never';
+    }
+}
+
 exports.staticSrc_watch = staticSrc_watch;
 
+function sitemap() {
+    let sitemapPath = path.resolve(distServerFolder + 'sitemap/sitemap.xml');
+    let targetPath = __dirname + '/' + staticFolder;
+
+    path.dirname(sitemapPath)
+        .split(path.sep)
+        .reduce((currentPath, folder) => {
+            currentPath += folder + path.sep;
+
+            if (!fs.existsSync(currentPath)) {
+                fs.mkdirSync(currentPath);
+            }
+
+            return currentPath;
+        }, '');
+
+
+    fs.writeFile(sitemapPath, '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', (error) => { if (error) throw error; });
+
+    return gGulp.src(staticFolder + '**/index.php')
+        .pipe(
+            gThrough.obj(function (file, enc, cb) {
+                if (!fs.existsSync(file.dirname + '/.hidden') && file.dirname.indexOf('migrations') == -1) {
+                    exec('git log -1 --format="%aI" -- ' + file.path, function (exec_error, stdout, stderr) {
+                        let loc = file.dirname.replace(path.resolve(targetPath), 'https://' + pkg.name).replace(/\\/g, '/').replace();
+                        let priority = (Math.round((1 - ((loc.match(/\//g) || []).length - 2) * 0.1) * 10) / 10).toFixed(1);
+                        let url = `
+    <url>
+        <loc>${loc}/</loc>
+        <lastmod>${stdout.trim()}</lastmod>
+        <changefreq>${getChangeFreq(stdout.trim())}</changefreq>
+        <priority>${priority > 0 ? priority : 0}</priority>
+    </url>`;
+
+                        fs.appendFile(sitemapPath, url, (error) => { if (error) throw error; cb(); });
+
+                        if (exec_error) {
+                            console.error(`exec error: ${exec_error}`);
+                            return;
+                        }
+                    })
+                } else {
+                    cb();
+                }
+
+                this.push(file);
+            })
+        )
+        .on('end', function () { fs.appendFile(sitemapPath, '\n</urlset>', (error) => { if (error) throw error; }); })
+}
+
+exports.sitemap = sitemap;
+
 function phpLint() {
-    return gGulp.src('src/**/*.php')
+    return gGulp.src(srcFolder + '**/*.php')
         // Lint and suppress output of valid files
         .pipe(gPhplint('', { skipPassedFiles: true }))
         // Fail on error
@@ -124,7 +207,7 @@ function phpLint() {
 exports.phpLint = phpLint;
 
 function jsLint() {
-    return gGulp.src('src/js/**/*.js')
+    return gGulp.src(funcFolder + '**/*.js')
         // Lint JavaScript
         .pipe(gEslint())
         // Output to console
@@ -163,7 +246,7 @@ exports.jsSrc_watch = jsSrc_watch;
 
 function jsDoc() {
     return gJsdoc2md.render({ files: funcFolder + '*.js' })
-        .then(output => gFs.writeFile('docs/js/functions.md', output, (error) => { console.log(error); }));
+        .then(output => fs.writeFile('docs/js/functions.md', output, (error) => { console.log(error); }));
 }
 
 exports.jsDoc = jsDoc;
@@ -307,7 +390,7 @@ function zip() {
     // Build a zip file containing the dist folder
     return gGulp.src(zipSrcGlob, { dot: true })
         .pipe(gZip(pkg.name + '.zip'))
-        .pipe(gGulp.dest(gPath.dirname(distFolder)));
+        .pipe(gGulp.dest(path.dirname(distFolder)));
 }
 
 exports.zip = zip;
@@ -341,6 +424,7 @@ gGulp.task(
             gGulp.parallel(
                 credentials,
                 staticSrc,
+                sitemap,
                 phpLint,
                 jsLint,
                 jsSrc,
