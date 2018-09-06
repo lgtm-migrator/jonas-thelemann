@@ -1,5 +1,5 @@
 # Base image
-FROM node:9 AS node
+FROM node:stretch AS node
 
 # PHP7.2 package list (workaround for dependency)
 RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-certificates
@@ -15,7 +15,6 @@ WORKDIR /app
 
 # Import project files
 COPY ./ /app/
-COPY package.json yarn.lock ./
 
 # Install Gulp and build project
 RUN yarn global add gulp-cli
