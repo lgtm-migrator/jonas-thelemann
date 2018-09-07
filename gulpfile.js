@@ -221,7 +221,7 @@ exports.jsLint = jsLint;
 function jsSrc() {
     return gGulp.src(funcFolder + 'functions.js', { read: false })
         .pipe(gTap(function (file) {
-            file.contents = gBrowserify(file.path, { debug: true }).transform('babelify', { presets: ['env'] }).bundle();
+            file.contents = gBrowserify(file.path, { debug: true }).transform('babelify', { presets: ['@babel/preset-env'] }).bundle();
         }))
         .pipe(gBuffer())
         .pipe(gGulp.dest(baseFolder))
