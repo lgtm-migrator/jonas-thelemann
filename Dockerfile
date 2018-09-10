@@ -1,5 +1,5 @@
 # Base image
-FROM node:stretch AS node
+FROM node:stretch AS stage_node
 
 # PHP7.2 package list (workaround for dependency)
 RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-certificates
@@ -22,7 +22,7 @@ RUN yarn add gulp@4 -D
 RUN gulp build
 
 # Base image
-FROM php:apache
+FROM php:apache AS stage_apache
 
 # Project variables
 ENV PROJECT_NAME jonas-thelemann.de
@@ -42,16 +42,16 @@ RUN apt-get update \
 
 # Create Apache directory and copy the files
 RUN mkdir -p $APACHE_DIR
-COPY --from=node /app/dist/jonas-thelemann.de $APACHE_DIR/
+COPY --from=stage_node /app/dist/$PROJECT_NAME $APACHE_DIR/
 
 # Change server files' owner
 RUN chown www-data:www-data -R $APACHE_DIR/server
 
 # Copy Apache and PHP config files
-COPY docker/jonas-thelemann.de/certs/* /etc/ssl/certs/
-COPY docker/jonas-thelemann.de/apache/conf/* $APACHE_CONFDIR/conf-available/
-COPY docker/jonas-thelemann.de/apache/site/* $APACHE_CONFDIR/sites-available/
-COPY docker/jonas-thelemann.de/php/* $PHP_INI_DIR/
+COPY docker/$PROJECT_NAME/certs/* /etc/ssl/certs/
+COPY docker/$PROJECT_NAME/apache/conf/* $APACHE_CONFDIR/conf-available/
+COPY docker/$PROJECT_NAME/apache/site/* $APACHE_CONFDIR/sites-available/
+COPY docker/$PROJECT_NAME/php/* $PHP_INI_DIR/
 
 # Enable mods, config and site
 RUN a2enmod $PROJECT_MODS
