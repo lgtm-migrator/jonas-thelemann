@@ -21,7 +21,7 @@
                         ]
                     },
                     "volumes": [
-                        "./docker/adminer/adminer.css:/var/www/html/adminer.css"
+                        "./production/adminer/adminer.css:/var/www/html/adminer.css"
                     ]
                 },
                 "apache": {
