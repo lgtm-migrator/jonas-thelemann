@@ -11,7 +11,7 @@ services:
     volumes:
     - "./adminer/adminer.css:/var/www/html/adminer.css"
   apache:
-    image: "dargmuesli/jonas-thelemann.de:{STACK_VERSION}"
+    image: "dargmuesli/jonas-thelemann.de:${STACK_VERSION}"
     deploy:
       labels:
       - "traefik.enable=true"
