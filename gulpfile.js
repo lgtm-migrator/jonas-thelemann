@@ -30,26 +30,28 @@ const gZip = require('gulp-zip');
 // const debug = require('gulp-debug');
 // .pipe(debug())
 
-var pkg = JSON.parse(fs.readFileSync('./package.json'));
+let pkg = JSON.parse(fs.readFileSync('./package.json'));
 
 const distFolder = 'dist/' + pkg.name + '/';
-const distCredentialsFolder = distFolder + 'credentials/';
-const distServerFolder = distFolder + 'server/';
+const credentialsFolder = distFolder + 'credentials/';
+const serverFolder = distFolder + 'server/';
+const resFolder = serverFolder + 'resources/';
+const baseFolder = resFolder + 'dargmuesli/base/';
+const depComposerFolder = resFolder + 'packages/composer/';
+const depYarnFolder = resFolder + 'packages/yarn/';
+const productionFolder = 'production/';
 const srcFolder = 'src/';
 const staticFolder = srcFolder + 'static/';
 const funcFolder = srcFolder + 'js/';
 const styleFolder = srcFolder + 'css/sass/style/';
 const sassFile = srcFolder + 'css/sass/style/style.scss';
-const resFolder = distServerFolder + 'resources/';
-const baseFolder = resFolder + 'dargmuesli/base/';
-const depComposerFolder = resFolder + 'packages/composer/';
-const depYarnFolder = resFolder + 'packages/yarn/';
-const credentialsSrcGlob = 'credentials/**';
+
+const credentialsSrcGlob = productionFolder + 'credentials/**';
 const staticGlob = staticFolder + '**';
 const composerSrcGlob = 'vendor/**';
 const zipSrcGlob = distFolder + '**';
 
-var buildInProgress = false;
+let buildInProgress = false;
 
 gGulp.src = gVfs.src;
 gGulp.dest = gVfs.dest;
@@ -65,7 +67,7 @@ function credentials() {
     // Copy credentials to dist folder
     return gGulp.src(credentialsSrcGlob, { dot: true })
         .pipe(gCached('credentials'))
-        .pipe(gGulp.dest(distCredentialsFolder));
+        .pipe(gGulp.dest(credentialsFolder));
 }
 
 exports.credentials = credentials;
@@ -89,7 +91,7 @@ function staticSrc() {
         gGulp.src(staticGlob, { dot: true })
             .pipe(gCached('staticSrc'))
             .on('error', reject)
-            .pipe(gGulp.dest(distServerFolder))
+            .pipe(gGulp.dest(serverFolder))
             .on('end', resolve);
     }).then(function () {
         buildInProgress = false;
@@ -135,7 +137,7 @@ function getChangeFreq(lastModification) {
 exports.staticSrc_watch = staticSrc_watch;
 
 function sitemap() {
-    let sitemapPath = path.resolve(distServerFolder + 'sitemap/sitemap.xml');
+    let sitemapPath = path.resolve(serverFolder + 'sitemap/sitemap.xml');
     let targetPath = __dirname + '/' + staticFolder;
 
     path.dirname(sitemapPath)
@@ -157,7 +159,7 @@ function sitemap() {
         .pipe(
             gThrough.obj(function (file, enc, cb) {
                 if (!fs.existsSync(file.dirname + '/.hidden') && file.dirname.indexOf('migrations') == -1) {
-                    exec('git log -1 --format="%aI" -- ' + file.path, function (exec_error, stdout, stderr) {
+                    exec('git log -1 --format="%aI" -- ' + file.path, function (exec_error, stdout) {
                         let loc = file.dirname.replace(path.resolve(targetPath), 'https://' + pkg.name).replace(/\\/g, '/').replace();
                         let priority = (Math.round((1 - ((loc.match(/\//g) || []).length - 2) * 0.1) * 10) / 10).toFixed(1);
                         let url = `
@@ -174,7 +176,7 @@ function sitemap() {
                             console.error(`exec error: ${exec_error}`);
                             return;
                         }
-                    })
+                    });
                 } else {
                     cb();
                 }
@@ -182,7 +184,7 @@ function sitemap() {
                 this.push(file);
             })
         )
-        .on('end', function () { fs.appendFile(sitemapPath, '\n</urlset>', (error) => { if (error) throw error; }); })
+        .on('end', function () { fs.appendFile(sitemapPath, '\n</urlset>', (error) => { if (error) throw error; }); });
 }
 
 exports.sitemap = sitemap;
@@ -193,7 +195,7 @@ function phpLint() {
         .pipe(gPhplint('', { skipPassedFiles: true }))
         // Fail on error
         .pipe(gPhplint.reporter(function (file) {
-            var report = file.phplintReport || {};
+            let report = file.phplintReport || {};
 
             if (report.error) {
                 throw new gPluginError('gulp-eslint', {
