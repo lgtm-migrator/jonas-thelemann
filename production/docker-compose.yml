@@ -26,7 +26,7 @@ services:
         condition: "on-failure"
     volumes:
     - "acme-data:/etc/ssl/certs"
-    - "./dist/credentials:/var/www/jonas-thelemann.de/credentials"
+    - "./credentials:/var/www/jonas-thelemann.de/credentials"
   certdumper:
     image: "alpine:latest"
     command: >
