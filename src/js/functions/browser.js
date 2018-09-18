@@ -4,7 +4,7 @@ import { destroyPushPin, setUpPushPin, setUpScrollSpy, setUpSideNav } from './se
 
 $(document).ready(function () {
     Materialize.updateTextFields();
-    $('select').material_select();
+    $('select').formSelect();
 
     if (window.location.hash != '' && window.location.hash != '#!') {
         $(window.location.hash + ' .collapsible-header').addClass('active');

@@ -31,5 +31,5 @@ function populateSelects() {
 
 document.addEventListener('DOMContentLoaded', function () {
     populateSelects();
-    $('select').material_select();
+    $('select').formSelect();
 });
