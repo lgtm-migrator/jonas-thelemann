@@ -45,7 +45,7 @@ export function setUpScrollSpy() {
 }
 
 export function setUpPushPin(pinName) {
-    if (pinName == 'table of contents') {
+    if (pinName == 'toc') {
         $('#toc').pushpin({
             top: $('#toc').offset().top,
             bottom: $('footer').first().offset().top - $('#toc-mobile').height() - 50,
@@ -59,7 +59,7 @@ export function setUpPushPin(pinName) {
 }
 
 export function destroyPushPin(pinName) {
-    if (pinName == 'table of contents') {
+    if (pinName == 'toc') {
         $('#toc').pushpin('remove');
     } else if (pinName == 'navigation') {
         $('nav').pushpin('remove');
@@ -74,7 +74,7 @@ export function setUpSideNav(navName) {
         $('#menu-button').sideNavCustomized({
             edge: 'left'
         });
-    } else if (navName == 'table of contents') {
+    } else if (navName == 'toc') {
         // $('#toc-button').sideNav({
         //     edge: 'right',
         //     closeOnClick: true

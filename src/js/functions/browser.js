@@ -13,9 +13,9 @@ $(document).ready(function () {
     }
 
     setUpPushPin('navigation');
-    setUpPushPin('table of contents');
+    setUpPushPin('toc');
     setUpSideNav('menu');
-    setUpSideNav('table of contents');
+    setUpSideNav('toc');
     setUpScrollSpy('scrollspy');
 
     setupCardClosers();
@@ -25,10 +25,10 @@ $(window).on('hashchange', offsetAnchor);
 
 $(window).resize(function () {
     destroyPushPin('navigation');
-    destroyPushPin('table of contents');
+    destroyPushPin('toc');
 
     setUpPushPin('navigation');
-    setUpPushPin('table of contents');
+    setUpPushPin('toc');
 });
 
 window.onpopstate = function (e) {
