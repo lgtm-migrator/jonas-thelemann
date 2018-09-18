@@ -3,7 +3,7 @@ import { nodeExists } from './prototyping.js';
 import { destroyPushPin, setUpPushPin, setUpScrollSpy, setUpSideNav } from './setup.js';
 
 $(document).ready(function () {
-    Materialize.updateTextFields();
+    M.updateTextFields();
     $('select').formSelect();
 
     if (window.location.hash != '' && window.location.hash != '#!') {
