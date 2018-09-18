@@ -18,7 +18,7 @@
         }
 
         $tocHtml = '
-        <ul class="side-nav fixed z-depth-0 section table-of-contents" id="toc-mobile">';
+        <ul class="sidenav sidenav-fixed z-depth-0 section table-of-contents" id="toc-mobile">';
 
         if (count($parts) > 0) {
             foreach ($parts as $part) {

@@ -96,7 +96,7 @@ pre[class*="language-"]::before {
     content: normal;
 }
 
-ul.side-nav.fixed {
+ul.sidenav.sidenav-fixed {
     // small pages
     overflow: hidden;
 
@@ -299,7 +299,7 @@ nav {
     }
 }
 
-ul.side-nav.fixed li {
+ul.sidenav.sidenav-fixed li {
     &.active {
         background-color: transparent;
     }
