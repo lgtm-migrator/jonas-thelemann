@@ -141,7 +141,7 @@
         $html .= '
                 <header itemscope itemtype="https://schema.org/WPHeader">
                     <nav>
-                        <a class="button-collapse top-nav left full hide-on-med-and-up" data-activates="nav-mobile" href="#" id="menu-button">
+                        <a class="button-collapse top-nav left full hide-on-med-and-up" data-target="nav-mobile" href="#" id="menu-button">
                             <i class="material-icons">
                                 menu
                             </i>
@@ -151,7 +151,7 @@
                                 Jonas Thelemann
                             </span>
                         </a>
-                        <a class="button-collapse top-nav right full hide-on-large-only" data-activates="toc-mobile" href="#" id="toc-button">
+                        <a class="button-collapse top-nav right full hide-on-large-only" data-target="toc-mobile" href="#" id="toc-button">
                             <i class="material-icons">
                                 format_list_bulleted
                             </i>
