@@ -66,7 +66,7 @@ export function destroyPushPin(pinName) {
     }
 }
 
-export function setUpSideNav(navName) {
+export function setUpSidenav(navName) {
     if (navName == 'menu') {
         // $('#menu-button').sideNav({
         //     edge: 'left'
