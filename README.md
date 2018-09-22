@@ -19,13 +19,13 @@ The source code of my website.
 ## Configuration
 
 ### Certificates
-HTTPs/SSL encryption requires certificates. Those can easily be generated using the `docker/jonas-thelemann.de/certs/New-Certificates.ps1` script. The `root.crt` certificate needs to be imported in your browser.
+HTTPs/SSL encryption requires certificates. Those can easily be generated using the [new-certificates.sh](https://gist.github.com/Dargmuesli/538a2c382c009f4620803679c8172c9d) script. The root certificate needs to be imported in your browser.
 
 ### Docker Secrets
 To keep confidential data, like usernames and passwords, out of the source code they need to be accessible as [Docker secrets](https://docs.docker.com/engine/swarm/secrets/). These secrets do need to exist:
-- postgres_password
-- postgres_db
-- postgres_user
+- jtde_postgres_password
+- jtde_postgres_db
+- jtde_postgres_user
 
 PowerShell on Windows adds a carriage return at the end of strings piped to the `docker secret create` command. A workaround can be that you create secrets from files that do not contain a trailing newline. They can be written using:
 
@@ -98,9 +98,9 @@ By default the `gulp` command executes all necessary functions to build the webs
 
 ### Docker
 
-How you choose to integrate the built project is up to you. A `dockerfile` and a `docker-compose.yml` template are provided to make deployment a breeze.
+How you choose to integrate the built project is up to you. A `Dockerfile` and a `docker-compose.yml` template are provided to make deployment a breeze.
 
-The given `dockerfile` enables you to build a PHP/Apache-Server with the configuration files in the `docker` folder. It can be run as a Docker container just as you wish, but this alone makes the site not fully functional. Additional services like [a reverse proxy](https://traefik.io/) are needed. Those can be defined in the `docker-compose.yml` file, which describes a [stack that can be deployed on a swarm](https://docs.docker.com/engine/reference/commandline/stack_deploy/). With this file the deployment is complete.
+The given `Dockerfile` enables you to build a PHP/Apache-Server with the configuration files in the `docker` folder. It can be run as a Docker container just as you wish, but this alone makes the site not fully functional. Additional services like [a reverse proxy](https://traefik.io/) are needed. Those can be defined in the `docker-compose.yml` file, which describes a [stack that can be deployed on a swarm](https://docs.docker.com/engine/reference/commandline/stack_deploy/). With this file the deployment is complete.
 
 #### Development
 

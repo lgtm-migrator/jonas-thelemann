@@ -11,11 +11,23 @@ env:
   - secure: QL7LGf7ZRC6488qxYE+v6HHfF/xjrZ2rqGjZ1OCcqHRlKi/R2j1+JM8otnxKKXBVyoyGUEGNruI8NtourtnQwrTysRPaBeuJE1cYNX6aWogBp2Trkkzw24JLtlfN8mSKPgLqX4//mjPegjF+5RpnQaW4/L4QfFt0/RoBYxGlwtJY/0qRDgboi33a5ze33ikFlpPxJKu6rfM5FDccxyvbLyiyt3tfYoSIPvZRsgci+QQGAzwv49jWz0Pr3Wl3Ga2YuW3xd27awPzmlHZcSzHMH+ga0ieuezkg7p1L/LQyS+pmzYud/EAlgJU3YDG099UKODqJLYJbuYJQraMccjN7YjHM6viiEabGeEFREoAdki9Lh2yt9DWs3QsYOAG+2G01S/RrVcicv3l2w6V49o0Zfr8sDszH/yOYNjOEYUGoT4HNhDl8rSTMu8vikF/RJJ2UoxUh2nSU/YZOjDmo5g4oa+JR8pWHtMNTsxPEr4yWzv73vK3NAWwskdU8XDl9r2+EbAhruPzf3Jwur3u6zo3gaCj4H6VdDSVNXBSuMC9vI2UiNtV8Uh1//CUInVwZdF0VRNi1PFDxo87DqXBPRnHQd0ERw7Wew82AMjH/Pk1avhr/Wxq/6DhqFaYklhQQWt4e1VTV1hgnNg4RozmBXR1TFJsxCqvV5kMYODnGAqqaQaY= #GH_TOKEN (Greenkeeper)
   - COMMIT=${TRAVIS_COMMIT::8}
   - REPO=dargmuesli/jonas-thelemann.de
+  - DOCKER_BUILDKIT=1
+addons:
+  apt:
+    packages:
+      - docker-ce
 before_install:
 - yarn global add greenkeeper-lockfile@1
+- echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
+- sudo service docker restart
 before_script:
 - greenkeeper-lockfile-update
-script: docker build -f dockerfile -t $REPO:$COMMIT .
+script:
+- docker build -t stage_node --target stage_node .
+- docker container create --name extract stage_node
+- docker container cp extract:/app/dist/jonas-thelemann.de.zip .
+- docker container rm -f extract
+- docker build -t $REPO:$COMMIT .
 after_script:
 - greenkeeper-lockfile-upload
 after_success:
@@ -28,7 +40,7 @@ deploy:
   provider: releases
   api_key:
     secure: KHbFXU3EVO65Q149886jqRlnsOR7WbtX5WNRpj6XZs9w0/3Iw/IcQHFC9POKN0f5P5d3C6j9M8/MGjqP6DLRibDuzNLM+zCL/EArk1PX6jqzTmaGsbbsn6vMBRF8FjtQ8bjiYqAa6xvxbfEcWmtSJ49KLxcKMNfii2pgxMWjXum63dV7szr8EED0fpWoZiTf5d4TK0wLm/ROWtLEwPIR91EhsV+i6fyE1+maRZXB7QYrpOH2/FeRnuBAoUQfa2jNSY/yz7TL6atV46SdgvlFwAiq1f17mUlQpCC/0wsmhRKrmSM2XIsY/4aO1e0oJBUL/NCmQdKLIFUbgRJWJ8joTaDo5txUEl7os8Sfr7/qlNEUhgXg1e1RhukCvjk1wCOsPsN8iL6BCKGaR4AbH0+AUSGPyHbkxV4ToGXmW19qIX+kFNmVJu117wMz8pIsovt/heQctdCS7lbRh+ZXqVWAult/ntfXNbdAK04aJ7BusCEJFCCN/TpUusvbKAidZNXM46AirC9wbs7mPfAG84N5/YZRvqJK9pCw/zPrINgbkWj4f85t+Z5NiZRA2J7/QmektWstRs0ZpeuOVlnUVbbrQR+JqAryvIVvasaTLXWDaAMLizJYv4U8IH607wxjEQU5XzF0+WUL+9LX1WpA+VvCKBP/gRTK9KNAgwT1m62zGvA=
-  file: dist/jonas-thelemann.de.zip
+  file: jonas-thelemann.de.zip
   skip_cleanup: true
   on:
     tags: true

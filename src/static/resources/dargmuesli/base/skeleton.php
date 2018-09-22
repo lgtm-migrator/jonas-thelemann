@@ -214,11 +214,6 @@
                                     <a class="grey-text text-lighten-3" href="https://github.com/Dargmuesli" itemprop="url" target="_blank" title="Github">
                                         Github
                                     </a>
-                                <div>
-                                    <a class="grey-text text-lighten-3" href="https://www.facebook.com/jonas.dargmuesli.thelemann" itemprop="url" target="_blank" title="Facebook">
-                                        Facebook
-                                    </a>
-                                </div>
                                 </div>
                                 <div>
                                     <a class="grey-text text-lighten-3" href="https://www.youtube.com/channel/UCmIrzQsJeEM5eW6KOAk9nSg" itemprop="url" target="_blank" title="YouTube">
