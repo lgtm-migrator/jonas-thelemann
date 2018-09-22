@@ -114,15 +114,21 @@ To generate a development version of this file you can use [PS-Docker-Management
 
 #### Production
 
-Use the `production/docker-compose.yml` file to deploy the predefined stack on a server. You need to specify environment variables as outlined in the `production/*.env` files.
+Utilize [deploy.sh](https://gist.github.com/Dargmuesli/6f303f4550b8ff241897dbda30a49cb3) for automatic deployment.
 
-`.env` contains environment variables for the stack file itself. Use a command similar to this for deployment where `-E` indicates preserved environment variables for `sudo` use:
+<details>
+    <summary>Details</summary>
+
+`production/stack.yml` defines the service stack that this project needs to for completeness. You need to specify environment variables as outlined in the `production/*.env` files.
+
+`.env` contains environment variables for the stack file itself. The script above executes a command similar to this for deployment where `-E` indicates preserved environment variables for `sudo` use:
 
 ```Bash
-export $(cat .env | xargs) && sudo -E docker stack deploy -c docker-compose.yml jonas-thelemann-de
+export $(cat .env | xargs) && sudo -E docker stack deploy -c stack.yml jonas-thelemann-de
 ```
 
 `traefik.env` sets provider credentials for DNS authentication as environment variables for the traefik service.
+</details>
 
 <a name="Usage"></a>
 
