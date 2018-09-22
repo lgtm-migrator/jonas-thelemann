@@ -3,7 +3,7 @@
 /node_modules/
 /src/static/stuff/
 /vendor/
-/docker-compose.yml
+/stack.yml
 .htpasswd
 *.crt
 *.csr

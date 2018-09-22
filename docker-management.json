@@ -6,7 +6,7 @@
         "Port": "5000"
     },
     "ComposeFile": {
-        "Name": "docker-compose.yml",
+        "Name": "stack.yml",
         "Content": {
             "version": "3.6",
             "services": {
@@ -46,14 +46,14 @@
                 "postgres": {
                     "image": "postgres",
                     "environment": {
-                        "POSTGRES_DB_FILE": "/run/secrets/jtde_postgres_db",
-                        "POSTGRES_PASSWORD_FILE": "/run/secrets/jtde_postgres_password",
-                        "POSTGRES_USER_FILE": "/run/secrets/jtde_postgres_user"
+                        "POSTGRES_DB_FILE": "/run/secrets/postgres_db",
+                        "POSTGRES_PASSWORD_FILE": "/run/secrets/postgres_password",
+                        "POSTGRES_USER_FILE": "/run/secrets/postgres_user"
                     },
                     "secrets": [
-                        "jtde_postgres_db",
-                        "jtde_postgres_password",
-                        "jtde_postgres_user"
+                        "postgres_db",
+                        "postgres_password",
+                        "postgres_user"
                     ],
                     "volumes": [
                         "postgres-data:/var/lib/postgresql/data"
@@ -108,14 +108,14 @@
                 }
             },
             "secrets": {
-                "jtde_postgres_db": {
-                    "external": true
+                "postgres_db": {
+                    "file": "./docker/secrets/postgres_db"
                 },
-                "jtde_postgres_password": {
-                    "external": true
+                "postgres_password": {
+                    "file": "./docker/secrets/postgres_password"
                 },
-                "jtde_postgres_user": {
-                    "external": true
+                "postgres_user": {
+                    "file": "./docker/secrets/postgres_user"
                 }
             },
             "volumes": {
