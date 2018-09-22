@@ -100,9 +100,9 @@ By default the `gulp` command executes all necessary functions to build the webs
 
 ### Docker
 
-How you choose to integrate the built project is up to you. A `Dockerfile` and a `docker-compose.yml` template are provided to make deployment a breeze.
+How you choose to integrate the built project is up to you. A `Dockerfile` and a `stack.yml` template are provided to make deployment a breeze.
 
-The given `Dockerfile` enables you to build a PHP/Apache-Server with the configuration files in the `docker` folder. It can be run as a Docker container just as you wish, but this alone makes the site not fully functional. Additional services like [a reverse proxy](https://traefik.io/) are needed. Those can be defined in the `docker-compose.yml` file, which describes a [stack that can be deployed on a swarm](https://docs.docker.com/engine/reference/commandline/stack_deploy/). With this file the deployment is complete.
+The given `Dockerfile` enables you to build a PHP/Apache-Server with the configuration files in the `docker` folder. It can be run as a Docker container just as you wish, but this alone makes the site not fully functional. Additional services like [a reverse proxy](https://traefik.io/) are needed. Those can be defined in the `stack.yml` file, which describes a [stack that can be deployed on a swarm](https://docs.docker.com/engine/reference/commandline/stack_deploy/). With this file the deployment is complete.
 
 #### Development
 
