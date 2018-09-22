@@ -1,5 +1,4 @@
 // Basic structure
-
 .caption {
     font-size: 1.25rem;
     font-weight: 300;
@@ -88,7 +87,6 @@ nav {
 }
 
 p {
-    color: rgba(0, 0, 0, 0.71);
     padding: 0;
 }
 
@@ -112,8 +110,8 @@ ul.side-nav.fixed {
 #main {
     flex: 1 0 auto;
 }
-// Breadcrumbs
 
+// Breadcrumbs
 .breadcrumb {
     color: inherit;
     line-height: 1.5;
@@ -143,8 +141,8 @@ div.breadcrumb {
 #breadcrumbcontainer {
     margin-top: 64px;
 }
-// Buttons
 
+// Buttons
 a.button-collapse.top-nav {
     &.left {
         left: 7.5%;
@@ -179,8 +177,8 @@ button:focus {
         background-color: lighten($primary-color, 30%);
     }
 }
-// Cards
 
+// Cards
 .card {
     transition: opacity ease-in 0.5s;
 }
@@ -219,8 +217,8 @@ button:focus {
 .card-panel span {
     word-wrap: break-word;
 }
-// Collapsibles
 
+// Collapsibles
 .collapsible-header h2 {
     font-size: 15px;
     font-weight: 400;
@@ -235,8 +233,8 @@ button:focus {
         padding: 0px;
     }
 }
-// Collections
 
+// Collections
 .collection a.collection-item {
     margin: 0px -20px;
 }
@@ -245,6 +243,7 @@ button:focus {
     border-bottom: 1px solid #e0e0e0;
     padding: 0px 20px;
 }
+
 // Fonts
 @font-face {
     font-family: 'Material Icons';
@@ -270,7 +269,6 @@ button:focus {
 }
 
 // Forms
-
 .form-error {
     color: #F44336;
     font-size: .8rem;
@@ -287,8 +285,8 @@ div.submit {
 input[type="text"], textarea.materialize-textarea {
     margin: 0px;
 }
-// Navigation
 
+// Navigation
 nav {
     display: flex;
     justify-content: space-around;
@@ -359,8 +357,8 @@ ul.side-nav.fixed li {
         transform: none;
     }
 }
-// Greeting
 
+// Greeting
 .greeting-container {
     overflow: hidden;
 }
@@ -406,8 +404,8 @@ ul.side-nav.fixed li {
 #greeting-viewblock {
     background-color: grey;
 }
-// Helpers
 
+// Helpers
 .center {
     text-align: center;
     vertical-align: middle;
@@ -478,8 +476,8 @@ iframe {
 //         @extend .active;
 //     }
 // }
-// Pagination
 
+// Pagination
 .pagination li {
     &.active {
         background-color: $primary-color;
@@ -506,8 +504,8 @@ iframe {
         padding: 0 10px;
     }
 }
-// Code
 
+// Code
 code,
 pre {
     font-size: 1.1rem;
@@ -520,18 +518,18 @@ pre[class*="language-"] {
 
     border: solid 1px rgba(51, 51, 51, 0.12);
 }
-// ReCaptcha
 
+// ReCaptcha
 .g-recaptcha {
     min-height: 78px;
 }
-// Slider
 
+// Slider
 .slider .slides li .caption {
     background-color: rgba(0, 0, 0, .5);
 }
-// Table of contents
 
+// Table of contents
 ul.table-of-contents {
     margin-top: 0;
 
@@ -564,11 +562,12 @@ ul.table-of-contents {
         }
     }
 }
-// Waves
 
+// Waves
 .waves-effect.waves-primary .waves-ripple {
     background-color: $primary-color;
 }
+
 // Inputs
 .picker__clear {
     padding: 0 1rem;
