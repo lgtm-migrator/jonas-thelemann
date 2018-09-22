@@ -19,7 +19,7 @@ The source code of my website.
 ## Configuration
 
 ### Certificates
-HTTPs/SSL encryption requires certificates. Those can easily be generated using the `docker/jonas-thelemann.de/certs/New-Certificates.ps1` script. The `root.crt` certificate needs to be imported in your browser.
+HTTPs/SSL encryption requires certificates. Those can easily be generated using the [new-certificates.sh](https://gist.github.com/Dargmuesli/538a2c382c009f4620803679c8172c9d) script. The root certificate needs to be imported in your browser.
 
 ### Docker Secrets
 To keep confidential data, like usernames and passwords, out of the source code they need to be accessible as [Docker secrets](https://docs.docker.com/engine/swarm/secrets/). These secrets do need to exist:
