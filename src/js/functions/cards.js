@@ -78,7 +78,7 @@ export function setupCardClosers() {
     for (var i = 0, ccbl = cardCloseButtons.length; i < ccbl; i++) {
         (function (i) {
             cardCloseButtons[i].addEventListener('click', function () {
-                closeCard(cardCloseButtons[i].parentElement.parentElement);
+                closeCard(cardCloseButtons[i].parentElement.parentElement.parentElement);
             }, false);
         }(i));
     }

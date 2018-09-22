@@ -123,14 +123,16 @@
             $html .= '
             <div class="card light-blue grey-text text-lighten-4" id="wipinfocard">
                 <div class="card-content">
-                    <span class="card-title">
-                        Information
-                    </span>
-                    <button class="card-close">
-                        <i class="material-icons">
-                            close
-                        </i>
-                    </button>
+                    <div class="display_flex justify-content_space-between">
+                        <span class="card-title">
+                            Information
+                        </span>
+                        <button class="card-close">
+                            <i class="material-icons">
+                                close
+                            </i>
+                        </button>
+                    </div>
                     <p>
                         An dieser Website wird noch gearbeitet. Keine Garantie für Funktionalität und Inhalt!
                     </p>
