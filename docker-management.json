@@ -40,7 +40,7 @@
                     },
                     "volumes": [
                         "./dist/jonas-thelemann.de:/var/www/jonas-thelemann.de",
-                        "./docker/jonas-thelemann.de/certs:/etc/ssl/certs"
+                        "./docker/jonas-thelemann.de/certificates:/etc/ssl/certificates"
                     ]
                 },
                 "postgres": {
@@ -98,12 +98,12 @@
                         "--docker.exposedByDefault=false",
                         "--docker.swarmMode=true",
                         "--entryPoints=Name:http Address::80 Redirect.EntryPoint:https",
-                        "--entryPoints=Name:https Address::443 TLS:/etc/ssl/certs/jonas-thelemann.de.crt,/etc/ssl/certs/jonas-thelemann.de.key Compress:true",
+                        "--entryPoints=Name:https Address::443 TLS:/etc/ssl/certificates/jonas-thelemann.de.crt,/etc/ssl/certificates/jonas-thelemann.de.key Compress:true",
                         "--insecureSkipVerify=true"
                     ],
                     "volumes": [
                         "/var/run/docker.sock:/var/run/docker.sock",
-                        "./docker/jonas-thelemann.de/certs:/etc/ssl/certs"
+                        "./docker/jonas-thelemann.de/certificates:/etc/ssl/certificates"
                     ]
                 }
             },
