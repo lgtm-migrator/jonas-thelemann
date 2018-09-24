@@ -45,24 +45,32 @@ export function setUpScrollSpy() {
 }
 
 export function setUpPushPin(pinName) {
+    let footer = document.querySelector('footer');
+
     if (pinName == 'toc') {
-        $('#toc').pushpin({
-            top: $('#toc').offset().top,
-            bottom: $('footer').first().offset().top - $('#toc-mobile').height() - 50,
+        let toc = document.querySelector('#toc');
+        let toc_mobile = document.querySelector('#toc-mobile');
+
+        M.Pushpin.init(toc, {
+            top: toc.getBoundingClientRect().top + window.pageYOffset,
+            bottom: footer.getBoundingClientRect().top + window.pageYOffset - toc_mobile.clientHeight - 50,
             offset: 100
         });
     } else if (pinName == 'navigation') {
-        $('nav').pushpin({
-            top: $('nav').offset().top
+        let nav = document.querySelector('nav');
+
+        M.Pushpin.init(nav, {
+            top: nav.getBoundingClientRect().top + window.pageYOffset,
+            bottom: footer.getBoundingClientRect().top + window.pageYOffset - nav.clientHeight
         });
     }
 }
 
 export function destroyPushPin(pinName) {
     if (pinName == 'toc') {
-        $('#toc').pushpin('remove');
+        M.Pushpin.getInstance(document.querySelector('#toc')).destroy();
     } else if (pinName == 'navigation') {
-        $('nav').pushpin('remove');
+        M.Pushpin.getInstance(document.querySelector('nav')).destroy();
     }
 }
 

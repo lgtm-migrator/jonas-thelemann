@@ -24,8 +24,9 @@ $(document).ready(function () {
 $(window).on('hashchange', offsetAnchor);
 
 $(window).resize(function () {
-    destroyPushPin('navigation');
-    destroyPushPin('toc');
+    // https://github.com/Dogfalo/materialize/issues/6135
+    // destroyPushPin('navigation');
+    // destroyPushPin('toc');
 
     setUpPushPin('navigation');
     setUpPushPin('toc');
