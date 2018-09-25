@@ -21,9 +21,9 @@ $(document).ready(function () {
     setupCardClosers();
 });
 
-$(window).on('hashchange', offsetAnchor);
+window.addEventListener('hashchange', offsetAnchor);
 
-$(window).resize(function () {
+window.addEventListener('resize', function () {
     // https://github.com/Dogfalo/materialize/issues/6135
     // destroyPushPin('navigation');
     // destroyPushPin('toc');
