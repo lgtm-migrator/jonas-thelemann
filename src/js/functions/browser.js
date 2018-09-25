@@ -1,6 +1,6 @@
 import { setupCardClosers } from './cards.js';
 import { nodeExists } from './prototyping.js';
-import { destroyPushPin, setUpPushPin, setUpScrollSpy, setUpSidenav } from './setup.js';
+import { /*destroyPushPin,*/ setUpPushPin, setUpScrollSpy, setUpSidenav } from './setup.js';
 
 $(document).ready(function () {
     M.updateTextFields();

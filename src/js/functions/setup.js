@@ -49,18 +49,20 @@ export function setUpPushPin(pinName) {
 
     if (pinName == 'toc') {
         let toc = document.querySelector('#toc');
+        let toc_wrapper = document.querySelector('#toc-wrapper');
         let toc_mobile = document.querySelector('#toc-mobile');
 
         M.Pushpin.init(toc, {
-            top: toc.getBoundingClientRect().top + window.pageYOffset,
+            top: toc_wrapper.getBoundingClientRect().top + window.pageYOffset,
             bottom: footer.getBoundingClientRect().top + window.pageYOffset - toc_mobile.clientHeight - 50,
             offset: 100
         });
     } else if (pinName == 'navigation') {
+        let header = document.querySelector('header');
         let nav = document.querySelector('nav');
 
         M.Pushpin.init(nav, {
-            top: nav.getBoundingClientRect().top + window.pageYOffset,
+            top: header.getBoundingClientRect().top + window.pageYOffset,
             bottom: footer.getBoundingClientRect().top + window.pageYOffset - nav.clientHeight
         });
     }
