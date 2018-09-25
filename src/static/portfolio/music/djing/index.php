@@ -5,6 +5,7 @@
     last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Geschichten und Erfahrungen über Dinge, die ich als DJ erlebe';
+    $skeletonFeatures = ['lcl/ext/js'];
     $skeletonContent = '
     <section id="mixcloud" class="section scrollspy">
         <h2>
@@ -53,4 +54,4 @@
         </p>
     </section>';
 
-    output_html($skeletonDescription, $skeletonContent);
+    output_html($skeletonDescription, $skeletonContent, $skeletonFeatures);

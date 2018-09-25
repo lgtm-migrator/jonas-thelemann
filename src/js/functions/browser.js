@@ -9,7 +9,6 @@ $(document).ready(function () {
     if (window.location.hash != '' && window.location.hash != '#!') {
         $(window.location.hash + ' .collapsible-header').addClass('active');
         $('#toc-mobile').find('a[href="' + window.location.hash + '"]').addClass('active');
-        $('.collapsible').collapsible();
     }
 
     setUpPushPin('navigation');
