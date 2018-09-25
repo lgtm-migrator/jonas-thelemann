@@ -5,6 +5,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
     last_modified(get_page_mod_time());
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
 
     $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
     $stmt = $dbh->prepare('SELECT ip, monster, geschlechtertausch, ersterschultag, hippie, pyjama, bunt, vip, traumberuf, assi, diegroßen, streber, anything, derabend, mittelalter, lieblingsmannschaft, chemieunfall, lieblingstier, kindheitshelden, eskalation, gaypride FROM alevel_mottoweek WHERE ip = :ip');

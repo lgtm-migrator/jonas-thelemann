@@ -6,6 +6,7 @@
     include_once 'layout/extension/extension.php';
 
     last_modified(get_page_mod_time());
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
 
     $skeletonDescription = 'Eine Umfrage zur Abschlussrede auf dem Abiball 2016 des Friedrichsgymnasiums in Kassel';
     $skeletonFeatures = ['lcl/ext/css', 'lcl/ext/js', 'pkg/drgl/mjs', 'pkg/drgl/mcss'];
