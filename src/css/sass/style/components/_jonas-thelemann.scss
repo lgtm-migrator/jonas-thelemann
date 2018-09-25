@@ -14,7 +14,7 @@
     padding: 0px;
 }
 
-a.button-collapse.top-nav {
+a.sidenav-trigger.top-nav {
     left: 5%;
     position: absolute;
     text-align: center;
@@ -149,7 +149,7 @@ div.breadcrumb {
 }
 
 // Buttons
-a.button-collapse.top-nav {
+a.sidenav-trigger.top-nav {
     &.left {
         left: 7.5%;
         @media #{$small-and-down} {
@@ -164,6 +164,7 @@ a.button-collapse.top-nav {
             right: 5%;
         }
     }
+
     margin: 0;
     z-index: 0;
 }
@@ -330,7 +331,6 @@ ul.sidenav.sidenav-fixed li {
         width: auto;
         left: auto;
         top: auto;
-        // transform: translateX(0%);
         height: auto;
         padding-bottom: 0px;
         background-color: transparent;
@@ -338,7 +338,7 @@ ul.sidenav.sidenav-fixed li {
         overflow-y: visible;
         will-change: auto;
         backface-visibility: visible;
-        transform: none;
+        transform: none !important;
     }
 
     nav .brand-logo {
@@ -352,7 +352,6 @@ ul.sidenav.sidenav-fixed li {
         width: auto;
         left: auto;
         top: auto;
-        // transform: translateX(100%);
         height: auto;
         padding-bottom: 0px;
         background-color: transparent;
@@ -360,7 +359,7 @@ ul.sidenav.sidenav-fixed li {
         overflow-y: visible;
         will-change: auto;
         backface-visibility: visible;
-        transform: none;
+        transform: none !important;
     }
 }
 

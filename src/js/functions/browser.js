@@ -28,6 +28,10 @@ $(window).resize(function () {
     // destroyPushPin('navigation');
     // destroyPushPin('toc');
 
+    // Update slide out time
+    setUpSidenav('menu');
+    setUpSidenav('toc');
+
     setUpPushPin('navigation');
     setUpPushPin('toc');
 });

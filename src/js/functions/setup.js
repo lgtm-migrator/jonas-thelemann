@@ -76,20 +76,16 @@ export function destroyPushPin(pinName) {
 
 export function setUpSidenav(navName) {
     if (navName == 'menu') {
-        // $('#menu-button').sideNav({
-        //     edge: 'left'
-        // });
-        $('#menu-button').sideNavCustomized({
-            edge: 'left'
+        // $('#menu-button').sidenavCustomized({
+        M.Sidenav.init(document.querySelector('#nav-mobile'), {
+            edge: 'left',
+            outDuration: window.innerWidth > 600 ? 0 : 200
         });
     } else if (navName == 'toc') {
-        // $('#toc-button').sideNav({
-        //     edge: 'right',
-        //     closeOnClick: true
-        // });
-        $('#toc-button').sideNavCustomized({
+        // $('#toc-button').sidenavCustomized({
+        M.Sidenav.init(document.querySelector('#toc-mobile'), {
             edge: 'right',
-            closeOnClick: true
+            outDuration: window.innerWidth > 992 ? 0 : 200
         });
     }
 }

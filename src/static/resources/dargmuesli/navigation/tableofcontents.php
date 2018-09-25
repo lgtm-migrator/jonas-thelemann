@@ -26,7 +26,7 @@ function get_table_of_contents_html($content, $titleFallback = null)
 
             $tocHtml .= '
                 <li>
-                    <a href="#'.trim($part->getAttribute('id')).'">
+                    <a class="sidenav-close" href="#'.trim($part->getAttribute('id')).'">
                         '.trim(is_null($title) ? $titleFallback : $title->text).'
                     </a>
                 </li>';

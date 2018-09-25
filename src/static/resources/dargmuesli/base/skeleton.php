@@ -143,7 +143,7 @@
         $html .= '
                 <header itemscope itemtype="https://schema.org/WPHeader">
                     <nav>
-                        <a class="button-collapse top-nav left full hide-on-med-and-up" data-target="nav-mobile" href="#" id="menu-button">
+                        <a class="sidenav-trigger top-nav left full hide-on-med-and-up" data-target="nav-mobile" href="#" id="menu-button">
                             <i class="material-icons">
                                 menu
                             </i>
@@ -153,7 +153,7 @@
                                 Jonas Thelemann
                             </span>
                         </a>
-                        <a class="button-collapse top-nav right full hide-on-large-only" data-target="toc-mobile" href="#" id="toc-button">
+                        <a class="sidenav-trigger top-nav right full hide-on-large-only" data-target="toc-mobile" href="#" id="toc-button">
                             <i class="material-icons">
                                 format_list_bulleted
                             </i>
@@ -182,7 +182,7 @@
                             </div>
                         </main>
                     </div>
-                    <div class="col s12 l2">
+                    <div id="toc-wrapper" class="col s12 l2">
                         <div id="toc">'
                             .get_table_of_contents_html($content, $title).'
                         </div>
