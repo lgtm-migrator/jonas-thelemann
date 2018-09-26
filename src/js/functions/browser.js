@@ -4,7 +4,6 @@ import { /*destroyPushPin,*/ setUpPushPin, setUpScrollSpy, setUpSidenav } from '
 
 $(document).ready(function () {
     M.updateTextFields();
-    $('select').formSelect();
 
     if (window.location.hash != '' && window.location.hash != '#!') {
         $(window.location.hash + ' .collapsible-header').addClass('active');
