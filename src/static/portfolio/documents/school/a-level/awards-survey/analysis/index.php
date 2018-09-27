@@ -6,6 +6,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
     last_modified(get_page_mod_time());
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
 
     $categoriesCode = $tableWhitelist['a_level_magazine_awards'];
     // $categoriesCode = ['gotteskind', 'partyraucher', 'frisur', 'mami', 'sarkasmus', 'träumer', 'shopaholik', 'markenwerbetafel', 'sextanerblase', 'auslandskorrespondent', 'dam', 'daw', 'seeles', 'hobbypsychologe', 'sanitäter', 'schauspieler', 'handysuchti', 'vielfraß', 'ehepaar', 'weltenbummler', 'starfotograf', 'stock', 'wutbürger', 'backmeister', 'ordnungsamt', 'chemiker', 'diskussion', 'quasselstrippe', 'hausaufgabe', 'öko', 'revoluzzer', 'sauklaue', 'girl', 'vorgelernt', 'entscheidungsunfähig', 'prinzessin', 'sprachtalent', 'gemein', 'genie', 'punktefeilscher', 'anti', 'männerschwarm', 'frauenheld', 'festivalgänger', 'altphilologe', 'rock', 'klausurnachbar', 'naturbursche', 'riese', 'drecksack', 'organisationsdesaster', 'junggeselle', 'schlaftablette', 'feministin', 'notenwürfler', 'punktelieferant', 'ähm', 'pause', 'seelel', 'unterricht', 'eingebildet', 'spät', 'unbekannt', 'schülerliebling', 'miesepeter', 'moralapostel', 'verplant', 'dressed', 'kopierkönig', 'grinsekatze', 'tafelbild', 'gartenzwerg', 'übermotiviert', 'sprücheklopfer', 'ip'];

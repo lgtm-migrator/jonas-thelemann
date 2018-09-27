@@ -2,6 +2,8 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
+
     if (isset($_POST['chosen'])) {
         $open = false;
 

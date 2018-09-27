@@ -5,6 +5,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
     last_modified(get_page_mod_time());
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
 
     $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
     $stmt = $dbh->prepare('SELECT ip, monster, geschlechtertausch, ersterschultag, hippie, pyjama, bunt, vip, traumberuf, assi, diegroßen, streber, anything, derabend, mittelalter, lieblingsmannschaft, chemieunfall, lieblingstier, kindheitshelden, eskalation, gaypride FROM alevel_mottoweek WHERE ip = :ip');
@@ -70,144 +71,184 @@
     </p>
     <form action="layout/extension/save.php" method="post">
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="kindheitshelden" id="kindheitshelden"';
-            if ($rows['kindheitshelden']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="kindheitshelden">Kindheitshelden, Märchen, Disney, Filme, Serien</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="kindheitshelden" id="kindheitshelden"';
+                if ($rows['kindheitshelden']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Kindheitshelden, Märchen, Disney, Filme, Serien</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="monster" id="monster"';
-            if ($rows['monster']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="monster">Monster, Zombie, Hexe, Horror, Halloween</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="monster" id="monster"';
+                if ($rows['monster']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Monster, Zombie, Hexe, Horror, Halloween</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="geschlechtertausch" id="geschlechtertausch"';
-            if ($rows['geschlechtertausch']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="geschlechtertausch">Geschlechtertausch</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="geschlechtertausch" id="geschlechtertausch"';
+                if ($rows['geschlechtertausch']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Geschlechtertausch</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="ersterschultag" id="ersterschultag"';
-            if ($rows['ersterschultag']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="ersterschultag">Erster Schultag</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="ersterschultag" id="ersterschultag"';
+                if ($rows['ersterschultag']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Erster Schultag</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="hippie" id="hippie"';
-            if ($rows['hippie']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="hippie">Hippie, 20er, 60er, XXer aus dem 20. Jahrhundert</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="hippie" id="hippie"';
+                if ($rows['hippie']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Hippie, 20er, 60er, XXer aus dem 20. Jahrhundert</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="pyjama" id="pyjama"';
-            if ($rows['pyjama']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="pyjama">Pyjama, lässig, verschlafen</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="pyjama" id="pyjama"';
+                if ($rows['pyjama']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Pyjama, lässig, verschlafen</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="bunt" id="bunt"';
-            if ($rows['bunt']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="bunt">Bunt, Mustermix, Bad Taste</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="bunt" id="bunt"';
+                if ($rows['bunt']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Bunt, Mustermix, Bad Taste</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="vip" id="vip"';
-            if ($rows['vip']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="vip">VIP, roter Teppich, Promis</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="vip" id="vip"';
+                if ($rows['vip']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>VIP, roter Teppich, Promis</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="traumberuf" id="traumberuf"';
-            if ($rows['traumberuf']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="traumberuf">Traumberuf, Ich in 20 Jahren, Business</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="traumberuf" id="traumberuf"';
+                if ($rows['traumberuf']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Traumberuf, Ich in 20 Jahren, Business</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="assi" id="assi"';
-            if ($rows['assi']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="assi">Assi, Nutten & Zuhälter</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="assi" id="assi"';
+                if ($rows['assi']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Assi, Nutten & Zuhälter</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="diegroßen" id="diegroßen"';
-            if ($rows['diegroßen']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="diegroßen">Die Großen der Geschichte</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="diegroßen" id="diegroßen"';
+                if ($rows['diegroßen']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Die Großen der Geschichte</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="streber" id="streber"';
-            if ($rows['streber']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="streber">Streber, Spießer</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="streber" id="streber"';
+                if ($rows['streber']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Streber, Spießer</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="anything" id="anything"';
-            if ($rows['anything']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="anything">Anything but clothes</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="anything" id="anything"';
+                if ($rows['anything']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Anything but clothes</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="derabend" id="derabend"';
-            if ($rows['derabend']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="derabend">Der Abend davor vs. der Morgen danach, Hangover</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="derabend" id="derabend"';
+                if ($rows['derabend']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Der Abend davor vs. der Morgen danach, Hangover</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="mittelalter" id="mittelalter"';
-            if ($rows['mittelalter']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="mittelalter">Mittelalter</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="mittelalter" id="mittelalter"';
+                if ($rows['mittelalter']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Mittelalter</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="lieblingsmannschaft" id="lieblingsmannschaft"';
-            if ($rows['lieblingsmannschaft']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="lieblingsmannschaft">Lieblingsmannschaft, -team</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="lieblingsmannschaft" id="lieblingsmannschaft"';
+                if ($rows['lieblingsmannschaft']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Lieblingsmannschaft, -team</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="chemieunfall" id="chemieunfall"';
-            if ($rows['chemieunfall']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="chemieunfall">Chemieunfall</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="chemieunfall" id="chemieunfall"';
+                if ($rows['chemieunfall']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Chemieunfall</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="lieblingstier" id="lieblingstier"';
-            if ($rows['lieblingstier']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="lieblingstier">Lieblingstier</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="lieblingstier" id="lieblingstier"';
+                if ($rows['lieblingstier']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Lieblingstier</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="eskalation" id="eskalation"';
-            if ($rows['eskalation']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="eskalation">Eskalation</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="eskalation" id="eskalation"';
+                if ($rows['eskalation']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Eskalation</span>
+            </label>
         </p>
         <p>
-            <input class="chkbx" type="checkbox" name="check_list[]" value="gaypride" id="gaypride"';
-            if ($rows['gaypride']) {
-                $skeletonContent .= ' checked';
-            }
-            $skeletonContent .= '><label for="gaypride">Gaypride</label>
+            <label>
+                <input class="chkbx" type="checkbox" name="check_list[]" value="gaypride" id="gaypride"';
+                if ($rows['gaypride']) {
+                    $skeletonContent .= ' checked';
+                }
+                $skeletonContent .= '><span>Gaypride</span>
+            </label>
         </p>
         <button class="btn waves-effect waves-light" id="subbut" name="action" type="submit">
             Senden

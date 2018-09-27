@@ -1,10 +1,8 @@
 /dist/
-/docker/secrets/
 /node_modules/
-/src/static/stuff/
 /vendor/
 /stack.yml
-.htpasswd
+secrets/
 *.crt
 *.csr
 *.env

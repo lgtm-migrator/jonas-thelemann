@@ -123,14 +123,16 @@
             $html .= '
             <div class="card light-blue grey-text text-lighten-4" id="wipinfocard">
                 <div class="card-content">
-                    <span class="card-title">
-                        Information
-                    </span>
-                    <button class="card-close">
-                        <i class="material-icons">
-                            close
-                        </i>
-                    </button>
+                    <div class="display_flex justify-content_space-between">
+                        <span class="card-title">
+                            Information
+                        </span>
+                        <button class="card-close">
+                            <i class="material-icons">
+                                close
+                            </i>
+                        </button>
+                    </div>
                     <p>
                         An dieser Website wird noch gearbeitet. Keine Garantie für Funktionalität und Inhalt!
                     </p>
@@ -141,7 +143,7 @@
         $html .= '
                 <header itemscope itemtype="https://schema.org/WPHeader">
                     <nav>
-                        <a class="button-collapse top-nav left full hide-on-med-and-up" data-activates="nav-mobile" href="#" id="menu-button">
+                        <a class="sidenav-trigger top-nav left full hide-on-med-and-up" data-target="nav-mobile" href="#" id="menu-button">
                             <i class="material-icons">
                                 menu
                             </i>
@@ -151,7 +153,7 @@
                                 Jonas Thelemann
                             </span>
                         </a>
-                        <a class="button-collapse top-nav right full hide-on-large-only" data-activates="toc-mobile" href="#" id="toc-button">
+                        <a class="sidenav-trigger top-nav right full hide-on-large-only" data-target="toc-mobile" href="#" id="toc-button">
                             <i class="material-icons">
                                 format_list_bulleted
                             </i>
@@ -180,7 +182,7 @@
                             </div>
                         </main>
                     </div>
-                    <div class="col s12 l2">
+                    <div id="toc-wrapper" class="col s12 l2">
                         <div id="toc">'
                             .get_table_of_contents_html($content, $title).'
                         </div>

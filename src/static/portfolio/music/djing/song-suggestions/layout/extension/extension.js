@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    $('.materialize-textarea').characterCounter();
     $('.modal').modal();
     $('#songform').validate({
         errorClass: 'invalid',

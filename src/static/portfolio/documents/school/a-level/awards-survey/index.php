@@ -5,6 +5,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
     last_modified(get_page_mod_time());
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
 
     $open = false;
 

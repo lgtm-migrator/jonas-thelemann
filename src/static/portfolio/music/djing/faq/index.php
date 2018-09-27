@@ -6,6 +6,7 @@
     last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Antworten auf die mir am häufigsten gestellten Fragen';
+    $skeletonFeatures = ['lcl/ext/js'];
     $skeletonContent = $faqHtml;
 
-    output_html($skeletonDescription, $skeletonContent);
+    output_html($skeletonDescription, $skeletonContent, $skeletonFeatures);

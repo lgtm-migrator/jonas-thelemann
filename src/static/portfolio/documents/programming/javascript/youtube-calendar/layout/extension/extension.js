@@ -4,7 +4,7 @@ var serverTime = moment();
 later.date.localTime();
 
 document.addEventListener('DOMContentLoaded', function () {
-    initializeDatepicker('de', 4, getDisableArray());
+    M.FormSelect.init(document.querySelectorAll('select'), {});
     initializeArchiveSelect();
     initializeCalendar();
     showCountdown('countdown', cronSched, ['year', 'month', 'day', 'hour', 'minute', 'second'], 'de');

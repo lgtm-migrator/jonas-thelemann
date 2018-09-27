@@ -3,6 +3,8 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/whitelist.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/packages/composer/autoload.php';
 
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
+
     // Get an array containing all column names of a table in a database
     function get_column_names($dbh, $tableName)
     {

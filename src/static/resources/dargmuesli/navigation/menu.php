@@ -17,7 +17,7 @@
         $linkPrefix = ($rootPointerInteger == 0) ? '/portfolio/' : '../';
 
         // Initialize output string
-        $menuHtml = '<ul class="side-nav fixed z-depth-0" id="nav-mobile" itemscope itemtype="https://schema.org/SiteNavigationElement">';
+        $menuHtml = '<ul class="sidenav sidenav-fixed z-depth-0" id="nav-mobile" itemscope itemtype="https://schema.org/SiteNavigationElement">';
 
         if ($isErrorPage) {
 

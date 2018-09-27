@@ -45,43 +45,49 @@ export function setUpScrollSpy() {
 }
 
 export function setUpPushPin(pinName) {
-    if (pinName == 'table of contents') {
-        $('#toc').pushpin({
-            top: $('#toc').offset().top,
-            bottom: $('footer').first().offset().top - $('#toc-mobile').height() - 50,
+    let footer = document.querySelector('footer');
+
+    if (pinName == 'toc') {
+        let toc = document.querySelector('#toc');
+        let toc_wrapper = document.querySelector('#toc-wrapper');
+        let toc_mobile = document.querySelector('#toc-mobile');
+
+        M.Pushpin.init(toc, {
+            top: toc_wrapper.getBoundingClientRect().top + window.pageYOffset,
+            bottom: footer.getBoundingClientRect().top + window.pageYOffset - toc_mobile.clientHeight - 50,
             offset: 100
         });
     } else if (pinName == 'navigation') {
-        $('nav').pushpin({
-            top: $('nav').offset().top
+        let header = document.querySelector('header');
+        let nav = document.querySelector('nav');
+
+        M.Pushpin.init(nav, {
+            top: header.getBoundingClientRect().top + window.pageYOffset,
+            bottom: footer.getBoundingClientRect().top + window.pageYOffset - nav.clientHeight
         });
     }
 }
 
 export function destroyPushPin(pinName) {
-    if (pinName == 'table of contents') {
-        $('#toc').pushpin('remove');
+    if (pinName == 'toc') {
+        M.Pushpin.getInstance(document.querySelector('#toc')).destroy();
     } else if (pinName == 'navigation') {
-        $('nav').pushpin('remove');
+        M.Pushpin.getInstance(document.querySelector('nav')).destroy();
     }
 }
 
-export function setUpSideNav(navName) {
+export function setUpSidenav(navName) {
     if (navName == 'menu') {
-        // $('#menu-button').sideNav({
-        //     edge: 'left'
-        // });
-        $('#menu-button').sideNavCustomized({
-            edge: 'left'
+        // $('#menu-button').sidenavCustomized({
+        M.Sidenav.init(document.querySelector('#nav-mobile'), {
+            edge: 'left',
+            outDuration: window.innerWidth > 600 ? 0 : 200
         });
-    } else if (navName == 'table of contents') {
-        // $('#toc-button').sideNav({
-        //     edge: 'right',
-        //     closeOnClick: true
-        // });
-        $('#toc-button').sideNavCustomized({
+    } else if (navName == 'toc') {
+        // $('#toc-button').sidenavCustomized({
+        M.Sidenav.init(document.querySelector('#toc-mobile'), {
             edge: 'right',
-            closeOnClick: true
+            outDuration: window.innerWidth > 992 ? 0 : 200
         });
     }
 }

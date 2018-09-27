@@ -4,6 +4,8 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/packages/composer/autoload.php';
 
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
+
     http_response_code(204);
 
     $data = file_get_contents('php://input');
