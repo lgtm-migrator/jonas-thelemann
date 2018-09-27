@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     M.FormSelect.init(document.querySelectorAll('select'), {});
     initializeArchiveSelect();
     initializeCalendar();
-    showCountdown('countdown', cronSched, ['year', 'month', 'day', 'hour', 'minute', 'second'], 'de');
+    Dargmuesli.Countdown.showCountdown('countdown', cronSched, ['year', 'month', 'day', 'hour', 'minute', 'second'], 'de');
 
     $('#archiveform').submit(function (e) {
         var archiveembed = document.getElementById('archiveembed');
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
     xhr.open('POST', 'layout/extension/extension.php', true);
     xhr.onreadystatechange = function () {
         if ((xhr.readyState == 4) && (xhr.status == 200)) {
-            serverTime = toTimeZone(xhr.getResponseHeader('Date'), 'ddd, DD MMM YYYY HH:mm:ss zz', 'Europe/Berlin');
+            serverTime = Dargmuesli.Prototyping.toTimeZone(xhr.getResponseHeader('Date'), 'ddd, DD MMM YYYY HH:mm:ss zz', 'Europe/Berlin');
 
             if (serverTime.format('M') == '12') {
-                var days = tryParseJSON(xhr.responseText);
+                var days = Dargmuesli.Prototyping.tryParseJSON(xhr.responseText);
 
                 if (days) {
                     for (var i = 0, rl = days.length; i < rl; i++) {
@@ -62,14 +62,14 @@ document.addEventListener('DOMContentLoaded', function () {
                                             calendardoorpartbutton = document.getElementById('calendardoorpartb' + (i + 1));
                                         }
 
-                                        if (nodeExists(calendardoorpartbutton)) {
+                                        if (Dargmuesli.Prototyping.nodeExists(calendardoorpartbutton)) {
                                             calendardoorpartbutton.classList.remove('disabled');
                                             calendardoorpartbutton.title = videoTitle;
                                             calendardoorpartbutton.addEventListener('click', function () {
                                                 window.open(videoLink, '_blank');
                                             });
 
-                                            if (nodeExists(calendarDoorButton) && calendarDoorButton.classList.contains('disabled')) {
+                                            if (Dargmuesli.Prototyping.nodeExists(calendarDoorButton) && calendarDoorButton.classList.contains('disabled')) {
                                                 calendarDoorButton.classList.remove('disabled');
 
                                                 calendarDoorButton.addEventListener('click', function () {
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var time = document.getElementById('time');
     var submitButton = document.getElementById('submit');
 
-    if (nodeExists(time) && nodeExists(submitButton)) {
+    if (Dargmuesli.Prototyping.nodeExists(time) && Dargmuesli.Prototyping.nodeExists(submitButton)) {
         $('#time').on('change', function () { formChanged([time], submitButton); });
     }
 
