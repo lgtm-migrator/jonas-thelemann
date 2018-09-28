@@ -10,7 +10,7 @@ $(document).ready(function () {
         let hashElement = document.querySelector(window.location.hash);
 
         if (hashElement) {
-            let instance = M.Collapsible.getInstance(hashElement.parentNode)
+            let instance = M.Collapsible.getInstance(hashElement.parentNode);
 
             if (instance) {
                 instance.open(Array.prototype.indexOf.call(hashElement.parentNode.children, hashElement));
