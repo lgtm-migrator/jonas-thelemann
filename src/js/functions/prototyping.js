@@ -10,6 +10,21 @@ NodeList.prototype.remove = HTMLCollection.prototype.remove = function () {
     }
 };
 
+export function copy(querySelector) {
+    var range = document.createRange();
+    var selection = window.getSelection();
+
+    range.selectNodeContents(document.querySelector(querySelector));
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    try {
+        document.execCommand('copy');
+    } catch (err) {
+        alert('Oops, unable to copy');
+    }
+}
+
 export function nodeExists(node) {
     var nodeExists = false;
 
@@ -18,6 +33,22 @@ export function nodeExists(node) {
     }
 
     return nodeExists;
+}
+
+export function getHashParams() {
+    var hashParams = {};
+    var e,
+        a = /\+/g,
+        r = /([^&;=]+)=?([^&;]*)/g,
+        d = function (s) {
+            return decodeURIComponent(s.replace(a, ' '));
+        },
+        q = window.location.hash.substring(1);
+
+    while (e = r.exec(q))
+        hashParams[d(e[1])] = d(e[2]);
+
+    return hashParams;
 }
 
 export function getLastLine(string) {

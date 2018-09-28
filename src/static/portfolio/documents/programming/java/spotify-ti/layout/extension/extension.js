@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     var hashElement = document.getElementById('var');
-    var hashParams = getHashParams();
+    var hashParams = Dargmuesli.Prototyping.getHashParams();
 
     if (!jQuery.isEmptyObject(hashParams)) {
         hashElement.innerHTML = '<h2>\
@@ -22,39 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
             </a>\
         </p>';
 
-        var btn = document.querySelector('.btn');
-
-        btn.addEventListener('click', function () {
-            var range = document.createRange();
-            var selection = window.getSelection();
-
-            range.selectNodeContents(document.querySelector('#hash'));
-            selection.removeAllRanges();
-            selection.addRange(range);
-
-            try {
-                var successful = document.execCommand('copy');
-                var msg = successful ? 'successful' : 'unsuccessful';
-                console.log('Copying text command was ' + msg);
-            } catch (err) {
-                console.log('Oops, unable to copy');
-            }
-        });
     }
+
+    document.querySelectorAll('.copy').forEach(function (element) {
+        element.addEventListener('click', function () { Dargmuesli.Prototyping.copy('#hash') });
+    });
 });
-
-function getHashParams() {
-    var hashParams = {};
-    var e,
-        a = /\+/g,
-        r = /([^&;=]+)=?([^&;]*)/g,
-        d = function (s) {
-            return decodeURIComponent(s.replace(a, ' '));
-        },
-        q = window.location.hash.substring(1);
-
-    while (e == r.exec(q))
-        hashParams[d(e[1])] = d(e[2]);
-
-    return hashParams;
-}
