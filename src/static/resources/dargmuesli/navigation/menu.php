@@ -51,7 +51,7 @@
                 $searchFolder = dirname($_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI']);
             }
 
-            $directoryArray = get_web_directory_array($searchFolder, array($searchFolder.DIRECTORY_SEPARATOR.$currentFolder));
+            $directoryArray = get_web_directory_array($searchFolder, array($searchFolder.DIRECTORY_SEPARATOR.$currentFolder.DIRECTORY_SEPARATOR));
             $hasSubfolders = false;
 
             foreach ($directoryArray as $folderName => $subFolders) {
@@ -63,7 +63,7 @@
 
             // Scan parent directory or display directory-up link (for all levels above two)
             if (!$hasSubfolders && $rootPointerInteger != 0) {
-                $directoryArray = get_web_directory_array(dirname($searchFolder), array(dirname($searchFolder).DIRECTORY_SEPARATOR.$parentFolder));
+                $directoryArray = get_web_directory_array(dirname($searchFolder), array(dirname($searchFolder).DIRECTORY_SEPARATOR.$parentFolder.DIRECTORY_SEPARATOR));
             } elseif ($rootPointerInteger > 2) {
                 $menuHtml .= get_menu_html_item(get_navigation_translation('up'), '../', array('center-align'), 'arrow_upward');
             }

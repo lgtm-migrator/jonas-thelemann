@@ -39,18 +39,18 @@
                         && file_exists($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR.'index.php')
                         && !file_exists($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR.'.hidden')
                     ) {
-                    if (is_array($detailPaths) && starts_with($detailPaths, $directoryName.DIRECTORY_SEPARATOR.$folderName)) {
+                    if (is_array($detailPaths) && starts_with($detailPaths, $directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR)) {
 
                         // Scan child directories for given paths
-                        $directoryArray[$folderName] = get_web_directory_array($directoryName.DIRECTORY_SEPARATOR.$folderName, $detailPaths, $levels - 1);
+                        $directoryArray[$folderName] = get_web_directory_array($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR, $detailPaths, $levels - 1);
                     } elseif (is_int($levels) && $levels > 0) {
 
                         // Scan child directories to a certain depth
-                        $directoryArray[$folderName] = get_web_directory_array($directoryName.DIRECTORY_SEPARATOR.$folderName, null, '*');
+                        $directoryArray[$folderName] = get_web_directory_array($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR, null, '*');
                     } elseif (is_string($levels) && $levels == '*') {
 
                         // Scan child directories recursively
-                        $directoryArray[$folderName] = get_web_directory_array($directoryName.DIRECTORY_SEPARATOR.$folderName, null, '*');
+                        $directoryArray[$folderName] = get_web_directory_array($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR, null, '*');
                     } else {
                         $directoryArray[$folderName] = array();
                     }
