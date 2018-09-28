@@ -27,8 +27,8 @@
                 Mit dem Antreffen meiner Persönlichkeit akzeptieren Sie deshalb ab dem 25.06.16 die APB (allgemeine Preisbestimmungen).
                 <br>
                 Entnehmen Sie die Antwort auf obige Frage bitte der folgenden Liste.
-                Die Preise orientieren sich am ständig variierenden Grad der durch sie bei mir entstehenden Übelkeit.
-                Also Achtung, sie wird bei Bedarf aktualisiert!
+                Die Preise orientieren sich am ständig variierenden Grad des durch sie bei mir entstehenden Unwohlseins.
+                Also Achtung, sie wird bei Bedarf aktualisiert.
             </p>
             <table>
                 <thead>
@@ -37,19 +37,11 @@
                             Frage / Aussage
                         </th>
                         <th>
-                            Vergütung
+                            Preis
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <s>"Und was machst du so nach dem Abi?" / "Wann kümmerst du dich um deine berufliche Zukunft?"</s>
-                        </td>
-                        <td>
-                            <s>20€</s>
-                        </td>
-                    </tr>
                     <tr>
                         <td>
                             "Jonathan"
