@@ -170,6 +170,11 @@
                     approved boolean DEFAULT false NOT NULL';
                 $sqlIntegration = 'INSERT INTO surveys (name, open) VALUES (\'dj_song_suggestions\', false);';
                 break;
+            case 'private_data':
+                $columnConfig = '
+                    key text PRIMARY KEY,
+                    value text NOT NULL';
+                break;
             case 'surveys':
                 $columnConfig = '
                     id serial PRIMARY KEY,

@@ -1,6 +1,22 @@
 <?php
-    $birthDate = explode('/', 'REDACTED');
-    $age = (date('md', date('U', mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date('md') ? ((date('Y') - $birthDate[2]) - 1) : (date('Y') - $birthDate[2]));
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
+
+    // Load .env file
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
+
+    // Get database handle
+    $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
+
+    // Initialize the required table
+    init_table($dbh, 'private_data');
+
+    $age = 'Es fehlen Daten in der Datenbank';
+
+    if ($birthDate = $dbh->query('SELECT value FROM private_data WHERE key = \'birthdate\'')->fetch()[0]) {
+        $birthDate = explode('.', $birthDate);
+        $age = (date('md', date('U', mktime(0, 0, 0, $birthDate[1], $birthDate[0], $birthDate[2]))) > date('md') ? ((date('Y') - $birthDate[2]) - 1) : (date('Y') - $birthDate[2]));
+    }
 
     $faq = [
         'compensation' => [
