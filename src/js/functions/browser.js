@@ -5,9 +5,18 @@ import { /*destroyPushPin,*/ setUpPushPin, setUpScrollSpy, setUpSidenav } from '
 $(document).ready(function () {
     M.updateTextFields();
 
-    if (window.location.hash != '' && window.location.hash != '#!') {
-        $(window.location.hash + ' .collapsible-header').addClass('active');
-        $('#toc-mobile').find('a[href="' + window.location.hash + '"]').addClass('active');
+    // Open collapsible by hash id
+    if (window.location.hash.match(/^#[a-z-_]+$/)) {
+        let hashElement = document.querySelector(window.location.hash);
+
+        if (hashElement) {
+            let instance = M.Collapsible.getInstance(hashElement.parentNode)
+
+            if (instance) {
+                instance.open(Array.prototype.indexOf.call(hashElement.parentNode.children, hashElement));
+                $('#toc-mobile').find('a[href="' + window.location.hash + '"]').addClass('active');
+            }
+        }
     }
 
     setUpPushPin('navigation');
@@ -44,7 +53,7 @@ window.onpopstate = function (e) {
 window.setTimeout(offsetAnchor, 1);
 
 export function offsetAnchor() {
-    if (window.location.hash != '' && window.location.hash != '#!') {
+    if (window.location.hash.match(/^#[a-z-_]+$/)) {
         var hashElement = document.querySelector(window.location.hash);
 
         if (nodeExists(hashElement)) {
