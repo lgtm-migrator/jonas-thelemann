@@ -11,7 +11,7 @@
         <p>
             Diese Seite ist momentan in ihrer nicht öffentlich sichtbaren Version Teil der Programmfunktion. Die Benutzer, die hier landen, finden das, was sie suchen.
             <br>
-            Deshalb braucht aber niemand traurig sein. Bei genug Interesse werde ich das Programm auf GitHub laden und hier mehr Informationen dazu veröffentlichen.
+            Bei genug Interesse werde ich das Programm auf GitHub stellen und hier mehr Informationen dazu veröffentlichen.
         </p>
     </div>';
 
