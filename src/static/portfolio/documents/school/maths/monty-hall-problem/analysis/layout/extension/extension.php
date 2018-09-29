@@ -2,82 +2,74 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
+    $tableName = 'monty_hall_problem';
+
+    // Load .env file
     load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
 
-    // var playerOneElementsLength = <?php echo $dataResultCountPlayerOne;
-    // var playerTwoElementsLength = <?php echo $dataResultCountPlayerTwo;
-    // var playerThreeElementsLength = <?php echo $dataResultCountPlayerThree;
-    // var rows = <?php echo $dataResultCountPlayerOne + $dataResultCountPlayerTwo + $dataResultCountPlayerThree;
-    // var winCountRed = <?php echo $winCountRed;
-    // var winCountBlue = <?php echo $winCountBlue;
-    // var countRed = <?php echo $countRed;
-    // var countBlue = <?php echo $countBlue;
-    // var dataRed = <?php echo json_encode($dataRed);
-    // var dataBlue = <?php echo json_encode($dataBlue);
-
-    $page = 1;
-    $tableName = 'monty_hall_problem';
+    // Get database handle
     $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
 
-    if (isset($_GET['page']) && is_numeric($_GET['page'])) {
-        $page = intval($_GET['page']);
-    }
+    if (isset($_GET['type'])) {
+        switch ($_GET['type']) {
+            case 'playercounts':
+                $dataResultCount = null;
+                $stmt = $dbh->prepare('SELECT COUNT(*) FROM '.$tableName.' WHERE player = :player');
+                $stmt->bindParam(':player', $player);
 
-    $dataResultCount = null;
-    $stmt = $dbh->prepare('SELECT COUNT(*) FROM '.$tableName.' WHERE player = :player');
-    $stmt->bindParam(':player', $player);
+                foreach ([1, 2, 3] as $player) {
+                    if (!$stmt->execute()) {
+                        throw new PDOException($stmt->errorInfo()[2]);
+                    }
 
-    foreach ([1, 2, 3] as $player) {
-        if (!$stmt->execute()) {
-            throw new PDOException($stmt->errorInfo()[2]);
-        }
+                    $dataResultCount[$player - 1] = $stmt->fetchColumn();
+                }
 
-        $dataResultCount[$player - 1] = $stmt->fetchColumn();
-    }
+                echo json_encode($dataResultCount);
+                break;
+            case 'colordata':
+                $winCountRed = null;
+                $countRed = null;
+                $dataRed = array();
+                $winCountBlue = null;
+                $countBlue = null;
+                $dataBlue = array();
 
-    $winCountRed = null;
-    $countRed = null;
-    $dataRed = array();
-    $winCountBlue = null;
-    $countBlue = null;
-    $dataBlue = array();
+                $counter = 0;
 
-    $counter = 0;
+                foreach ($dbh->query('SELECT * FROM '.$tableName) as $dbLine) {
+                    ++$counter;
 
-    foreach ($dbh->query('SELECT * FROM '.$tableName) as $dbLine) {
-        ++$counter;
+                    if ($dbLine['change'] == true) {
+                        if (($dbLine['player'] == 1 && $dbLine['car'] == 1)
+                            || ($dbLine['player'] == 2 && $dbLine['car'] == 2)
+                            || ($dbLine['player'] == 3 && $dbLine['car'] == 3)) {
+                            //Gewonnen
+                            ++$winCountRed;
+                        } else {
+                            //Verloren
+                        }
 
-        if ($dbLine['change'] == true) {
-            if ($dbLine['player'] == 1 && $dbLine['car'] == 1) {
-                //Verloren
-            } elseif ($dbLine['player'] == 2 && $dbLine['car'] == 2) {
-                //Verloren
-            } elseif ($dbLine['player'] == 3 && $dbLine['car'] == 3) {
-                //Verloren
-            } else {
-                //Gewonnen
-                ++$winCountRed;
-            }
+                        ++$countRed;
 
-            ++$countRed;
+                        array_push($dataRed, ['x' => $counter, 'y' => round($winCountRed / $countRed * 100) / 100]);
+                    } else {
+                        if (($dbLine['player'] == 1 && $dbLine['car'] == 1)
+                            || ($dbLine['player'] == 2 && $dbLine['car'] == 2)
+                            || ($dbLine['player'] == 3 && $dbLine['car'] == 3)) {
+                            //Gewonnen
+                            ++$winCountBlue;
+                        } else {
+                            //Verloren
+                        }
 
-            array_push($dataRed, ['x' => $counter, 'y' => round(100 / $countRed * $winCountRed) / 100]);
-        } else {
-            if ($dbLine['player'] == 1 && $dbLine['car'] == 1) {
-                //Gewonnen
-                ++$winCountBlue;
-            } elseif ($dbLine['player'] == 2 && $dbLine['car'] == 2) {
-                //Gewonnen
-                ++$winCountBlue;
-            } elseif ($dbLine['player'] == 3 && $dbLine['car'] == 3) {
-                //Gewonnen
-                ++$winCountBlue;
-            } else {
-                //Verloren
-            }
+                        ++$countBlue;
 
-            ++$countBlue;
+                        array_push($dataBlue, ['x' => $counter, 'y' => round($winCountBlue / $countBlue * 100) / 100]);
+                    }
+                }
 
-            array_push($dataBlue, ['x' => $counter, 'y' => round(100 / $countBlue * $winCountBlue) / 100]);
+                echo json_encode(array("rows" => $counter, "dataRed" => $dataRed, "dataBlue" => $dataBlue));
+                break;
         }
     }

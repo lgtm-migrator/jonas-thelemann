@@ -1,13 +1,17 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/packages/composer/autoload.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/text/markuplanguage.php';
 
     // Check if required parameters are given
-    if (!empty($_POST['dbhName']) && !empty($_POST['tableName']) && !empty($_POST['columnNames'])) {
+    if (!empty($_POST['tableName']) && !empty($_POST['columnNames'])) {
+
+        // Load .env file
+        load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
 
         // Get right PDO instance
-        $dbh = getDbh($_POST['dbhName']);
+        $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
 
         // Continue only if PDO instance was found
         if ($dbh) {
@@ -55,7 +59,7 @@
             if (isset($columns[0]) && $columns[0] == '*') {
 
                 // Get all column names of table
-                $columns = getColumnNames($dbh, $_POST['tableName']);
+                $columns = get_column_names($dbh, $_POST['tableName']);
 
                 foreach ($columns as $column) {
                     array_push($th, $column);
@@ -71,12 +75,12 @@
             }
 
             // Get table's row data for its body
-            $td = getRows($dbh, $_POST['tableName'], $columns, $limit, $offset, $order);
+            $td = get_rows($dbh, $_POST['tableName'], $columns, $limit, $offset, $order);
 
             // Get table's row count for pagination
-            $count = getRowCount($dbh, $_POST['tableName']);
+            $count = get_row_count($dbh, $_POST['tableName']);
 
-            echo getPaginationHTML($page, $count, $limit);
-            echo getTableHTML($th, $td, $classes);
+            echo get_pagination_html($page, $count, $limit);
+            echo get_table_html($th, $td, $classes);
         }
     }

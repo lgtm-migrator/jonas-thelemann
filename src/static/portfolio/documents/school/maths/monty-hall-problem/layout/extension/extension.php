@@ -2,16 +2,24 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
-    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
-
     if (isset($_POST['chosenDoor']) && isset($_POST['modDoor']) && isset($_POST['carDoor']) && isset($_POST['change'])) {
         $chosenDoor = filter_var($_POST['chosenDoor'], FILTER_SANITIZE_NUMBER_INT);
         $modDoor = filter_var($_POST['modDoor'], FILTER_SANITIZE_NUMBER_INT);
         $carDoor = filter_var($_POST['carDoor'], FILTER_SANITIZE_NUMBER_INT);
-        $change = filter_var(boolval($_POST['change']), FILTER_SANITIZE_STRING);
+        $change = filter_var($_POST['change'], FILTER_SANITIZE_STRING);
 
-        if (filter_var($chosenDoor, FILTER_VALIDATE_INT) && filter_var($modDoor, FILTER_VALIDATE_INT) && filter_var($carDoor, FILTER_VALIDATE_INT) && filter_var($change, FILTER_VALIDATE_BOOLEAN)) {
+        if (filter_var($chosenDoor, FILTER_VALIDATE_INT) && filter_var($modDoor, FILTER_VALIDATE_INT) && filter_var($carDoor, FILTER_VALIDATE_INT) && filter_var($change, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE) !== null) {
+
+            // Load .env file
+            load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
+
+            // Get database handle
             $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
+
+            // Initialize the required tables
+            foreach (array('surveys', 'monty_hall_problem') as $tableName) {
+                init_table($dbh, $tableName);
+            }
 
             // Insert the form values into the database
             $stmt = $dbh->prepare('INSERT INTO monty_hall_problem (player, moderator, car, change) VALUES (:player, :moderator, :car, :change)');

@@ -11,5 +11,5 @@ if (!isNumeric(page)) {
     page = 1;
 }
 
-insertDatabaseRankingsListHtml('server', 'banlist', 'ip', 10, 'top10');
-insertDatabaseTableHtml('server', 'banlist', '[{"ID":"id"},{"IP":"ip"},{"Zeit":"created"},{"Protokoll":"protocol"}]', '10', page, '[{"id":"ASC"}]', 'centered,responsive-table,striped', 'banlist');
+insertDatabaseRankingsListHtml('banlist', 'ip', 10, 'top10');
+insertDatabaseTableHtml('banlist', '[{"ID":"id"},{"IP":"ip"},{"Zeit":"created"},{"Protokoll":"protocol"}]', '10', page, '[{"id":"ASC"}]', 'centered,responsive-table,striped', 'banlist');
