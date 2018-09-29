@@ -534,8 +534,12 @@ pre[class*="language-"] {
 }
 
 // Slider
-.slider .slides li .caption {
-    background-color: rgba(0, 0, 0, .5);
+.slider {
+    z-index: 1;
+
+    .slides li .caption {
+        background-color: rgba(0, 0, 0, .5);
+    }
 }
 
 // Table of contents
