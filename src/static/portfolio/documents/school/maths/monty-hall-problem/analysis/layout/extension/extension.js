@@ -113,4 +113,4 @@ if (!isNumeric(page)) {
     page = 1;
 }
 
-insertDatabaseTableHtml('REDACTED', 'monty-hall-problem', '[{"Spieler":"player"},{"Moderator":"moderator"},{"Auto":"car"},{"Wechsel":"change"}]', '10', page, '[]', 'centered,responsive-table,striped', 'roundlist');
+Dargmuesli.Html.insertDatabaseTableHtml('monty_hall_problem', '[{"Spieler":"player"},{"Moderator":"moderator"},{"Auto":"car"},{"Wechsel":"change"}]', '10', page, '[]', 'centered,responsive-table,striped', 'roundlist');
