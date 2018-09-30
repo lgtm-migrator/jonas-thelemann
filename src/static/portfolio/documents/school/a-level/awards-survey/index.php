@@ -10,7 +10,13 @@
     $open = false;
 
     $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
-    $stmt = $dbh->prepare('SELECT riese FROM awards WHERE ip = :ip');
+
+    // Initialize the required tables
+    foreach (array('surveys', 'a_level_magazine_awards') as $tableName) {
+        init_table($dbh, $tableName);
+    }
+
+    $stmt = $dbh->prepare('SELECT riese FROM a_level_magazine_awards WHERE ip = :ip');
     $stmt->bindParam(':ip', $_SERVER['HTTP_X_REAL_IP']);
 
     if (!$stmt->execute()) {

@@ -24,12 +24,18 @@
             $qString .= ' UNION ';
         }
 
-        $qString .= 'SELECT '.$categoriesCode[$i].' AS name, (SELECT count(*) FROM alevel_mottoweek WHERE '.$categoriesCode[$i].' = true) AS anzahl';
+        $qString .= 'SELECT \''.$categoriesCode[$i].'\' AS name, (SELECT count(*) FROM a_level_mottoweek WHERE '.$categoriesCode[$i].' = true) AS anzahl';
     }
 
     $qString .= ' ORDER BY anzahl DESC';
 
     $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
+
+    // Initialize the required tables
+    foreach (array('surveys', 'a_level_mottoweek') as $tableName) {
+        init_table($dbh, $tableName);
+    }
+
     $stmt = $dbh->prepare($qString);
 
     if (!$stmt->execute()) {

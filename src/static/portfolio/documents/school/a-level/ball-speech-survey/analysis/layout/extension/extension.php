@@ -12,6 +12,11 @@
 
     $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
 
+    // Initialize the required tables
+    foreach (array('surveys', 'a_level_ball_speech') as $tableName) {
+        init_table($dbh, $tableName);
+    }
+
     function get_anonymized_names($names)
     {
         $anonymizedNames = preg_replace('/(\\B\\p{L})/Uu', '*', $names);
@@ -20,7 +25,7 @@
     }
 
     foreach ($candidates as $key => $value) {
-        $stmt = $dbh->prepare('SELECT count(*) FROM alevel_ball_speech WHERE chosenspeaker = :chosenspeaker');
+        $stmt = $dbh->prepare('SELECT count(*) FROM a_level_ball_speech WHERE chosenspeaker = :chosenspeaker');
         $stmt->bindParam(':chosenspeaker', $key);
 
         if (!$stmt->execute()) {

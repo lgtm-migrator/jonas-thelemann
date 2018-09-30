@@ -19,6 +19,11 @@
 
     $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
 
+    // Initialize the required tables
+    foreach (array('surveys', 'a_level_magazine_awards') as $tableName) {
+        init_table($dbh, $tableName);
+    }
+
     $skeletonDescription = 'Auswertung der Umfrage über Schüler- und Lehrerawards für die Abizeitung des Friedrichsgymnasiums in Kassel 2016';
     $skeletonFeatures = ['lcl/ext/css', 'lcl/ext/js'];
     $skeletonContent = '
@@ -30,7 +35,7 @@
 
     for ($i = 0; $i < count($categoriesCode); ++$i) {
         if ($i < 49) {
-            $stmt = $dbh->prepare('SELECT '.$categoriesCode[$i].', count(*) anzahl FROM (SELECT DISTINCT * FROM "alevel_magazine_awards") t WHERE '.$categoriesCode[$i].' <> \'\' GROUP BY '.$categoriesCode[$i].' ORDER BY anzahl DESC');
+            $stmt = $dbh->prepare('SELECT \''.$categoriesCode[$i].'\', count(*) anzahl FROM (SELECT DISTINCT * FROM "a_level_magazine_awards") t WHERE '.$categoriesCode[$i].' <> \'\' GROUP BY '.$categoriesCode[$i].' ORDER BY anzahl DESC');
 
             if (!$stmt->execute()) {
                 throw new PDOException($stmt->errorInfo()[2]);
@@ -66,7 +71,7 @@
 
     for ($i = 0; $i < count($categoriesCode); ++$i) {
         if ($i > 48 && $i < 74) {
-            $stmt = $dbh->prepare('SELECT '.$categoriesCode[$i].', count(*) anzahl FROM (SELECT DISTINCT * FROM "alevel_magazine_awards") t WHERE '.$categoriesCode[$i].' <> \'\' GROUP BY '.$categoriesCode[$i].' ORDER BY anzahl DESC');
+            $stmt = $dbh->prepare('SELECT \''.$categoriesCode[$i].'\', count(*) anzahl FROM (SELECT DISTINCT * FROM "a_level_magazine_awards") t WHERE '.$categoriesCode[$i].' <> \'\' GROUP BY '.$categoriesCode[$i].' ORDER BY anzahl DESC');
 
             if (!$stmt->execute()) {
                 throw new PDOException($stmt->errorInfo()[2]);

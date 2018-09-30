@@ -56,7 +56,12 @@
         global $finished;
         global $dbh;
 
-        $rowForCurrentIp = get_row_for_current_ip($dbh, 'alevel-ball-speech');
+        // Initialize the required tables
+        foreach (array('surveys', 'a_level_ball_speech') as $tableName) {
+            init_table($dbh, $tableName);
+        }
+
+        $rowForCurrentIp = get_row_for_current_ip($dbh, 'a_level_ball_speech');
         $statusHtml = '';
 
         if ($finished) {
