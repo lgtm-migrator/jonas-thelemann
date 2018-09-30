@@ -49,8 +49,9 @@
                         ]
                     },
                     "volumes": [
-                        "./src/static/migrations/randomwinpicker.de/dist/randomwinpicker.de:/var/www/randomwinpicker.de",
-                        "./src/static/migrations/randomwinpicker.de/docker/randomwinpicker.de/certificates:/etc/ssl/certificates"
+                        "./docker/jonas-thelemann.de/certificates/jonas-thelemann.de.crt:/etc/ssl/certificates/randomwinpicker.de.crt",
+                        "./docker/jonas-thelemann.de/certificates/jonas-thelemann.de.key:/etc/ssl/certificates/randomwinpicker.de.key",
+                        "./src/static/migrations/randomwinpicker.de/dist/randomwinpicker.de:/var/www/randomwinpicker.de"
                     ]
                 },
                 "postgres": {

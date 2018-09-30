@@ -10,7 +10,7 @@ services:
       - "traefik.port=8080"
     volumes:
     - "./adminer/adminer.css:/var/www/html/adminer.css"
-  apache:
+  jonas-thelemann-de:
     image: "dargmuesli/jonas-thelemann.de:${STACK_VERSION}"
     deploy:
       labels:
@@ -25,8 +25,20 @@ services:
       restart_policy:
         condition: "on-failure"
     volumes:
+    - "./jonas-thelemann.de/credentials:/var/www/jonas-thelemann.de/credentials"
     - "acme-data:/etc/ssl/certificates"
-    - "./credentials:/var/www/jonas-thelemann.de/credentials"
+  randomwinpicker-de:
+    image: "dargmuesli/randomwinpicker.de"
+    deploy:
+      labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:jonas-thelemann.test,www.jonas-thelemann.test;PathPrefixStrip:/migrations/randomwinpicker.de/"
+      - "traefik.port=443"
+      - "traefik.protocol=https"
+    volumes:
+    - "./randomwinpicker.de/credentials:/var/www/randomwinpicker.de/credentials"
+    - "acme-data/jonas-thelemann.de.crt:/etc/ssl/certificates/randomwinpicker.de.crt"
+    - "acme-data/jonas-thelemann.de.key:/etc/ssl/certificates/randomwinpicker.de.key"
   certdumper:
     image: "alpine:latest"
     command: >
