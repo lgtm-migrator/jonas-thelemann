@@ -46,7 +46,7 @@ const funcFolder = srcFolder + 'js/';
 const styleFolder = srcFolder + 'css/sass/style/';
 const sassFile = srcFolder + 'css/sass/style/style.scss';
 
-const credentialsSrcGlob = productionFolder + 'credentials/**';
+const credentialsSrcGlob = productionFolder + pkg.name + '/credentials/**';
 const staticGlob = staticFolder + '**';
 const composerSrcGlob = 'vendor/**';
 const zipSrcGlob = distFolder + '**';
