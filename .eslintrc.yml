@@ -9,7 +9,7 @@ globals:
   Cookies: false
   dragula: false
   later: false
-  Materialize: false
+  M: false
   moment: false
   Prism: false
 parserOptions:

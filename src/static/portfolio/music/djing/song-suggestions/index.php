@@ -18,18 +18,18 @@
             <form action="layout/extension/extension.php" class="col row s12" id="songform" method="post">
                 <div class="col l2 m3 radio-input-field s12">
                     <fieldset>
-                        <div>
+                        <label>
                             <input checked class="with-gap" data-error="#album-group-error" id="single" name="album-group" required type="radio" value="single">
-                            <label for="single">
+                            <span>
                                 Single
-                            </label>
-                        </div>
-                        <div>
+                            </span>
+                        </label>
+                        <label>
                             <input class="with-gap" data-error="#album-group-error" id="album" name="album-group" required type="radio" value="album">
-                            <label for="album">
+                            <span>
                                 Album
-                            </label>
-                        </div>
+                            </span>
+                        </label>
                         <div class="form-error" id="album-group-error">
                         </div>
                     </fieldset>

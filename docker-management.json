@@ -6,7 +6,7 @@
         "Port": "5000"
     },
     "ComposeFile": {
-        "Name": "docker-compose.yml",
+        "Name": "stack.yml",
         "Content": {
             "version": "3.6",
             "services": {
@@ -14,7 +14,6 @@
                     "image": "adminer",
                     "deploy": {
                         "labels": [
-                            "traefik.backend=adminer",
                             "traefik.enable=true",
                             "traefik.frontend.rule=Host:adminer.jonas-thelemann.test",
                             "traefik.port=8080"
@@ -24,36 +23,48 @@
                         "./production/adminer/adminer.css:/var/www/html/adminer.css"
                     ]
                 },
-                "apache": {
+                "jonas-thelemann-de": {
                     "image": "localhost:5000/dargmuesli/jonas-thelemann.de",
                     "deploy": {
                         "labels": [
-                            "traefik.backend=apache",
                             "traefik.enable=true",
                             "traefik.frontend.rule=Host:jonas-thelemann.test,www.jonas-thelemann.test",
                             "traefik.port=443",
                             "traefik.protocol=https"
-                        ],
-                        "restart_policy": {
-                            "condition": "on-failure"
-                        }
+                        ]
                     },
                     "volumes": [
                         "./dist/jonas-thelemann.de:/var/www/jonas-thelemann.de",
-                        "./docker/jonas-thelemann.de/certs:/etc/ssl/certs"
+                        "./docker/jonas-thelemann.de/certificates:/etc/ssl/certificates"
+                    ]
+                },
+                "randomwinpicker-de": {
+                    "image": "localhost:5000/dargmuesli/randomwinpicker.de",
+                    "deploy": {
+                        "labels": [
+                            "traefik.enable=true",
+                            "traefik.frontend.rule=Host:jonas-thelemann.test,www.jonas-thelemann.test;PathPrefixStrip:/migrations/randomwinpicker.de/",
+                            "traefik.port=443",
+                            "traefik.protocol=https"
+                        ]
+                    },
+                    "volumes": [
+                        "./docker/jonas-thelemann.de/certificates/jonas-thelemann.de.crt:/etc/ssl/certificates/randomwinpicker.de.crt",
+                        "./docker/jonas-thelemann.de/certificates/jonas-thelemann.de.key:/etc/ssl/certificates/randomwinpicker.de.key",
+                        "./src/static/migrations/randomwinpicker.de/dist/randomwinpicker.de:/var/www/randomwinpicker.de"
                     ]
                 },
                 "postgres": {
                     "image": "postgres",
                     "environment": {
-                        "POSTGRES_DB_FILE": "/run/secrets/jtde_postgres_db",
-                        "POSTGRES_PASSWORD_FILE": "/run/secrets/jtde_postgres_password",
-                        "POSTGRES_USER_FILE": "/run/secrets/jtde_postgres_user"
+                        "POSTGRES_DB_FILE": "/run/secrets/postgres_db",
+                        "POSTGRES_PASSWORD_FILE": "/run/secrets/postgres_password",
+                        "POSTGRES_USER_FILE": "/run/secrets/postgres_user"
                     },
                     "secrets": [
-                        "jtde_postgres_db",
-                        "jtde_postgres_password",
-                        "jtde_postgres_user"
+                        "postgres_db",
+                        "postgres_password",
+                        "postgres_user"
                     ],
                     "volumes": [
                         "postgres-data:/var/lib/postgresql/data"
@@ -77,7 +88,6 @@
                     ],
                     "deploy": {
                         "labels": [
-                            "traefik.backend=traefik",
                             "traefik.docker.network=jonas-thelemann-de_default",
                             "traefik.enable=true",
                             "traefik.frontend.rule=Host:traefik.jonas-thelemann.test",
@@ -98,24 +108,24 @@
                         "--docker.exposedByDefault=false",
                         "--docker.swarmMode=true",
                         "--entryPoints=Name:http Address::80 Redirect.EntryPoint:https",
-                        "--entryPoints=Name:https Address::443 TLS:/etc/ssl/certs/jonas-thelemann.de.crt,/etc/ssl/certs/jonas-thelemann.de.key Compress:true",
+                        "--entryPoints=Name:https Address::443 TLS:/etc/ssl/certificates/jonas-thelemann.de.crt,/etc/ssl/certificates/jonas-thelemann.de.key Compress:true",
                         "--insecureSkipVerify=true"
                     ],
                     "volumes": [
                         "/var/run/docker.sock:/var/run/docker.sock",
-                        "./docker/jonas-thelemann.de/certs:/etc/ssl/certs"
+                        "./docker/jonas-thelemann.de/certificates:/etc/ssl/certificates"
                     ]
                 }
             },
             "secrets": {
-                "jtde_postgres_db": {
-                    "external": true
+                "postgres_db": {
+                    "file": "./docker/secrets/postgres_db"
                 },
-                "jtde_postgres_password": {
-                    "external": true
+                "postgres_password": {
+                    "file": "./docker/secrets/postgres_password"
                 },
-                "jtde_postgres_user": {
-                    "external": true
+                "postgres_user": {
+                    "file": "./docker/secrets/postgres_user"
                 }
             },
             "volumes": {

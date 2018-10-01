@@ -2,6 +2,8 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
+
     // echo json_encode(get_anonymized_names(array_keys($candidates)));
     // echo json_encode(get_anonymized_names(array_values($candidates)));
 
@@ -9,6 +11,11 @@
     $candidateNames = ['Elisabeth Schwab', 'Jonas Thelemann', 'Rosa Freytag', 'Niemand'];
 
     $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
+
+    // Initialize the required tables
+    foreach (array('surveys', 'a_level_ball_speech') as $tableName) {
+        init_table($dbh, $tableName);
+    }
 
     function get_anonymized_names($names)
     {
@@ -18,7 +25,7 @@
     }
 
     foreach ($candidates as $key => $value) {
-        $stmt = $dbh->prepare('SELECT count(*) FROM alevel_ball_speech WHERE chosenspeaker = :chosenspeaker');
+        $stmt = $dbh->prepare('SELECT count(*) FROM a_level_ball_speech WHERE chosenspeaker = :chosenspeaker');
         $stmt->bindParam(':chosenspeaker', $key);
 
         if (!$stmt->execute()) {

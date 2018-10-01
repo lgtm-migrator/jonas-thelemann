@@ -96,7 +96,5 @@
             ['https://www.youtube.com/embed/VQWKFfeImHQ' => 'SUPER MARIO RUN | Lele Pons, Rudy Mancuso & Juanpa Zurita'],
             ['https://www.youtube.com/embed/TPXWZxtDooY' => 'DMX - Rudolph The Red Nosed Reindeer'],
             ['https://www.youtube.com/embed/f9l92_fePPA' => 'Christmas Car Ride with Motoki']
-			
-			
         ]
     ];

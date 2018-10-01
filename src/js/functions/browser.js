@@ -1,34 +1,46 @@
 import { setupCardClosers } from './cards.js';
 import { nodeExists } from './prototyping.js';
-import { destroyPushPin, setUpPushPin, setUpScrollSpy, setUpSideNav } from './setup.js';
+import { /*destroyPushPin,*/ setUpPushPin, setUpScrollSpy, setUpSidenav } from './setup.js';
 
 $(document).ready(function () {
-    Materialize.updateTextFields();
-    $('select').material_select();
+    M.updateTextFields();
 
-    if (window.location.hash != '' && window.location.hash != '#!') {
-        $(window.location.hash + ' .collapsible-header').addClass('active');
-        $('#toc-mobile').find('a[href="' + window.location.hash + '"]').addClass('active');
-        $('.collapsible').collapsible();
+    // Open collapsible by hash id
+    if (window.location.hash.match(/^#[a-z-_]+$/)) {
+        let hashElement = document.querySelector(window.location.hash);
+
+        if (hashElement) {
+            let instance = M.Collapsible.getInstance(hashElement.parentNode);
+
+            if (instance) {
+                instance.open(Array.prototype.indexOf.call(hashElement.parentNode.children, hashElement));
+                $('#toc-mobile').find('a[href="' + window.location.hash + '"]').addClass('active');
+            }
+        }
     }
 
     setUpPushPin('navigation');
-    setUpPushPin('table of contents');
-    setUpSideNav('menu');
-    setUpSideNav('table of contents');
+    setUpPushPin('toc');
+    setUpSidenav('menu');
+    setUpSidenav('toc');
     setUpScrollSpy('scrollspy');
 
     setupCardClosers();
 });
 
-$(window).on('hashchange', offsetAnchor);
+window.addEventListener('hashchange', offsetAnchor);
 
-$(window).resize(function () {
-    destroyPushPin('navigation');
-    destroyPushPin('table of contents');
+window.addEventListener('resize', function () {
+    // https://github.com/Dogfalo/materialize/issues/6135
+    // destroyPushPin('navigation');
+    // destroyPushPin('toc');
+
+    // Update slide out time
+    setUpSidenav('menu');
+    setUpSidenav('toc');
 
     setUpPushPin('navigation');
-    setUpPushPin('table of contents');
+    setUpPushPin('toc');
 });
 
 window.onpopstate = function (e) {
@@ -41,7 +53,7 @@ window.onpopstate = function (e) {
 window.setTimeout(offsetAnchor, 1);
 
 export function offsetAnchor() {
-    if (window.location.hash != '' && window.location.hash != '#!') {
+    if (window.location.hash.match(/^#[a-z-_]+$/)) {
         var hashElement = document.querySelector(window.location.hash);
 
         if (nodeExists(hashElement)) {

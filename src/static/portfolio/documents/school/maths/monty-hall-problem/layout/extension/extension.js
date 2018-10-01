@@ -136,10 +136,12 @@ function chooseDoor(choice) {
                             instructionTextElement.innerHTML = 'Hinter zwei Türen befinden sich Ziegen, nur hinter einer ein Auto.<br>Wähle die Tür, hinter der du das Auto vermutest! ';
 
                             toggleClickable(true);
+                        } else {
+                            alert("Die Spielstatistiken konnten nicht gespeichert werden.");
                         }
                     }
                 };
-                xhttp.open('POST', 'layout/extension/save.php', true);
+                xhttp.open('POST', 'layout/extension/extension.php', true);
                 xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhttp.send('chosenDoor=' + getDoorNumber(chosenDoor.id) + '&modDoor=' + getDoorNumber(modDoor.id) + '&carDoor=' + getDoorNumber(carDoor.id) + '&change=' + change);
             }, 2000);

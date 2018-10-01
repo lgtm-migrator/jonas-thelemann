@@ -6,7 +6,7 @@ var image = new Image();
 var imageloaded = false;
 var domcontentloaded = false;
 
-window.addEventListener('keydown', preventScrolling, false);
+window.addEventListener('keydown', preventScrolling);
 
 function preventScrolling(e) {
     if ([32, 33, 34, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {

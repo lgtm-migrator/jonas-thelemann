@@ -2,6 +2,8 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
 
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
+
     if (isset($_POST['chosen'])) {
         $open = false;
 
@@ -54,7 +56,12 @@
         global $finished;
         global $dbh;
 
-        $rowForCurrentIp = get_row_for_current_ip($dbh, 'alevel-ball-speech');
+        // Initialize the required tables
+        foreach (array('surveys', 'a_level_ball_speech') as $tableName) {
+            init_table($dbh, $tableName);
+        }
+
+        $rowForCurrentIp = get_row_for_current_ip($dbh, 'a_level_ball_speech');
         $statusHtml = '';
 
         if ($finished) {

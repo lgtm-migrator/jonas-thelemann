@@ -56,15 +56,9 @@
                             video_library
                         </i>
                         <select id="time" name="time">
-                            <option value="" disabled selected>
-                                Bitte wählen ...
-                            </option>
-                            <option value="1">
-                                Vormittag
-                            </option>
-                            <option id="time2" value="2">
-                                Nachmittag
-                            </option>
+                            <option value="" disabled selected>Bitte wählen ...</option>
+                            <option value="1">Vormittag</option>
+                            <option id="time2" value="2">Nachmittag</option>
                         </select>
                         <label>
                             Zeit

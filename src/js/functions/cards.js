@@ -7,7 +7,6 @@ import { destroyPushPin, setUpPushPin } from './setup.js';
 /**
  * Lets cards disappear.
  *
- *
  * @param {*} cardToClose - The card to close.
  */
 export function closeCard(cardToClose) {
@@ -29,7 +28,7 @@ export function closeCard(cardToClose) {
                 setUpPushPin('navigation');
             });
         }
-    }, false);
+    });
 
     // Set opacity to 0
     cardToClose.classList.add('invisible');
@@ -78,8 +77,8 @@ export function setupCardClosers() {
     for (var i = 0, ccbl = cardCloseButtons.length; i < ccbl; i++) {
         (function (i) {
             cardCloseButtons[i].addEventListener('click', function () {
-                closeCard(cardCloseButtons[i].parentElement.parentElement);
-            }, false);
+                closeCard(cardCloseButtons[i].parentElement.parentElement.parentElement);
+            });
         }(i));
     }
 }

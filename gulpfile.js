@@ -46,7 +46,7 @@ const funcFolder = srcFolder + 'js/';
 const styleFolder = srcFolder + 'css/sass/style/';
 const sassFile = srcFolder + 'css/sass/style/style.scss';
 
-const credentialsSrcGlob = productionFolder + 'credentials/**';
+const credentialsSrcGlob = productionFolder + pkg.name + '/credentials/**';
 const staticGlob = staticFolder + '**';
 const composerSrcGlob = 'vendor/**';
 const zipSrcGlob = distFolder + '**';
@@ -223,7 +223,7 @@ exports.jsLint = jsLint;
 function jsSrc() {
     return gGulp.src(funcFolder + 'functions.js', { read: false })
         .pipe(gTap(function (file) {
-            file.contents = gBrowserify(file.path, { debug: true }).transform('babelify', { presets: ['@babel/preset-env'] }).bundle();
+            file.contents = gBrowserify(file.path, { debug: true, standalone: 'Dargmuesli' }).transform('babelify', { presets: ['@babel/preset-env'] }).bundle();
         }))
         .pipe(gBuffer())
         .pipe(gGulp.dest(baseFolder))

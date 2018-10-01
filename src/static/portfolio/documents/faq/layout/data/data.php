@@ -1,6 +1,22 @@
 <?php
-    $birthDate = explode('/', 'REDACTED');
-    $age = (date('md', date('U', mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date('md') ? ((date('Y') - $birthDate[2]) - 1) : (date('Y') - $birthDate[2]));
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/database/pdo.php';
+    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/filesystem/environment.php';
+
+    // Load .env file
+    load_env_file($_SERVER['SERVER_ROOT'].'/credentials');
+
+    // Get database handle
+    $dbh = get_dbh($_ENV['PGSQL_DATABASE']);
+
+    // Initialize the required table
+    init_table($dbh, 'private_data');
+
+    $age = 'Es fehlen Daten in der Datenbank';
+
+    if ($birthDate = $dbh->query('SELECT value FROM private_data WHERE key = \'birthdate\'')->fetch()[0]) {
+        $birthDate = explode('.', $birthDate);
+        $age = (date('md', date('U', mktime(0, 0, 0, $birthDate[1], $birthDate[0], $birthDate[2]))) > date('md') ? ((date('Y') - $birthDate[2]) - 1) : (date('Y') - $birthDate[2]));
+    }
 
     $faq = [
         'compensation' => [
@@ -11,8 +27,8 @@
                 Mit dem Antreffen meiner Persönlichkeit akzeptieren Sie deshalb ab dem 25.06.16 die APB (allgemeine Preisbestimmungen).
                 <br>
                 Entnehmen Sie die Antwort auf obige Frage bitte der folgenden Liste.
-                Die Preise orientieren sich am ständig variierenden Grad der durch sie bei mir entstehenden Übelkeit.
-                Also Achtung, sie wird bei Bedarf aktualisiert!
+                Die Preise orientieren sich am ständig variierenden Grad des durch sie bei mir entstehenden Unwohlseins.
+                Also Achtung, sie wird bei Bedarf aktualisiert.
             </p>
             <table>
                 <thead>
@@ -21,19 +37,11 @@
                             Frage / Aussage
                         </th>
                         <th>
-                            Vergütung
+                            Preis
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <s>"Und was machst du so nach dem Abi?" / "Wann kümmerst du dich um deine berufliche Zukunft?"</s>
-                        </td>
-                        <td>
-                            <s>20€</s>
-                        </td>
-                    </tr>
                     <tr>
                         <td>
                             "Jonathan"

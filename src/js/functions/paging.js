@@ -1,7 +1,7 @@
 import { getQueryArray, getWithoutQueryString } from './prototyping.js';
 import { addPreloaderHtml, insertDatabaseTableHtml } from './html.js';
 
-export function addPageButtonListeners(dbh, name, columns, limit, order, classes, id) {
+export function addPageButtonListeners(name, columns, limit, order, classes, id) {
     var pageButtons = document.querySelectorAll('.pagination button');
 
     for (var i = 0; i < pageButtons.length; i++) {
@@ -9,13 +9,13 @@ export function addPageButtonListeners(dbh, name, columns, limit, order, classes
             var pageButton = pageButtons[i];
 
             pageButton.addEventListener('click', function () {
-                redirectToPage(dbh, name, columns, limit, pageButton.dataset.page, order, classes, id);
+                redirectToPage(name, columns, limit, pageButton.dataset.page, order, classes, id);
             });
         }());
     }
 }
 
-export function redirectToPage(dbh, name, columns, limit, nextPage, order, classes, id) {
+export function redirectToPage(name, columns, limit, nextPage, order, classes, id) {
     var queryArray = getQueryArray(window.location.href);
     var queryStringNew = '';
 
@@ -40,6 +40,6 @@ export function redirectToPage(dbh, name, columns, limit, nextPage, order, class
         }
     });
 
-    insertDatabaseTableHtml(dbh, name, columns, limit, nextPage, order, classes, id);
+    insertDatabaseTableHtml(name, columns, limit, nextPage, order, classes, id);
     window.history.replaceState(queryStringNew, document.title, getWithoutQueryString(window.location.href) + queryStringNew);
 }
