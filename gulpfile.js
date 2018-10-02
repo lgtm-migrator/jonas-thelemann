@@ -14,7 +14,7 @@ const gDateDiff = require('date-diff');
 const gDel = require('del');
 const gEslint = require('gulp-eslint');
 const gGulp = require('gulp');
-const gJsdoc2md = require('jsdoc-to-markdown');
+const gJsdoc2md = require('gulp-jsdoc-to-markdown');
 const gMergeStream = require('merge-stream');
 const gPhplint = require('gulp-phplint');
 const gPluginError = require('plugin-error');
@@ -247,8 +247,12 @@ function jsSrc_watch() {
 exports.jsSrc_watch = jsSrc_watch;
 
 function jsDoc() {
-    return gJsdoc2md.render({ files: funcFolder + '*.js' })
-        .then(output => fs.writeFile('docs/js/functions.md', output, (error) => { console.log(error); }));
+    return gGulp.src(srcJsFolder + '**/*.js')
+        .pipe(gJsdoc2md())
+        .pipe(gRename(function (path) {
+            path.extname = '.md'
+        }))
+        .pipe(gGulp.dest('docs/js/'));
 }
 
 exports.jsDoc = jsDoc;
