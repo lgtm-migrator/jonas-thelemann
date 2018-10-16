@@ -56,6 +56,10 @@ let buildInProgress = false;
 gGulp.src = gVfs.src;
 gGulp.dest = gVfs.dest;
 
+let sitemapExcludes = [
+    '!' + srcStaticFolder + 'tools/**/index.php'
+];
+
 let yarnArray = [
     {
         source: 'node_modules/chart.js/dist/Chart{.min,}.js',
@@ -314,7 +318,7 @@ function sitemap() {
 
     fs.writeFile(sitemapPath, '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', (error) => { if (error) throw error; });
 
-    return gGulp.src(srcStaticFolder + '**/index.php')
+    return gGulp.src([srcStaticFolder + '**/index.php'].concat(sitemapExcludes))
         .pipe(
             gThrough.obj(function (file, enc, cb) {
                 if (!fs.existsSync(file.dirname + '/.hidden') && file.dirname.indexOf('migrations') == -1) {
