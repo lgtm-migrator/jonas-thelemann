@@ -6,9 +6,18 @@
     error_reporting(E_ALL);
 
     $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
+    $simpleLogging = strrchr($_SERVER['SERVER_NAME'], '.') == '.test' ? false : true;
+
     $_SERVER['SERVER_ROOT'] = dirname($_SERVER['DOCUMENT_ROOT']);
     $_SERVER['SERVER_ROOT_URL'] = $protocol.$_SERVER['HTTP_HOST'];
-    $simpleLogging = strrchr($_SERVER['SERVER_NAME'], '.') == '.test' ? false : true;
+
+    if (substr($_SERVER['SERVER_ROOT_URL'], -1) != '/') {
+        $_SERVER['SERVER_ROOT_URL'] .= '/';
+    }
+
+    if (array_key_exists('HTTP_X_FORWARDED_PREFIX', $_SERVER)) {
+        $_SERVER['SERVER_ROOT_URL'] .= $_SERVER['HTTP_X_FORWARDED_PREFIX'];
+    }
 
     function error_handler($errorLevel, $errorMessage, $errorFile, $errorLine, $errorContext)
     {
@@ -46,6 +55,8 @@
     function exception_handler(Exception $exception)
     {
         global $simpleLogging;
+
+        http_response_code(500);
 
         $errorOutput = $exception->getMessage();
 
