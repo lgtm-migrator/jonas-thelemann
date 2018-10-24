@@ -131,8 +131,8 @@ function composerWatch() {
     // Watch for any changes in composer files to copy changes
     gGulp.watch([vendorGlob, 'composer.json'])
         .on('all', function () {
-            composer_update();
-            composer_src();
+            composerUpdate();
+            composerSrc();
         });
 }
 
@@ -191,8 +191,8 @@ function cssSrcWatch() {
     // Watch for any changes in source files to copy changes
     gGulp.watch(srcCssSassStyle)
         .on('all', function () {
-            css_compressed();
-            css_extended();
+            cssCompressed();
+            cssExtended();
         });
 }
 
@@ -274,7 +274,7 @@ function jsSrcWatch() {
     // Watch for any changes in source files to copy changes
     gGulp.watch(srcJsFolder)
         .on('all', function () {
-            js_src();
+            jsSrc();
         });
 }
 
@@ -443,8 +443,8 @@ function yarnWatch() {
     // Watch for any changes in yarn files to copy changes
     gGulp.watch(['package.json'])
         .on('all', function () {
-            yarn_update();
-            yarn_src();
+            yarnUpdate();
+            yarnSrc();
         });
 }
 
