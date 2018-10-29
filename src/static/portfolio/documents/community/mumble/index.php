@@ -19,7 +19,7 @@
                     </p>
                 </div>
                 <div class="card-action">
-                    <a href="https://discordapp.com/" target="_blank">
+                    <a href="https://discordapp.com/" rel="noopener" target="_blank">
                         discordapp.com
                     </a>
                 </div>

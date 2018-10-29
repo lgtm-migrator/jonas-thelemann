@@ -211,12 +211,12 @@
                                     Accounts
                                 </h5>
                                 <div>
-                                    <a class="grey-text text-lighten-3" href="https://github.com/Dargmuesli" itemprop="url" target="_blank" title="Github">
+                                    <a class="grey-text text-lighten-3" href="https://github.com/Dargmuesli" itemprop="url" rel="noopener" target="_blank" title="Github">
                                         Github
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="grey-text text-lighten-3" href="https://www.youtube.com/channel/UCmIrzQsJeEM5eW6KOAk9nSg" itemprop="url" target="_blank" title="YouTube">
+                                    <a class="grey-text text-lighten-3" href="https://www.youtube.com/channel/UCmIrzQsJeEM5eW6KOAk9nSg" itemprop="url" rel="noopener" target="_blank" title="YouTube">
                                         YouTube
                                     </a>
                                 </div>

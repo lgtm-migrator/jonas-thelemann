@@ -46,7 +46,7 @@
                         </span>
                     </div>
                     <div class="card-action">
-                        <a href="https://de.wikipedia.org/wiki/Ziegenproblem" target="_blank">
+                        <a href="https://de.wikipedia.org/wiki/Ziegenproblem" rel="noopener" target="_blank">
                             wikipedia.org
                         </a>
                     </div>
@@ -60,7 +60,7 @@
                         </span>
                     </div>
                     <div class="card-action">
-                        <a href="https://www.random.org/" target="_blank">
+                        <a href="https://www.random.org/" rel="noopener" target="_blank">
                             random.org
                         </a>
                     </div>

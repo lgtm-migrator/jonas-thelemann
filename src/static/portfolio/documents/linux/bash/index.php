@@ -15,7 +15,7 @@
             Im Benutzerordner befindet sich unter Ubuntu die <code class="language-markup">.bash_aliases</code>-Datei.
             In ihr lassen sich zeilenweise Abkürzungen oder Alternativschreibweisen für Kommandozeilenbefehle definieren.
             Im Folgenden zeige und erkläre ich die Aliasse.
-            Weitere Informationen findet man bei den <a href="https://wiki.ubuntuusers.de/alias/" target="_blank" title="Alias">UbuntuUsers</a>.
+            Weitere Informationen findet man bei den <a href="https://wiki.ubuntuusers.de/alias/" rel="noopener" target="_blank" title="Alias">UbuntuUsers</a>.
         </p>
         <section>
             <h3>

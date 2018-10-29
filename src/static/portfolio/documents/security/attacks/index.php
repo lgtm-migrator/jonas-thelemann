@@ -12,11 +12,11 @@
             Fail2Ban
         </h2>
         <p>
-            Nachdem ich meinen Server Anfang November 2016 neu aufgesetzt habe und den Firewall-Hilfsdienst <a href="http://www.fail2ban.org/" target="_blank" title="fail2ban.org">Fail2Ban</a> eingerichtet habe, wurde mir relativ schnell bewusst, dass sich die Existenz meines kleinen Servers im Netz schon ziemlich weit herumgesprochen haben muss.
+            Nachdem ich meinen Server Anfang November 2016 neu aufgesetzt habe und den Firewall-Hilfsdienst <a href="http://www.fail2ban.org/" rel="noopener" target="_blank" title="fail2ban.org">Fail2Ban</a> eingerichtet habe, wurde mir relativ schnell bewusst, dass sich die Existenz meines kleinen Servers im Netz schon ziemlich weit herumgesprochen haben muss.
             Ich stellte fest, dass täglich von zwei bis drei IP-Adressen versucht wurde, eine Anmeldung unter dem Benutzernamen "root" durchzuführen.
             Problem A) für die Angreifer: Dieser Benutzer existiert nicht.
             Problem B) die angreifenden IP-Adressen wurden nach 5 Versuchen für 15 Minuten blockiert.
-            Die ersten von mir bemerkten Angriffsversuche versuchten alle per <a href="https://de.wikipedia.org/wiki/Brute-Force-Methode" target="_blank" title="Brute-Force-Methode">Brute-Force</a> auf den SSH-Port Zugang auf meinen Server zu erlangen.
+            Die ersten von mir bemerkten Angriffsversuche versuchten alle per <a href="https://de.wikipedia.org/wiki/Brute-Force-Methode" rel="noopener" target="_blank" title="Brute-Force-Methode">Brute-Force</a> auf den SSH-Port Zugang auf meinen Server zu erlangen.
         </p>
         <p>
             Mein Fazit war, die Ban-Regeln zu verschärfen, sodass potentielle Angreifer nun statt 15 Minuten 30 Minuten blockiert werden und davor nur noch 3 Anmeldeversuche zugelassen werden.
