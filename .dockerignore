@@ -1,3 +1,4 @@
+/src/static/migrations/
 .vscode
 dist
 node_modules
