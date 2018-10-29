@@ -57,6 +57,7 @@
                 "postgres": {
                     "image": "postgres",
                     "environment": {
+                        "POSTGRES_ADDITIONAL_DBS": "randomwinpicker.de",
                         "POSTGRES_DB_FILE": "/run/secrets/postgres_db",
                         "POSTGRES_PASSWORD_FILE": "/run/secrets/postgres_password",
                         "POSTGRES_USER_FILE": "/run/secrets/postgres_user"
@@ -67,7 +68,8 @@
                         "postgres_user"
                     ],
                     "volumes": [
-                        "postgres-data:/var/lib/postgresql/data"
+                        "postgres-data:/var/lib/postgresql/data",
+                        "./production/postgres/docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/"
                     ]
                 },
                 "traefik": {
