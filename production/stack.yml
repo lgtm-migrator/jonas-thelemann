@@ -35,6 +35,8 @@ services:
       - "traefik.frontend.rule=Host:${STACK_DOMAIN},www.${STACK_DOMAIN};PathPrefixStrip:/migrations/randomwinpicker.de/"
       - "traefik.port=443"
       - "traefik.protocol=https"
+    environment:
+      BASE_URL: "/migrations/randomwinpicker.de/"
     volumes:
     - "./randomwinpicker.de/credentials:/var/www/randomwinpicker.de/credentials"
     - "acme-data:/etc/ssl/certificates"

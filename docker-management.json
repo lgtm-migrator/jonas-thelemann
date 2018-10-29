@@ -48,6 +48,9 @@
                             "traefik.protocol=https"
                         ]
                     },
+                    "environment": {
+                        "BASE_URL": "/migrations/randomwinpicker.de/"
+                    },
                     "volumes": [
                         "./docker/jonas-thelemann.de/certificates/jonas-thelemann.de.crt:/etc/ssl/certificates/randomwinpicker.de.crt",
                         "./docker/jonas-thelemann.de/certificates/jonas-thelemann.de.key:/etc/ssl/certificates/randomwinpicker.de.key",
