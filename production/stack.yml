@@ -28,7 +28,7 @@ services:
     - "./${STACK_DOMAIN}/credentials:/var/www/${STACK_DOMAIN}/credentials"
     - "acme-data:/etc/ssl/certificates"
   randomwinpicker-de:
-    image: "dargmuesli/randomwinpicker.de:latest"
+    image: "dargmuesli/randomwinpicker.de:2.0.1"
     deploy:
       labels:
       - "traefik.enable=true"
@@ -41,7 +41,7 @@ services:
     - "./randomwinpicker.de/credentials:/var/www/randomwinpicker.de/credentials"
     - "acme-data:/etc/ssl/certificates"
   certdumper:
-    image: "alpine:latest"
+    image: "alpine"
     command: >
       ash -c " \
         apk --no-cache add inotify-tools jq openssl util-linux bash && \
