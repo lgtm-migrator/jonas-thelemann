@@ -417,7 +417,7 @@ function yarnSrc(callback) {
         yarnArray.forEach(element => {
             streamArray.push(
                 gGulp.src(element.source)
-                    .pipe(gGulp.dest(distServResPackYarnFolder + element.target)),
+                    .pipe(gGulp.dest(distServResPackYarnFolder + element.target))
             );
         });
     }
