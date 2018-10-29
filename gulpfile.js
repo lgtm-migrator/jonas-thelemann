@@ -235,7 +235,7 @@ function jsDoc() {
     return gGulp.src(srcJsFolder + '**/*.js')
         .pipe(gJsdoc2md())
         .pipe(gRename(function (path) {
-            path.extname = '.md'
+            path.extname = '.md';
         }))
         .pipe(gGulp.dest('docs/js/'));
 }
