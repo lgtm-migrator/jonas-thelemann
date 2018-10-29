@@ -99,7 +99,7 @@
                 <title itemprop="name">
                     '.$title.' - Jonas Thelemann
                 </title>
-                <link href="'.$_SERVER['REQUEST_URI'].'" rel="canonical">
+                <link href="'.$_SERVER['SERVER_ROOT_URL'].$_SERVER['REQUEST_URI'].'" rel="canonical">
                 <link href="/resources/dargmuesli/images/favicon.ico" type="image/x-icon" rel="icon">
                 <link href="/resources/dargmuesli/images/site.webmanifest" rel="manifest">
                 <link href="/resources/dargmuesli/images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
@@ -211,12 +211,12 @@
                                     Accounts
                                 </h5>
                                 <div>
-                                    <a class="grey-text text-lighten-3" href="https://github.com/Dargmuesli" itemprop="url" target="_blank" title="Github">
+                                    <a class="grey-text text-lighten-3" href="https://github.com/Dargmuesli" itemprop="url" rel="noopener" target="_blank" title="Github">
                                         Github
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="grey-text text-lighten-3" href="https://www.youtube.com/channel/UCmIrzQsJeEM5eW6KOAk9nSg" itemprop="url" target="_blank" title="YouTube">
+                                    <a class="grey-text text-lighten-3" href="https://www.youtube.com/channel/UCmIrzQsJeEM5eW6KOAk9nSg" itemprop="url" rel="noopener" target="_blank" title="YouTube">
                                         YouTube
                                     </a>
                                 </div>

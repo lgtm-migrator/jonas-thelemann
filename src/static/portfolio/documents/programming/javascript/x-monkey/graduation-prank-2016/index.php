@@ -22,7 +22,7 @@
             Installation
         </h2>
         <p>
-            Wenn <a href="../" title="XMonkey">das jeweilige XMonkey-Add-on</a> installiert ist, kann das Script einfach über einen <a href="https://github.com/Dargmuesli/Abistreich-2016/raw/master/abistreich-2016.user.js" target="_blank" title="Github Raw">Klick auf diesen Link</a> installiert werden.
+            Wenn <a href="../" title="XMonkey">das jeweilige XMonkey-Add-on</a> installiert ist, kann das Script einfach über einen <a href="https://github.com/Dargmuesli/Abistreich-2016/raw/master/abistreich-2016.user.js" rel="noopener" target="_blank" title="Github Raw">Klick auf diesen Link</a> installiert werden.
         </p>
     </section>
     <section id="references" class="section scrollspy">
@@ -34,7 +34,7 @@
                 Greasy Fork
             </h3>
             <p>
-                Der Ort, an dem das Script zu Hause ist: <a href="https://greasyfork.org/de/scripts/20485-abistreich-2016" target="_blank" title="GreasyFork">https://greasyfork.org/de/scripts/20485-abistreich-2016</a>
+                Der Ort, an dem das Script zu Hause ist: <a href="https://greasyfork.org/de/scripts/20485-abistreich-2016" rel="noopener" target="_blank" title="GreasyFork">https://greasyfork.org/de/scripts/20485-abistreich-2016</a>
             </p>
         </section>
         <section>
@@ -42,7 +42,7 @@
                 GitHub
             </h3>
             <p>
-                Das offizielle Repository: <a href="https://github.com/Dargmuesli/Abistreich-2016" target="_blank" title="Github Repository">https://github.com/Dargmuesli/Abistreich-2016</a>
+                Das offizielle Repository: <a href="https://github.com/Dargmuesli/Abistreich-2016" rel="noopener" target="_blank" title="Github Repository">https://github.com/Dargmuesli/Abistreich-2016</a>
             </p>
         </section>
     </section>';

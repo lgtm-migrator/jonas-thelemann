@@ -25,37 +25,37 @@
         </h2>
         <ul class="collection">
             <li class="collection-item">
-                <a href="https://www.flickr.com/" target="_blank" title="Flickr">
+                <a href="https://www.flickr.com/" rel="noopener" target="_blank" title="Flickr">
                     Flickr
                 </a>
                 <ul class="collection">
                     <li class="collection-item">
-                        <a href="https://www.flickr.com/photos/37996612193@N01" target="_blank" title="Richard Smith">
+                        <a href="https://www.flickr.com/photos/37996612193@N01" rel="noopener" target="_blank" title="Richard Smith">
                             Richard Smith
                         </a>
                         <ul class="collection">
                             <li class="collection-item">
-                                <a href="https://commons.wikimedia.org/wiki/File:Green_door,_8_Bloomsbury_Square,_London_WC1.jpg" target="_blank" title="Grüne Tür (Original)">
+                                <a href="https://commons.wikimedia.org/wiki/File:Green_door,_8_Bloomsbury_Square,_London_WC1.jpg" rel="noopener" target="_blank" title="Grüne Tür (Original)">
                                     Green_door,_8_Bloomsbury_Square,_London_WC1.jpg
                                 </a>
                                 &gt;
-                                <a href="../portfolio/documents/school/maths/montyhallproblem/layout/images/greendoor.png" target="_blank" title="Grüne Tür (Bearbeitet)">
+                                <a href="../portfolio/documents/school/maths/montyhallproblem/layout/images/greendoor.png" rel="noopener" target="_blank" title="Grüne Tür (Bearbeitet)">
                                     greendoor.png
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="collection-item">
-                        <a href="https://www.flickr.com/people/67958110@N00" target="_blank" title="Serge Melki">
+                        <a href="https://www.flickr.com/people/67958110@N00" rel="noopener" target="_blank" title="Serge Melki">
                             Serge Melki
                         </a>
                         <ul class="collection">
                             <li class="collection-item">
-                                <a href="https://commons.wikimedia.org/wiki/File:Red_door_%284707537839%29.jpg" target="_blank" title="Rote Tür (Original)">
+                                <a href="https://commons.wikimedia.org/wiki/File:Red_door_%284707537839%29.jpg" rel="noopener" target="_blank" title="Rote Tür (Original)">
                                     Red_door_(4707537839).jpg
                                 </a>
                                 &gt;
-                                <a href="../portfolio/documents/school/maths/montyhallproblem/layout/images/reddoor.png" target="_blank" title="Rote Tür (Bearbeitet)">
+                                <a href="../portfolio/documents/school/maths/montyhallproblem/layout/images/reddoor.png" rel="noopener" target="_blank" title="Rote Tür (Bearbeitet)">
                                     reddoor.png
                                 </a>
                             </li>
@@ -64,30 +64,30 @@
                 </ul>
             </li>
             <li class="collection-item">
-                <a href="https://pixabay.com/" target="_blank" title="Pixabay">
+                <a href="https://pixabay.com/" rel="noopener" target="_blank" title="Pixabay">
                     Pixabay
                 </a>
                 <ul class="collection">
                     <li class="collection-item">
-                        <a href="https://pixabay.com/de/users/Nemo-3736/" target="_blank" title="Nemo">
+                        <a href="https://pixabay.com/de/users/Nemo-3736/" rel="noopener" target="_blank" title="Nemo">
                             Nemo
                         </a>
                         <ul class="collection">
                             <li class="collection-item">
-                                <a href="https://pixabay.com/de/auto-gelb-sport-fahrzeug-30990/" target="_blank" title="Gelbes Auto (Original)">
+                                <a href="https://pixabay.com/de/auto-gelb-sport-fahrzeug-30990/" rel="noopener" target="_blank" title="Gelbes Auto (Original)">
                                     car-30990_1280.png
                                 </a>
                                 &gt;
-                                <a href="../portfolio/documents/school/maths/montyhallproblem/layout/images/car.png" target="_blank" title="Gelbes Auto (Bearbeitet)">
+                                <a href="../portfolio/documents/school/maths/montyhallproblem/layout/images/car.png" rel="noopener" target="_blank" title="Gelbes Auto (Bearbeitet)">
                                     car.png
                                 </a>
                             </li>
                             <li class="collection-item">
-                                <a href="https://pixabay.com/de/scheune-bauernhof-gras-ziege-44669/" target="_blank" title="Ziege (Original)">
+                                <a href="https://pixabay.com/de/scheune-bauernhof-gras-ziege-44669/" rel="noopener" target="_blank" title="Ziege (Original)">
                                     barn-44669_1280.png
                                 </a>
                                 &gt;
-                                <a href="../portfolio/documents/school/maths/montyhallproblem/layout/images/goat.png" target="_blank" title="Ziege (Bearbeitet)">
+                                <a href="../portfolio/documents/school/maths/montyhallproblem/layout/images/goat.png" rel="noopener" target="_blank" title="Ziege (Bearbeitet)">
                                     goat.png
                                 </a>
                             </li>
@@ -96,37 +96,37 @@
                 </ul>
             </li>
             <li class="collection-item">
-                <a href="https://de.wikipedia.org/" target="_blank" title="Wikipedia">
+                <a href="https://de.wikipedia.org/" rel="noopener" target="_blank" title="Wikipedia">
                     Wikipedia
                 </a>
                 <ul class="collection">
                     <li class="collection-item">
-                        <a href="https://sourceforge.net/projects/mumble/" target="_blank" title="Mumble">
+                        <a href="https://sourceforge.net/projects/mumble/" rel="noopener" target="_blank" title="Mumble">
                             Mumble
                         </a>
                         <ul class="collection">
                             <li class="collection-item">
-                                <a href="https://de.wikipedia.org/wiki/Mumble#/media/File:Icons_mumble.svg" target="_blank" title="Mumble Logo (Original)">
+                                <a href="https://de.wikipedia.org/wiki/Mumble#/media/File:Icons_mumble.svg" rel="noopener" target="_blank" title="Mumble Logo (Original)">
                                     Icons_mumble.svg
                                 </a>
                                 &gt;
-                                <a href="../portfolio/documents/community/mumble/layout/images/mumble_logo.svg" target="_blank" title="Mumble Logo (Bearbeitet)">
+                                <a href="../portfolio/documents/community/mumble/layout/images/mumble_logo.svg" rel="noopener" target="_blank" title="Mumble Logo (Bearbeitet)">
                                     mumble_logo.svg
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li class="collection-item">
-                        <a href="https://www.youtube.com/" target="_blank" title="YouTube">
+                        <a href="https://www.youtube.com/" rel="noopener" target="_blank" title="YouTube">
                             YouTube
                         </a>
                         <ul class="collection">
                             <li class="collection-item">
-                                <a href="https://de.wikipedia.org/wiki/Datei:YouTube_icon.png#/media/File:YouTube_icon.png" target="_blank" title="YouTube Icon (Original)">
+                                <a href="https://de.wikipedia.org/wiki/Datei:YouTube_icon.png#/media/File:YouTube_icon.png" rel="noopener" target="_blank" title="YouTube Icon (Original)">
                                     YouTube_icon.png
                                 </a>
                                 &gt;
-                                <a href="../portfolio/programming/javascript/youtubecalendar/layout/images/youtube-icon.png" target="_blank" title="YouTube Icon (Bearbeitet)">
+                                <a href="../portfolio/programming/javascript/youtubecalendar/layout/images/youtube-icon.png" rel="noopener" target="_blank" title="YouTube Icon (Bearbeitet)">
                                     youtube-icon.png
                                 </a>
                             </li>
@@ -136,11 +136,11 @@
                         Unbekannt
                         <ul class="collection">
                             <li class="collection-item">
-                                <a href="https://de.wikipedia.org/wiki/TeamSpeak#/media/File:Teamspeak-Logo.svg" target="_blank" title="TeamSpeak Logo (Original)">
+                                <a href="https://de.wikipedia.org/wiki/TeamSpeak#/media/File:Teamspeak-Logo.svg" rel="noopener" target="_blank" title="TeamSpeak Logo (Original)">
                                     Teamspeak-Logo.svg
                                 </a>
                                 &gt;
-                                <a href="../portfolio/documents/community/mumble/layout/images/teamspeak_logo.svg" target="_blank" title="TeamSpeak Logo (Bearbeitet)">
+                                <a href="../portfolio/documents/community/mumble/layout/images/teamspeak_logo.svg" rel="noopener" target="_blank" title="TeamSpeak Logo (Bearbeitet)">
                                     teamspeak_logo.svg
                                 </a>
                             </li>

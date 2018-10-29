@@ -83,7 +83,7 @@
             Installation
         </h2>
         <p>
-            Wenn <a href="../" title="XMonkey">das jeweilige XMonkey-Add-on</a> installiert ist, kann das Script einfach über einen <a href="https://github.com/Dargmuesli/Troll-em/raw/master/troll-em.user.js" target="_blank" title="Github Raw">Klick auf diesen Link</a> installiert werden.
+            Wenn <a href="../" title="XMonkey">das jeweilige XMonkey-Add-on</a> installiert ist, kann das Script einfach über einen <a href="https://github.com/Dargmuesli/Troll-em/raw/master/troll-em.user.js" rel="noopener" target="_blank" title="Github Raw">Klick auf diesen Link</a> installiert werden.
         </p>
     </section>
     <section id="references" class="section scrollspy">
@@ -95,7 +95,7 @@
                 Greasy Fork
             </h3>
             <p>
-                Der Ort, an dem das Script zu Hause ist: <a href="https://greasyfork.org/de/scripts/17608-troll-em" target="_blank" title="GreasyFork">https://greasyfork.org/de/scripts/17608-troll-em</a>
+                Der Ort, an dem das Script zu Hause ist: <a href="https://greasyfork.org/de/scripts/17608-troll-em" rel="noopener" target="_blank" title="GreasyFork">https://greasyfork.org/de/scripts/17608-troll-em</a>
             </p>
         </section>
         <section>
@@ -103,7 +103,7 @@
                 GitHub
             </h3>
             <p>
-                Das offizielle Repository: <a href="https://github.com/Dargmuesli/Troll-em" target="_blank" title="Github Repository">https://github.com/Dargmuesli/Troll-em</a>
+                Das offizielle Repository: <a href="https://github.com/Dargmuesli/Troll-em" rel="noopener" target="_blank" title="Github Repository">https://github.com/Dargmuesli/Troll-em</a>
             </p>
         </section>
     </section>';

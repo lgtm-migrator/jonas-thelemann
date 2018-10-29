@@ -332,7 +332,7 @@
                         </p>
                     </div>
                     <div class="card-action">
-                        <a href="https://www.blender.org" target="_blank">
+                        <a href="https://www.blender.org" rel="noopener" target="_blank">
                             blender.org
                         </a>
                     </div>
@@ -349,7 +349,7 @@
                         </p>
                     </div>
                     <div class="card-action">
-                        <a href="https://www.blenderartists.org" target="_blank">
+                        <a href="https://www.blenderartists.org" rel="noopener" target="_blank">
                             blenderartists.org
                         </a>
                     </div>
@@ -366,7 +366,7 @@
                         </p>
                     </div>
                     <div class="card-action">
-                        <a href="https://www.blenderguru.com/" target="_blank">
+                        <a href="https://www.blenderguru.com/" rel="noopener" target="_blank">
                             blenderguru.com
                         </a>
                     </div>
@@ -382,7 +382,7 @@
             Hier können Sie alle Versionen von Blender für die gängigen Betriebssysteme kostenlos herunterladen!
         </p>
         <p>
-            <a class="waves-effect waves-light btn" href="https://www.blender.org/download/" target="_blank" title="Download">
+            <a class="waves-effect waves-light btn" href="https://www.blender.org/download/" rel="noopener" target="_blank" title="Download">
                 <i class="material-icons left">
                     open_in_new
                 </i>

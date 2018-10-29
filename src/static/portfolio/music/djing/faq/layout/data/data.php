@@ -27,7 +27,7 @@
         'what' => [
             0 => 'Was? Du hast das Lied nicht? Und du nennst dich einen DJ?',
             1 => '
-            <span class="bold">Ja</span>, aber wenn du es schaffst, mir auswendig <a href="https://en.wikipedia.org/wiki/List_of_popular_music_genres" target="_blank" title="List of popular music genres">alle populären Musikgenres</a> aufzuzählen, werde ich dein Lied umgehend beschaffen.
+            <span class="bold">Ja</span>, aber wenn du es schaffst, mir auswendig <a href="https://en.wikipedia.org/wiki/List_of_popular_music_genres" rel="noopener" target="_blank" title="List of popular music genres">alle populären Musikgenres</a> aufzuzählen, werde ich dein Lied umgehend beschaffen.
             <br>
             Kleine Notiz: Das Musikgenre "Normal" gibt es nicht.'
         ],

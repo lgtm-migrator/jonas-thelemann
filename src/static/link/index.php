@@ -1,5 +1,4 @@
 <?php
-    include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/disabled.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
 
     $skeletonDescription = 'Under construction';
