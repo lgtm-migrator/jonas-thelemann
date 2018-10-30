@@ -39,18 +39,15 @@
             $clientEtag =
                 !empty($_SERVER['HTTP_IF_NONE_MATCH'])
                 ?   trim($_SERVER['HTTP_IF_NONE_MATCH'])
-                :   null
-            ;
+                :   null;
             $clientLastModified =
                 !empty($_SERVER['HTTP_IF_MODIFIED_SINCE'])
                 ?   trim($_SERVER['HTTP_IF_MODIFIED_SINCE'])
-                :   null
-            ;
+                :   null;
             $clientAcceptEncoding =
                 isset($_SERVER['HTTP_ACCEPT_ENCODING'])
                 ?   $_SERVER['HTTP_ACCEPT_ENCODING']
-                :   ''
-            ;
+                :   '';
 
             $serverLastModified = gmdate('D, d M Y H:i:s', $timestamp).' GMT';
             $serverEtag = md5($timestamp.$clientAcceptEncoding.$identifier);
