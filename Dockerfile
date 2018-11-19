@@ -26,7 +26,7 @@ FROM php:apache AS stage_apache
 
 # Project variables
 ENV PROJECT_NAME jonas-thelemann.de
-ENV PROJECT_MODS headers macro rewrite ssl
+ENV PROJECT_MODS expires headers macro rewrite ssl
 
 # Apache & PHP variables
 ENV APACHE_DIR /var/www/$PROJECT_NAME
