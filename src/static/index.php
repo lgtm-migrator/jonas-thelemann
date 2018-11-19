@@ -49,7 +49,7 @@
                 Die <a href="https://github.com/Dargmuesli/ehra-db" rel="noopener" target="_blank" title="EhraDB">EhraDB</a> ist eine Datenbank zur Ehrenamtsverwaltung in der Organisationseinheit Flüchtlingshilfe des Landkreises Kassel.
             </p>
         </section>
-        <section id="javascript" class="section scrollspy">
+        <section id="java" class="section scrollspy">
             <h3>
                 Java
             </h3>
