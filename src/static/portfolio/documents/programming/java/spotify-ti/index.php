@@ -9,9 +9,8 @@
     $skeletonContent = '
     <div id="var" class="row">
         <p>
-            Diese Seite ist momentan in ihrer nicht öffentlich sichtbaren Version Teil der Programmfunktion. Die Benutzer, die hier landen, finden das, was sie suchen.
-            <br>
-            Bei genug Interesse werde ich das Programm auf GitHub stellen und hier mehr Informationen dazu veröffentlichen.
+            Dieses Projekt befindet sich in der Entwicklungsphase.
+            Es wird dazu dienen, Informationen von der <a href="https://developer.spotify.com/documentation/web-api/" rel="noopener" title="Web-API" target="blank">Spotify Web-API</a> zu holen und diese lokalen Dateien zuzuordnen.
         </p>
     </div>';
 
