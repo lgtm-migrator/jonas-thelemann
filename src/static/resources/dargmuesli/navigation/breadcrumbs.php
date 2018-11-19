@@ -16,7 +16,7 @@
         }
 
         if (!$error) {
-            $breadcrumbsHtml = '<a class="breadcrumb" href="#!"></a>';
+            $breadcrumbsHtml = '<a class="breadcrumb" href="#!" title="breadcrumbs"></a>';
 
             if (count($dirs) == 0) {
                 $breadcrumbsHtml .= '
