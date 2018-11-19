@@ -20,7 +20,7 @@ commonName = localhost
 
 [ x509_ext ]
 
-keyUsage=critical,digitalSignature,keyAgreement
+keyUsage=critical,digitalSignature,keyEncipherment
 subjectAltName = @alt_names
 
 # Multiple Alternate Names are possible
