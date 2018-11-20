@@ -9,8 +9,9 @@
         // Link to included variables
         global $rootPointerInteger;
 
-        $currentFolder = basename($_SERVER['REQUEST_URI']);
-        $parentFolder = basename(dirname($_SERVER['REQUEST_URI']));
+        $requestUriWithoutQuery = preg_replace('/\?.*/', '', $_SERVER['REQUEST_URI']);
+        $currentFolder = basename($requestUriWithoutQuery);
+        $parentFolder = basename(dirname($requestUriWithoutQuery));
         $isErrorPage = isset($_GET['errorCode']);
 
         // Exception for welcome page
@@ -48,7 +49,7 @@
             if ($rootPointerInteger == 0) {
                 $searchFolder = $_SERVER['DOCUMENT_ROOT'].DIRECTORY_SEPARATOR.'portfolio';
             } else {
-                $searchFolder = dirname($_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI']);
+                $searchFolder = dirname($_SERVER['DOCUMENT_ROOT'].$requestUriWithoutQuery);
             }
 
             $directoryArray = get_web_directory_array($searchFolder, array($searchFolder.DIRECTORY_SEPARATOR.$currentFolder.DIRECTORY_SEPARATOR));
