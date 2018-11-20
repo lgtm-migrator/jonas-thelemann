@@ -3,6 +3,7 @@
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/packages/composer/autoload.php';
 
     $navigationTranslations = array(
+        '1generator' => '1generator',
         'a-level' => 'Abitur',
         'apache' => 'Apache',
         'attacks' => 'Angriffe',
