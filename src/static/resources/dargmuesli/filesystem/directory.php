@@ -36,7 +36,7 @@
                 if (
                         is_dir($directoryName.DIRECTORY_SEPARATOR.$folderName)
                         && $folderName != 'tools'
-                        && (file_exists($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR.'index.php') || file_exists($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR.'index.html') || file_exists($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR.'index.htm'))
+                        && file_exists($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR.'index.php')
                         && !file_exists($directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR.'.hidden')
                     ) {
                     if (is_array($detailPaths) && starts_with($detailPaths, $directoryName.DIRECTORY_SEPARATOR.$folderName.DIRECTORY_SEPARATOR)) {
