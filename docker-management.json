@@ -10,6 +10,16 @@
         "Content": {
             "version": "3.6",
             "services": {
+                "1generator": {
+                    "image": "localhost:5000/dargmuesli/1generator",
+                    "deploy": {
+                        "labels": [
+                            "traefik.enable=true",
+                            "traefik.frontend.rule=Host:1generator.jonas-thelemann.test",
+                            "traefik.port=80"
+                        ]
+                    }
+                },
                 "adminer": {
                     "image": "adminer",
                     "deploy": {
