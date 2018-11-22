@@ -49,28 +49,24 @@
                     ]
                 },
                 "randomwinpicker-de": {
-                    "image": "localhost:5000/dargmuesli/randomwinpicker.de",
+                    "image": "localhost:5000/dargmuesli/randomwinpicker",
                     "deploy": {
                         "labels": [
                             "traefik.enable=true",
-                            "traefik.frontend.rule=Host:jonas-thelemann.test,www.jonas-thelemann.test;PathPrefixStrip:/migrations/randomwinpicker.de/",
+                            "traefik.frontend.rule=Host:randomwinpicker.jonas-thelemann.test",
                             "traefik.port=443",
                             "traefik.protocol=https"
                         ]
                     },
-                    "environment": {
-                        "BASE_URL": "/migrations/randomwinpicker.de/"
-                    },
                     "volumes": [
-                        "./docker/jonas-thelemann.de/certificates/jonas-thelemann.de.crt:/etc/ssl/certificates/randomwinpicker.de.crt",
-                        "./docker/jonas-thelemann.de/certificates/jonas-thelemann.de.key:/etc/ssl/certificates/randomwinpicker.de.key",
-                        "./src/static/migrations/randomwinpicker.de/dist/randomwinpicker.de:/var/www/randomwinpicker.de"
+                        "./docker/jonas-thelemann.de/certificates/jonas-thelemann.de.crt:/etc/ssl/certificates/randomwinpicker.crt",
+                        "./docker/jonas-thelemann.de/certificates/jonas-thelemann.de.key:/etc/ssl/certificates/randomwinpicker.key"
                     ]
                 },
                 "postgres": {
                     "image": "postgres:alpine",
                     "environment": {
-                        "POSTGRES_ADDITIONAL_DBS": "randomwinpicker.de",
+                        "POSTGRES_ADDITIONAL_DBS": "randomwinpicker",
                         "POSTGRES_DB_FILE": "/run/secrets/postgres_db",
                         "POSTGRES_PASSWORD_FILE": "/run/secrets/postgres_password",
                         "POSTGRES_USER_FILE": "/run/secrets/postgres_user"
