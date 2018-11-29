@@ -102,7 +102,7 @@ services:
     command:
     - "--acme.acmeLogging=true"
     - "--acme.dnsChallenge.provider=${STACK_ACME_PROVIDER}"
-    - "--acme.domains=${STACK_DOMAIN},adminer.${STACK_DOMAIN},traefik.${STACK_DOMAIN},www.${STACK_DOMAIN}"
+    - "--acme.domains=${STACK_DOMAIN},1generator.${STACK_DOMAIN},adminer.${STACK_DOMAIN},randomwinpicker.${STACK_DOMAIN},traefik.${STACK_DOMAIN},www.${STACK_DOMAIN}"
     - "--acme.email=${STACK_ACME_EMAIL}"
     - "--acme.entrypoint=https"
     - "--acme.storage=/etc/traefik/acme/acme.json"
