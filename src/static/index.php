@@ -109,17 +109,17 @@
                     Das Grundgerüst für die Website und einige Inhalte stehen also nun.
                 </p>
             </section>
-            <section id="randomwinpicker.de" class="section scrollspy">
+            <section id="randomwinpicker" class="section scrollspy">
                 <h4>
-                    randomwinpicker.de
+                    randomwinpicker
                 </h4>
                 <p>
-                    Um die Website <a href="https://jonas-thelemann.de/migrations/randomwinpicker.de/" rel="noopener" target="_blank" title="randomwinpicker.de">randomwinpicker.de</a> für den YouTuber <a href="https://www.youtube.com/user/dragonflygames" rel="noopener" target="_blank" title="Megaquest">Megaquest</a> programmieren zu können, musste die Entwicklung meiner eigenen Website kurz nachdem sie begonnen hatte pausieren.
+                    Um die Website <a href="https://randomwinpicker.jonas-thelemann.de/" rel="noopener" target="_blank" title="randomwinpicker">randomwinpicker</a> für den YouTuber <a href="https://www.youtube.com/user/dragonflygames" rel="noopener" target="_blank" title="Megaquest">Megaquest</a> programmieren zu können, musste die Entwicklung meiner eigenen Website kurz nachdem sie begonnen hatte pausieren.
                     Über die Website kann jeder Besucher Verlosungen ablaufen lassen, wobei die Website momentan nur auf <abbr title="Waffentarnungen">Skins</abbr> für das bekannte Spiel <a href="https://de.wikipedia.org/wiki/Counter-Strike:_Global_Offensive" rel="noopener" target="_blank" title="Counter Strike Global Offensive">CS:GO</a> ausgelegt ist.
                     <br>
-                    Aus heutiger Sicht ist die <a href="https://github.com/dargmuesli/randomwinpicker.de/tree/v1" rel="noopener" target="_blank" title="Dargmuesli/randomwinpicker.de (v1)">erste Version des Quellcodes der Website</a> nicht schön zu lesen.
+                    Aus heutiger Sicht ist die <a href="https://github.com/dargmuesli/randomwinpicker/tree/v1" rel="noopener" target="_blank" title="Dargmuesli/randomwinpicker (v1)">erste Version des Quellcodes der Website</a> nicht schön zu lesen.
                     Dennoch war ich sehr zufrieden mit der Website, denn es war die erste, die ich komplett fertiggestellt habe.
-                    Die <a href="https://github.com/dargmuesli/randomwinpicker.de/" rel="noopener" target="_blank" title="Dargmuesli/randomwinpicker.de">aktuelle Quellcode-Version</a> liest sich deutlich angenehmer.
+                    Die <a href="https://github.com/dargmuesli/randomwinpicker/" rel="noopener" target="_blank" title="Dargmuesli/randomwinpicker">aktuelle Quellcode-Version</a> liest sich deutlich angenehmer.
                 </p>
                 </section>
         </section>

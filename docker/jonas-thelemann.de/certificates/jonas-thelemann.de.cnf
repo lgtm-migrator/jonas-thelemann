@@ -16,6 +16,8 @@ subjectAltName = @alt_names
 
 [alt_names]
 DNS.1 = jonas-thelemann.test
-DNS.2 = adminer.jonas-thelemann.test
-DNS.3 = traefik.jonas-thelemann.test
-DNS.4 = www.jonas-thelemann.test
+DNS.2 = 1generator.jonas-thelemann.test
+DNS.3 = adminer.jonas-thelemann.test
+DNS.4 = randomwinpicker.jonas-thelemann.test
+DNS.5 = traefik.jonas-thelemann.test
+DNS.6 = www.jonas-thelemann.test

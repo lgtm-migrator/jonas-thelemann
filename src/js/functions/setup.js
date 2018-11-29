@@ -35,11 +35,11 @@ export function setUpScrollSpy() {
             $('#toc-mobile').find('a.active').removeClass('active');
             $(this).addClass('active');
 
+            let child = document.querySelector($(this).attr('href'));
+
             $('.collapsible-header.active').removeClass('active');
             $($(this).attr('href') + ' .collapsible-header').addClass('active');
-            $('.collapsible').collapsible({
-                action: 'open'
-            });
+            $('.collapsible').collapsible('open', Array.prototype.indexOf.call(child.parentNode.children, child));
         });
     });
 }

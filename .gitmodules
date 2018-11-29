@@ -1,6 +1,0 @@
-[submodule "src/static/portfolio/documents/programming/html/1generator"]
-	path = src/static/portfolio/documents/programming/html/1generator
-	url = https://github.com/Dargmuesli/1generator
-[submodule "src/static/migrations/randomwinpicker.de"]
-	path = src/static/migrations/randomwinpicker.de
-	url = https://github.com/Dargmuesli/randomwinpicker.de

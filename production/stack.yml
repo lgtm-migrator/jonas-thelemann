@@ -1,5 +1,12 @@
 version: "3.6"
 services:
+  1generator:
+    image: "dargmuesli/1generator"
+    deploy:
+      labels:
+      - "traefik.enable=true"
+      - "traefik.frontend.rule=Host:1generator.${STACK_DOMAIN}"
+      - "traefik.port=80"
   adminer:
     image: "adminer"
     deploy:
@@ -27,18 +34,16 @@ services:
     volumes:
     - "./${STACK_DOMAIN}/credentials:/var/www/${STACK_DOMAIN}/credentials"
     - "acme-data:/etc/ssl/certificates"
-  randomwinpicker-de:
-    image: "dargmuesli/randomwinpicker.de:2.0.1"
+  randomwinpicker:
+    image: "dargmuesli/randomwinpicker:3.0.0"
     deploy:
       labels:
       - "traefik.enable=true"
-      - "traefik.frontend.rule=Host:${STACK_DOMAIN},www.${STACK_DOMAIN};PathPrefixStrip:/migrations/randomwinpicker.de/"
+      - "traefik.frontend.rule=Host:randomwinpicker.${STACK_DOMAIN}"
       - "traefik.port=443"
       - "traefik.protocol=https"
-    environment:
-      BASE_URL: "/migrations/randomwinpicker.de/"
     volumes:
-    - "./randomwinpicker.de/credentials:/var/www/randomwinpicker.de/credentials"
+    - "./randomwinpicker/credentials:/var/www/randomwinpicker/credentials"
     - "acme-data:/etc/ssl/certificates"
   certdumper:
     image: "alpine"
@@ -51,8 +56,8 @@ services:
           bash dumpcerts.sh /etc/traefik/acme/acme.json /etc/traefik/acme/ && \
           ln -f /etc/traefik/acme/certs/* /etc/traefik/acme/ && \
           ln -f /etc/traefik/acme/private/* /etc/traefik/acme/ && \
-          ln -f /etc/ssl/certificates/certs/${STACK_DOMAIN}.crt /etc/ssl/certificates/randomwinpicker.de.crt && \
-          ln -f /etc/ssl/certificates/private/${STACK_DOMAIN}.key /etc/ssl/certificates/randomwinpicker.de.key && \
+          ln -f /etc/ssl/certificates/certs/${STACK_DOMAIN}.crt /etc/ssl/certificates/randomwinpicker.crt && \
+          ln -f /etc/ssl/certificates/private/${STACK_DOMAIN}.key /etc/ssl/certificates/randomwinpicker.key && \
           inotifywait -e modify /etc/traefik/acme/acme.json
         done"
     volumes:
@@ -60,7 +65,7 @@ services:
   postgres:
     image: "postgres:10"
     environment:
-      POSTGRES_ADDITIONAL_DBS: "randomwinpicker.de"
+      POSTGRES_ADDITIONAL_DBS: "randomwinpicker"
       POSTGRES_DB_FILE: "/run/secrets/postgres_db"
       POSTGRES_PASSWORD_FILE: "/run/secrets/postgres_password"
       POSTGRES_USER_FILE: "/run/secrets/postgres_user"
