@@ -13,13 +13,8 @@
             'base' => array(
                 'func.js' => '/base/functions.js',
                 'func.mjs' => '/base/functions.min.js',
-                'opt.js' => '/base/options.js',
                 'stl.css' => '/base/style.css',
                 'stl.mcss' => '/base/style.min.css',
-            ),
-            'gtm' => array(
-                'mjs' => '/google-tagmanager/tagmanager.js',
-                'js' => '/google-tagmanager/tagmanager.min.js',
             ),
         ),
         'pkg' => array(

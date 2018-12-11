@@ -228,10 +228,17 @@
                             Copyright © <span itemprop="copyrightYear">'.date('Y').'</span>, <span itemprop="copyrightHolder">Jonas Thelemann</span>
                         </div>
                     </div>
-                </footer>'
-                .get_feature_translation(['pkg/jq/mjs', 'pkg/mtrl/mjs', 'pkg/jsck/js', 'drg/gtm/mjs', 'drg/base/func.js'])
-                .$featureTranslation
-                .get_feature_translation(['drg/base/opt.js']).'
+                </footer>
+                <script>
+                    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=\'https://www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);})(window,document,\'script\',\'dataLayer\',\'GTM-KL6875\');
+                </script>'
+                .get_feature_translation(['pkg/jq/mjs', 'pkg/mtrl/mjs', 'pkg/jsck/js', 'drg/base/func.mjs'])
+                .$featureTranslation.'
+                <script>
+                    if (typeof (Prism) != \'undefined\') {
+                        Prism.plugins.autoloader.languages_path = \'/resources/packages/yarn/prismjs/components/\';
+                    }
+                </script>
             </body>
         </html>';
 
