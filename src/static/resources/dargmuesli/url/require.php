@@ -18,8 +18,8 @@
                 'stl.mcss' => '/base/style.min.css',
             ),
             'gtm' => array(
-                'mjs' => '/google-tagmanager/tagmanager.js',
-                'js' => '/google-tagmanager/tagmanager.min.js',
+                'js' => '/google-tagmanager/tagmanager.js',
+                'mjs' => '/google-tagmanager/tagmanager.min.js',
             ),
         ),
         'pkg' => array(
