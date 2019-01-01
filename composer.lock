@@ -456,16 +456,16 @@
         },
         {
             "name": "thesoftwarefanatics/php-html-parser",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thesoftwarefanatics/php-html-parser.git",
-                "reference": "3502f0b530b20bea9a72361377510553a69e766a"
+                "reference": "2dff8676821bdbc309f64980a96b4c62020c79c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thesoftwarefanatics/php-html-parser/zipball/3502f0b530b20bea9a72361377510553a69e766a",
-                "reference": "3502f0b530b20bea9a72361377510553a69e766a",
+                "url": "https://api.github.com/repos/thesoftwarefanatics/php-html-parser/zipball/2dff8676821bdbc309f64980a96b4c62020c79c3",
+                "reference": "2dff8676821bdbc309f64980a96b4c62020c79c3",
                 "shasum": ""
             },
             "require": {
@@ -514,7 +514,7 @@
                 "html",
                 "parser"
             ],
-            "time": "2018-01-10T14:47:57+00:00"
+            "time": "2018-12-21T07:45:56+00:00"
         },
         {
             "name": "vanderlee/syllable",
