@@ -67,7 +67,7 @@ rc-manager=unmanaged
 Remember to create the `credentials/.env` file using the provided template to enable complete functionality.
 
 ### PHP
-For the `Composer` task to be executed you need to have [PHP](http://php.net/) installed. Make sure that the following settings are made in your `php.ini`:
+For the `Composer` task to be executed you need to have [PHP](https://php.net/) installed. Make sure that the following settings are made in your `php.ini`:
 
 #### Linux
 

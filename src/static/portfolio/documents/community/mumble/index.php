@@ -34,7 +34,7 @@
             <img class="materialboxed responsive-img col s3 push-s2 l1" src="layout/images/mumble-logo.svg">
             <img class="materialboxed responsive-img col s3 push-s4 l1 hide-on-large-only" src="layout/images/teamspeak-logo.svg">
             <p class="col s10">
-                <a href="https://wiki.mumble.info/wiki/Main_Page" title="Mumble">Mumble</a> ist wie <a href="http://www.teamspeak.de/" title="Mumble">TeamSpeak</a> eine <a href="https://de.wikipedia.org/wiki/IP-Telefonie" title="IP-Telefonie">VoIP-Software</a>, die primär für Gamer gedacht ist.
+                <a href="https://wiki.mumble.info/wiki/Main_Page" title="Mumble">Mumble</a> ist wie <a href="https://www.teamspeak.de/" title="Mumble">TeamSpeak</a> eine <a href="https://de.wikipedia.org/wiki/IP-Telefonie" title="IP-Telefonie">VoIP-Software</a>, die primär für Gamer gedacht ist.
                 Im Fokus stehen dabei eine niedrige Latenz bzw. spezielle Codecs und der Funktionsumfang.
                 <br>
                 Mumble und TeamSpeak sind von der Benutzung und Konfiguration beide größtenteils identisch.
@@ -97,7 +97,7 @@
             </h4>
             <p>
                 Bereits eingebaut in Mumble ist ein Ingame-Overlay, sodass man ohne zweiten Monitor erkennen kann wer zu einem spricht und wer stummgeschaltet ist.
-                TeamSpeak hat an dieser Stelle das zusätzliche Programm <a href="http://www.overwolf.com/teamspeak/" title="Overwolf">Overwolf</a>.
+                TeamSpeak hat an dieser Stelle das zusätzliche Programm <a href="https://www.overwolf.com/teamspeak/" title="Overwolf">Overwolf</a>.
                 <br>
                 Mumble bietet außerdem über Plugins die Funktion die Tonausgabe anderer Gesprächsteilnehmer abhängig von der Ingame-Position ihres Charakters im Raum zu verteilen.
                 Jedoch kann bei Updates von Spielen die Plugin-Integrität zerstört werden.
@@ -146,10 +146,10 @@
                         Eigene Erfahrung
                     </li>
                     <li>
-                        <a href="http://www.toptenreviews.com/computers/articles/the-best-voip-software-for-gaming-mumble-vs.-teamspeak-3/" title="The Best VoIP Software for Gaming: Mumble vs. TeamSpeak 3">"The Best VoIP Software for Gaming: Mumble vs. TeamSpeak 3"</a> von Kyle Rollins
+                        <a href="https://www.toptenreviews.com/computers/articles/the-best-voip-software-for-gaming-mumble-vs.-teamspeak-3/" title="The Best VoIP Software for Gaming: Mumble vs. TeamSpeak 3">"The Best VoIP Software for Gaming: Mumble vs. TeamSpeak 3"</a> von Kyle Rollins
                     </li>
                     <li>
-                        <a href="http://www.remumble.com/mumble.htm" title="Why Mumble?">Why Mumble?</a>
+                        <a href="https://www.remumble.com/mumble.htm" title="Why Mumble?">Why Mumble?</a>
                     </li>
                     <li>
                         <a href="https://www.youtube.com/watch?v=gblGcmtnJTY" title="Mumble vs Teamspeak 3 vs Ventrilo">Mumble vs Teamspeak 3 vs Ventrilo</a> von GCKorgath.
