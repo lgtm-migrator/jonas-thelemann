@@ -6,6 +6,14 @@
 
     use ReCaptcha\ReCaptcha;
 
+    $secret;
+
+    if (strrchr($_SERVER['SERVER_NAME'], '.') != '.test') {
+        $secret = $_ENV['RECAPTCHA_SECRET'];
+    } else {
+        $secret = $_ENV['RECAPTCHA_SECRET_DEV'];
+    }
+
     function verify_recaptcha($response)
     {
         global $secret;

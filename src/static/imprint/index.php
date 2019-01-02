@@ -1,12 +1,14 @@
 <?php
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/base/skeleton.php';
     include_once $_SERVER['DOCUMENT_ROOT'].'/resources/dargmuesli/cache/enabled.php';
+    include_once 'layout/data/data.php';
+
+    global $dataSiteKey;
 
     last_modified(get_page_mod_time());
 
     $skeletonDescription = 'Das Impressum dieser Website mit Kontakt, Bildrechten, Haftungsausschluss und Datenschutzerklärung';
     $skeletonFeatures = ['lcl/ext/js', 'ext/recaptcha/de-async-defer'];
-
     $skeletonContent = '
     Alle Angaben gemäß § 5 TMG.
     <section id="contact" class="section scrollspy">
@@ -15,7 +17,7 @@
         </h2>
         <div id="address">
             <form action="layout/ext/extension.js.php" method="post" id="contactform">
-                <div data-callback="contactformCallback" class="g-recaptcha" data-sitekey="6LcMvR8TAAAAABoCdUzDCXtdKcIChvVyEqBXGHwT"></div>
+                <div data-callback="contactformCallback" class="g-recaptcha" data-sitekey="'.$dataSiteKey.'"></div>
             </form>
         </div>
     </section>
