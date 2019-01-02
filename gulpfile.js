@@ -316,7 +316,7 @@ function sitemap() {
         }, '');
 
 
-    fs.writeFile(sitemapPath, '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">', (error) => { if (error) throw error; });
+    fs.writeFile(sitemapPath, '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">', (error) => { if (error) throw error; });
 
     return gGulp.src([srcStaticFolder + '**/index.php'].concat(sitemapExcludes))
         .pipe(

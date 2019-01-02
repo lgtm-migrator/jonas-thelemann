@@ -11,7 +11,7 @@
             Be&shy;schrei&shy;bung
         </h2>
         <p>
-            Da die <a href="http://www.medienzentrum-kassel.de/" rel="noopener" target="_blank" title="Medienzentrum Kassel">Website des Medienzentrums Kassel</a> als Startseite der Browser der Schulcomputer eingestellt ist, habe ich mir als kleinen Beitrag zum Abistreich überlegt, dass man die Diashow darauf durch ein GIF mit dem Text "Abistreich 2016" und einem bewegten Hintergrund ersetzen könnte.
+            Da die <a href="https://www.medienzentrum-kassel.de/" rel="noopener" target="_blank" title="Medienzentrum Kassel">Website des Medienzentrums Kassel</a> als Startseite der Browser der Schulcomputer eingestellt ist, habe ich mir als kleinen Beitrag zum Abistreich überlegt, dass man die Diashow darauf durch ein GIF mit dem Text "Abistreich 2016" und einem bewegten Hintergrund ersetzen könnte.
             Das Design ist eine leicht veränderte Variante der <a href="/portfolio/graphic/digital/blender/prom/" title="Abiball">Abiball-Eintrittskatrte</a>, bei der der Hintergrund schnell zwischen positiv und negativ wechselt.
             Das Script habe ich im Nachhinein noch so konfiguriert, dass es ab dem Tag des Abistreichs bis zum Ende des Schuljahres entsprechende Aufgabe erledigt.
             Außerdem liegt aktuell ein Link auf dem GIF, der auf diese Website verweist.
