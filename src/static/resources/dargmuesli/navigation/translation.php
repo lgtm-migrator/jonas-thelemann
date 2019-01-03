@@ -63,7 +63,7 @@
         'school' => 'Schule',
         'security' => 'Sicherheit',
         'sitemap' => 'Sitemap',
-        'spotify-ti' => 'SpotifyTI',
+        'dargmusic' => 'Dargmusic',
         'song-suggestions' => 'Song-Vorschläge',
         'this-website' => 'Diese Website',
         'troll-em' => 'Troll\'em',

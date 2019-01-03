@@ -4,7 +4,7 @@
 
     last_modified(get_page_mod_time());
 
-    $skeletonDescription = 'Infomationen über mein Java-Projekt \'SpotifyTI\'';
+    $skeletonDescription = 'Infomationen über mein Java-Projekt \'Dargmusic\'';
     $skeletonFeatures = ['lcl/ext/js'];
     $skeletonContent = '
     <div class="row">
@@ -18,7 +18,7 @@
             Dein Code
         </h2>
         <p>
-            Kopiere ihn als nächstes und füge ihn in SpotifyTI ein.
+            Kopiere ihn als nächstes und füge ihn in Dargmusic ein.
         </p>
         <div class="card-panel"><span id="code"></span></div>
         <p>
