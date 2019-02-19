@@ -130,13 +130,13 @@
             },
             "secrets": {
                 "postgres_db": {
-                    "file": "./docker/secrets/postgres_db"
+                    "file": "./docker/secrets/postgres_db.secret"
                 },
                 "postgres_password": {
-                    "file": "./docker/secrets/postgres_password"
+                    "file": "./docker/secrets/postgres_password.secret"
                 },
                 "postgres_user": {
-                    "file": "./docker/secrets/postgres_user"
+                    "file": "./docker/secrets/postgres_user.secret"
                 }
             },
             "volumes": {
