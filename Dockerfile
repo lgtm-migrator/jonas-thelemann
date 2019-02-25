@@ -25,7 +25,7 @@ RUN gulp build
 FROM php:7.3-apache AS stage_apache
 
 # Project variables
-ENV PROJECT_NAME jonas-thelemann.de
+ENV PROJECT_NAME jonas-thelemann
 ENV PROJECT_MODS expires headers macro rewrite ssl
 
 # Apache & PHP variables

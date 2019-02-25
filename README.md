@@ -3,7 +3,7 @@
 [![Greenkeeper Badge](https://badges.greenkeeper.io/Dargmuesli/jonas-thelemann.de.svg)](https://greenkeeper.io/)
 [![Website Uptime Monitoring](https://app.statuscake.com/button/index.php?Track=BkiZnQ1xpj&Days=1000&Design=3)](https://www.statuscake.com)
 
-# jonas-thelemann.de
+# jonas-thelemann
 
 The source code of [my website](https://jonas-thelemann.de/).
 
