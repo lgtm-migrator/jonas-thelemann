@@ -83,7 +83,7 @@
     {
         global $navigationTranslations;
 
-        $syllable = new Syllable('de-1996');
+        $syllable = new Vanderlee\Syllable\Syllable('de-1996');
         $syllable->setCacheDir(__DIR__ . '/../cache');
         $navigationTranslation = '';
 

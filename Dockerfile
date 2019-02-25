@@ -1,7 +1,7 @@
 # Base image
 FROM node:stretch AS stage_node
 
-# PHP7.2 package list (workaround for dependency)
+# PHP7.2 package list (workaround for dependency "thesoftwarefanatics/php-html-parser")
 RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-certificates
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
@@ -9,7 +9,7 @@ RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc
 # Update and install PHP
 RUN \
     apt-get update && \
-    apt-get install -y php7.2 unzip
+    apt-get install -y php7.3 php7.3-dom php7.3-mbstring unzip
 
 WORKDIR /app
 
@@ -22,7 +22,7 @@ RUN yarn add gulp@4 -D
 RUN gulp build
 
 # Base image
-FROM php:7.2-apache AS stage_apache
+FROM php:7.3-apache AS stage_apache
 
 # Project variables
 ENV PROJECT_NAME jonas-thelemann.de
