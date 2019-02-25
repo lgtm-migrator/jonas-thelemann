@@ -105,7 +105,7 @@
                     Der Grundstein für diese Website wurde 2014 im Informatikunterricht an <a href="http://www.fg-kassel.de/" title="Friedrichsgymnasium Kassel">meiner alten Schule</a> gelegt.
                     Aufgabe war es, eine einfache Seite in HTML, CSS und vielleicht auch JavaScript zu entwerfen.
                     Nachdem das Thema im Unterricht abgeschlossen wurde, habe ich die Entwicklung weitergeführt und die Website unter <a href="https://jonas-thelemann.de" title="jonas-thelemann.de">jonas-thelemann.de</a> für jeden erreichbar gemacht.
-                    Momentan enthält sie an vielen Stellen hauptsächlich <strong>Fülltext und unfunktionale Seiten</strong>, da es nach Fertigstellung von Design und genereller Funktionalität fast ein Jahr gedauert hat, diese Website als <a href="https://github.com/dargmuesli/jonas-thelemann.de" rel="noopener" target="_blank" title="Dargmuesli/jonas-thelemann.de">Projekt auf GitHub</a> zu veröffentlichen.
+                    Momentan enthält sie an vielen Stellen hauptsächlich <strong>Fülltext und unfunktionale Seiten</strong>, da es nach Fertigstellung von Design und genereller Funktionalität fast ein Jahr gedauert hat, diese Website als <a href="https://github.com/dargmuesli/jonas-thelemann" rel="noopener" target="_blank" title="Dargmuesli/jonas-thelemann">Projekt auf GitHub</a> zu veröffentlichen.
                     Das Grundgerüst für die Website und einige Inhalte stehen also nun.
                 </p>
             </section>

@@ -1,5 +1,5 @@
 {
-    "name": "dargmuesli/jonas-thelemann.de",
+    "name": "dargmuesli/jonas-thelemann",
     "description": "The source code of my website.",
     "version": "1.8.1",
     "homepage": "https://jonas-thelemann.de/",
@@ -12,7 +12,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/Dargmuesli/jonas-thelemann.de/issues"
+        "issues": "https://github.com/Dargmuesli/jonas-thelemann/issues"
     },
     "require": {
         "gettext/gettext": "^4.6",

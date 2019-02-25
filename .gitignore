@@ -1,9 +1,4 @@
 /dist/
 /node_modules/
 /vendor/
-/stack.yml
-*.crt
-*.csr
 *.env
-*.key
-*.secret
