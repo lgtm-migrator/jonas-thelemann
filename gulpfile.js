@@ -40,13 +40,12 @@ const distServResFolder = distServFolder + 'resources/';
 const distServResDargBaseFolder = distServResFolder + 'dargmuesli/base/';
 const distServResPackCompFolder = distServResFolder + 'packages/composer/';
 const distServResPackYarnFolder = distServResFolder + 'packages/yarn/';
-const productionFolder = 'production/';
 const srcFolder = 'src/';
 const srcStaticFolder = srcFolder + 'static/';
 const srcJsFolder = srcFolder + 'js/';
 const srcCssSassStyle = srcFolder + 'css/sass/style/';
 
-const prodCredsGlob = productionFolder + pkg.name + '/credentials/**';
+const prodCredsGlob = 'credentials/**';
 const srcStaticGlob = srcStaticFolder + '**';
 const vendorGlob = 'vendor/**';
 const distGlob = distFolder + '**';
