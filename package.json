@@ -1,33 +1,21 @@
 {
-    "name": "jonas-thelemann.de",
+    "name": "jonas-thelemann",
     "description": "The source code of my website.",
     "author": {
         "name": "Jonas Thelemann",
         "url": "https://jonas-thelemann.de/"
     },
-    "contributors": [
-        {
-            "name": "Jonas Thelemann",
-            "url": "https://jonas-thelemann.de/"
-        }
-    ],
-    "maintainers": [
-        {
-            "name": "Jonas Thelemann",
-            "url": "https://jonas-thelemann.de/"
-        }
-    ],
     "url": "https://jonas-thelemann.de/",
     "homepage": "https://jonas-thelemann.de/this",
-    "version": "1.8.1",
+    "version": "2.0.0",
     "private": true,
     "license": "GPL-3.0",
     "repository": {
         "type": "git",
-        "url": "git://github.com/Dargmuesli/jonas-thelemann.de.git"
+        "url": "git://github.com/Dargmuesli/jonas-thelemann.git"
     },
     "bugs": {
-        "url": "https://github.com/Dargmuesli/jonas-thelemann.de/issues"
+        "url": "https://github.com/Dargmuesli/jonas-thelemann/issues"
     },
     "dependencies": {
         "chart.js": "^2.7.2",

@@ -63,7 +63,7 @@
         'school' => 'Schule',
         'security' => 'Sicherheit',
         'sitemap' => 'Sitemap',
-        'spotify-ti' => 'SpotifyTI',
+        'dargmusic' => 'Dargmusic',
         'song-suggestions' => 'Song-Vorschläge',
         'this-website' => 'Diese Website',
         'troll-em' => 'Troll\'em',
@@ -83,7 +83,7 @@
     {
         global $navigationTranslations;
 
-        $syllable = new Syllable('de-1996');
+        $syllable = new Vanderlee\Syllable\Syllable('de-1996');
         $syllable->setCacheDir(__DIR__ . '/../cache');
         $navigationTranslation = '';
 
