@@ -23,7 +23,7 @@ The source code of [my website](https://jonas-thelemann.de/).
   Build it with the following command:
 
   ```bash
-  docker build -t dargmuesli/jonas-thelemann-de:test .
+  docker build -t dargmuesli/jonas-thelemann .
   ```
 
 - ### Containerless
