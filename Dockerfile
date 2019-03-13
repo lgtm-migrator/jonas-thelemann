@@ -1,7 +1,7 @@
 # Base image
 FROM node:stretch AS stage_node
 
-# PHP7.2 package list (workaround for dependency "thesoftwarefanatics/php-html-parser")
+# PHP7.3 package list (workaround for dependency "thesoftwarefanatics/php-html-parser")
 RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-certificates
 RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
@@ -57,6 +57,9 @@ RUN a2enmod $PROJECT_MODS
 RUN a2enconf $PROJECT_NAME
 RUN a2dissite *
 RUN a2ensite $PROJECT_NAME
+
+# Declare environment variable file as mount point
+VOLUME $APACHE_DIR/credentials/$PROJECT_NAME.env
 
 # Update workdir to server files' location
 WORKDIR $APACHE_DIR/server
