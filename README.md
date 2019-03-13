@@ -17,8 +17,6 @@ The source code of my website [jonas-thelemann.de](https://jonas-thelemann.de/).
 1. **[Context](#context)**
 -->
 
-<a name="development"></a>
-
 ## Development
 This project is deployed within the [jonas-thelemann_stack](https://github.com/Dargmuesli/jonas-thelemann_stack/) in accordance to the [DargStack template](https://github.com/Dargmuesli/dargstack-template/) to make deployment a breeze.
 
@@ -30,8 +28,6 @@ docker build -t dargmuesli/jonas-thelemann .
 
 The following information is therefore only useful if you decide to deploy this project containerless.
 
-<a name="build"></a>
-
 ### Build
 
 #### Yarn
@@ -41,8 +37,6 @@ All required [Node.js](https://nodejs.org/) dependencies can be installed using 
 This repository contains all scripts required to build this project. The `gulpfile.js` automatically manages tasks like cleaning the build (`dist`) folder, copying files to it, managing dependencies with composer and yarn, creating symlinks and a zip file and, finally, watching for changes too.
 
 By default the `gulp` command executes all necessary functions to build the website. If the [gulp-cli](https://yarnpkg.com/en/package/gulp-cli/) is not installed globally, you need to run `yarn global add gulp-cli` first.
-
-<a name="deployment"></a>
 
 ### Deployment
 
