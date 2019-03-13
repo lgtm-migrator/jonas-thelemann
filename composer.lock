@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e691578c20c977ea2c02c756dd19275e",
+    "content-hash": "4249a735171ab5a889b6f9801590b4a0",
     "packages": [
         {
             "name": "gettext/gettext",
