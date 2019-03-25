@@ -6,7 +6,7 @@
 
 # jonas-thelemann
 
-The source code of my website [jonas-thelemann.de](https://jonas-thelemann.de/).
+The source code of [jonas-thelemann.de](https://jonas-thelemann.de/).
 
 ![Welcome](images/welcome.jpg "Jonas Thelemann")
 
