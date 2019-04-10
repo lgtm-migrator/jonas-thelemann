@@ -44,7 +44,7 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-    repo: Dargmuesli/jonas-thelemann
+    repo: dargmuesli/jonas-thelemann
 notifications:
   email:
     on_success: change
