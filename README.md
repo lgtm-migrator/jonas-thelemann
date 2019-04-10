@@ -1,11 +1,12 @@
-[![Build Status](https://travis-ci.org/Dargmuesli/jonas-thelemann.svg?branch=develop)](https://travis-ci.org/Dargmuesli/jonas-thelemann)
-[![Known Vulnerabilities](https://snyk.io/test/github/dargmuesli/jonas-thelemann/badge.svg)](https://snyk.io/test/github/dargmuesli/jonas-thelemann)
-[![Greenkeeper Badge](https://badges.greenkeeper.io/Dargmuesli/jonas-thelemann.svg)](https://greenkeeper.io/)
-[![Website Uptime Monitoring](https://app.statuscake.com/button/index.php?Track=BkiZnQ1xpj&Days=1000&Design=3)](https://www.statuscake.com)
+[![build status](https://travis-ci.org/dargmuesli/jonas-thelemann.svg?branch=develop)](https://travis-ci.org/dargmuesli/jonas-thelemann "build status")
+[![Docker layer size & count](https://images.microbadger.com/badges/image/dargmuesli/jonas-thelemann.svg)](https://microbadger.com/images/dargmuesli/jonas-thelemann "Docker layer size & count")
+[![known vulnerabilities](https://snyk.io/test/github/dargmuesli/jonas-thelemann/badge.svg)](https://snyk.io/test/github/dargmuesli/jonas-thelemann "known vulnerabilities")
+[![Greenkeeper](https://badges.greenkeeper.io/Dargmuesli/jonas-thelemann.svg)](https://greenkeeper.io/"Greenkeeper")
+[![website uptime monitoring](https://app.statuscake.com/button/index.php?Track=BkiZnQ1xpj&Days=1000&Design=3)](https://www.statuscake.com "website uptime monitoring")
 
 # jonas-thelemann
 
-The source code of my website [jonas-thelemann.de](https://jonas-thelemann.de/).
+The source code of [jonas-thelemann.de](https://jonas-thelemann.de/).
 
 ![Welcome](images/welcome.jpg "Jonas Thelemann")
 
