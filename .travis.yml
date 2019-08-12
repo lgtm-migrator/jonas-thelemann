@@ -33,7 +33,7 @@ script:
 - docker container create --name extract stage_node
 - docker container cp extract:/app/dist/jonas-thelemann.zip .
 - docker container rm -f extract
-- docker buildx build --cache-from=$REPO:cache --cache-to=$REPO:cache --push -t $REPO:$COMMIT -t $REPO:$Tag .
+- docker buildx build --cache-from=$REPO:cache --cache-to=$REPO:cache --push -t $REPO:$COMMIT -t $REPO:$TAG .
 after_script:
 - greenkeeper-lockfile-upload
 deploy:
