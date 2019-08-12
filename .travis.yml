@@ -5,6 +5,10 @@ node_js:
 sudo: required
 services:
 - docker
+addons:
+  apt:
+    packages:
+      - docker-ce
 env:
   global:
   - COMMIT=${TRAVIS_COMMIT::8}
