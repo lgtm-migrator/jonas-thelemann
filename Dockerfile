@@ -4,7 +4,7 @@ FROM node:buster-slim AS stage_node
 # Update and install PHP
 RUN \
     apt-get update && \
-    apt-get install -y php7.3 php7.3-dom php7.3-mbstring unzip
+    apt-get install -y git php7.3 php7.3-dom php7.3-mbstring unzip
 
 WORKDIR /app
 
