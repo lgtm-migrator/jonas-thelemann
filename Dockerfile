@@ -1,15 +1,10 @@
-# Base image
-FROM node:stretch AS stage_node
-
-# PHP7.3 package list (workaround for dependency "thesoftwarefanatics/php-html-parser")
-RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-certificates
-RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
+# Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
+FROM node:buster-slim AS stage_node
 
 # Update and install PHP
 RUN \
     apt-get update && \
-    apt-get install -y php7.3 php7.3-dom php7.3-mbstring unzip
+    apt-get install -y git php php-dom php-mbstring unzip
 
 WORKDIR /app
 
@@ -22,7 +17,7 @@ RUN yarn add gulp@4 -D
 RUN gulp build
 
 # Base image
-FROM php:7.3-apache AS stage_apache
+FROM php:7.3-apache-stretch AS stage_apache
 
 # Project variables
 ENV PROJECT_NAME jonas-thelemann
@@ -40,12 +35,9 @@ RUN apt-get update \
     && docker-php-ext-install \
     pdo_pgsql
 
-# Create Apache directory and copy the files
+# Create Apache directory and copy the files, changing the server files' owner
 RUN mkdir -p $APACHE_DIR
-COPY --from=stage_node /app/dist/$PROJECT_NAME $APACHE_DIR/
-
-# Change server files' owner
-RUN chown www-data:www-data -R $APACHE_DIR/server
+COPY --from=stage_node --chown=www-data:www-data /app/dist/$PROJECT_NAME $APACHE_DIR/
 
 # Copy Apache and PHP config files
 COPY docker/apache/conf/* $APACHE_CONFDIR/conf-available/
