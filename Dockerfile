@@ -1,10 +1,10 @@
-# Base image (buster contains PHP 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
+# Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
 FROM node:buster-slim AS stage_node
 
 # Update and install PHP
 RUN \
     apt-get update && \
-    apt-get install -y git php7.3 php7.3-dom php7.3-mbstring unzip
+    apt-get install -y git php php-dom php-mbstring unzip
 
 WORKDIR /app
 
