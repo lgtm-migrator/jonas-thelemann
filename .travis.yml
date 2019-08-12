@@ -5,10 +5,6 @@ node_js:
 sudo: required
 services:
 - docker
-addons:
-  apt:
-    packages:
-      - docker-ce
 env:
   global:
   - COMMIT=${TRAVIS_COMMIT::8}
@@ -22,6 +18,11 @@ before_install:
 - yarn global add greenkeeper-lockfile@1
 - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
 - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+- |
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+    sudo apt-get update
+    sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-ce
 before_script:
 - greenkeeper-lockfile-update
 script:
