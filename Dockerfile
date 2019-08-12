@@ -1,10 +1,5 @@
-# Base image
-FROM node:stretch AS stage_node
-
-# PHP7.3 package list (workaround for dependency "thesoftwarefanatics/php-html-parser")
-RUN apt-get update && apt-get install -y apt-transport-https lsb-release ca-certificates
-RUN wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
-RUN echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
+# Base image (buster contains PHP 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
+FROM node:buster-slim AS stage_node
 
 # Update and install PHP
 RUN \
