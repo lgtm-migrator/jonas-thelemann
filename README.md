@@ -1,7 +1,7 @@
 [![build status](https://travis-ci.org/dargmuesli/jonas-thelemann.svg?branch=develop)](https://travis-ci.org/dargmuesli/jonas-thelemann "build status")
 [![Docker layer size & count](https://images.microbadger.com/badges/image/dargmuesli/jonas-thelemann.svg)](https://microbadger.com/images/dargmuesli/jonas-thelemann "Docker layer size & count")
 [![known vulnerabilities](https://snyk.io/test/github/dargmuesli/jonas-thelemann/badge.svg)](https://snyk.io/test/github/dargmuesli/jonas-thelemann "known vulnerabilities")
-[![Greenkeeper](https://badges.greenkeeper.io/Dargmuesli/jonas-thelemann.svg)](https://greenkeeper.io/"Greenkeeper")
+[![Renovate](https://badges.renovateapi.com/github/dargmuesli/jonas-thelemann)](https://renovatebot.com/"Renovate")
 [![website uptime monitoring](https://app.statuscake.com/button/index.php?Track=BkiZnQ1xpj&Days=1000&Design=3)](https://www.statuscake.com "website uptime monitoring")
 
 # jonas-thelemann
