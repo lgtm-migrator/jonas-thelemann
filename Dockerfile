@@ -18,14 +18,10 @@ RUN gulp build
 # Base image
 FROM php:7.3-fpm-alpine AS stage_serve
 
-# Project variables
-ENV PROJECT_NAME jonas-thelemann
-ENV PROJECT_MODS expires headers macro rewrite ssl
-
-# Apache & PHP variables
-ENV APACHE_DIR /var/www/$PROJECT_NAME
-ENV APACHE_CONFDIR /etc/apache2
+# Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
+ENV PROJECT_NAME jonas-thelemann
+# ENV PROJECT_MODS expires headers macro rewrite ssl
 
 # Enable extensions
 RUN apk add --no-cache \
@@ -33,24 +29,15 @@ RUN apk add --no-cache \
     && docker-php-ext-install \
     pdo_pgsql
 
-# Create Apache directory and copy the files, changing the server files' owner
-RUN mkdir -p $APACHE_DIR/
-COPY --from=stage_build --chown=www-data:www-data /app/dist/$PROJECT_NAME $APACHE_DIR/
+# Copy built source files, changing the server files' owner
+COPY --from=stage_build --chown=www-data:www-data /app/dist/$PROJECT_NAME /var/www/html/
 
-# Copy Apache and PHP config files
-COPY docker/apache/conf/* $APACHE_CONFDIR/conf-available/
-COPY docker/apache/site/* $APACHE_CONFDIR/sites-available/
-COPY docker/php/* $PHP_INI_DIR/
-
-# # Enable mods, config and site
-# RUN a2enmod $PROJECT_MODS
-# RUN a2enconf $PROJECT_NAME
-# RUN a2dissite *
-# RUN a2ensite $PROJECT_NAME
+# Copy PHP configuration files
+COPY docker/php/php.ini $PHP_INI_DIR/
+COPY --chown=www-data:www-data docker/php/prepend.php $PHP_INI_DIR/
 
 # Declare required mount points
-VOLUME $APACHE_DIR/credentials/$PROJECT_NAME.env
-VOLUME /etc/ssl/certificates/
+VOLUME /var/www/credentials/$PROJECT_NAME.env
 
 # Update workdir to server files' location
-WORKDIR $APACHE_DIR/server/
+WORKDIR /var/www/html/
