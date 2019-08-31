@@ -37,7 +37,7 @@ RUN apt-get update \
 
 # Create Apache directory and copy the files, changing the server files' owner
 RUN mkdir -p $APACHE_DIR/
-COPY --from=stage_node --chown=www-data:www-data /app/dist/$PROJECT_NAME $APACHE_DIR/
+COPY --from=stage_build --chown=www-data:www-data /app/dist/$PROJECT_NAME $APACHE_DIR/
 
 # Copy Apache and PHP config files
 COPY docker/apache/conf/* $APACHE_CONFDIR/conf-available/
