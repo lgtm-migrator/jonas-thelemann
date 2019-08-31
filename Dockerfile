@@ -16,7 +16,7 @@ RUN yarn add gulp@4 -D
 RUN gulp build
 
 # Base image
-FROM php:7.3-apache-stretch AS stage_serve
+FROM php:7.3-fpm-alpine AS stage_serve
 
 # Project variables
 ENV PROJECT_NAME jonas-thelemann
@@ -28,9 +28,8 @@ ENV APACHE_CONFDIR /etc/apache2
 ENV PHP_INI_DIR /usr/local/etc/php
 
 # Enable extensions
-RUN apt-get update \
-    && apt-get install -y \
-    libpq-dev \
+RUN apk add --no-cache \
+    postgresql-dev \
     && docker-php-ext-install \
     pdo_pgsql
 
@@ -43,11 +42,11 @@ COPY docker/apache/conf/* $APACHE_CONFDIR/conf-available/
 COPY docker/apache/site/* $APACHE_CONFDIR/sites-available/
 COPY docker/php/* $PHP_INI_DIR/
 
-# Enable mods, config and site
-RUN a2enmod $PROJECT_MODS
-RUN a2enconf $PROJECT_NAME
-RUN a2dissite *
-RUN a2ensite $PROJECT_NAME
+# # Enable mods, config and site
+# RUN a2enmod $PROJECT_MODS
+# RUN a2enconf $PROJECT_NAME
+# RUN a2dissite *
+# RUN a2ensite $PROJECT_NAME
 
 # Declare required mount points
 VOLUME $APACHE_DIR/credentials/$PROJECT_NAME.env
