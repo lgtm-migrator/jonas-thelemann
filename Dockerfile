@@ -1,5 +1,5 @@
 # Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
-FROM node:buster-slim AS stage_node
+FROM node:buster-slim AS stage_build
 
 # Update and install PHP
 RUN \
@@ -17,7 +17,7 @@ RUN yarn add gulp@4 -D
 RUN gulp build
 
 # Base image
-FROM php:7.3-apache-stretch AS stage_apache
+FROM php:7.3-apache-stretch AS stage_serve
 
 # Project variables
 ENV PROJECT_NAME jonas-thelemann

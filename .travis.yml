@@ -24,8 +24,8 @@ before_install:
     docker buildx create --name travis-builder --use
     docker buildx inspect --bootstrap
 script:
-- docker build -t stage_node --target stage_node .
-- docker container create --name extract stage_node
+- docker build -t stage_build --target stage_build .
+- docker container create --name extract stage_build
 - docker container cp extract:/app/dist/jonas-thelemann.zip .
 - docker container rm -f extract
 - docker buildx build --cache-from=$REPO:cache --cache-to=$REPO:cache --push -t $REPO:$COMMIT -t $REPO:$TAG .
