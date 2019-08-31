@@ -6,7 +6,7 @@ RUN \
     apt-get update && \
     apt-get install -y git php php-dom php-mbstring unzip
 
-WORKDIR /app
+WORKDIR /app/
 
 # Import project files
 COPY ./ /app/
@@ -36,7 +36,7 @@ RUN apt-get update \
     pdo_pgsql
 
 # Create Apache directory and copy the files, changing the server files' owner
-RUN mkdir -p $APACHE_DIR
+RUN mkdir -p $APACHE_DIR/
 COPY --from=stage_node --chown=www-data:www-data /app/dist/$PROJECT_NAME $APACHE_DIR/
 
 # Copy Apache and PHP config files
@@ -55,4 +55,4 @@ VOLUME $APACHE_DIR/credentials/$PROJECT_NAME.env
 VOLUME /etc/ssl/certificates/
 
 # Update workdir to server files' location
-WORKDIR $APACHE_DIR/server
+WORKDIR $APACHE_DIR/server/
