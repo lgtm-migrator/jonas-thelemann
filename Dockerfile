@@ -30,14 +30,14 @@ RUN apk add --no-cache \
     pdo_pgsql
 
 # Copy built source files, changing the server files' owner
-COPY --from=stage_build --chown=www-data:www-data /app/dist/$PROJECT_NAME /var/www/html/
+COPY --chown=www-data:www-data --from=stage_build /app/dist/$PROJECT_NAME/ /var/www/$PROJECT_NAME/
 
 # Copy PHP configuration files
-COPY docker/php/php.ini $PHP_INI_DIR/
-COPY --chown=www-data:www-data docker/php/prepend.php $PHP_INI_DIR/
+COPY ./docker/php/php.ini $PHP_INI_DIR/
+COPY --chown=www-data:www-data ./docker/php/prepend.php $PHP_INI_DIR/
 
 # Declare required mount points
 VOLUME /var/www/credentials/$PROJECT_NAME.env
 
 # Update workdir to server files' location
-WORKDIR /var/www/html/
+WORKDIR /var/www/$PROJECT_NAME/
