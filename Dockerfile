@@ -4,12 +4,11 @@ FROM node:buster-slim AS stage_build
 # Update and install PHP
 RUN \
     apt-get update && \
-    apt-get install -y git php php-dom php-mbstring unzip
-
-WORKDIR /app/
+    apt-get install -y composer git php php-dom php-mbstring unzip
 
 # Import project files
 COPY ./ /app/
+WORKDIR /app/
 
 # Install Gulp and build project
 RUN yarn global add gulp-cli
