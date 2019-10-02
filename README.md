@@ -18,7 +18,7 @@ The source code of [jonas-thelemann.de](https://jonas-thelemann.de/).
 -->
 
 ## Development
-This project is deployed within the [jonas-thelemann_stack](https://github.com/Dargmuesli/jonas-thelemann_stack/) in accordance to the [DargStack template](https://github.com/Dargmuesli/dargstack-template/) to make deployment a breeze.
+This project is deployed within the [jonas-thelemann_stack](https://github.com/Dargmuesli/jonas-thelemann_stack/) in accordance to the [DargStack template](https://github.com/Dargmuesli/dargstack_template/) to make deployment a breeze.
 
 The provided `Dockerfile` lets you build an Apache-PHP server image with the configuration files in the `docker` folder. Build it with the following command:
 
