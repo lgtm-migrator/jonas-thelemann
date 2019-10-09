@@ -59,6 +59,8 @@ let sitemapExcludes = [
     '!' + srcStaticFolder + 'tools/**/index.php'
 ];
 
+let symlinkArray = [];
+
 let yarnArray = [
     {
         source: 'node_modules/chart.js/dist/Chart{.min,}.js',
