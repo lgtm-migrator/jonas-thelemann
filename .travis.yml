@@ -8,16 +8,13 @@ services:
 env:
   global:
   - COMMIT=${TRAVIS_COMMIT::8}
-  # - DOCKER_BUILDKIT=1
   - DOCKER_CLI_EXPERIMENTAL=enabled
   - REPO=dargmuesli/jonas-thelemann
   - secure: AXIYd4nGmBWdUWBoDs8am2MyvkPfQC93Cww0xcfJv7FufxfkTY63v6ZXm8Mq+xlPWQD1DhD9yCUoAN+1b6yl9/Y6nOmyeYLmY+yxJolEtYZZpg6CmPWGTiEJHxVPxjwQy+XCIxg74RxM8JN6XWNwoJu4rkgTS9w/qABjf9UO6/TR+yfa9+gIaRQ/jBCSracc1J2UkXEF9Qp/jAj+Bqfs7J6IOqzqs/aDYHbNZMHtVLgSD5QzWDj84Dxbs7rio8+4vX/unWuEhjYWtu0HelRSkZa1CwQBALo5aVeWUFtbb1owygHCGietYwmmOistryRJQ/BQEcdN6U6zs7seyc1YTQJ8Nspwuq8MKlbD2AH1uj8PsxXmQPZBPH1IOHkx/tWt32/KtEQh869CMgm7HKYXdpO4qThzW8XCC2r+AYVmO/VKxDWxkUcTRShTSbFmwZm5eqUz/quyuFFfgBXGuQZvlLmXuV1tj4w8evEYP62RLr5mWVsSH5R9AgCkdtyR71t+WCY+KTQwemIBZWPvgRFFS4QveLjMknpltWlNeU51KbZ0+xHZNlnMTn4uGVg94jIgi5+kRp4CNPo7obKj6KbeVzvs2L2cVfEjyp5dxjsORIcDGmGpQwJONVWywtNvxiq4gCqOr2BNdRlwMJcvuiA6Mo2aAM0TaC9BiSWtsNdTqtA= #DOCKER_USER
   - secure: crH5LDlbeJK2zFvZNoxPJFhTEh9hoUGbbauvrUvKyGdlUcA+gJJPumaG0umOc4d/+dFtcu9fhaJIoCLRpbWog1nGDc0+A6ezXjTZbQYAOD6OuI1cGW/2w8W1RsyzfgiHq5HZOuajfV278y7nWRmwwu8cdxv9FOls1HIcizHwpnndk/lsc+yRV8beuipd0yu4XYTl36hi3JKb/ghK0rLUBCSuiIrLNp3I4+8Q3WIHd+4K03R8qHbtiY0S0qvu7FJSq3peSS9fop9m+jpymikKNvg252dkgVDwd1+Hy2of2TX8k+xGb+k5gX2efjniTa7AnsNCCYKWZKG4iSXns7YZFEa9TQLcsuUDNEbJlmy2CXDbHVK5BAOvJZItD01VDT7CA91WbyMRDMox7Tst/l5AywKOQynQYs5m5//ym2rlX1uEABjOBZfNbisuwlXp/bvE60WpU62RQnucl1JKEYWwnP/Nwz3llKzcT4Ki70iWSmSjyhQxFj/x491tQVPck0kFgfzciBeVUwg+GWfkbeEOfTK839eYGPCs/EtgiTLuSibQXlI56k9KcCJpn/edbh+1FhKEOXApjMoR8BbSnZyOw41ToyL8TWuxJy9EcIOQ3FS27TgXaBUxf4ovQA2ZVmMGsFMdiLe+HtD4B3Uq8Otdueae8lC9KtFGh0UntoDLKWU= #DOCKER_PASS
-  - secure: QL7LGf7ZRC6488qxYE+v6HHfF/xjrZ2rqGjZ1OCcqHRlKi/R2j1+JM8otnxKKXBVyoyGUEGNruI8NtourtnQwrTysRPaBeuJE1cYNX6aWogBp2Trkkzw24JLtlfN8mSKPgLqX4//mjPegjF+5RpnQaW4/L4QfFt0/RoBYxGlwtJY/0qRDgboi33a5ze33ikFlpPxJKu6rfM5FDccxyvbLyiyt3tfYoSIPvZRsgci+QQGAzwv49jWz0Pr3Wl3Ga2YuW3xd27awPzmlHZcSzHMH+ga0ieuezkg7p1L/LQyS+pmzYud/EAlgJU3YDG099UKODqJLYJbuYJQraMccjN7YjHM6viiEabGeEFREoAdki9Lh2yt9DWs3QsYOAG+2G01S/RrVcicv3l2w6V49o0Zfr8sDszH/yOYNjOEYUGoT4HNhDl8rSTMu8vikF/RJJ2UoxUh2nSU/YZOjDmo5g4oa+JR8pWHtMNTsxPEr4yWzv73vK3NAWwskdU8XDl9r2+EbAhruPzf3Jwur3u6zo3gaCj4H6VdDSVNXBSuMC9vI2UiNtV8Uh1//CUInVwZdF0VRNi1PFDxo87DqXBPRnHQd0ERw7Wew82AMjH/Pk1avhr/Wxq/6DhqFaYklhQQWt4e1VTV1hgnNg4RozmBXR1TFJsxCqvV5kMYODnGAqqaQaY= #GH_TOKEN (Greenkeeper)
 before_install:
-- yarn global add greenkeeper-lockfile@1
 - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
+- export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $(echo $TRAVIS_BRANCH | tr / _); fi`
 - |
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -26,16 +23,12 @@ before_install:
 - |
     docker buildx create --name travis-builder --use
     docker buildx inspect --bootstrap
-before_script:
-- greenkeeper-lockfile-update
 script:
-- docker build -t stage_node --target stage_node .
-- docker container create --name extract stage_node
+- docker build -t stage_build --target stage_build .
+- docker container create --name extract stage_build
 - docker container cp extract:/app/dist/jonas-thelemann.zip .
 - docker container rm -f extract
 - docker buildx build --cache-from=$REPO:cache --cache-to=$REPO:cache --push -t $REPO:$COMMIT -t $REPO:$TAG .
-after_script:
-- greenkeeper-lockfile-upload
 deploy:
   provider: releases
   api_key:
