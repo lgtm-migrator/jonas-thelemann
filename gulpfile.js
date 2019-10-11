@@ -9,6 +9,7 @@ const gBabelMinify = require('gulp-babel-minify');
 const gBrowserify = require('browserify');
 const gBuffer = require('gulp-buffer');
 const gCached = require('gulp-cached');
+const gChown = require('gulp-chown');
 const gComposer = require('gulp-composer');
 const gDateDiff = require('date-diff');
 const gDel = require('del');
@@ -114,6 +115,7 @@ exports.composerClean = composerClean;
 function composerSrc() {
     // Copy all composer libraries to composer package resources dist folder
     return gGulp.src(vendorGlob)
+        .pipe(gChown(1000, 82))
         .pipe(gGulp.dest(distServResPackCompFolder));
 }
 
@@ -143,6 +145,7 @@ function credentials() {
     // Copy credentials to dist folder
     return gGulp.src(prodCredsGlob, { dot: true })
         .pipe(gCached('credentials'))
+        .pipe(gChown(1000, 82))
         .pipe(gGulp.dest(distCredsFolder));
 }
 
@@ -170,6 +173,7 @@ function cssCompressed() {
         }).on('error', gSass.logError))
         .pipe(gAutoprefixer())
         .pipe(gSourcemaps.write('.'))
+        .pipe(gChown(1000, 82))
         .pipe(gGulp.dest(distServResDargBaseFolder));
 }
 
@@ -183,6 +187,7 @@ function cssExtended() {
         }).on('error', gSass.logError))
         .pipe(gAutoprefixer())
         .pipe(gSourcemaps.write('.'))
+        .pipe(gChown(1000, 82))
         .pipe(gGulp.dest(distServResDargBaseFolder));
 }
 
@@ -260,6 +265,7 @@ function jsSrc() {
             file.contents = gBrowserify(file.path, { debug: true, standalone: 'Dargmuesli' }).transform('babelify', { presets: ['@babel/preset-env'] }).bundle();
         }))
         .pipe(gBuffer())
+        .pipe(gChown(1000, 82))
         .pipe(gGulp.dest(distServResDargBaseFolder))
         .pipe(gRename({
             extname: '.min.js'
@@ -360,6 +366,7 @@ function staticSrc() {
         gGulp.src(srcStaticGlob, { dot: true })
             .pipe(gCached('staticSrc'))
             .on('error', reject)
+            .pipe(gChown(1000, 82))
             .pipe(gGulp.dest(distServFolder))
             .on('end', resolve);
     }).then(function () {
@@ -417,6 +424,7 @@ function yarnSrc(callback) {
         yarnArray.forEach(element => {
             streamArray.push(
                 gGulp.src(element.source)
+                    .pipe(gChown(1000, 82))
                     .pipe(gGulp.dest(distServResPackYarnFolder + element.target))
             );
         });
@@ -454,6 +462,7 @@ function zip() {
     // Build a zip file containing the dist folder
     return gGulp.src(distGlob, { dot: true })
         .pipe(gZip(pkg.name + '.zip'))
+        .pipe(gChown(1000, 82))
         .pipe(gGulp.dest(path.dirname(distFolder)));
 }
 
