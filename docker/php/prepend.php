@@ -70,7 +70,7 @@
                     DE
                 </h2>
                 <p>
-                Ein Fehler trat auf und wurde protokolliert. Kontaktiere mich bitte direkt, wenn der Fehler in drei Tagen nicht behoben ist und nenne folgende Fehlermeldung:
+                Ein Fehler trat auf und wurde protokolliert. Kontaktiere mich bitte und nenne folgende Fehlermeldung:
                 <br>
                 "'.$errorOutput.'"
                 </p>
@@ -80,7 +80,7 @@
                     EN
                 </h2>
                 <p>
-                An error occurred and has been logged. Please contact me directly if this error is not resolved in three days and name the following error message:
+                An error occurred and has been logged. Please contact me and name the following error message:
                 <br>
                 "'.$errorOutput.'"
                 </p>
