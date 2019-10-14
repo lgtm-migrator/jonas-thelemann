@@ -13,7 +13,7 @@ WORKDIR /app/
 # Install Gulp and build project
 RUN yarn global add gulp-cli
 RUN yarn add gulp@4 -D
-RUN sg www-data "gulp build"
+RUN gulp build
 
 # Base image
 FROM php:7.3-fpm-alpine AS stage_serve
