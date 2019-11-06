@@ -7,7 +7,7 @@
     },
     "url": "https://jonas-thelemann.de/",
     "homepage": "https://jonas-thelemann.de/this",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "private": true,
     "license": "GPL-3.0",
     "repository": {
@@ -18,7 +18,7 @@
         "url": "https://github.com/Dargmuesli/jonas-thelemann/issues"
     },
     "dependencies": {
-        "chart.js": "2.8.0",
+        "chart.js": "2.9.2",
         "dragula": "3.7.2",
         "gettext-parser": "4.0.2",
         "jquery": "3.4.1",
@@ -27,7 +27,7 @@
         "later": "1.2.0",
         "materialize-css": "1.0.0",
         "moment": "2.24.0",
-        "moment-timezone": "0.5.26",
+        "moment-timezone": "0.5.27",
         "prismjs": "1.17.1"
     },
     "devDependencies": {
@@ -37,7 +37,7 @@
         "browserify": "16.5.0",
         "date-diff": "0.2.1",
         "del": "5.1.0",
-        "eslint": "6.5.1",
+        "eslint": "6.6.0",
         "gulp": "4.0.2",
         "gulp-autoprefixer": "7.0.1",
         "gulp-babel-minify": "0.5.1",

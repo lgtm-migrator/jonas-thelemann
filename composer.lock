@@ -4,39 +4,32 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "77a7e60368c4613350b371cb288de342",
+    "content-hash": "f62b3a2d2992183ce58c319331642640",
     "packages": [
         {
             "name": "gettext/gettext",
-            "version": "v4.7.0",
+            "version": "v5.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/oscarotero/Gettext.git",
-                "reference": "739c935503853759b1607f375960c73a5b03909b"
+                "url": "https://github.com/php-gettext/Gettext.git",
+                "reference": "20059a7495e0202b0fadd14e0cac237b3ca80ca3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/Gettext/zipball/739c935503853759b1607f375960c73a5b03909b",
-                "reference": "739c935503853759b1607f375960c73a5b03909b",
+                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/20059a7495e0202b0fadd14e0cac237b3ca80ca3",
+                "reference": "20059a7495e0202b0fadd14e0cac237b3ca80ca3",
                 "shasum": ""
             },
             "require": {
                 "gettext/languages": "^2.3",
-                "php": ">=5.4.0"
+                "php": "^7.2"
             },
             "require-dev": {
-                "illuminate/view": "*",
-                "phpunit/phpunit": "^4.8|^5.7|^6.5",
-                "squizlabs/php_codesniffer": "^3.0",
-                "symfony/yaml": "~2",
-                "twig/extensions": "*",
-                "twig/twig": "^1.31|^2.0"
-            },
-            "suggest": {
-                "illuminate/view": "Is necessary if you want to use the Blade extractor",
-                "symfony/yaml": "Is necessary if you want to use the Yaml extractor/generator",
-                "twig/extensions": "Is necessary if you want to use the Twig extractor",
-                "twig/twig": "Is necessary if you want to use the Twig extractor"
+                "brick/varexporter": "^0.2.1",
+                "friendsofphp/php-cs-fixer": "^2.15",
+                "oscarotero/php-cs-fixer-config": "^1.0",
+                "phpunit/phpunit": "^8.0",
+                "squizlabs/php_codesniffer": "^3.0"
             },
             "type": "library",
             "autoload": {
@@ -57,7 +50,7 @@
                 }
             ],
             "description": "PHP gettext manager",
-            "homepage": "https://github.com/oscarotero/Gettext",
+            "homepage": "https://github.com/php-gettext/Gettext",
             "keywords": [
                 "JS",
                 "gettext",
@@ -66,7 +59,7 @@
                 "po",
                 "translation"
             ],
-            "time": "2019-10-07T11:40:33+00:00"
+            "time": "2019-11-04T20:19:34+00:00"
         },
         {
             "name": "gettext/languages",
@@ -334,16 +327,16 @@
         },
         {
             "name": "phpoption/phpoption",
-            "version": "1.5.0",
+            "version": "1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "94e644f7d2051a5f0fcf77d81605f152eecff0ed"
+                "reference": "894e8f93890b79f29911cce497fe811fe9d931ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/94e644f7d2051a5f0fcf77d81605f152eecff0ed",
-                "reference": "94e644f7d2051a5f0fcf77d81605f152eecff0ed",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/894e8f93890b79f29911cce497fe811fe9d931ba",
+                "reference": "894e8f93890b79f29911cce497fe811fe9d931ba",
                 "shasum": ""
             },
             "require": {
@@ -365,7 +358,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache2"
+                "Apache-2.0"
             ],
             "authors": [
                 {
@@ -380,7 +373,7 @@
                 "php",
                 "type"
             ],
-            "time": "2015-07-25T16:39:46+00:00"
+            "time": "2019-11-06T12:42:47+00:00"
         },
         {
             "name": "respect/validation",
