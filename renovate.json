@@ -2,6 +2,9 @@
   "automerge": true,
   "automergeType": "branch",
   "docker": {
+    "major": {
+      "enabled": true
+    },
     "pinDigests": true
   },
   "extends": [
