@@ -1,11 +1,11 @@
 {
   "automerge": true,
   "automergeType": "branch",
+  "docker": {
+    "pinDigests": true
+  },
   "extends": [
-    "config:base",
-    "default:automergeBranchPush",
-    "default:automergeDigest",
-    "docker:enableMajor"
+    "config:base"
   ],
   "major": {
     "automerge": false
