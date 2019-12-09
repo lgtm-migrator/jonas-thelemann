@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83a75ab30efe6838b854640a56f787dc",
+    "content-hash": "554adcab0790d4c2a4841e92c9982153",
     "packages": [
         {
             "name": "gettext/gettext",
-            "version": "v5.2.0",
+            "version": "v5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-gettext/Gettext.git",
-                "reference": "1dab64956e8122d5599f5ff5b3692051c25d1a76"
+                "reference": "08c42eb92864602b3263d3e1144e3708a7233e79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/1dab64956e8122d5599f5ff5b3692051c25d1a76",
-                "reference": "1dab64956e8122d5599f5ff5b3692051c25d1a76",
+                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/08c42eb92864602b3263d3e1144e3708a7233e79",
+                "reference": "08c42eb92864602b3263d3e1144e3708a7233e79",
                 "shasum": ""
             },
             "require": {
@@ -59,7 +59,7 @@
                 "po",
                 "translation"
             ],
-            "time": "2019-11-25T22:02:55+00:00"
+            "time": "2019-12-08T18:02:36+00:00"
         },
         {
             "name": "gettext/languages",
