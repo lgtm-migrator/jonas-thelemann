@@ -7,7 +7,7 @@
     },
     "url": "https://jonas-thelemann.de/",
     "homepage": "https://jonas-thelemann.de/this",
-    "version": "3.0.2",
+    "version": "3.0.3",
     "private": true,
     "license": "GPL-3.0",
     "repository": {
@@ -18,7 +18,7 @@
         "url": "https://github.com/Dargmuesli/jonas-thelemann/issues"
     },
     "dependencies": {
-        "chart.js": "2.9.2",
+        "chart.js": "2.9.3",
         "dragula": "3.7.2",
         "gettext-parser": "4.0.2",
         "jquery": "3.4.1",
@@ -31,13 +31,13 @@
         "prismjs": "1.17.1"
     },
     "devDependencies": {
-        "@babel/core": "7.6.4",
-        "@babel/preset-env": "7.6.3",
+        "@babel/core": "7.7.5",
+        "@babel/preset-env": "7.7.6",
         "babelify": "10.0.0",
         "browserify": "16.5.0",
         "date-diff": "0.2.1",
         "del": "5.1.0",
-        "eslint": "6.6.0",
+        "eslint": "6.7.2",
         "gulp": "4.0.2",
         "gulp-autoprefixer": "7.0.1",
         "gulp-babel-minify": "0.5.1",
@@ -47,14 +47,14 @@
         "gulp-composer": "0.4.5",
         "gulp-eslint": "6.0.0",
         "gulp-phplint": "0.9.0",
-        "gulp-rename": "1.4.0",
+        "gulp-rename": "2.0.0",
         "gulp-sass": "4.0.2",
         "gulp-sourcemaps": "2.6.5",
         "gulp-symlink": "2.1.4",
         "gulp-tap": "2.0.0",
         "gulp-yarn": "2.0.0",
         "gulp-zip": "5.0.1",
-        "jsdoc-to-markdown": "5.0.2",
+        "jsdoc-to-markdown": "5.0.3",
         "merge-stream": "2.0.0",
         "plugin-error": "1.0.1",
         "through2": "3.0.1"

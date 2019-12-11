@@ -1,5 +1,5 @@
 # Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
-FROM node:13.0.1-buster AS stage_build
+FROM node:13.3.0-buster@sha256:b300af3f4b3464629c73106ee89432b50918fddd08c27eec489abe54c9edcbd7 AS stage_build
 
 # Update and install PHP
 RUN \
@@ -16,7 +16,7 @@ RUN yarn add gulp@4 -D
 RUN gulp build
 
 # Base image
-FROM php:7.3-fpm-alpine AS stage_serve
+FROM php:7.4-fpm-alpine@sha256:98653dd3ecc849d3edba30fe3743feb8e1df087767e225b6dc0410574234184d AS stage_serve
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php

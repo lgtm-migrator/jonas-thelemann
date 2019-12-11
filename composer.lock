@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f62b3a2d2992183ce58c319331642640",
+    "content-hash": "439822067609b04cbefbd1b55a6d1c24",
     "packages": [
         {
             "name": "gettext/gettext",
-            "version": "v5.0.0",
+            "version": "v5.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-gettext/Gettext.git",
-                "reference": "20059a7495e0202b0fadd14e0cac237b3ca80ca3"
+                "reference": "08c42eb92864602b3263d3e1144e3708a7233e79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/20059a7495e0202b0fadd14e0cac237b3ca80ca3",
-                "reference": "20059a7495e0202b0fadd14e0cac237b3ca80ca3",
+                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/08c42eb92864602b3263d3e1144e3708a7233e79",
+                "reference": "08c42eb92864602b3263d3e1144e3708a7233e79",
                 "shasum": ""
             },
             "require": {
@@ -59,31 +59,31 @@
                 "po",
                 "translation"
             ],
-            "time": "2019-11-04T20:19:34+00:00"
+            "time": "2019-12-08T18:02:36+00:00"
         },
         {
             "name": "gettext/languages",
-            "version": "2.5.0",
+            "version": "2.6.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/mlocati/cldr-to-gettext-plural-rules.git",
-                "reference": "78db2d17933f0765a102f368a6663f057162ddbd"
+                "url": "https://github.com/php-gettext/Languages.git",
+                "reference": "38ea0482f649e0802e475f0ed19fa993bcb7a618"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mlocati/cldr-to-gettext-plural-rules/zipball/78db2d17933f0765a102f368a6663f057162ddbd",
-                "reference": "78db2d17933f0765a102f368a6663f057162ddbd",
+                "url": "https://api.github.com/repos/php-gettext/Languages/zipball/38ea0482f649e0802e475f0ed19fa993bcb7a618",
+                "reference": "38ea0482f649e0802e475f0ed19fa993bcb7a618",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4"
+                "friendsofphp/php-cs-fixer": "^2.16.0",
+                "phpunit/phpunit": "^4.8 || ^5.7 || ^6.5 || ^7.5 || ^8.4"
             },
             "bin": [
-                "bin/export-plural-rules",
-                "bin/export-plural-rules.php"
+                "bin/export-plural-rules"
             ],
             "type": "library",
             "autoload": {
@@ -103,7 +103,7 @@
                 }
             ],
             "description": "gettext languages with plural rules",
-            "homepage": "https://github.com/mlocati/cldr-to-gettext-plural-rules",
+            "homepage": "https://github.com/php-gettext/Languages",
             "keywords": [
                 "cldr",
                 "i18n",
@@ -120,7 +120,7 @@
                 "translations",
                 "unicode"
             ],
-            "time": "2018-11-13T22:06:07+00:00"
+            "time": "2019-11-13T10:30:21+00:00"
         },
         {
             "name": "google/recaptcha",
@@ -261,16 +261,16 @@
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "v6.1.1",
+            "version": "v6.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "26bd96350b0b2fcbf0ef4e6f0f9cf3528302a9d8"
+                "reference": "c5e61d0729507049cec9673aa1a679f9adefd683"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/26bd96350b0b2fcbf0ef4e6f0f9cf3528302a9d8",
-                "reference": "26bd96350b0b2fcbf0ef4e6f0f9cf3528302a9d8",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/c5e61d0729507049cec9673aa1a679f9adefd683",
+                "reference": "c5e61d0729507049cec9673aa1a679f9adefd683",
                 "shasum": ""
             },
             "require": {
@@ -279,13 +279,9 @@
                 "php": ">=5.5.0"
             },
             "require-dev": {
-                "doctrine/annotations": "1.2.*",
+                "doctrine/annotations": "^1.2",
                 "friendsofphp/php-cs-fixer": "^2.2",
-                "phpdocumentor/phpdocumentor": "2.*",
-                "phpunit/phpunit": "^4.8 || ^5.7",
-                "zendframework/zend-eventmanager": "3.0.*",
-                "zendframework/zend-i18n": "2.7.3",
-                "zendframework/zend-serializer": "2.7.*"
+                "phpunit/phpunit": "^4.8 || ^5.7"
             },
             "suggest": {
                 "ext-mbstring": "Needed to send email in multibyte encoding charset",
@@ -323,37 +319,37 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2019-09-27T21:33:43+00:00"
+            "time": "2019-12-10T11:17:38+00:00"
         },
         {
             "name": "phpoption/phpoption",
-            "version": "1.5.1",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schmittjoh/php-option.git",
-                "reference": "894e8f93890b79f29911cce497fe811fe9d931ba"
+                "reference": "f4e7a6a1382183412246f0d361078c29fb85089e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/894e8f93890b79f29911cce497fe811fe9d931ba",
-                "reference": "894e8f93890b79f29911cce497fe811fe9d931ba",
+                "url": "https://api.github.com/repos/schmittjoh/php-option/zipball/f4e7a6a1382183412246f0d361078c29fb85089e",
+                "reference": "f4e7a6a1382183412246f0d361078c29fb85089e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0"
+                "php": "^5.5.9 || ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.7.*"
+                "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.3-dev"
+                    "dev-master": "1.6-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "PhpOption\\": "src/"
+                "psr-4": {
+                    "PhpOption\\": "src/PhpOption/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -364,6 +360,10 @@
                 {
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com"
+                },
+                {
+                    "name": "Graham Campbell",
+                    "email": "graham@alt-three.com"
                 }
             ],
             "description": "Option Type for PHP",
@@ -373,7 +373,7 @@
                 "php",
                 "type"
             ],
-            "time": "2019-11-06T12:42:47+00:00"
+            "time": "2019-11-30T20:20:49+00:00"
         },
         {
             "name": "respect/validation",
@@ -440,16 +440,16 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.12.0",
+            "version": "v1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
-                "reference": "550ebaac289296ce228a706d0867afc34687e3f4"
+                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/550ebaac289296ce228a706d0867afc34687e3f4",
-                "reference": "550ebaac289296ce228a706d0867afc34687e3f4",
+                "url": "https://api.github.com/repos/symfony/polyfill-ctype/zipball/f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
+                "reference": "f8f0b461be3385e56d6de3dbb5a0df24c0c275e3",
                 "shasum": ""
             },
             "require": {
@@ -461,7 +461,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
+                    "dev-master": "1.13-dev"
                 }
             },
             "autoload": {
@@ -494,20 +494,20 @@
                 "polyfill",
                 "portable"
             ],
-            "time": "2019-08-06T08:03:45+00:00"
+            "time": "2019-11-27T13:56:44+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.12.0",
+            "version": "v1.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17"
+                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/b42a2f66e8f1b15ccf25652c3424265923eb4f17",
-                "reference": "b42a2f66e8f1b15ccf25652c3424265923eb4f17",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/7b4aab9743c30be783b73de055d24a39cf4b954f",
+                "reference": "7b4aab9743c30be783b73de055d24a39cf4b954f",
                 "shasum": ""
             },
             "require": {
@@ -519,7 +519,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.12-dev"
+                    "dev-master": "1.13-dev"
                 }
             },
             "autoload": {
@@ -553,7 +553,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2019-08-06T08:03:45+00:00"
+            "time": "2019-11-27T14:18:11+00:00"
         },
         {
             "name": "thesoftwarefanatics/php-html-parser",
