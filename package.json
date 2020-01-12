@@ -31,8 +31,8 @@
         "prismjs": "1.18.0"
     },
     "devDependencies": {
-        "@babel/core": "7.7.7",
-        "@babel/preset-env": "7.7.7",
+        "@babel/core": "7.8.0",
+        "@babel/preset-env": "7.8.0",
         "babelify": "10.0.0",
         "browserify": "16.5.0",
         "date-diff": "0.2.1",
