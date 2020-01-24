@@ -16,7 +16,7 @@ RUN yarn add gulp@4 -D
 RUN gulp build
 
 # Base image
-FROM php:7.4-fpm-alpine@sha256:6c48b1093debd0fd55130dff97712be84d99b8d7d21d9fd67a96bfd13d8c6809 AS development
+FROM php:7.4-fpm-alpine@sha256:05afdd143b8990e4530ff5c0383640fce60d8428a812e78f9bf268dbbeb5fc47 AS development
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
