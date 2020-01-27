@@ -143,7 +143,7 @@ exports.composerWatch = composerWatch;
 
 function credentials() {
     // Copy credentials to dist folder
-    return gGulp.src(prodCredsGlob, { dot: true })
+    return gGulp.src(prodCredsGlob)
         .pipe(gCached('credentials'))
         .pipe(gChown(1000, 82))
         .pipe(gGulp.dest(distCredsFolder));
