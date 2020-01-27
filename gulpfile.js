@@ -131,8 +131,8 @@ function composerUpdate() {
 exports.composerUpdate = composerUpdate;
 
 function composerWatch() {
-    // Watch for any changes in composer files to copy changes
-    gGulp.watch([vendorGlob, 'composer.json'])
+    // Watch for any changes in composer configuration file to copy changes
+    gGulp.watch('composer.json')
         .on('all', function () {
             composerUpdate();
             composerSrc();
