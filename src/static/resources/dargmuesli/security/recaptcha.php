@@ -8,7 +8,7 @@
 
     $secret;
 
-    if (strrchr($_SERVER['SERVER_NAME'], '.') != '.test') {
+    if (strrchr($_SERVER['HTTP_HOST'], '.') != '.test') {
         $secret = $_ENV['RECAPTCHA_SECRET'];
     } else {
         $secret = $_ENV['RECAPTCHA_SECRET_DEV'];

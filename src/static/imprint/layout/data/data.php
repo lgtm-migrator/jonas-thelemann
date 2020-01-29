@@ -6,7 +6,7 @@
 
     $dataSiteKey;
 
-    if (strrchr($_SERVER['SERVER_NAME'], '.') != '.test') {
+    if (strrchr($_SERVER['HTTP_HOST'], '.') != '.test') {
         $dataSiteKey = $_ENV['RECAPTCHA_SITEKEY'];
     } else {
         $dataSiteKey = $_ENV['RECAPTCHA_SITEKEY_DEV'];
