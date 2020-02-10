@@ -12,8 +12,9 @@
     init_table($dbh, 'private_data');
 
     $age = 'Es fehlen Daten in der Datenbank';
+    $fetch = $dbh->query('SELECT value FROM private_data WHERE key = \'birthdate\'')->fetch();
 
-    if ($birthDate = $dbh->query('SELECT value FROM private_data WHERE key = \'birthdate\'')->fetch()[0]) {
+    if ($fetch && $birthDate = $fetch[0]) {
         $birthDate = explode('.', $birthDate);
         $age = (date('md', date('U', mktime(0, 0, 0, $birthDate[1], $birthDate[0], $birthDate[2]))) > date('md') ? ((date('Y') - $birthDate[2]) - 1) : (date('Y') - $birthDate[2]));
     }

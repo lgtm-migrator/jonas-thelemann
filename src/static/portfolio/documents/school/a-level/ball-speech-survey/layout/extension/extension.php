@@ -84,14 +84,16 @@
             <br>
             Du hast für <strong id="lastchoice">';
 
-        if ($rowForCurrentIp['chosenspeaker'] == 'candidateelisabeth') {
-            $alertHtml .= 'E********';
-        } elseif ($rowForCurrentIp['chosenspeaker'] == 'candidatejonas') {
-            $alertHtml .= 'J****';
-        } elseif ($rowForCurrentIp['chosenspeaker'] == 'candidaterosa') {
-            $alertHtml .= 'R***';
-        } elseif ($rowForCurrentIp['chosenspeaker'] == 'nobody') {
-            $alertHtml .= 'Niemanden';
+        if ($rowForCurrentIp) {
+            if ($rowForCurrentIp['chosenspeaker'] == 'candidateelisabeth') {
+                $alertHtml .= 'E********';
+            } elseif ($rowForCurrentIp['chosenspeaker'] == 'candidatejonas') {
+                $alertHtml .= 'J****';
+            } elseif ($rowForCurrentIp['chosenspeaker'] == 'candidaterosa') {
+                $alertHtml .= 'R***';
+            } elseif ($rowForCurrentIp['chosenspeaker'] == 'nobody') {
+                $alertHtml .= 'Niemanden';
+            }
         }
 
         $alertHtml .= '

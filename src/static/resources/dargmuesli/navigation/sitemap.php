@@ -3,8 +3,6 @@
 
     function get_sitemap_html($directoryArray = null, $directoryArrayKey = null)
     {
-        global $protocol;
-
         // Initialize directory array
         if (!isset($directoryArray)) {
             $directoryArray = get_web_directory_array($_SERVER['DOCUMENT_ROOT'], null, '*');
@@ -57,7 +55,6 @@
 
     function get_sitemap_xml_url($directoryArray = null, $directoryArrayKey = null)
     {
-        global $protocol;
         $sitemapXmlPage = '';
 
         // Initialize directory array

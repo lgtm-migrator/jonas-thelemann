@@ -13,6 +13,7 @@ globals:
   moment: false
   Prism: false
 parserOptions:
+  ecmaVersion: 8
   sourceType: module
 rules:
   indent:

@@ -5,8 +5,8 @@
     ini_set('display_errors', 'off');
     error_reporting(E_ALL);
 
-    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
-    $simpleLogging = strrchr($_SERVER['SERVER_NAME'], '.') == '.test' ? false : true;
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443 || !empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https') ? 'https://' : 'http://';
+    $simpleLogging = strrchr($_SERVER['HTTP_HOST'], '.') == '.test' ? false : true;
 
     $_SERVER['SERVER_ROOT'] = dirname($_SERVER['DOCUMENT_ROOT']);
     $_SERVER['SERVER_ROOT_URL'] = $protocol.$_SERVER['HTTP_HOST'];

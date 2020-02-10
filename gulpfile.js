@@ -131,8 +131,8 @@ function composerUpdate() {
 exports.composerUpdate = composerUpdate;
 
 function composerWatch() {
-    // Watch for any changes in composer files to copy changes
-    gGulp.watch([vendorGlob, 'composer.json'])
+    // Watch for any changes in composer configuration file to copy changes
+    gGulp.watch('composer.json')
         .on('all', function () {
             composerUpdate();
             composerSrc();
@@ -143,7 +143,7 @@ exports.composerWatch = composerWatch;
 
 function credentials() {
     // Copy credentials to dist folder
-    return gGulp.src(prodCredsGlob, { dot: true })
+    return gGulp.src(prodCredsGlob)
         .pipe(gCached('credentials'))
         .pipe(gChown(1000, 82))
         .pipe(gGulp.dest(distCredsFolder));
@@ -262,7 +262,7 @@ exports.jsLint = jsLint;
 function jsSrc() {
     return gGulp.src(srcJsFolder + 'functions.js', { allowEmpty: true, read: false })
         .pipe(gTap(function (file) {
-            file.contents = gBrowserify(file.path, { debug: true, standalone: 'Dargmuesli' }).transform('babelify', { presets: ['@babel/preset-env'] }).bundle();
+            file.contents = gBrowserify(file.path, { debug: true, standalone: 'Dargmuesli' }).transform('babelify', { presets: ['@babel/preset-env'], plugins: ['@babel/transform-runtime'] }).bundle();
         }))
         .pipe(gBuffer())
         .pipe(gChown(1000, 82))
@@ -353,7 +353,7 @@ function sitemap() {
                 this.push(file);
             })
         )
-        .on('end', function () { fs.appendFile(sitemapPath, '\n</urlset>', (error) => { if (error) throw error; }); });
+        .on('end', () => { fs.appendFile(sitemapPath, '\n</urlset>', (error) => { if (error) throw error; }); });
 }
 
 exports.sitemap = sitemap;
@@ -389,6 +389,7 @@ exports.staticSrcWatch = staticSrcWatch;
 function symlinks(callback) {
     // Create all necessary symlinks
     // "gulp-symlink" is still required as Gulp's/Vinyl-fs's symlink function is incapable of changing the symlink's name
+    // https://github.com/gulpjs/vinyl-fs/issues/303
     const streamArray = [];
 
     if (typeof symlinkArray !== 'undefined' && symlinkArray) {

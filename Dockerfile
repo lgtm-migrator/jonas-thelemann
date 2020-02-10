@@ -1,5 +1,5 @@
 # Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
-FROM node:13.3.0-buster@sha256:b300af3f4b3464629c73106ee89432b50918fddd08c27eec489abe54c9edcbd7 AS stage_build
+FROM node:13.8.0-buster@sha256:03475bd966669dd8bc647fdd565cd4b84902f1f6a74aed6b3a6c98af21d8d570 AS stage_build
 
 # Update and install PHP
 RUN \
@@ -16,7 +16,7 @@ RUN yarn add gulp@4 -D
 RUN gulp build
 
 # Base image
-FROM php:7.4-fpm-alpine@sha256:98653dd3ecc849d3edba30fe3743feb8e1df087767e225b6dc0410574234184d AS stage_serve
+FROM php:7.4-fpm-alpine@sha256:05afdd143b8990e4530ff5c0383640fce60d8428a812e78f9bf268dbbeb5fc47 AS development
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
@@ -33,11 +33,10 @@ RUN apk add --no-cache \
 COPY --chown=www-data:www-data --from=stage_build /app/dist/$PROJECT_NAME/ /var/www/$PROJECT_NAME/
 
 # Copy PHP configuration files
-COPY ./docker/php/php.ini $PHP_INI_DIR/
-COPY --chown=www-data:www-data ./docker/php/prepend.php $PHP_INI_DIR/
+COPY --chown=www-data:www-data ./docker/php/* $PHP_INI_DIR/
 
 # Declare required mount points
-VOLUME /var/www/credentials/$PROJECT_NAME.env
+VOLUME /var/www/$PROJECT_NAME/credentials/$PROJECT_NAME.env
 
 # Update workdir to server files' location
 WORKDIR /var/www/$PROJECT_NAME/

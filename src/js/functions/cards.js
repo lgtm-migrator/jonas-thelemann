@@ -37,7 +37,7 @@ export function closeCard(cardToClose) {
     var closedCards = Cookies.getJSON('closedCards');
 
     // Check if cookie already exists
-    if (closedCards) {
+    if (closedCards && 'cards' in closedCards) {
 
         // Get cookie's "cards" property
         closedCards = closedCards['cards'];
