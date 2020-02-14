@@ -1,7 +1,7 @@
 # Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
 FROM node:13.8.0-buster@sha256:03475bd966669dd8bc647fdd565cd4b84902f1f6a74aed6b3a6c98af21d8d570 AS stage_build
 
-# Update and install PHP
+# Update and install build dependencies
 RUN \
     apt-get update && \
     apt-get install -y composer git php php-dom php-mbstring unzip
