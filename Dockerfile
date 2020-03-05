@@ -1,7 +1,7 @@
 # Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
-FROM node:13.8.0-buster@sha256:03475bd966669dd8bc647fdd565cd4b84902f1f6a74aed6b3a6c98af21d8d570 AS stage_build
+FROM node:13.8.0-buster@sha256:011573cbcc710829a478f2c033b6624278fcca4525f0291188675dfd04e75599 AS stage_build
 
-# Update and install PHP
+# Update and install build dependencies
 RUN \
     apt-get update && \
     apt-get install -y composer git php php-dom php-mbstring unzip
@@ -13,10 +13,10 @@ WORKDIR /app/
 # Install Gulp and build project
 RUN yarn global add gulp-cli
 RUN yarn add gulp@4 -D
-RUN gulp build
+RUN gulp build --production
 
 # Base image
-FROM php:7.4-fpm-alpine@sha256:05afdd143b8990e4530ff5c0383640fce60d8428a812e78f9bf268dbbeb5fc47 AS development
+FROM php:7.4-fpm-alpine@sha256:eb168b3535ca340c9b54a2028def21de89ed23ab3b266e9c7e65b67cc63b15d1 AS development
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
