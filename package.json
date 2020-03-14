@@ -20,7 +20,7 @@
     "dependencies": {
         "chart.js": "2.9.3",
         "dragula": "3.7.2",
-        "gettext-parser": "4.0.2",
+        "gettext-parser": "4.0.3",
         "jquery": "3.4.1",
         "jquery-validation": "1.19.1",
         "js-cookie": "2.2.1",
