@@ -15,7 +15,7 @@
                     </span>
                     <p>
                         Dieser Artikel ist nicht mehr aktuell.
-                        Mittlerweile hat sich Diskord etabliert.
+                        Mittlerweile hat sich in meinem Umfeld Diskord etabliert.
                     </p>
                 </div>
                 <div class="card-action">
@@ -184,30 +184,6 @@
             </div>
         </div>
     </section>
-    <section id="installation" class="section scrollspy">
-        <h2>
-            In&shy;stal&shy;la&shy;tion
-        </h2>
-        <p>
-            Die Installation von Mumble ist für Benutzer sehr einfach.
-            Alle Downloads können auf der <a href="https://wiki.mumble.info/wiki/Main_Page" title="Mumble">Hauptseite des Wikis</a> gefunden werden.
-            Dabei sind aktuell wegen der deutlich verbesserten Benutzeroberfläche Snapshots der Version 1.3.x den stabilen Builds der Versionsreihe 1.2.x vorzuziehen.
-            Windows-Nutzer (x64) erhalten unter folgendem Link eine .msi-Datei der Version 1.3.0.1703 zum Installieren:
-        </p>
-        <p>
-            <a class="waves-effect waves-light btn" href="https://dl.mumble.info/mumble-1.3.0~1703~gf47df77~snapshot.msi" title="Mumble Snapshot">
-                <i class="material-icons left">
-                    file_download
-                </i>
-                Download
-            </a>
-        </p>
-        <p>
-            Dann - wie gewohnt - den Installer ausführen und auf "weiter" klicken, den Lizenzvereinbarungen zustimmen, "weiter" klicken, eventuell den Speicherort ändern, "weiter" und "Installieren" klicken.
-            Falls eine Warnung der Benutzerkontensteuerung auftaucht, diese bestätigen.
-            Danach "Fertig stellen" und optional gleich "Mumble starten" anwählen.
-        </p>
-    </section>
     <section id="configuration" class="section scrollspy">
         <h2>
             Kon&shy;fi&shy;gu&shy;ra&shy;tion
@@ -253,27 +229,15 @@
             </h3>
             <p>
                 An <a href="https://secure.comodo.com/products/frontpage?area=SecureEmailCertificate" title="Application for Secure Email Certificate">vielen Stellen im Internet</a> wird das Verlieren eines Zertifikats fast mit einem Weltuntergang gleichgesetzt.
-                Das kann beängstigend wirken, ist aber natürlich vollkommen übertrieben.
+                Das kann beängstigend wirken, wäre aber für den durchschnittlichen Mumble-Nutzer verkraftbar.
                 Sie sind wichtig, da durch sie Verschlüsselung überhaupt erst ermöglicht wird!
                 Für den normalen Benutzer von Mumble reicht es, sich ein Zertifikat automatisch erstellen zu lassen bzw. ein neues Zertifikat mit Namen und E-Mail zu erstellen.
                 Dieses Zertifikat ist jedoch selbst-signiert und daher nur begrenzt vertrauenswürdig, was hier jetzt aber keine große Rolle spielt.
                 <br>
                 Wer einen Schritt weiter gehen möchte, noch kein persönliches Zertifikat hat und sich bei dieser Gelegenheit ein solches generieren lassen möchte, dem empfehle ich <a href="https://wiki.mumble.info/wiki/Obtaining_a_Comodo_Certificate" title="Obtaining a Comodo Certificate">diesen Eintrag im Mumble-Wiki</a>.
-                Vorteil des Ganzen ist: Solange man Zugriff auf das Zertifikat hat und es gültig ist, gerät die Identität z.B. bei einer Neuinstallation des Betriebssystems verloren, wie es schnell bei TeamSpeak passieren kann.
+                Vorteil des Ganzen ist: Solange man Zugriff auf das Zertifikat hat und es gültig ist, geht die Identität z.B. bei einer Neuinstallation des Betriebssystems nicht verloren, wie es schnell bei TeamSpeak passieren kann.
                 <br>
                 Wer bereits ein Zertifikat hat, kann es einfach importieren.
-            </p>
-        </section>
-        <section>
-            <h3>
-                Ser&shy;ver-Brow&shy;ser
-            </h3>
-            <p>
-                Bei jedem Start zeigt Mumble standardmäßig den Server-Browser.
-                Entweder hier unter "Internet - Öffentlich" > "Europa" > "Germany" den Servernamen "SquadGamers" suchen oder den Server manuell hinzufügen.
-            </p>
-            <p>
-                <img class="materialboxed responsive-img" src="layout/images/server-data.png">
             </p>
         </section>
         <section>
@@ -283,7 +247,6 @@
             <p>
                 Ich rate, einen Snapshot der Versionsreihe 1.3.x zu installieren.
                 Denn in der derzeit stabilen Version 1.2.x sieht Mumble nicht sonderlich ansprechend aus.
-                Ein Butten dafür kann weiter oben gefunden werden.
             <p>
                 Es gibt aber auch Skins und ab v1.3 Themes!
                 Mit diesen lässt sich die Oberfläche den individuellen Wünschen anpassen.
