@@ -4,7 +4,7 @@
 
     last_modified(get_page_mod_time());
 
-    $skeletonDescription = 'Die Seiten von deutsch.info zur deutschen Grammatik als druckoptimierte PDFs';
+    $skeletonDescription = 'Seiten von <a href="https://deutsch.info/" target="_blank" title="Multilingual website for learning German">deutsch.info</a> zur deutschen Grammatik als druckoptimierte PDFs';
     $skeletonContent = '
     <section id="nomen-und-artikelwörter" class="section scrollspy">
         <h2>
