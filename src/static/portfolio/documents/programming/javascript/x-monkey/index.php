@@ -11,7 +11,7 @@
             Installation
         </h2>
         <p>
-            Installiert werden müssen die Scripts über das Browser-Add-on <a href="https://addons.mozilla.org/de/firefox/addon/greasemonkey/" title="Mozilla Addons">Greasemonkey</a> (Firefox) oder <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" title="Chrome Webstore">Tapermonkey</a> (Chrome).
+            Die Scripts müssen über das Browser-Add-on <a href="https://addons.mozilla.org/de/firefox/addon/greasemonkey/" title="Mozilla Addons">Greasemonkey</a> (Firefox) oder <a href="https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo" title="Chrome Webstore">Tapermonkey</a> (Chrome) installiert werden.
         </p>
     </section>';
 
