@@ -62,7 +62,7 @@ $(document).ready(function () {
                             break;
                         case 403:
                             document.getElementById('result-modal-heading').innerHTML = 'Geschlossen!';
-                            document.getElementById('result-modal-content').innerHTML = 'Diese Umfrage ist leider schon beendet.';
+                            document.getElementById('result-modal-content').innerHTML = 'Diese Umfrage ist leider beendet.';
                             break;
                         case 429:
                             document.getElementById('result-modal-heading').innerHTML = 'Limit erreicht!';
