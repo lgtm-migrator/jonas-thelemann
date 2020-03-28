@@ -21,7 +21,6 @@ FROM php:7.4-fpm-alpine@sha256:a95c7860a162ebed639cb9f5d6040ba6ad02b909bf0d8c447
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
 ENV PROJECT_NAME jonas-thelemann
-# ENV PROJECT_MODS expires headers macro rewrite ssl
 
 # Enable extensions
 RUN apk add --no-cache \
