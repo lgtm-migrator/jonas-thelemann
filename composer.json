@@ -16,7 +16,7 @@
     },
     "require": {
         "gettext/gettext": "5.4.1",
-        "google/recaptcha": "1.2.3",
+        "google/recaptcha": "1.2.4",
         "mtdowling/cron-expression": "1.2.3",
         "phpmailer/phpmailer": "6.1.5",
         "respect/validation": "1.1.31",
