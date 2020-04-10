@@ -12,10 +12,10 @@
     "license": "GPL-3.0",
     "repository": {
         "type": "git",
-        "url": "git://github.com/Dargmuesli/jonas-thelemann.git"
+        "url": "git://github.com/dargmuesli/jonas-thelemann.git"
     },
     "bugs": {
-        "url": "https://github.com/Dargmuesli/jonas-thelemann/issues"
+        "url": "https://github.com/dargmuesli/jonas-thelemann/issues"
     },
     "dependencies": {
         "chart.js": "2.9.3",

@@ -17,47 +17,47 @@
             Folgende Websites werden aktuell unterstützt: (Stand 08.09.2016)
             <ul class="collection">
                 <li class="collection-item avatar">
-                    <img src="https://raw.githubusercontent.com/Dargmuesli/troll-em/master/websites/apple/apple_troll.png" alt="" class="circle">
+                    <img src="https://raw.githubusercontent.com/dargmuesli/troll-em/master/websites/apple/apple_troll.png" alt="" class="circle">
                     apple.com
                 </li>
                 <li class="collection-item avatar">
-                    <img src="https://raw.githubusercontent.com/Dargmuesli/troll-em/master/websites/bing/bing_troll.png" alt="" class="circle">
+                    <img src="https://raw.githubusercontent.com/dargmuesli/troll-em/master/websites/bing/bing_troll.png" alt="" class="circle">
                     bing.com
                 </li>
                 <li class="collection-item avatar">
-                    <img src="https://raw.githubusercontent.com/Dargmuesli/troll-em/master/websites/dropbox/dropbox_troll.png" alt="" class="circle">
+                    <img src="https://raw.githubusercontent.com/dargmuesli/troll-em/master/websites/dropbox/dropbox_troll.png" alt="" class="circle">
                     dropbox.com
                 </li>
                 <li class="collection-item avatar">
-                    <img src="https://raw.githubusercontent.com/Dargmuesli/troll-em/master/websites/duckduckgo/duckduckgo_troll.png" alt="" class="circle">
+                    <img src="https://raw.githubusercontent.com/dargmuesli/troll-em/master/websites/duckduckgo/duckduckgo_troll.png" alt="" class="circle">
                     duckduckgo.com
                 </li>
                 <li class="collection-item avatar">
-                    <img src="https://raw.githubusercontent.com/Dargmuesli/troll-em/master/websites/ecosia/ecosia_troll.png" alt="" class="circle">
+                    <img src="https://raw.githubusercontent.com/dargmuesli/troll-em/master/websites/ecosia/ecosia_troll.png" alt="" class="circle">
                     ecosia.org
                 </li>
                 <li class="collection-item avatar">
-                    <img src="https://raw.githubusercontent.com/Dargmuesli/troll-em/master/websites/google/google_troll.png" alt="" class="circle">
+                    <img src="https://raw.githubusercontent.com/dargmuesli/troll-em/master/websites/google/google_troll.png" alt="" class="circle">
                     google.de
                 </li>
                 <li class="collection-item avatar">
-                    <img src="https://raw.githubusercontent.com/Dargmuesli/troll-em/master/websites/microsoft/microsoft_troll.png" alt="" class="circle">
+                    <img src="https://raw.githubusercontent.com/dargmuesli/troll-em/master/websites/microsoft/microsoft_troll.png" alt="" class="circle">
                     microsoft.com
                 </li>
                 <li class="collection-item avatar">
-                    <img src="https://raw.githubusercontent.com/Dargmuesli/troll-em/master/websites/netflix/netflix_troll.png" alt="" class="circle">
+                    <img src="https://raw.githubusercontent.com/dargmuesli/troll-em/master/websites/netflix/netflix_troll.png" alt="" class="circle">
                     netflix.com
                 </li>
                 <li class="collection-item avatar">
-                    <img src="https://raw.githubusercontent.com/Dargmuesli/troll-em/master/websites/spiegel/spiegel_troll.png" alt="" class="circle">
+                    <img src="https://raw.githubusercontent.com/dargmuesli/troll-em/master/websites/spiegel/spiegel_troll.png" alt="" class="circle">
                     spiegel.de
                 </li>
                 <li class="collection-item avatar">
-                    <img src="https://raw.githubusercontent.com/Dargmuesli/troll-em/master/websites/wikipedia/wikipedia_troll.png" alt="" class="circle">
+                    <img src="https://raw.githubusercontent.com/dargmuesli/troll-em/master/websites/wikipedia/wikipedia_troll.png" alt="" class="circle">
                     wikipedia.org
                 </li>
                 <li class="collection-item avatar">
-                    <img src="https://raw.githubusercontent.com/Dargmuesli/troll-em/master/websites/youtube/youtube_troll.png" alt="" class="circle">
+                    <img src="https://raw.githubusercontent.com/dargmuesli/troll-em/master/websites/youtube/youtube_troll.png" alt="" class="circle">
                     youtube.com
                 </li>
             </ul>
@@ -83,7 +83,7 @@
             Installation
         </h2>
         <p>
-            Wenn <a href="../" title="XMonkey">das jeweilige XMonkey-Add-on</a> installiert ist, kann das Script einfach über einen <a href="https://github.com/Dargmuesli/Troll-em/raw/master/troll-em.user.js" rel="noopener" target="_blank" title="Github Raw">Klick auf diesen Link</a> installiert werden.
+            Wenn <a href="../" title="XMonkey">das jeweilige XMonkey-Add-on</a> installiert ist, kann das Script einfach über einen <a href="https://github.com/dargmuesli/Troll-em/raw/master/troll-em.user.js" rel="noopener" target="_blank" title="Github Raw">Klick auf diesen Link</a> installiert werden.
         </p>
     </section>
     <section id="references" class="section scrollspy">
@@ -103,7 +103,7 @@
                 GitHub
             </h3>
             <p>
-                Das offizielle Repository: <a href="https://github.com/Dargmuesli/Troll-em" rel="noopener" target="_blank" title="Github Repository">https://github.com/Dargmuesli/Troll-em</a>
+                Das offizielle Repository: <a href="https://github.com/dargmuesli/Troll-em" rel="noopener" target="_blank" title="Github Repository">https://github.com/dargmuesli/Troll-em</a>
             </p>
         </section>
     </section>';

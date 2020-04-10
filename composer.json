@@ -12,7 +12,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/Dargmuesli/jonas-thelemann/issues"
+        "issues": "https://github.com/dargmuesli/jonas-thelemann/issues"
     },
     "require": {
         "gettext/gettext": "5.4.1",
