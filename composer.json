@@ -1,7 +1,7 @@
 {
     "name": "dargmuesli/jonas-thelemann",
     "description": "The source code of my website.",
-    "version": "3.2.1",
+    "version": "3.2.2",
     "homepage": "https://jonas-thelemann.de/",
     "type": "project",
     "license": "GPL-3.0",
@@ -12,14 +12,14 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/Dargmuesli/jonas-thelemann/issues"
+        "issues": "https://github.com/dargmuesli/jonas-thelemann/issues"
     },
     "require": {
         "gettext/gettext": "5.4.1",
-        "google/recaptcha": "1.2.3",
+        "google/recaptcha": "1.2.4",
         "mtdowling/cron-expression": "1.2.3",
         "phpmailer/phpmailer": "6.1.5",
-        "respect/validation": "1.1.31",
+        "respect/validation": "2.0.0",
         "thesoftwarefanatics/php-html-parser": "1.8.1",
         "vlucas/phpdotenv": "4.1.3",
         "vanderlee/syllable": "1.5.3"

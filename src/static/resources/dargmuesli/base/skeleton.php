@@ -216,7 +216,7 @@
                                     </a>
                                 </div>
                                 <div>
-                                    <a class="grey-text text-lighten-3" href="https://github.com/Dargmuesli" itemprop="url" rel="noopener" target="_blank" title="Jonas Thelemann">
+                                    <a class="grey-text text-lighten-3" href="https://github.com/dargmuesli" itemprop="url" rel="noopener" target="_blank" title="Jonas Thelemann">
                                         GitHub
                                     </a>
                                 </div>

@@ -1,6 +1,6 @@
 [![build status](https://travis-ci.com/dargmuesli/jonas-thelemann.svg?branch=master)](https://travis-ci.com/dargmuesli/jonas-thelemann "build status")
 [![Docker layer size & count](https://images.microbadger.com/badges/image/dargmuesli/jonas-thelemann.svg)](https://microbadger.com/images/dargmuesli/jonas-thelemann "Docker layer size & count")
-[![Renovate](https://badges.renovateapi.com/github/dargmuesli/jonas-thelemann)](https://renovatebot.com/"Renovate")
+[![Renovate](https://badges.renovateapi.com/github/dargmuesli/jonas-thelemann)](https://renovatebot.com/ "Renovate")
 [![website uptime monitoring](https://app.statuscake.com/button/index.php?Track=BkiZnQ1xpj&Days=1000&Design=3)](https://www.statuscake.com "website uptime monitoring")
 
 # jonas-thelemann
@@ -18,7 +18,7 @@ The source code of [jonas-thelemann.de](https://jonas-thelemann.de/).
 -->
 
 ## Development
-This project is deployed within the [jonas-thelemann_stack](https://github.com/Dargmuesli/jonas-thelemann_stack/) in accordance to the [DargStack template](https://github.com/Dargmuesli/dargstack_template/) to make deployment a breeze.
+This project is deployed within the [jonas-thelemann_stack](https://github.com/dargmuesli/jonas-thelemann_stack/) in accordance to the [DargStack template](https://github.com/dargmuesli/dargstack_template/) to make deployment a breeze.
 
 The provided `Dockerfile` lets you build an Apache-PHP server image with the configuration files in the `docker` folder. Build it with the following command:
 

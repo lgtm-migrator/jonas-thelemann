@@ -7,15 +7,15 @@
     },
     "url": "https://jonas-thelemann.de/",
     "homepage": "https://jonas-thelemann.de/this",
-    "version": "3.2.1",
+    "version": "3.2.2",
     "private": true,
     "license": "GPL-3.0",
     "repository": {
         "type": "git",
-        "url": "git://github.com/Dargmuesli/jonas-thelemann.git"
+        "url": "git://github.com/dargmuesli/jonas-thelemann.git"
     },
     "bugs": {
-        "url": "https://github.com/Dargmuesli/jonas-thelemann/issues"
+        "url": "https://github.com/dargmuesli/jonas-thelemann/issues"
     },
     "dependencies": {
         "chart.js": "2.9.3",
@@ -28,12 +28,12 @@
         "materialize-css": "1.0.0",
         "moment": "2.24.0",
         "moment-timezone": "0.5.28",
-        "prismjs": "1.19.0"
+        "prismjs": "1.20.0"
     },
     "devDependencies": {
         "@babel/core": "7.9.0",
         "@babel/plugin-transform-runtime": "7.9.0",
-        "@babel/preset-env": "7.9.0",
+        "@babel/preset-env": "7.9.5",
         "@babel/runtime": "7.9.2",
         "babelify": "10.0.0",
         "browserify": "16.5.1",
