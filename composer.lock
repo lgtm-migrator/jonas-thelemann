@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b81abdfdb81e3a45e2d9de0ad267343",
+    "content-hash": "50129f47d4210d8f657907857e4a8189",
     "packages": [
         {
             "name": "gettext/gettext",
@@ -443,16 +443,16 @@
         },
         {
             "name": "respect/validation",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Respect/Validation.git",
-                "reference": "b4ad2f6413fa1c10b24cb204bee5831fb46e11aa"
+                "reference": "015e6d4a54d61d82a3e0add3b2fa19316290cfdf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Respect/Validation/zipball/b4ad2f6413fa1c10b24cb204bee5831fb46e11aa",
-                "reference": "b4ad2f6413fa1c10b24cb204bee5831fb46e11aa",
+                "url": "https://api.github.com/repos/Respect/Validation/zipball/015e6d4a54d61d82a3e0add3b2fa19316290cfdf",
+                "reference": "015e6d4a54d61d82a3e0add3b2fa19316290cfdf",
                 "shasum": ""
             },
             "require": {
@@ -505,7 +505,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2020-04-04T21:55:05+00:00"
+            "time": "2020-04-08T15:00:19+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
