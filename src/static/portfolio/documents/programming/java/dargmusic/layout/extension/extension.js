@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let code = url.searchParams.get('code');
 
     if (code) {
-        document.querySelector('#code').innerHTML = code;
+        document.querySelector('#code').textContent = code;
 
         document.querySelector('#copy').addEventListener('click', function () { Dargmuesli.Prototyping.copy('#code') });
         document.querySelector('#hidden').classList.toggle('hidden');
