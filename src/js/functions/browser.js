@@ -23,7 +23,7 @@ $(document).ready(function () {
     setUpPushPin('toc');
     setUpSidenav('menu');
     setUpSidenav('toc');
-    setUpScrollSpy('scrollspy');
+    setUpScrollSpy();
 
     setupCardClosers();
 });
