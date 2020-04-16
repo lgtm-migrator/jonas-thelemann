@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('btn-sitemap').addEventListener('click', function () {
         document.getElementById('callback-sitemap').innerHTML = 'Running<br>';
 
-        generateSitemap(generateSitemapCallback);
+        generateSitemap();
     });
 });
 

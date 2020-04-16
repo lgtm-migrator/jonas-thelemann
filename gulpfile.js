@@ -393,7 +393,7 @@ function symlinks(callback) {
     // https://github.com/gulpjs/vinyl-fs/issues/303
     const streamArray = [];
 
-    if (typeof symlinkArray !== 'undefined' && symlinkArray) {
+    if (typeof symlinkArray !== 'undefined') {
         symlinkArray.forEach(element => {
             streamArray.push(
                 gGulp.src(element.source)
@@ -422,7 +422,7 @@ function yarnSrc(callback) {
     // Copy front-end javascript libraries to yarn package resources dist folder
     const streamArray = [];
 
-    if (typeof yarnArray !== 'undefined' && yarnArray) {
+    if (typeof yarnArray !== 'undefined') {
         yarnArray.forEach(element => {
             streamArray.push(
                 gGulp.src(element.source)
