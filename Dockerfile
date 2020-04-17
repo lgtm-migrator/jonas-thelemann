@@ -13,7 +13,7 @@ WORKDIR /app/
 # Install Gulp and build project
 RUN yarn global add gulp-cli
 RUN yarn add gulp@4 -D
-RUN gulp build --production
+RUN yarn build
 
 
 # Base image
