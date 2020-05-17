@@ -5089,10 +5089,10 @@ module-deps@^6.0.0:
     through2 "^2.0.0"
     xtend "^4.0.0"
 
-moment-timezone@0.5.30:
-  version "0.5.30"
-  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.30.tgz#e4b22aaf8479b4fee9929ba7c9b7fa334b7267e6"
-  integrity sha512-UJRMpH1tK1qwYeKzeDGoM7xHG1bxLwTGlcPWBOlw8GfvJWObPwbHe6hsNajcd4UgtgmPewy7YSTfZrEMe0EhUg==
+moment-timezone@0.5.31:
+  version "0.5.31"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.31.tgz#9c40d8c5026f0c7ab46eda3d63e49c155148de05"
+  integrity sha512-+GgHNg8xRhMXfEbv81iDtrVeTcWt0kWmTEY1XQK14dICTXnWJnT0dxdlPspwqF3keKMVPXwayEsk1DI0AA/jdA==
   dependencies:
     moment ">= 2.9.0"
 
