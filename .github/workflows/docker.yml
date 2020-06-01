@@ -66,12 +66,12 @@ jobs:
         uses: montudor/action-zip@v0.1.0
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          args: zip -qq -r ./maevsi.zip ./dist/
+          args: zip -qq -r ./jonas-thelemann.zip ./dist/
 
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: maevsi.zip
+          files: jonas-thelemann.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
