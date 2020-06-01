@@ -1,5 +1,5 @@
 # Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
-FROM node:13.13.0-buster-slim@sha256:e21f4309c3b764f2197fd60566478f5870507bb891d32ccdd6174747ddd7437f AS stage_build
+FROM node:13.14.0-buster-slim@sha256:ffee53b7563851a457e5a6f485adbe28877cf92286cc7095806e09d721808669 AS build
 
 # Update and install build dependencies
 RUN \
@@ -7,17 +7,17 @@ RUN \
     apt-get install -y composer git php php-dom php-mbstring unzip
 
 # Import project files
-COPY ./ /app/
-WORKDIR /app/
+COPY ./ /srv/app/
+WORKDIR /srv/app/
 
 # Install Gulp and build project
 RUN yarn global add gulp-cli
 RUN yarn add gulp@4 -D
-RUN gulp build --production
+RUN yarn build
 
 
 # Base image
-FROM php:7.4-fpm-alpine@sha256:a95c7860a162ebed639cb9f5d6040ba6ad02b909bf0d8c447cc59c7bd1b24bd0 AS development
+FROM php:7.4-fpm-alpine@sha256:70930c9ef301569e9dd4688c33438fd6f1872846b427316e65ffae704eb2fafb AS development
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
@@ -40,7 +40,7 @@ WORKDIR /var/www/$PROJECT_NAME/
 
 
 # Base image
-FROM php:7.4-fpm-alpine@sha256:a95c7860a162ebed639cb9f5d6040ba6ad02b909bf0d8c447cc59c7bd1b24bd0 AS production
+FROM php:7.4-fpm-alpine@sha256:70930c9ef301569e9dd4688c33438fd6f1872846b427316e65ffae704eb2fafb AS production
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
@@ -53,7 +53,7 @@ RUN apk add --no-cache \
     pdo_pgsql
 
 # Copy built source files, changing the server files' owner
-COPY --chown=www-data:www-data --from=stage_build /app/dist/$PROJECT_NAME/ /usr/src/$PROJECT_NAME/
+COPY --chown=www-data:www-data --from=build /srv/app/dist/$PROJECT_NAME/ /usr/src/$PROJECT_NAME/
 
 # Copy PHP configuration files
 COPY --chown=www-data:www-data ./docker/php/* $PHP_INI_DIR/
