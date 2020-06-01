@@ -1,5 +1,5 @@
 # Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
-FROM node:13.14.0-buster-slim@sha256:ffee53b7563851a457e5a6f485adbe28877cf92286cc7095806e09d721808669 AS stage_build
+FROM node:13.14.0-buster-slim@sha256:ffee53b7563851a457e5a6f485adbe28877cf92286cc7095806e09d721808669 AS build
 
 # Update and install build dependencies
 RUN \
@@ -53,7 +53,7 @@ RUN apk add --no-cache \
     pdo_pgsql
 
 # Copy built source files, changing the server files' owner
-COPY --chown=www-data:www-data --from=stage_build /app/dist/$PROJECT_NAME/ /usr/src/$PROJECT_NAME/
+COPY --chown=www-data:www-data --from=build /app/dist/$PROJECT_NAME/ /usr/src/$PROJECT_NAME/
 
 # Copy PHP configuration files
 COPY --chown=www-data:www-data ./docker/php/* $PHP_INI_DIR/
