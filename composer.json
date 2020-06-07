@@ -19,7 +19,7 @@
         "google/recaptcha": "1.2.4",
         "mtdowling/cron-expression": "1.2.3",
         "phpmailer/phpmailer": "6.1.6",
-        "respect/validation": "2.0.9",
+        "respect/validation": "2.0.10",
         "thesoftwarefanatics/php-html-parser": "1.8.1",
         "vlucas/phpdotenv": "4.1.6",
         "vanderlee/syllable": "1.5.3"
