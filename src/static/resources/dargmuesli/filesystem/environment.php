@@ -5,7 +5,7 @@
         $dotenv = null;
 
         if ($override) {
-            $dotenv = Dotenv\Dotenv::createMmutable($folder, $file);
+            $dotenv = Dotenv\Dotenv::createMutable($folder, $file);
             $dotenv->overload();
         } else {
             $dotenv = Dotenv\Dotenv::createImmutable($folder, $file);
