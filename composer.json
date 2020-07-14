@@ -21,7 +21,7 @@
         "phpmailer/phpmailer": "6.1.7",
         "respect/validation": "2.0.12",
         "thesoftwarefanatics/php-html-parser": "1.8.1",
-        "vlucas/phpdotenv": "5.0.0",
+        "vlucas/phpdotenv": "5.1.0",
         "vanderlee/syllable": "1.5.3"
     }
 }
