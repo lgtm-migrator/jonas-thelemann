@@ -63,7 +63,7 @@
         "through2": "4.0.2"
     },
     "scripts": {
-      "build": "gulp build --production",
-      "develop": "gulp"
+        "build": "gulp build --production",
+        "develop": "gulp"
     }
 }
