@@ -96,6 +96,6 @@ jobs:
       - name: GitHub Release Asset
         uses: softprops/action-gh-release@v1
         with:
-          files: jonas-thelemann.zip
+          files: ./dist/jonas-thelemann.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
