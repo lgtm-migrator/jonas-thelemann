@@ -1,7 +1,7 @@
 {
     "name": "jonas-thelemann",
     "private": true,
-    "version": "3.3.0",
+    "version": "3.4.0",
     "scheduleVersion": "3.3.0",
     "description": "The source code of my website.",
     "author": {
@@ -71,8 +71,8 @@
         "develop": "gulp"
     },
     "husky": {
-      "hooks": {
-        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-      }
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
     }
 }
