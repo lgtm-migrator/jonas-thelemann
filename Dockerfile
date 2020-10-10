@@ -17,7 +17,7 @@ RUN yarn build
 
 
 # Base image
-FROM php:7.4-fpm-alpine@sha256:ee9b2603d4de104407787b318e428df572e3904e8ecf5a65a488a704bb5b4008 AS development
+FROM php:7.4-fpm-alpine@sha256:82a498133f38af7dffe51cd39923d7c0cfc172cececb519c321e63eae22c42fa AS development
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
@@ -40,7 +40,7 @@ WORKDIR /var/www/$PROJECT_NAME/
 
 
 # Base image
-FROM php:7.4-fpm-alpine@sha256:ee9b2603d4de104407787b318e428df572e3904e8ecf5a65a488a704bb5b4008 AS production
+FROM php:7.4-fpm-alpine@sha256:82a498133f38af7dffe51cd39923d7c0cfc172cececb519c321e63eae22c42fa AS production
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php

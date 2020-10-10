@@ -1,5 +1,8 @@
 {
     "name": "jonas-thelemann",
+    "private": true,
+    "version": "3.3.0",
+    "scheduleVersion": "3.3.0",
     "description": "The source code of my website.",
     "author": {
         "name": "Jonas Thelemann",
@@ -7,8 +10,6 @@
     },
     "url": "https://jonas-thelemann.de/",
     "homepage": "https://jonas-thelemann.de/this",
-    "version": "3.3.0",
-    "private": true,
     "license": "GPL-3.0",
     "repository": {
         "type": "git",
@@ -19,27 +20,29 @@
     },
     "dependencies": {
         "chart.js": "2.9.3",
-        "dragula": "3.7.2",
+        "dragula": "3.7.3",
         "gettext-parser": "4.0.4",
         "jquery": "3.5.1",
         "jquery-validation": "1.19.2",
         "js-cookie": "2.2.1",
         "later": "1.2.0",
         "materialize-css": "1.0.0",
-        "moment": "2.27.0",
+        "moment": "2.29.1",
         "moment-timezone": "0.5.31",
-        "prismjs": "1.20.0"
+        "prismjs": "1.21.0"
     },
     "devDependencies": {
-        "@babel/core": "7.10.5",
-        "@babel/plugin-transform-runtime": "7.10.5",
-        "@babel/preset-env": "7.10.4",
-        "@babel/runtime": "7.10.5",
+        "@babel/core": "7.11.6",
+        "@babel/plugin-transform-runtime": "7.11.5",
+        "@babel/preset-env": "7.11.5",
+        "@babel/runtime": "7.11.2",
+        "@commitlint/cli": "11.0.0",
+        "@commitlint/config-conventional": "11.0.0",
         "babelify": "10.0.0",
-        "browserify": "16.5.1",
+        "browserify": "17.0.0",
         "date-diff": "0.2.2",
-        "del": "5.1.0",
-        "eslint": "7.5.0",
+        "del": "6.0.0",
+        "eslint": "7.11.0",
         "gulp": "4.0.2",
         "gulp-autoprefixer": "7.0.1",
         "gulp-babel-minify": "0.5.1",
@@ -57,13 +60,19 @@
         "gulp-tap": "2.0.0",
         "gulp-yarn": "2.0.0",
         "gulp-zip": "5.0.2",
+        "husky": "4.3.0",
         "jsdoc-to-markdown": "6.0.1",
         "merge-stream": "2.0.0",
         "plugin-error": "1.0.1",
         "through2": "4.0.2"
     },
     "scripts": {
-      "build": "gulp build --production",
-      "develop": "gulp"
+        "build": "gulp build --production",
+        "develop": "gulp"
+    },
+    "husky": {
+      "hooks": {
+        "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      }
     }
 }
