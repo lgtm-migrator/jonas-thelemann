@@ -1,3 +1,10 @@
+## [3.4.1](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.0...3.4.1) (2020-10-10)
+
+
+### Bug Fixes
+
+* **ci:** correct zip file location ([11994e2](https://github.com/dargmuesli/jonas-thelemann/commit/11994e2a93959725a4498fcbf6a9d800460af1b5))
+
 # [3.4.0](https://github.com/dargmuesli/jonas-thelemann/compare/3.3.0...3.4.0) (2020-10-10)
 
 
