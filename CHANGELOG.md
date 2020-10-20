@@ -1,3 +1,10 @@
+## [3.4.3](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.2...3.4.3) (2020-10-20)
+
+
+### Performance Improvements
+
+* **docker:** clean up apt lists ([000ace1](https://github.com/dargmuesli/jonas-thelemann/commit/000ace16fde647426a5f11883eaa0eedbfadd87a))
+
 ## [3.4.2](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.1...3.4.2) (2020-10-19)
 
 
