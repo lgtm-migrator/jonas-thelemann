@@ -3,8 +3,10 @@ FROM node:13.14.0-buster-slim@sha256:ffee53b7563851a457e5a6f485adbe28877cf92286c
 
 # Update and install build dependencies
 RUN \
-    apt-get update && \
-    apt-get install -y composer git php php-dom php-mbstring unzip
+    apt-get update \
+    && apt-get install --no-install-recommends -y composer git php php-dom php-mbstring unzip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Import project files
 COPY ./ /srv/app/
