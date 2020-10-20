@@ -1,3 +1,10 @@
+## [3.4.5](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.4...3.4.5) (2020-10-20)
+
+
+### Bug Fixes
+
+* **deps:** bump WyriHaximus/github-action-next-semvers from v1.0 to v1 ([6c301e4](https://github.com/dargmuesli/jonas-thelemann/commit/6c301e405a251305f10f49f591ec3239d4abe5c1))
+
 ## [3.4.4](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.3...3.4.4) (2020-10-20)
 
 
