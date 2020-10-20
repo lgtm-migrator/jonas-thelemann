@@ -1,3 +1,11 @@
+## [3.4.4](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.3...3.4.4) (2020-10-20)
+
+
+### Bug Fixes
+
+* **deps:** bump crazy-max/ghaction-docker-buildx from v3.3.0 to v3.3.1 ([b89b7d8](https://github.com/dargmuesli/jonas-thelemann/commit/b89b7d8c1720e8e0f7fb6d3415e9d09c43a95ca3))
+* **deps:** bump stefanzweifel/git-auto-commit-action ([e11c465](https://github.com/dargmuesli/jonas-thelemann/commit/e11c4657dd1ffc83428e25bae8c3f7155b00a19d))
+
 ## [3.4.3](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.2...3.4.3) (2020-10-20)
 
 
