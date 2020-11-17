@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "260c132c4f97675a9e620372c9e1023a",
+    "content-hash": "13c2e6a1ab3397adc59e307d0efa7046",
     "packages": [
         {
             "name": "gettext/gettext",
-            "version": "v5.5.1",
+            "version": "v5.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-gettext/Gettext.git",
-                "reference": "cdaae2f3d2c9566f8b94e1ae30385d148f29abe9"
+                "reference": "86f1f4f1e433ae46ba5b91b898b8438216adb96c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/cdaae2f3d2c9566f8b94e1ae30385d148f29abe9",
-                "reference": "cdaae2f3d2c9566f8b94e1ae30385d148f29abe9",
+                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/86f1f4f1e433ae46ba5b91b898b8438216adb96c",
+                "reference": "86f1f4f1e433ae46ba5b91b898b8438216adb96c",
                 "shasum": ""
             },
             "require": {
@@ -59,7 +59,12 @@
                 "po",
                 "translation"
             ],
-            "time": "2020-06-08T18:24:56+00:00"
+            "support": {
+                "email": "oom@oscarotero.com",
+                "issues": "https://github.com/php-gettext/Gettext/issues",
+                "source": "https://github.com/php-gettext/Gettext/tree/v5.5.2"
+            },
+            "time": "2020-11-17T22:48:20+00:00"
         },
         {
             "name": "gettext/languages",
@@ -120,6 +125,10 @@
                 "translations",
                 "unicode"
             ],
+            "support": {
+                "issues": "https://github.com/php-gettext/Languages/issues",
+                "source": "https://github.com/php-gettext/Languages/tree/2.6.0"
+            },
             "time": "2019-11-13T10:30:21+00:00"
         },
         {
@@ -1004,5 +1013,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.0.0"
 }
