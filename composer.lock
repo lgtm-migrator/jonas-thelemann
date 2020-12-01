@@ -4,25 +4,25 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "98f4977ef09956b8d2f020e9acd2d688",
+    "content-hash": "5144b5e93358ab669c5306b9cf5ef68c",
     "packages": [
         {
             "name": "gettext/gettext",
-            "version": "v5.5.2",
+            "version": "v5.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-gettext/Gettext.git",
-                "reference": "86f1f4f1e433ae46ba5b91b898b8438216adb96c"
+                "reference": "2cc6b9b6b89f41d052191aac63d06000e2629852"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/86f1f4f1e433ae46ba5b91b898b8438216adb96c",
-                "reference": "86f1f4f1e433ae46ba5b91b898b8438216adb96c",
+                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/2cc6b9b6b89f41d052191aac63d06000e2629852",
+                "reference": "2cc6b9b6b89f41d052191aac63d06000e2629852",
                 "shasum": ""
             },
             "require": {
                 "gettext/languages": "^2.3",
-                "php": "^7.2"
+                "php": "^7.2|^8.0"
             },
             "require-dev": {
                 "brick/varexporter": "^0.2.1",
@@ -62,9 +62,9 @@
             "support": {
                 "email": "oom@oscarotero.com",
                 "issues": "https://github.com/php-gettext/Gettext/issues",
-                "source": "https://github.com/php-gettext/Gettext/tree/v5.5.2"
+                "source": "https://github.com/php-gettext/Gettext/tree/v5.5.3"
             },
-            "time": "2020-11-17T22:48:20+00:00"
+            "time": "2020-12-01T18:47:18+00:00"
         },
         {
             "name": "gettext/languages",
