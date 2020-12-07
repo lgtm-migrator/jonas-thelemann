@@ -1,5 +1,4 @@
 [![build status](https://github.com/dargmuesli/jonas-thelemann/workflows/CI/badge.svg)](https://github.com/dargmuesli/jonas-thelemann/actions?query=workflow%3A%22CI%22 "build status")
-[![Renovate](https://badges.renovateapi.com/github/dargmuesli/jonas-thelemann)](https://renovatebot.com/ "Renovate")
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/dargmuesli/jonas-thelemann.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/dargmuesli/jonas-thelemann/context:javascript)
 [![website uptime monitoring](https://app.statuscake.com/button/index.php?Track=BkiZnQ1xpj&Days=1000&Design=3)](https://www.statuscake.com "website uptime monitoring")
 
