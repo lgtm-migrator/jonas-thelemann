@@ -1,3 +1,10 @@
+## [3.4.11](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.10...3.4.11) (2020-12-21)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([d22039f](https://github.com/dargmuesli/jonas-thelemann/commit/d22039fb300eba5830ff53b7fbc64090439ac503))
+
 ## [3.4.10](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.9...3.4.10) (2020-12-14)
 
 
