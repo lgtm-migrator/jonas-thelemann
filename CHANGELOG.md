@@ -1,3 +1,10 @@
+## [3.4.15](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.14...3.4.15) (2021-01-25)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([e7b2bc2](https://github.com/dargmuesli/jonas-thelemann/commit/e7b2bc23dc3f95992ff6d803cfd7bd86d999739c))
+
 ## [3.4.14](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.13...3.4.14) (2021-01-11)
 
 
