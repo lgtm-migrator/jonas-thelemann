@@ -28,7 +28,7 @@
     "later": "1.2.0",
     "materialize-css": "1.0.0",
     "moment": "2.29.1",
-    "moment-timezone": "0.5.32",
+    "moment-timezone": "0.5.33",
     "prismjs": "1.23.0"
   },
   "devDependencies": {
