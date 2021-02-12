@@ -1,3 +1,10 @@
+## [3.4.17](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.16...3.4.17) (2021-02-12)
+
+
+### Bug Fixes
+
+* **ci:** trigger on create ([05356e7](https://github.com/dargmuesli/jonas-thelemann/commit/05356e7ad8b55a24933b7c14b2ebe8ea251268cf))
+
 ## [3.4.16](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.15...3.4.16) (2021-02-08)
 
 
