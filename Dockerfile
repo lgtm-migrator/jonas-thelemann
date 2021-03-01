@@ -1,5 +1,5 @@
 # Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
-FROM node:13.14.0-buster-slim@sha256:0238695c42f60824c1abc6ca3553d4aee5a6dd9547f34ced31c7b93819b7849b AS build
+FROM node:14.16.0-buster-slim@sha256:521b917a7a3c74ec624a30f4321a2df292ce0b689c2e69e26bb090c045cc7bdd AS build
 
 # Update and install build dependencies
 RUN \
@@ -18,8 +18,8 @@ RUN yarn add gulp@4 -D
 RUN yarn build
 
 
-# Base image
-FROM php:7.4-fpm-alpine@sha256:8b12f52d934e4fb71e3cfc08d5ede8606515655157c614684690a6f0a6a8f7a1 AS development
+# Base image (buster contains python2, which is needed for node-sass)
+FROM php:7.4.15-fpm-buster@sha256:b99b69ee932e06636932f399c0f95d5b2965e50d8e6724983677d7a3d21eb568 AS development
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
