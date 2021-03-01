@@ -18,8 +18,8 @@ RUN yarn add gulp@4 -D
 RUN yarn build
 
 
-# Base image
-FROM php:7.4-fpm-alpine@sha256:8b12f52d934e4fb71e3cfc08d5ede8606515655157c614684690a6f0a6a8f7a1 AS development
+# Base image (buster contains python2, which is needed for node-sass)
+FROM php:7.4.15-fpm-buster@sha256:b99b69ee932e06636932f399c0f95d5b2965e50d8e6724983677d7a3d21eb568 AS development
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
