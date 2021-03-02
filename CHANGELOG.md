@@ -1,3 +1,15 @@
+# [3.5.0](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.18...3.5.0) (2021-03-02)
+
+
+### Bug Fixes
+
+* **docker:** use php buster ([dbd5321](https://github.com/dargmuesli/jonas-thelemann/commit/dbd5321a2c5823f13df97301a67f331489b7a8d2))
+
+
+### Features
+
+* **docker:** use node 14 ([11effe9](https://github.com/dargmuesli/jonas-thelemann/commit/11effe90019f259d5ef8d9f9f9889ac98feffe96))
+
 ## [3.4.18](https://github.com/dargmuesli/jonas-thelemann/compare/3.4.17...3.4.18) (2021-02-22)
 
 
