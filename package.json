@@ -58,7 +58,7 @@
     "gulp-sourcemaps": "3.0.0",
     "gulp-symlink": "2.1.4",
     "gulp-tap": "2.0.0",
-    "gulp-yarn": "2.0.0",
+    "gulp-yarn": "3.0.0",
     "gulp-zip": "5.0.2",
     "husky": "4.3.8",
     "jsdoc-to-markdown": "7.0.0",
