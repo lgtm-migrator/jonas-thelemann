@@ -176,6 +176,11 @@
                 "recaptcha",
                 "spam"
             ],
+            "support": {
+                "forum": "https://groups.google.com/forum/#!forum/recaptcha",
+                "issues": "https://github.com/google/recaptcha/issues",
+                "source": "https://github.com/google/recaptcha"
+            },
             "time": "2020-03-31T17:50:54+00:00"
         },
         {
@@ -286,6 +291,10 @@
                 "cron",
                 "schedule"
             ],
+            "support": {
+                "issues": "https://github.com/mtdowling/cron-expression/issues",
+                "source": "https://github.com/mtdowling/cron-expression/tree/v1.2.3"
+            },
             "abandoned": "dragonmantank/cron-expression",
             "time": "2019-12-28T04:23:06+00:00"
         },
@@ -333,6 +342,10 @@
                 "encoding",
                 "string"
             ],
+            "support": {
+                "issues": "https://github.com/paquettg/string-encoder/issues",
+                "source": "https://github.com/paquettg/string-encoder/tree/master"
+            },
             "time": "2014-05-29T18:38:09+00:00"
         },
         {
@@ -606,7 +619,7 @@
         },
         {
             "name": "symfony/polyfill-ctype",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-ctype.git",
@@ -665,7 +678,7 @@
                 "portable"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.22.0"
+                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.22.1"
             },
             "funding": [
                 {
@@ -765,7 +778,7 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.22.0",
+            "version": "v1.22.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
@@ -828,7 +841,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.22.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.22.1"
             },
             "funding": [
                 {
@@ -906,6 +919,10 @@
                 "html",
                 "parser"
             ],
+            "support": {
+                "issues": "https://github.com/thesoftwarefanatics/php-html-parser/issues",
+                "source": "https://github.com/thesoftwarefanatics/php-html-parser/tree/master"
+            },
             "time": "2018-12-21T07:45:56+00:00"
         },
         {
@@ -958,6 +975,10 @@
                 "text",
                 "words"
             ],
+            "support": {
+                "issues": "https://github.com/vanderlee/phpSyllable/issues",
+                "source": "https://github.com/vanderlee/phpSyllable/"
+            },
             "time": "2019-12-16T12:52:46+00:00"
         },
         {
