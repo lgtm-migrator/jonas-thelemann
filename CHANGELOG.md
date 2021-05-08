@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/dargmuesli/jonas-thelemann/compare/3.5.5...3.6.0) (2021-05-08)
+
+
+### Features
+
+* **jsdoc:** remove jsdoc-to-markdown ([1e2e5f3](https://github.com/dargmuesli/jonas-thelemann/commit/1e2e5f356545aa42e240f9cab09f45808b1056bc))
+
 ## [3.5.5](https://github.com/dargmuesli/jonas-thelemann/compare/3.5.4...3.5.5) (2021-05-03)
 
 
