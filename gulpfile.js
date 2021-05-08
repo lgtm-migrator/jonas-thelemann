@@ -15,7 +15,6 @@ const gDateDiff = require('date-diff');
 const gDel = require('del');
 const gEslint = require('gulp-eslint');
 const gGulp = require('gulp');
-const gJsdoc2md = require('jsdoc-to-markdown');
 const gMergeStream = require('merge-stream');
 const gMode = require('gulp-mode')();
 const gSymlink = require('gulp-symlink');
@@ -237,16 +236,6 @@ function getChangeFreq(lastModification) {
         return 'never';
     }
 }
-
-function jsDoc() {
-    return gGulp.src(srcJsFolder + '**/*.js')
-        .pipe(gTap(function (file) {
-            file.base = srcJsFolder;
-            gJsdoc2md.render({ files: file.path }).then(output => fs.writeFileSync('docs/js/' + file.relative.replace('.js', '.md'), output));
-        }));
-}
-
-exports.jsDoc = jsDoc;
 
 function jsLint() {
     return gGulp.src(srcJsFolder + '**/*.js')
@@ -500,7 +489,6 @@ gGulp.task(
                 credentials,
                 cssCompressed,
                 cssExtended,
-                jsDoc,
                 jsLint,
                 jsSrc,
                 phpLint,

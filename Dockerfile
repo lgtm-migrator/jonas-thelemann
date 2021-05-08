@@ -1,10 +1,11 @@
 # Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
-FROM node:14.16.1-buster-slim@sha256:f5ca34ff9a862fd26e803778b0c96638c2a20a3ca60fbf4ed959005aa8132290 AS build
+FROM php:7.4.19-cli-buster@sha256:f456e92a657c4288f95494a3484fb1d5b4faf754924b993aa4339f97860e2131 AS build
 
 # Update and install build dependencies
+# Git is required for gulp's sitemap sitemap.
 RUN \
     apt-get update \
-    && apt-get install --no-install-recommends -y composer git php php-dom php-mbstring unzip \
+    && apt-get install --no-install-recommends -y git nodejs npm \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -13,6 +14,7 @@ COPY ./ /srv/app/
 WORKDIR /srv/app/
 
 # Install Gulp and build project
+RUN npm install -g yarn
 RUN yarn global add gulp-cli
 RUN yarn add gulp@4 -D
 RUN yarn build
