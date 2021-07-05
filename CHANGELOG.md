@@ -1,3 +1,10 @@
+## [3.6.6](https://github.com/dargmuesli/jonas-thelemann/compare/3.6.5...3.6.6) (2021-07-05)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([2f286d4](https://github.com/dargmuesli/jonas-thelemann/commit/2f286d4a053ac28b2feeb5cdf8188e572cdcd18e))
+
 ## [3.6.5](https://github.com/dargmuesli/jonas-thelemann/compare/3.6.4...3.6.5) (2021-06-21)
 
 
