@@ -21,7 +21,7 @@ RUN yarn build
 
 
 # Base image (buster contains python2, which is needed for node-sass)
-FROM php:7.4.21-fpm-buster@sha256:66a13a4c4aa0d060ff83c4781287f89c59c7522714d6a7f8b6dc0bd902d20914 AS development
+FROM php:7.4.21-fpm-buster@sha256:f84d84c23a83cf45ee7ac07dea4331313c1a9fbacde739672414771c03fea384 AS development
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
