@@ -1,5 +1,5 @@
 # Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
-FROM php:7.4.21-cli-buster@sha256:47964d807c678cd1203c165fa81dbe1e7c2b44ea4feb3c8edf64a95d295a8f32 AS build
+FROM php:7.4.21-cli-buster@sha256:cef2614f98410ac3fdf30716d6277bffd74637d3563e86c99bd2c4b0880a5a43 AS build
 
 # Update and install build dependencies
 # Git is required for gulp's sitemap sitemap.
