@@ -44,7 +44,7 @@ WORKDIR /var/www/$PROJECT_NAME/
 
 
 # Base image
-FROM php:7.4-fpm-alpine@sha256:a44989e3acef675ea1156a8ee87f98568180b2d541b306089a43da4f735669c0 AS production
+FROM php:7.4-fpm-alpine@sha256:41061531db37c76d86feb73e6b17ebedd3f425c4732cfc6e84bbf4227cc4ccf8 AS production
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
