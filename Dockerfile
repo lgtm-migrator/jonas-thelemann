@@ -1,5 +1,5 @@
 # Base image (buster contains PHP >= 7.3, which is needed for "thesoftwarefanatics/php-html-parser")
-FROM php:7.4.21-cli-buster@sha256:0123a175be90b0b2de60631ba23e601c7f97abf0ce85586257635dde0e505f29 AS build
+FROM php:7.4.22-cli-buster@sha256:2f67860b79fabf1e1d70d43c1171253cac0e87bad930533af427f2a893c85fb2 AS build
 
 # Update and install build dependencies
 # Git is required for gulp's sitemap sitemap.
@@ -21,7 +21,7 @@ RUN yarn build
 
 
 # Base image (buster contains python2, which is needed for node-sass)
-FROM php:7.4.21-fpm-buster@sha256:d0f677461adee6aa1e3c5171c823b121de7ed375d2c0466faa54abf2ae092097 AS development
+FROM php:7.4.22-fpm-buster@sha256:ec0f7d6c0df45117b579af73e25eb51d52091e0762890180a55047982489103a AS development
 
 # Environment variables
 ENV PHP_INI_DIR /usr/local/etc/php
