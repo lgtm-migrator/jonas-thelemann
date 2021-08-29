@@ -1,0 +1,20 @@
+{
+    "name": "jonas-thelemann.de",
+    "short_name": "jonas-thelemann.de",
+    "icons": [
+        {
+            "src": "/resources/dargmuesli/images/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/resources/dargmuesli/images/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ee976e",
+    "background_color": "#ffffff",
+    "start_url": "https://jonas-thelemann.de/",
+    "display": "standalone"
+}
