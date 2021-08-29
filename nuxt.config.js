@@ -235,7 +235,7 @@ export default {
         Sitemap: BASE_URL + '/sitemap.xml',
       },
     ],
-    ['@nuxtjs/sitemap', { i18n: true }], // Should be declared at the end of the array.
+    ['@nuxtjs/sitemap', { hostname: BASE_URL, i18n: true }], // Should be declared at the end of the array.
   ],
   plugins: ['~/plugins/baseUrl.ts', '~/plugins/i18n.ts'],
   publicRuntimeConfig: {
