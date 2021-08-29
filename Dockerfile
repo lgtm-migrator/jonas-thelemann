@@ -47,13 +47,13 @@ RUN yarn run generate
 #######################
 # Provide a web server.
 
-FROM httpd:2.4.48-alpine3.14@sha256:37757f1833175ab266ff112fb1a0cd1c291cdd444d907463849bc0093ffad803 AS production
+FROM nginx:1.21.1-alpine@sha256:bd0aa91fe6a182db22032463c17644cd2ff3bbe415e7b84964283bba687acaa6 AS production
 
 # - `curl` is required by the healthcheck
 RUN apk add --no-cache \
     curl
 
-WORKDIR /usr/local/apache2/htdocs/
+WORKDIR /usr/share/nginx/html
 
 COPY --from=build /srv/app/dist/ ./
 
