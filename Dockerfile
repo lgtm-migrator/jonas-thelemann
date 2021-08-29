@@ -57,4 +57,4 @@ WORKDIR /usr/local/apache2/htdocs/
 
 COPY --from=build /srv/app/dist/ ./
 
-HEALTHCHECK --interval=10s CMD curl -f http://localhost:3000/healthcheck || exit 1
+HEALTHCHECK --interval=10s CMD curl -f http://localhost:8080/healthcheck || exit 1
