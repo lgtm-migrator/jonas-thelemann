@@ -27,12 +27,12 @@ jobs:
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
 
           # Use Docker `latest` tag convention
-          [ "$VERSION" == "master" ] && VERSION=latest
+          [ "$VERSION" == "main" ] && VERSION=latest
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
 
-          # Push the Docker image to the registry on git pushes that either pushed a tag or one of the following branches: [master, develop]
+          # Push the Docker image to the registry on git pushes that either pushed a tag or one of the following branches: [main, develop]
           if [[
             (
               "${{ github.event_name }}" == "create"
