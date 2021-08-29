@@ -91,7 +91,7 @@
       </div>
       <div>
         <!-- Wrapping div required for paragraph's negative margin to work. -->
-        <i18n class="mt-[-0.5rem]" path="about">
+        <i18n class="mt-[-0.5rem]" path="about" tag="p">
           <template #aboutMarkSoftwareTemplate>
             <mark>{{ $t('aboutMarkSoftware') }}</mark>
           </template>
