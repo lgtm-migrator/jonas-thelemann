@@ -296,6 +296,12 @@ export default defineComponent({
 })
 </script>
 
+<style scoped>
+mark {
+  background-color: rgba(255, 255, 0, 0.5);
+}
+</style>
+
 <i18n lang="yml">
 de:
   about: '{aboutMarkSoftwareTemplate} irgendwo zwischen Frontend, Backend und DevOps.{br}{aboutMarkDjTemplate}, manchmal am Doubletime rappen.{br}{aboutAttraction}{br}{aboutSidefact}{br}{aboutCreating}'
@@ -303,7 +309,7 @@ de:
   aboutCreating: Ist verliebt darin, Dinge zu erschaffen.
   aboutMarkDj: DJ und Event-Organisator
   aboutMarkSoftware: Leidenschaftlicher Software-Entwickler
-  aboutSidefact: Gewöhnt sich gerade an die Mitte von Schwarz und Weiß. Hodlt nebenbei.
+  aboutSidefact: Freundet sich gerade mit der Mitte von Schwarz und Weiß an. Hodlt nebenbei.
   descriptionShort: '{ninjaneers}, studiert an der {university}.'
   education: Bildung
   educationContent: '{place} · {time}'
@@ -336,7 +342,7 @@ de:
   universityKassel: Universität Kassel
 en:
   about: '{aboutMarkSoftwareTemplate} somewhere between frontend, backend and devops.{br}{aboutMarkDjTemplate}, occasionally rapping double times.{br}{aboutAttraction}{br}{aboutSidefact}{br}{aboutCreating}'
-  aboutAttraction: Attracted to things he doesn't understand. Bored, when videos play at speeds of less than 2x.
+  aboutAttraction: Attracted to things he doesn't understand. Bored when videos play at speeds of less than 2x.
   aboutCreating: Loves to create.
   aboutMarkDj: DJ and event organizer
   aboutMarkSoftware: Passionate software developer
