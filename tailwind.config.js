@@ -3,8 +3,8 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        '12': {'raw': '(min-aspect-ratio: 2/1)'},
-      }
-    }
-  }
+        12: { raw: '(min-aspect-ratio: 2/1)' },
+      },
+    },
+  },
 }

@@ -15,6 +15,6 @@ export default defineComponent({
       required: true,
       type: String,
     },
-  }
+  },
 })
 </script>

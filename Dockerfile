@@ -7,8 +7,7 @@ FROM node:16.8.0-alpine3.14@sha256:e9dec0675a05bded5e881c6839461c2209a4abd8bd162
 # - `git` is required by the `yarn` command
 # - `curl` is required by the healthcheck
 RUN apk add --no-cache \
-    git \
-    curl
+    git
 
 WORKDIR /srv/app/
 
@@ -19,7 +18,7 @@ RUN yarn install
 COPY ./ ./
 
 CMD ["yarn", "dev", "--hostname", "0.0.0.0"]
-HEALTHCHECK --interval=10s CMD curl -f http://localhost:3000/healthcheck || exit 1
+HEALTHCHECK --interval=10s CMD wget -O /dev/null http://localhost:3000/healthcheck || exit 1
 
 
 ########################
