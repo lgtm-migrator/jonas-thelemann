@@ -49,12 +49,11 @@ RUN yarn run generate
 
 FROM nginx:1.21.1-alpine@sha256:bd0aa91fe6a182db22032463c17644cd2ff3bbe415e7b84964283bba687acaa6 AS production
 
-# - `curl` is required by the healthcheck
-RUN apk add --no-cache \
-    curl
-
 WORKDIR /usr/share/nginx/html
+
+RUN rm /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/conf.d/nginx.conf
 
 COPY --from=build /srv/app/dist/ ./
 
-HEALTHCHECK --interval=10s CMD curl -f http://localhost:8080/healthcheck || exit 1
+HEALTHCHECK --interval=10s CMD wget -O /dev/null http://localhost:8080/healthcheck || exit 1
