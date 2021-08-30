@@ -1,15 +1,12 @@
 #############
 # Serve Nuxt in development mode.
 
-FROM node:16.8.0@sha256:987be0a7ca165b6b19bf77ca812e980f603a10c1000bf25095cd89e2b146f9ad AS development
+FROM node:16.8.0-alpine3.14@sha256:e9dec0675a05bded5e881c6839461c2209a4abd8bd16239daf2e59db57c4adaf AS development
 
 # Update and install dependencies.
-# `node-zopfli-es` require at least buster.
-# `node-zopfli-es` requires non-slim.
 # `git` is required by the `yarn` command
-RUN apt-get update \
-    && apt-get install --no-install-recommends -y \
-        git
+RUN apk add --no-cache \
+    git
 
 WORKDIR /srv/app/
 

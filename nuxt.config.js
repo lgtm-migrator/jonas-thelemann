@@ -1,6 +1,4 @@
-import shrinkRay from 'shrink-ray-current'
-
-import { BASE_URL, STACK_DOMAIN } from './plugins/baseUrl'
+import { BASE_URL } from './plugins/baseUrl'
 
 const LOCALES = [
   {
@@ -242,37 +240,6 @@ export default {
     googleAnalytics: {
       id: process.env.GOOGLE_ANALYTICS_ID,
       debug: process.env.NODE_ENV !== 'production',
-    },
-  },
-  render: {
-    compressor: shrinkRay(),
-    csp: {
-      policies: {
-        'base-uri': ["'none'"], // Mozilla Observatory.
-        'connect-src': [
-          `https://*.${STACK_DOMAIN}`,
-          'https://www.google-analytics.com',
-        ],
-        'default-src': ["'none'"],
-        // 'font-src': ["'self'"],
-        'form-action': ["'none'"], // Mozilla Observatory.
-        'frame-ancestors': ["'none'"], // Mozilla Observatory.
-        'img-src': [
-          'data:',
-          `https://*.${STACK_DOMAIN}`,
-          'https://www.google-analytics.com',
-          "'self'",
-        ],
-        'manifest-src': ["'self'"], // Chrome
-        'report-uri': 'https://dargmuesli.report-uri.com/r/d/csp/enforce',
-        'script-src': [
-          "'self'",
-          'https://static.cloudflareinsights.com/beacon.min.js',
-          'https://www.google-analytics.com/analytics.js',
-        ],
-        'style-src': ["'self'"], // Tailwind
-      },
-      reportOnly: false,
     },
   },
   target: 'static',
