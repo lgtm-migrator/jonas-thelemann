@@ -48,7 +48,7 @@ RUN yarn run generate
 #######################
 # Provide a web server.
 
-FROM nginx:1.21.1-alpine@sha256:bd0aa91fe6a182db22032463c17644cd2ff3bbe415e7b84964283bba687acaa6 AS production
+FROM nginx:1.21.1-alpine@sha256:bfe377bdeb9ff37a62b49e149ac12c67a18089699bb844ce917fe3dbb834abed AS production
 
 WORKDIR /usr/share/nginx/html
 
