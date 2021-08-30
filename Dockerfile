@@ -49,8 +49,7 @@ FROM nginx:1.21.1-alpine@sha256:bfe377bdeb9ff37a62b49e149ac12c67a18089699bb844ce
 
 WORKDIR /usr/share/nginx/html
 
-RUN rm /etc/nginx/conf.d/default.conf
-COPY ./nginx.conf /etc/nginx/conf.d/nginx.conf
+COPY ./nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=build /srv/app/dist/ ./
 
