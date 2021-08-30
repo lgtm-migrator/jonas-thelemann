@@ -24,9 +24,8 @@
     />
     <div class="m-8 min-w-0 space-y-6">
       <div class="flex items-center justify-between">
-        <!-- eslint-disable @intlify/vue-i18n/no-raw-text -->
+        <!-- eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
         <h1 class="font-bold text-4xl">Jonas Thelemann</h1>
-        <!-- eslint-enable @intlify/vue-i18n/no-raw-text -->
         <p class="font-normal text-2xl text-gray-500 text-right">
           {{ $t('metaInfo', { age: $moment().diff('1998-12-17', 'years') }) }}
         </p>
@@ -150,20 +149,20 @@
             <li>
               <a href="https://gi.de/">{{ $t('gi') }}</a>
               <span class="text-gray-500">
-                · {{ $t('monthShortJan') }} 2019 – {{ $t('present') }}</span
-              >
+                · {{ $t('monthShortJan') }} 2019 – {{ $t('present') }}
+              </span>
             </li>
             <li>
               <a href="https://www.ccc.de/">Chaos Computer Club</a>
               <span class="text-gray-500">
-                · {{ $t('monthShortMay') }} 2018 – {{ $t('present') }}</span
-              >
+                · {{ $t('monthShortMay') }} 2018 – {{ $t('present') }}
+              </span>
             </li>
             <li>
               <a href="https://flipdot.org/">flipdot Hackerspace Kassel</a>
               <span class="text-gray-500">
-                · {{ $t('monthShortDec') }} 2016 – {{ $t('present') }}</span
-              >
+                · {{ $t('monthShortDec') }} 2016 – {{ $t('present') }}
+              </span>
             </li>
             <!-- eslint-enable @intlify/vue-i18n/no-raw-text -->
           </ul>
@@ -190,34 +189,20 @@
         <section>
           <h2 class="font-bold text-2xl">{{ $t('honorsAwards') }}</h2>
           <ul class="list-disc list-inside mt-2">
-            <!-- eslint-disable @intlify/vue-i18n/no-raw-text -->
             <li>
               <a
                 href="https://www.uni-kassel.de/einrichtung/index.php?eID=dumpFile&t=f&f=1988&token=e881e12fc8112d90e46d21d4fbef05530929c5c0"
               >
                 <span>{{ $t('honorsAwardsIdeasCompetition') }}</span>
               </a>
-              <span class="text-gray-500">
-                ·
-                <a
-                  href="https://www.uni-kassel.de/einrichtung/ukt/unikat-von-der-idee-zur-gruendung/unikat-ideenwettbewerb"
-                >
-                  UNI­KAT
-                </a>
-                , {{ $t('monthShortOct') }} 2020
-              </span>
+              <!-- eslint-disable-next-line prettier/prettier @intlify/vue-i18n/no-raw-text -->
+              <span class="text-gray-500"> · <a href="https://www.uni-kassel.de/einrichtung/ukt/unikat-von-der-idee-zur-gruendung/unikat-ideenwettbewerb">UNI­KAT</a>, {{ $t('monthShortOct') }} 2020</span>
             </li>
             <li>
               <span>{{ $t('nominationScholarship') }}</span>
-              <span class="text-gray-500">
-                ·
-                <a href="https://www.studienstiftung.de/">
-                  {{ $t('studyFoundation') }}
-                </a>
-                , {{ $t('monthShortJul') }} 2019</span
-              >
+              <!-- eslint-disable-next-line prettier/prettier @intlify/vue-i18n/no-raw-text -->
+              <span class="text-gray-500"> · <a href="https://www.studienstiftung.de/">{{ $t('studyFoundation') }}</a>, {{ $t('monthShortJul') }} 2019</span>
             </li>
-            <!-- eslint-enable @intlify/vue-i18n/no-raw-text -->
           </ul>
         </section>
         <div class="flex flex-col items-center justify-center">
@@ -248,14 +233,23 @@
               </a>
             </li>
             <li class="flex justify-center my-4 w-1/2 md:w-auto">
-              <a href="https://github.com/thelinmichael/spotify-web-api-java">
-                <!-- eslint-disable @intlify/vue-i18n/no-raw-text -->
-                <p class="h-12 text-center">
-                  <span class="text-gray-500">thelinmichael/</span>
-                  <br />
-                  spotify-web-api-java
+              <a href="https://creal.jonas-thelemann.de/">
+                <p class="h-12 text-center text-gray-500">
+                  <img
+                    alt="cReal's logo"
+                    class="h-12"
+                    src="/assets/static/logos/creal.svg"
+                  />
                 </p>
-                <!-- eslint-enable @intlify/vue-i18n/no-raw-text -->
+              </a>
+            </li>
+            <li class="flex justify-center my-4 w-1/2 md:w-auto">
+              <a href="https://trapparty.jonas-thelemann.de/">
+                <img
+                  alt="TrapParty's logo"
+                  class="h-12"
+                  src="/assets/static/logos/trapparty.svg"
+                />
               </a>
             </li>
             <li class="flex justify-center my-4 w-1/2 md:w-auto">
@@ -309,12 +303,12 @@ de:
   aboutCreating: Ist verliebt darin, Dinge zu erschaffen.
   aboutMarkDj: DJ und Event-Organisator
   aboutMarkSoftware: Leidenschaftlicher Software-Entwickler
-  aboutSidefact: Freundet sich gerade mit der Mitte von Schwarz und Weiß an. Hodlt nebenbei.
+  aboutSidefact: Freundet sich gerade mit der Mitte von Schwarz und Weiß an, hodlt nebenbei.
   descriptionShort: '{ninjaneers}, studiert an der {university}.'
   education: Bildung
   educationContent: '{place} · {time}'
-  educationGoal: Bachelor der Software-Entwicklung
-  educationTime: 2017 – 2021
+  educationGoal: Master der Software-Entwicklung
+  educationTime: 2021 – 2023
   english: Englisch
   experience: Erfahrung
   german: Deutsch
@@ -332,7 +326,7 @@ de:
   nominationScholarship: Nominierung für ein Stipendium
   organizations: Organisationen
   portfolioFull: Zum ganzen Portfolio
-  present: Heute
+  present: heute
   proficiencyNative: muttersprachliches Niveau
   proficiencyProfessional: professionelles Arbeitsniveau
   projects: Projekte
@@ -346,12 +340,12 @@ en:
   aboutCreating: Loves to create.
   aboutMarkDj: DJ and event organizer
   aboutMarkSoftware: Passionate software developer
-  aboutSidefact: Currently getting used to the middle of black and white. Hodling in the meantime.
+  aboutSidefact: Currently getting used to the middle of black and white, hodling in the meantime.
   descriptionShort: '{ninjaneers}, studying at {university}.'
   education: Education
   educationContent: '{place} · {time}'
-  educationGoal: Bachelor's degree Software Engineering
-  educationTime: 2017 – 2021
+  educationGoal: Master's degree Software Engineering
+  educationTime: 2021 – 2023
   english: English
   experience: Experience
   german: German
@@ -369,7 +363,7 @@ en:
   nominationScholarship: Nomination for a scholarship
   organizations: Organizations
   portfolioFull: View full portfolio
-  present: Present
+  present: today
   proficiencyNative: native proficiency
   proficiencyProfessional: professional working proficiency
   projects: Projects
