@@ -1,3 +1,10 @@
+# [4.2.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.1.0...4.2.0) (2021-08-30)
+
+
+### Features
+
+* **index:** pimp content ([9309b1b](https://github.com/dargmuesli/jonas-thelemann/commit/9309b1bb62c904e7984c9581f7828dd5f411b683))
+
 # [4.1.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.0.0...4.1.0) (2021-08-30)
 
 
