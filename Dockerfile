@@ -1,7 +1,7 @@
 #############
 # Serve Nuxt in development mode.
 
-FROM node:16.8.0@sha256:c07e26a290175b1971034db65ee88775739aad72e3bd125fa6bb005065af9d56 AS development
+FROM node:16.8.0@sha256:987be0a7ca165b6b19bf77ca812e980f603a10c1000bf25095cd89e2b146f9ad AS development
 
 # Update and install dependencies.
 # `node-zopfli-es` require at least buster.
