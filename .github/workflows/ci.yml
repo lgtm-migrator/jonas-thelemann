@@ -108,7 +108,7 @@ jobs:
           docker container rm -f extract
 
       - name: Zip
-        uses: montudor/action-zip@v0.1.0
+        uses: montudor/action-zip@v0.1.1
         with:
           args: zip -qq -r ./jonas-thelemann.zip ./dist/
 
