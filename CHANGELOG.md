@@ -1,3 +1,10 @@
+## [4.4.2](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.1...4.4.2) (2021-08-30)
+
+
+### Bug Fixes
+
+* **nginx:** correct csp ([89ec33a](https://github.com/dargmuesli/jonas-thelemann/commit/89ec33a1e938afd77e924f6acd57af9a7658ecf0))
+
 ## [4.4.1](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.0...4.4.1) (2021-08-30)
 
 
