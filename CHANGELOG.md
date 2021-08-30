@@ -1,3 +1,10 @@
+# [4.4.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.3.0...4.4.0) (2021-08-30)
+
+
+### Features
+
+* **nginx:** add headers ([ac8c157](https://github.com/dargmuesli/jonas-thelemann/commit/ac8c1575e6cf7dd6e06ff3fcf965beebeb28ffff))
+
 # [4.3.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.2.0...4.3.0) (2021-08-30)
 
 
