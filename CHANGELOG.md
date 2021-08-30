@@ -1,3 +1,10 @@
+# [4.3.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.2.0...4.3.0) (2021-08-30)
+
+
+### Features
+
+* **nuxt:** remove rendering functionality ([c6919a9](https://github.com/dargmuesli/jonas-thelemann/commit/c6919a9cc734ada0abd664798440e1491b37c0fa))
+
 # [4.2.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.1.0...4.2.0) (2021-08-30)
 
 
