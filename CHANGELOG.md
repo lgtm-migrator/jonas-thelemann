@@ -1,3 +1,10 @@
+## [4.4.1](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.0...4.4.1) (2021-08-30)
+
+
+### Bug Fixes
+
+* **nginx:** correct configuration ([91c88c1](https://github.com/dargmuesli/jonas-thelemann/commit/91c88c179cc0dc12088e0efcd13b32e32a97d391))
+
 # [4.4.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.3.0...4.4.0) (2021-08-30)
 
 
