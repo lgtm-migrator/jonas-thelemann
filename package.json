@@ -1,6 +1,6 @@
 {
   "name": "jonas-thelemann",
-  "version": "4.0.0-alpha",
+  "version": "4.1.0",
   "private": true,
   "scripts": {
     "dev": "nuxt",
