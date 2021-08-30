@@ -22,7 +22,7 @@
     "@nuxtjs/i18n": "7.0.2",
     "@nuxtjs/robots": "2.5.0",
     "@nuxtjs/sitemap": "2.4.0",
-    "core-js": "3.15.1",
+    "core-js": "3.16.4",
     "node-zopfli-es": "1.0.7",
     "nuxt": "2.15.8",
     "nuxt-healthcheck": "1.0.1",
