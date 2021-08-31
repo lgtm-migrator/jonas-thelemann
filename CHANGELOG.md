@@ -1,3 +1,10 @@
+## [4.4.6](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.5...4.4.6) (2021-08-31)
+
+
+### Bug Fixes
+
+* **nginx:** partly revert "improve caching" ([bdedf58](https://github.com/dargmuesli/jonas-thelemann/commit/bdedf5870b1523e25bd4cab011e64af1e87c60af))
+
 ## [4.4.5](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.4...4.4.5) (2021-08-31)
 
 
