@@ -1,3 +1,10 @@
+## [4.4.8](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.7...4.4.8) (2021-08-31)
+
+
+### Bug Fixes
+
+* **nginx:** trim csp ([119508b](https://github.com/dargmuesli/jonas-thelemann/commit/119508b16dbad9b975f7d1401bf4ca7a6e5721fb))
+
 ## [4.4.7](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.6...4.4.7) (2021-08-31)
 
 
