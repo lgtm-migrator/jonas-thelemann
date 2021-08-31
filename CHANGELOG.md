@@ -1,3 +1,10 @@
+## [4.4.7](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.6...4.4.7) (2021-08-31)
+
+
+### Bug Fixes
+
+* **nginx:** specify server wide root ([a5dee8c](https://github.com/dargmuesli/jonas-thelemann/commit/a5dee8c62df8d2fc90ea1df5800b69fef179ae3b))
+
 ## [4.4.6](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.5...4.4.6) (2021-08-31)
 
 
