@@ -31,7 +31,7 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     '@nuxtjs/composition-api/module',
-    '@nuxtjs/google-analytics',
+    ['@nuxtjs/google-analytics', { id: 'UA-47285625-1' }],
     '@nuxtjs/html-validator',
     ['@nuxtjs/moment', { locales: ['de'] }],
     // https://go.nuxtjs.dev/stylelint
@@ -238,7 +238,6 @@ export default {
   plugins: ['~/plugins/baseUrl.ts', '~/plugins/i18n.ts'],
   publicRuntimeConfig: {
     googleAnalytics: {
-      id: process.env.GOOGLE_ANALYTICS_ID,
       debug: process.env.NODE_ENV !== 'production',
     },
   },
