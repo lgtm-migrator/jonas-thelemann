@@ -1,3 +1,10 @@
+## [4.4.3](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.2...4.4.3) (2021-08-31)
+
+
+### Bug Fixes
+
+* **analytics:** hardcode id ([4536d29](https://github.com/dargmuesli/jonas-thelemann/commit/4536d29ffa38b982a9f08b79cd47d9a834f737e1))
+
 ## [4.4.2](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.1...4.4.2) (2021-08-30)
 
 
