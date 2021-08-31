@@ -53,4 +53,4 @@ COPY ./nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=build /srv/app/dist/ ./
 
-HEALTHCHECK --interval=10s CMD wget -O /dev/null http://localhost:8080/healthcheck || exit 1
+HEALTHCHECK --interval=10s CMD wget -O /dev/null http://localhost/healthcheck || exit 1
