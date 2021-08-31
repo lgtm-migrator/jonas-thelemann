@@ -1,3 +1,11 @@
+## [4.4.4](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.3...4.4.4) (2021-08-31)
+
+
+### Bug Fixes
+
+* **favicon:** correct assets path ([45cf93c](https://github.com/dargmuesli/jonas-thelemann/commit/45cf93cc9371690a579a1547bfe20f52c7124761))
+* **nginx:** improve configuration ([6b372fa](https://github.com/dargmuesli/jonas-thelemann/commit/6b372fa37ed44e2d62e46077b6a2dd3a2b5aa5b5))
+
 ## [4.4.3](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.2...4.4.3) (2021-08-31)
 
 
