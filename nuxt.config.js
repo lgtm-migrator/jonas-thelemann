@@ -40,7 +40,9 @@ export default {
     '@nuxtjs/tailwindcss',
   ],
   components: true,
-
+  generate: {
+    interval: 2000, // https://github.com/nuxt-community/composition-api/issues/44
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head() {
     return {
@@ -72,7 +74,7 @@ export default {
           rel: 'manifest',
         },
         {
-          color: '#ee976e',
+          color: '#ffffff',
           href: '/assets/static/favicon/safari-pinned-tab.svg?v=bOXMwoKlJr',
           rel: 'mask-icon',
         },
@@ -100,11 +102,11 @@ export default {
           name: 'msapplication-config',
         },
         {
-          content: '#ee976e',
+          content: '#ffffff',
           name: 'msapplication-TileColor',
         },
         {
-          content: '#ee976e',
+          content: '#ffffff',
           name: 'theme-color',
         },
         // {
@@ -188,9 +190,6 @@ export default {
       ],
       title: 'Jonas Thelemann',
     }
-  },
-  generate: {
-    interval: 2000, // https://github.com/nuxt-community/composition-api/issues/44
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
