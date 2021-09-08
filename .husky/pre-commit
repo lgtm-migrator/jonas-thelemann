@@ -1,5 +1,5 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-. "$(dirname "$0")/common.sh"
+# shellcheck source=./_/husky.sh
+. "$(dirname "$(readlink -f "$0")")/_/husky.sh"
 
 yarn lint-staged
