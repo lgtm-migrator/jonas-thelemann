@@ -6,11 +6,9 @@ FROM node:16.8.0-alpine3.14@sha256:e9dec0675a05bded5e881c6839461c2209a4abd8bd162
 
 # Update and install dependencies.
 # `git` is required by the `yarn` command
-RUN apt-get update \
-    && apt-get install --no-install-recommends -y \
-      git \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache \
+    git \
+  && rm -rf /var/cache/apk/*
 
 WORKDIR /srv/app/
 
@@ -36,11 +34,9 @@ ENV NODE_ENV=production
 
 # Update and install dependencies.
 # - `git` is required by the `yarn` command
-RUN apt-get update \
-    && apt-get install --no-install-recommends -y \
-        git \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache \
+    git \
+  && rm -rf /var/cache/apk/*
 
 WORKDIR /srv/app/
 
