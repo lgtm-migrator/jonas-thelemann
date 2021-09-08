@@ -1,3 +1,16 @@
+# [4.6.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.5.0...4.6.0) (2021-09-08)
+
+
+### Bug Fixes
+
+* **docker:** partly revert dockerfile alignment ([b160f09](https://github.com/dargmuesli/jonas-thelemann/commit/b160f097304e0561af7e18236272208d234d75fc))
+* **i18n:** add store file ([2adaa17](https://github.com/dargmuesli/jonas-thelemann/commit/2adaa1794eda99db1338f6c757a75aba71d45968))
+
+
+### Features
+
+* **favicon:** add white background ([113cba4](https://github.com/dargmuesli/jonas-thelemann/commit/113cba47c4c556134f971fce252912fb2a52c3f1))
+
 # [4.5.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.4.8...4.5.0) (2021-08-31)
 
 
