@@ -56,5 +56,5 @@
     "stylelint-config-prettier": "8.0.2",
     "stylelint-config-standard": "22.0.0"
   },
-  "scheduleVersion": "4.6.1"
+  "scheduleVersion": "4.6.2"
 }
