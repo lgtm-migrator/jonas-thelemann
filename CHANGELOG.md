@@ -1,3 +1,11 @@
+# [4.7.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.6.2...4.7.0) (2021-10-07)
+
+
+### Features
+
+* add footer ([e6e5a70](https://github.com/dargmuesli/jonas-thelemann/commit/e6e5a70804a26c6c64c9e6a4fab59cf02b841a96))
+* add legal notice ([df2b296](https://github.com/dargmuesli/jonas-thelemann/commit/df2b296209dd3e5f6a163079dc9d0fadb9e6b135))
+
 ## [4.6.2](https://github.com/dargmuesli/jonas-thelemann/compare/4.6.1...4.6.2) (2021-10-04)
 
 
