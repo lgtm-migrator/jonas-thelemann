@@ -25,7 +25,7 @@
     <div class="m-8 min-w-0 space-y-6">
       <div class="flex items-center justify-between">
         <!-- eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
-        <h1 class="font-bold text-4xl">Jonas Thelemann</h1>
+        <h1>Jonas Thelemann</h1>
         <p class="font-normal text-2xl text-gray-500 text-right">
           {{ $t('metaInfo', { age: $moment().diff('1998-12-17', 'years') }) }}
         </p>
@@ -113,7 +113,7 @@
       </div>
       <div class="gap-6 grid grid-cols-1 md:grid-cols-2">
         <section>
-          <h2 class="font-bold text-2xl">{{ $t('experience') }}</h2>
+          <h2 class="text-2xl">{{ $t('experience') }}</h2>
           <div class="mt-2">
             <p>{{ $t('softwareEngineer') }}</p>
             <p>
@@ -127,7 +127,7 @@
           </div>
         </section>
         <section>
-          <h2 class="font-bold text-2xl">{{ $t('education') }}</h2>
+          <h2 class="text-2xl">{{ $t('education') }}</h2>
           <div class="mt-2">
             <p>{{ $t('educationGoal') }}</p>
             <i18n path="educationContent">
@@ -143,7 +143,7 @@
           </div>
         </section>
         <section>
-          <h2 class="font-bold text-2xl">{{ $t('organizations') }}</h2>
+          <h2 class="text-2xl">{{ $t('organizations') }}</h2>
           <ul class="list-disc list-inside mt-2">
             <!-- eslint-disable @intlify/vue-i18n/no-raw-text -->
             <li>
@@ -168,7 +168,7 @@
           </ul>
         </section>
         <section>
-          <h2 class="font-bold text-2xl">{{ $t('languages') }}</h2>
+          <h2 class="text-2xl">{{ $t('languages') }}</h2>
           <ul class="list-disc list-inside mt-2">
             <!-- eslint-disable @intlify/vue-i18n/no-raw-text -->
             <li>
@@ -187,7 +187,7 @@
           </ul>
         </section>
         <section>
-          <h2 class="font-bold text-2xl">{{ $t('honorsAwards') }}</h2>
+          <h2 class="text-2xl">{{ $t('honorsAwards') }}</h2>
           <ul class="list-disc list-inside mt-2">
             <li>
               <a
@@ -212,7 +212,7 @@
         </div>
         <hr class="md:col-span-2" />
         <section class="md:col-span-2">
-          <h2 class="font-bold text-2xl">{{ $t('projects') }}</h2>
+          <h2 class="text-2xl">{{ $t('projects') }}</h2>
           <ul class="flex flex-wrap items-center justify-around mt-2">
             <li class="flex justify-center my-4 w-1/2 md:w-auto">
               <a href="https://maev.si/">

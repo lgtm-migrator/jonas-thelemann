@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .jonas-thelemann-prose {
+    @apply m-auto prose-sm sm:prose lg:prose-lg xl:prose-xl;
+  }
+}
