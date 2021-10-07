@@ -1,10 +1,5 @@
 <template>
-  <div>
-    <main>
-      <nuxt />
-    </main>
-    <!-- <Footer /> -->
-  </div>
+  <nuxt />
 </template>
 
 <script lang="ts">

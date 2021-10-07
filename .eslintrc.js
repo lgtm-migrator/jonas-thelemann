@@ -17,8 +17,8 @@ module.exports = {
     'yml/quotes': ['error', { prefer: 'single' }],
   },
   settings: {
-    // 'vue-i18n': {
-    //   localeDir: './locales/*.json',
-    // },
+    'vue-i18n': {
+      localeDir: './locales/*.json',
+    },
   },
 }

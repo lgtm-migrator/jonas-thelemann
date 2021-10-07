@@ -215,10 +215,14 @@ export default {
         },
         locales: LOCALES,
         vueI18n: {
-          // messages: {
-          //   de: localeDe,
-          //   en: localeEn,
-          // },
+          messages: {
+            de: {
+              globalLoading: 'Lade...',
+            },
+            en: {
+              globalLoading: 'Loading...',
+            },
+          },
           silentFallbackWarn: true,
         },
         vueI18nLoader: true,
