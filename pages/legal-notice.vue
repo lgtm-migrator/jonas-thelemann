@@ -1,5 +1,5 @@
 <template>
-  <div class="jonas-thelemann-prose">
+  <div class="jonas-thelemann-prose p-4 sm:p-8">
     <h1>{{ title }}</h1>
     <h2>{{ $t('tmg') }}</h2>
     <p>
@@ -31,7 +31,7 @@
     <p>{{ $t('copyrightDescription2') }}</p>
 
     <p>
-      <Link to="https://www.e-recht24.de">{{ $t('source') }}</Link>
+      <AppLink to="https://www.e-recht24.de">{{ $t('source') }}</AppLink>
     </p>
   </div>
 </template>

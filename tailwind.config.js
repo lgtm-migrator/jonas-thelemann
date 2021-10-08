@@ -8,6 +8,35 @@ function heading(theme) {
   }
 }
 
+function prose(theme) {
+  return {
+    css: {
+      a: {
+        color: theme('colors.link'),
+        textDecoration: 'none',
+      },
+      h1: {
+        lineHeight: theme('lineHeight.snug'),
+      },
+      h2: {
+        lineHeight: theme('lineHeight.snug'),
+      },
+      h3: {
+        lineHeight: theme('lineHeight.snug'),
+      },
+      h4: {
+        lineHeight: theme('lineHeight.snug'),
+      },
+      h5: {
+        lineHeight: theme('lineHeight.snug'),
+      },
+      h6: {
+        lineHeight: theme('lineHeight.snug'),
+      },
+    },
+  }
+}
+
 module.exports = {
   mode: 'jit',
   plugins: [
@@ -50,36 +79,11 @@ module.exports = {
         12: { raw: '(min-aspect-ratio: 2/1)' },
       },
       typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            a: {
-              color: theme('colors.link'),
-              textDecoration: 'none',
-            },
-          },
-        },
-        xl: {
-          css: {
-            h1: {
-              lineHeight: theme('lineHeight.snug'),
-            },
-            h2: {
-              lineHeight: theme('lineHeight.snug'),
-            },
-            h3: {
-              lineHeight: theme('lineHeight.snug'),
-            },
-            h4: {
-              lineHeight: theme('lineHeight.snug'),
-            },
-            h5: {
-              lineHeight: theme('lineHeight.snug'),
-            },
-            h6: {
-              lineHeight: theme('lineHeight.snug'),
-            },
-          },
-        },
+        sm: prose(theme),
+        DEFAULT: prose(theme),
+        lg: prose(theme),
+        xl: prose(theme),
+        '2xl': prose(theme),
       }),
     },
   },

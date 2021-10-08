@@ -22,11 +22,11 @@
       "
       src="/assets/static/images/venice.jpg"
     />
-    <div class="p-8">
+    <div class="p-4 sm:p-8">
       <main class="min-h-screen min-w-0 space-y-6">
         <div class="flex items-center justify-between">
           <!-- eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
-          <h1>Jonas Thelemann</h1>
+          <h1 class="text-left">Jonas Thelemann</h1>
           <p class="font-normal text-2xl text-gray-500 text-right">
             {{ $t('metaInfo', { age: $moment().diff('1998-12-17', 'years') }) }}
           </p>
@@ -265,21 +265,21 @@
         </div>
       </main>
       <footer class="leading-6 text-sm">
-        <div class="flex items-center mx-auto w-9/12">
-          <div class="bg-gray-900 h-px flex-1" />
+        <div class="flex items-center mt-8 mx-auto w-9/12">
+          <div class="bg-gray-500 h-px flex-1" />
           <LoaderImage
             alt="cReals Logo"
-            class="h-12 mx-12 w-12"
+            class="h-12 mx-12 opacity-50 w-12"
             height="48"
             src="/assets/static/favicon/safari-pinned-tab.svg"
             width="48"
           />
-          <div class="bg-gray-900 h-px flex-1" />
+          <div class="bg-gray-500 h-px flex-1" />
         </div>
-        <p class="p-2 text-center">
+        <p class="p-2 text-center text-gray-500">
           {{ $t('copyright', { year: new Date().getFullYear() }) }}
           <br />
-          <AppLink class="text-link" :to="localePath('/legal-notice')">
+          <AppLink class="text-blue-400" :to="localePath('/legal-notice')">
             {{ $t('legalNotice') }}
           </AppLink>
         </p>
