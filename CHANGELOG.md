@@ -1,3 +1,10 @@
+## [4.7.1](https://github.com/dargmuesli/jonas-thelemann/compare/4.7.0...4.7.1) (2021-10-08)
+
+
+### Bug Fixes
+
+* **tailwindcss:** improve typography ([3788e52](https://github.com/dargmuesli/jonas-thelemann/commit/3788e52dd01e879c825cdf9595221303887f9ed0))
+
 # [4.7.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.6.2...4.7.0) (2021-10-07)
 
 
