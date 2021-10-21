@@ -1,3 +1,10 @@
+## [4.7.3](https://github.com/dargmuesli/jonas-thelemann/compare/4.7.2...4.7.3) (2021-10-21)
+
+
+### Bug Fixes
+
+* adapt to stylelint-config-recommended-vue ([10281a0](https://github.com/dargmuesli/jonas-thelemann/commit/10281a0d7266889ae11db3a07a7dcc8496294ca0))
+
 ## [4.7.2](https://github.com/dargmuesli/jonas-thelemann/compare/4.7.1...4.7.2) (2021-10-18)
 
 
