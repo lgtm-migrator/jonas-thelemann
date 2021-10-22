@@ -1,3 +1,10 @@
+## [4.7.4](https://github.com/dargmuesli/jonas-thelemann/compare/4.7.3...4.7.4) (2021-10-22)
+
+
+### Bug Fixes
+
+* **stylelint:** add postcss-html ([e51326a](https://github.com/dargmuesli/jonas-thelemann/commit/e51326ae4e01693195e7e48822a2e7bc32bd4425))
+
 ## [4.7.3](https://github.com/dargmuesli/jonas-thelemann/compare/4.7.2...4.7.3) (2021-10-21)
 
 
