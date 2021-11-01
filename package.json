@@ -60,5 +60,5 @@
     "stylelint-config-recommended-vue": "1.0.0",
     "stylelint-config-standard": "23.0.0"
   },
-  "scheduleVersion": "4.7.2"
+  "scheduleVersion": "4.7.5"
 }
