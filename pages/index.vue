@@ -2,24 +2,12 @@
   <div class="flex flex-col xl:flex-row">
     <img
       alt="Jonas in Venice."
-      class="
-        xl:fixed
-        max-h-[85vh]
-        xl:max-h-[100vh] xl:max-w-[50%]
-        object-cover object-top
-      "
+      class="xl:fixed max-h-[85vh] xl:max-h-[100vh] xl:max-w-[50%] object-cover object-top"
       src="/assets/static/images/venice.jpg"
     />
     <img
       alt="Jonas in Venice."
-      class="
-        hidden
-        xl:block
-        invisible
-        max-h-[85vh]
-        xl:max-h-[100vh] xl:max-w-[50%]
-        object-cover object-top
-      "
+      class="hidden xl:block invisible max-h-[85vh] xl:max-h-[100vh] xl:max-w-[50%] object-cover object-top"
       src="/assets/static/images/venice.jpg"
     />
     <div class="p-4 sm:p-8">
