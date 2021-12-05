@@ -1,3 +1,16 @@
+# [4.8.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.7.8...4.8.0) (2021-12-05)
+
+
+### Bug Fixes
+
+* **docker:** use build command ([532aaeb](https://github.com/dargmuesli/jonas-thelemann/commit/532aaebce34b31a0fd7f0e0dc4080438eab865c1))
+* **docker:** use correct output path ([9587ca4](https://github.com/dargmuesli/jonas-thelemann/commit/9587ca4b4d639ae413e50d7225206e9dc21b80d5))
+
+
+### Features
+
+* **nuxt:** use bridge ([746ce6a](https://github.com/dargmuesli/jonas-thelemann/commit/746ce6a0cafe870d24e547e899dc7f1be23d7847))
+
 ## [4.7.8](https://github.com/dargmuesli/jonas-thelemann/compare/4.7.7...4.7.8) (2021-12-05)
 
 
