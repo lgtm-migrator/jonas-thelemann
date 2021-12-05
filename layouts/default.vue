@@ -6,6 +6,7 @@
 import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
+  name: 'IndexPage',
   head() {
     return this.$nuxtI18nHead({ addSeoAttributes: true })
   },

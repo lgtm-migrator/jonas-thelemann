@@ -283,6 +283,7 @@ import { Context } from '@nuxt/types'
 const consola = require('consola')
 
 export default defineComponent({
+  name: 'IndexPage',
   async asyncData({ $http }: Context) {
     let repoCount: string | null = null
 
