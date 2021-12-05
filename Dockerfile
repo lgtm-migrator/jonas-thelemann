@@ -55,6 +55,6 @@ WORKDIR /usr/share/nginx/html
 
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
-COPY --from=build /srv/app/dist/ ./
+COPY --from=build /srv/app/.output/public/ ./
 
 HEALTHCHECK --interval=10s CMD wget -O /dev/null http://localhost/healthcheck || exit 1
