@@ -1,3 +1,5 @@
+import { defineNuxtConfig } from '@nuxt/bridge'
+
 import { BASE_URL } from './plugins/baseUrl'
 
 const LOCALES = [
@@ -13,31 +15,32 @@ const LOCALES = [
   },
 ]
 
-export default {
+export default defineNuxtConfig({
   build: {
     babel: {
       plugins: [
         ['@babel/plugin-proposal-private-property-in-object', { loose: true }], // https://stackoverflow.com/a/68695763/4682621
       ],
-      presets({ _isServer }) {
+      presets() {
         return [['@nuxt/babel-preset-app', { corejs: { version: 3 } }]]
       },
     },
-    extend(_config, _ctx) {},
     extractCSS: true,
-    transpile: [/\.mjs$/],
+    transpile: ['moment', 'web-streams-polyfill'],
   },
   buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
-    '@nuxtjs/composition-api/module',
     ['@nuxtjs/google-analytics', { id: 'UA-47285625-1' }],
     '@nuxtjs/html-validator',
     ['@nuxtjs/moment', { locales: ['de'] }],
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    [
+      '@nuxtjs/tailwindcss',
+      {
+        viewer: false,
+      },
+    ],
   ],
   components: true,
   generate: {
@@ -250,4 +253,4 @@ export default {
       productionTip: false,
     },
   },
-}
+})
