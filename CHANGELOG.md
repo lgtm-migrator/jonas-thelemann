@@ -1,3 +1,10 @@
+## [4.7.8](https://github.com/dargmuesli/jonas-thelemann/compare/4.7.7...4.7.8) (2021-12-05)
+
+
+### Bug Fixes
+
+* **eslint:** add component names ([d308d2a](https://github.com/dargmuesli/jonas-thelemann/commit/d308d2aab5688ae4a19758f55dbeb45b683c4162))
+
 ## [4.7.7](https://github.com/dargmuesli/jonas-thelemann/compare/4.7.6...4.7.7) (2021-11-29)
 
 
