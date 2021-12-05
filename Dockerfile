@@ -43,7 +43,7 @@ WORKDIR /srv/app/
 COPY --from=development /srv/app/ ./
 
 RUN yarn run lint \
-  && yarn run generate
+  && yarn run build
 
 
 #######################
