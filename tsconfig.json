@@ -16,6 +16,9 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
+      "#app": [
+        "node_modules/@nuxt/bridge/dist/runtime/index"
+      ],
       "~/*": [
         "./*"
       ],
