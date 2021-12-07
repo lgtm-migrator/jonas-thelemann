@@ -110,7 +110,7 @@ jobs:
       - name: Zip
         uses: montudor/action-zip@v1.0.0
         with:
-          args: zip -qq -r ./jonas-thelemann.zip ./dist/
+          args: zip -qq -r ./jonas-thelemann.zip ./public/
 
       - name: GitHub Release Asset
         uses: softprops/action-gh-release@v1
