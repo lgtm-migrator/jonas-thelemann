@@ -1,3 +1,10 @@
+## [4.8.1](https://github.com/dargmuesli/jonas-thelemann/compare/4.8.0...4.8.1) (2021-12-07)
+
+
+### Bug Fixes
+
+* start ([430f05b](https://github.com/dargmuesli/jonas-thelemann/commit/430f05be6d7dc9e99fcf057e27886734709d135c))
+
 # [4.8.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.7.8...4.8.0) (2021-12-05)
 
 
