@@ -26,7 +26,13 @@ export default defineNuxtConfig({
       },
     },
     extractCSS: true,
-    transpile: ['moment', 'web-streams-polyfill'],
+    transpile: [
+      'abort-controller',
+      'event-target-shim',
+      'moment',
+      'tslib',
+      'web-streams-polyfill',
+    ],
   },
   buildModules: [
     ['@nuxtjs/google-analytics', { id: 'UA-47285625-1' }],
@@ -205,7 +211,6 @@ export default defineNuxtConfig({
         },
       },
     ], // Should be declared at the start of the array.
-    'nuxt-healthcheck',
     '@nuxt/http',
     [
       '@nuxtjs/i18n',

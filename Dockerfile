@@ -19,7 +19,7 @@ RUN yarn install
 COPY ./ ./
 
 CMD ["yarn", "dev", "--hostname", "0.0.0.0"]
-HEALTHCHECK --interval=10s CMD wget -O /dev/null http://localhost:3000/healthcheck || exit 1
+HEALTHCHECK --interval=10s CMD wget -O /dev/null http://localhost:3000/api/healthcheck || exit 1
 
 
 ########################
@@ -57,4 +57,4 @@ COPY ./nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=build /srv/app/.output/public/ ./
 
-HEALTHCHECK --interval=10s CMD wget -O /dev/null http://localhost/healthcheck || exit 1
+HEALTHCHECK --interval=10s CMD wget -O /dev/null http://localhost/api/healthcheck || exit 1
