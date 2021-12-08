@@ -1,3 +1,10 @@
+## [4.8.2](https://github.com/dargmuesli/jonas-thelemann/compare/4.8.1...4.8.2) (2021-12-08)
+
+
+### Bug Fixes
+
+* **nuxt:** improve csp ([e987e06](https://github.com/dargmuesli/jonas-thelemann/commit/e987e0697d88f6f15b3889b0a0bb29b8cb7d2345))
+
 ## [4.8.1](https://github.com/dargmuesli/jonas-thelemann/compare/4.8.0...4.8.1) (2021-12-07)
 
 
