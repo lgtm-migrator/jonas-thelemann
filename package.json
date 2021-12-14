@@ -27,8 +27,8 @@
     "nuxt-helmet": "2.0.1"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "7.16.3",
-    "@babel/runtime-corejs3": "7.16.3",
+    "@babel/eslint-parser": "7.16.5",
+    "@babel/runtime-corejs3": "7.16.5",
     "@commitlint/cli": "15.0.0",
     "@commitlint/config-conventional": "15.0.0",
     "@intlify/eslint-plugin-vue-i18n": "1.2.0",
