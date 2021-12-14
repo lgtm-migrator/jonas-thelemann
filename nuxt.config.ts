@@ -18,9 +18,6 @@ const LOCALES = [
 export default defineNuxtConfig({
   build: {
     babel: {
-      plugins: [
-        ['@babel/plugin-proposal-private-property-in-object', { loose: true }], // https://stackoverflow.com/a/68695763/4682621
-      ],
       presets() {
         return [['@nuxt/babel-preset-app', { corejs: { version: 3 } }]]
       },
