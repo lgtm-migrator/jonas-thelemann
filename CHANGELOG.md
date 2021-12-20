@@ -1,3 +1,10 @@
+## [4.8.3](https://github.com/dargmuesli/jonas-thelemann/compare/4.8.2...4.8.3) (2021-12-20)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([a894223](https://github.com/dargmuesli/jonas-thelemann/commit/a8942233b3745006a7c0780ee4bb568d324222fb))
+
 ## [4.8.2](https://github.com/dargmuesli/jonas-thelemann/compare/4.8.1...4.8.2) (2021-12-08)
 
 
