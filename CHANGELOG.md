@@ -1,3 +1,16 @@
+# [4.9.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.8.3...4.9.0) (2021-12-22)
+
+
+### Bug Fixes
+
+* **healthcheck:** replace plugin with own api endpoint ([e8a1ec8](https://github.com/dargmuesli/jonas-thelemann/commit/e8a1ec8563a66906c941a35ec2599e7caff74e3e))
+
+
+### Features
+
+* drop tailwindcss plugin ([21f1d63](https://github.com/dargmuesli/jonas-thelemann/commit/21f1d639fa222bf5a17b979f5296145bfe60890c))
+* **tailwindcss:** upgrade to v3 ([dfa741d](https://github.com/dargmuesli/jonas-thelemann/commit/dfa741d6a158daee6d057173fd3613b31020d69d))
+
 ## [4.8.3](https://github.com/dargmuesli/jonas-thelemann/compare/4.8.2...4.8.3) (2021-12-20)
 
 
