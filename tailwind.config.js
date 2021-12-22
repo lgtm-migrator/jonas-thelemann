@@ -1,4 +1,4 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors')
 
 function heading(theme) {
   return {
@@ -38,7 +38,14 @@ function prose(theme) {
 }
 
 module.exports = {
-  mode: 'jit',
+  content: [
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.js',
+    './nuxt.config.ts',
+  ],
   plugins: [
     require('@tailwindcss/typography'),
     function ({ addBase, theme }) {
@@ -73,7 +80,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        link: defaultTheme.colors.blue['700'],
+        link: colors.blue['700'],
       },
       screens: {
         12: { raw: '(min-aspect-ratio: 2/1)' },
