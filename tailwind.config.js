@@ -38,6 +38,14 @@ function prose(theme) {
 }
 
 module.exports = {
+  content: [
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './nuxt.config.js',
+    './nuxt.config.ts',
+  ],
   plugins: [
     require('@tailwindcss/typography'),
     function ({ addBase, theme }) {

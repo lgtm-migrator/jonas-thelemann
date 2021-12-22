@@ -23,6 +23,7 @@ export default defineNuxtConfig({
       },
     },
     extractCSS: true,
+    postcss: { plugins: { tailwindcss: {}, autoprefixer: {} } },
     transpile: [
       'abort-controller',
       'event-target-shim',
@@ -37,15 +38,9 @@ export default defineNuxtConfig({
     ['@nuxtjs/moment', { locales: ['de'] }],
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
-    // https://go.nuxtjs.dev/tailwindcss
-    [
-      '@nuxtjs/tailwindcss',
-      {
-        viewer: false,
-      },
-    ],
   ],
   components: true,
+  css: ['@/assets/css/main.css'],
   generate: {
     interval: 2000, // https://github.com/nuxt-community/composition-api/issues/44
   },
