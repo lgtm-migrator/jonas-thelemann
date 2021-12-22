@@ -9236,11 +9236,6 @@ nuxt-edge@latest:
     "@nuxt/vue-renderer-edge" "2.16.0-27332655.777a4b7f"
     "@nuxt/webpack-edge" "2.16.0-27332655.777a4b7f"
 
-nuxt-healthcheck@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/nuxt-healthcheck/-/nuxt-healthcheck-1.0.1.tgz#0994a58c9e09c4bfa797ef9d51e22e5db0327a59"
-  integrity sha512-Eon6jj9MzHsbXXzU8x14j/sBHjs8zlZCNbWJ5D/BiK2OGYoSbPgSkhhkcvkWKIAcoZJ2f8K+BRoOOFt//rqhPw==
-
 nuxt-helmet@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/nuxt-helmet/-/nuxt-helmet-2.0.1.tgz#805b6042755c5d294bb108a7110efb193f5a6c26"
