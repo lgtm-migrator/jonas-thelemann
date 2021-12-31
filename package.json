@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.16.5",
-    "@babel/runtime-corejs3": "7.16.5",
+    "@babel/runtime-corejs3": "7.16.7",
     "@commitlint/cli": "16.0.1",
     "@commitlint/config-conventional": "16.0.0",
     "@intlify/eslint-plugin-vue-i18n": "1.2.0",
