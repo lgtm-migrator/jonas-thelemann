@@ -6,15 +6,18 @@ on:
   release:
     types: [published]
 
-env:
-  IMAGE_ID: ${{ github.repository }}
-
 jobs:
   docker:
     name: Docker
-    uses: dargmuesli/github-actions/.github/workflows/docker.yml@0.1.2
-    with:
-      IMAGE_ID: ${{ github.repository }}
+    uses: dargmuesli/github-actions/.github/workflows/docker.yml@0.2.0
     secrets:
       DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
       DOCKER_HUB_USER_NAME: ${{ secrets.DOCKER_HUB_USER_NAME }}
+  release-semantic:
+    needs: docker
+    name: Semantic Release
+    uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@0.2.0
+  release-assets:
+    needs: release-semantic
+    name: Semantic Release
+    uses: dargmuesli/github-actions/.github/workflows/release-assets.yml@0.2.0
