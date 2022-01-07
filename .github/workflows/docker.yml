@@ -17,6 +17,8 @@ jobs:
     needs: docker
     name: Semantic Release
     uses: dargmuesli/github-actions/.github/workflows/release-semantic.yml@0.2.0
+    secrets:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
   release-assets:
     needs: release-semantic
     name: Semantic Release
