@@ -12,7 +12,7 @@ env:
 jobs:
   docker:
     name: Docker
-    uses: dargmuesli/github-actions/.github/workflows/docker.yml@v0.1.0
+    uses: dargmuesli/github-actions/.github/workflows/docker.yml@0.1.0
     with:
       IMAGE_ID: ${{ github.repository }}
     secrets:
