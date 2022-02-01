@@ -21,7 +21,7 @@
     "@nuxtjs/sitemap": "2.4.0",
     "@tailwindcss/typography": "0.5.1",
     "consola": "2.15.3",
-    "core-js": "3.20.3",
+    "core-js": "3.21.0",
     "nuxt-edge": "latest",
     "nuxt-helmet": "3.0.0"
   },
