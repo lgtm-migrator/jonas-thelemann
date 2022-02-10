@@ -1,3 +1,10 @@
+## [4.9.4](https://github.com/dargmuesli/jonas-thelemann/compare/4.9.3...4.9.4) (2022-02-10)
+
+
+### Bug Fixes
+
+* **tailwind:** reorder classes ([d660a9d](https://github.com/dargmuesli/jonas-thelemann/commit/d660a9ddfb5bae62cc0f944a1d38c4c7a071c195))
+
 ## [4.9.3](https://github.com/dargmuesli/jonas-thelemann/compare/4.9.2...4.9.3) (2022-01-31)
 
 
