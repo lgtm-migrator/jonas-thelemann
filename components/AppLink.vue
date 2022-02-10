@@ -1,7 +1,7 @@
 <template>
   <a
     v-if="to.match(/^((ftp|http(s)?):\/\/|(mailto):)/)"
-    class="items-center inline-flex rounded"
+    class="inline-flex items-center rounded"
     :class="{ 'text-link-dark dark:text-link-bright': isColored }"
     :href="to"
     :rel="
