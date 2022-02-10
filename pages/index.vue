@@ -2,12 +2,12 @@
   <div class="flex flex-col xl:flex-row">
     <img
       alt="Jonas in Venice."
-      class="xl:fixed max-h-[85vh] xl:max-h-[100vh] xl:max-w-[50%] object-cover object-top"
+      class="max-h-[85vh] object-cover object-top xl:fixed xl:max-h-[100vh] xl:max-w-[50%]"
       src="/assets/static/images/venice.jpg"
     />
     <img
       alt="Jonas in Venice."
-      class="hidden xl:block invisible max-h-[85vh] xl:max-h-[100vh] xl:max-w-[50%] object-cover object-top"
+      class="invisible hidden max-h-[85vh] object-cover object-top xl:block xl:max-h-[100vh] xl:max-w-[50%]"
       src="/assets/static/images/venice.jpg"
     />
     <div class="p-4 sm:p-8">
@@ -15,7 +15,7 @@
         <div class="flex items-center justify-between">
           <!-- eslint-disable-next-line @intlify/vue-i18n/no-raw-text -->
           <h1 class="text-left">Jonas Thelemann</h1>
-          <p class="font-normal text-2xl text-gray-500 text-right">
+          <p class="text-right text-2xl font-normal text-gray-500">
             {{ $t('metaInfo', { age: $moment().diff('1998-12-17', 'years') }) }}
           </p>
         </div>
@@ -38,7 +38,7 @@
           </p>
         </div>
         <div class="pb-2">
-          <ul class="flex flex-wrap -mx-1.5">
+          <ul class="-mx-1.5 flex flex-wrap">
             <!-- eslint-disable @intlify/vue-i18n/no-raw-text -->
             <li class="m-1.5">
               <Link to="https://giphy.com/channel/dargmuesli">Giphy</Link>
@@ -102,7 +102,7 @@
             </template>
           </i18n>
         </div>
-        <div class="gap-6 grid grid-cols-1 md:grid-cols-2">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
           <section>
             <h2 class="text-2xl">{{ $t('experience') }}</h2>
             <div class="mt-2">
@@ -135,7 +135,7 @@
           </section>
           <section>
             <h2 class="text-2xl">{{ $t('organizations') }}</h2>
-            <ul class="list-disc list-inside mt-2">
+            <ul class="mt-2 list-inside list-disc">
               <!-- eslint-disable @intlify/vue-i18n/no-raw-text -->
               <li>
                 <a href="https://gi.de/">{{ $t('gi') }}</a>
@@ -160,7 +160,7 @@
           </section>
           <section>
             <h2 class="text-2xl">{{ $t('languages') }}</h2>
-            <ul class="list-disc list-inside mt-2">
+            <ul class="mt-2 list-inside list-disc">
               <!-- eslint-disable @intlify/vue-i18n/no-raw-text -->
               <li>
                 <span>{{ $t('german') }}</span>
@@ -179,7 +179,7 @@
           </section>
           <section>
             <h2 class="text-2xl">{{ $t('honorsAwards') }}</h2>
-            <ul class="list-disc list-inside mt-2">
+            <ul class="mt-2 list-inside list-disc">
               <li>
                 <a
                   href="https://www.uni-kassel.de/einrichtung/index.php?eID=dumpFile&t=f&f=1988&token=e881e12fc8112d90e46d21d4fbef05530929c5c0"
@@ -204,8 +204,8 @@
           <hr class="md:col-span-2" />
           <section class="md:col-span-2">
             <h2 class="text-2xl">{{ $t('projects') }}</h2>
-            <ul class="flex flex-wrap items-center justify-around mt-2">
-              <li class="flex justify-center my-4 w-1/2 md:w-auto">
+            <ul class="mt-2 flex flex-wrap items-center justify-around">
+              <li class="my-4 flex w-1/2 justify-center md:w-auto">
                 <a href="https://maev.si/">
                   <img
                     alt="maevsi's logo"
@@ -214,7 +214,7 @@
                   />
                 </a>
               </li>
-              <li class="flex justify-center my-4 w-1/2 md:w-auto">
+              <li class="my-4 flex w-1/2 justify-center md:w-auto">
                 <a href="https://nearbuy-food.de/">
                   <img
                     alt="nearbuy's logo"
@@ -223,7 +223,7 @@
                   />
                 </a>
               </li>
-              <li class="flex justify-center my-4 w-1/2 md:w-auto">
+              <li class="my-4 flex w-1/2 justify-center md:w-auto">
                 <a href="https://creal.jonas-thelemann.de/">
                   <p class="h-12 text-center text-gray-500">
                     <img
@@ -234,7 +234,7 @@
                   </p>
                 </a>
               </li>
-              <li class="flex justify-center my-4 w-1/2 md:w-auto">
+              <li class="my-4 flex w-1/2 justify-center md:w-auto">
                 <a href="https://trapparty.jonas-thelemann.de/">
                   <img
                     alt="TrapParty's logo"
@@ -243,7 +243,7 @@
                   />
                 </a>
               </li>
-              <li class="flex justify-center my-4 w-1/2 md:w-auto">
+              <li class="my-4 flex w-1/2 justify-center md:w-auto">
                 <Link to="https://github.com/dargmuesli?tab=repositories">
                   {{ $t('projectsMore', { repoCount }) }}
                 </Link>
@@ -252,17 +252,17 @@
           </section>
         </div>
       </main>
-      <footer class="leading-6 text-sm">
-        <div class="flex items-center mt-8 mx-auto w-9/12">
-          <div class="bg-gray-500 h-px flex-1" />
+      <footer class="text-sm leading-6">
+        <div class="mx-auto mt-8 flex w-9/12 items-center">
+          <div class="h-px flex-1 bg-gray-500" />
           <LoaderImage
             alt="cReals Logo"
-            class="h-12 mx-12 opacity-50 w-12"
+            class="mx-12 h-12 w-12 opacity-50"
             height="48"
             src="/assets/static/favicon/safari-pinned-tab.svg"
             width="48"
           />
-          <div class="bg-gray-500 h-px flex-1" />
+          <div class="h-px flex-1 bg-gray-500" />
         </div>
         <p class="p-2 text-center text-gray-500">
           {{ $t('copyright', { year: new Date().getFullYear() }) }}
