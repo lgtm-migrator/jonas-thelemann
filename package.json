@@ -19,7 +19,7 @@
     "@nuxtjs/i18n": "7.2.0",
     "@nuxtjs/robots": "2.5.0",
     "@nuxtjs/sitemap": "2.4.0",
-    "@tailwindcss/typography": "0.5.1",
+    "@tailwindcss/typography": "0.5.2",
     "consola": "2.15.3",
     "core-js": "3.21.0",
     "nuxt-edge": "latest",
