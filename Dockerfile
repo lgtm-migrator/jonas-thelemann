@@ -49,7 +49,7 @@ RUN yarn run lint \
 #######################
 # Provide a web server.
 
-FROM nginx:1.21.6-alpine@sha256:8df2c57b2b9ba34ac4df6e8f643a958ef94b9396c30326f95a0f0206808e9382 AS production
+FROM nginx:1.21.6-alpine@sha256:250c11e0c39dc17ba617f3eb0b28b6f456d46483f04823154c6aa68c432ded72 AS production
 
 WORKDIR /usr/share/nginx/html
 
