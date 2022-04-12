@@ -51,7 +51,7 @@
             </li>
             <li class="m-1.5">
               <Link to="https://www.linkedin.com/in/jonas-thelemann-148a74205/">
-                Linkedin
+                LinkedIn
               </Link>
             </li>
             <li class="m-1.5">
