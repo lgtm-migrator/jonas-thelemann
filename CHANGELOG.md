@@ -1,3 +1,10 @@
+## [4.9.10](https://github.com/dargmuesli/jonas-thelemann/compare/4.9.9...4.9.10) (2022-04-12)
+
+
+### Bug Fixes
+
+* **links:** correct LinkedIn casing ([b943e8c](https://github.com/dargmuesli/jonas-thelemann/commit/b943e8c222b21b6ec943ba8d576fdb1bed38c4e4))
+
 ## [4.9.9](https://github.com/dargmuesli/jonas-thelemann/compare/4.9.8...4.9.9) (2022-04-11)
 
 
