@@ -1,3 +1,10 @@
+## [4.9.11](https://github.com/dargmuesli/jonas-thelemann/compare/4.9.10...4.9.11) (2022-04-18)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([806b91a](https://github.com/dargmuesli/jonas-thelemann/commit/806b91a1f251eb72ce63b20f4001138ae32291a2))
+
 ## [4.9.10](https://github.com/dargmuesli/jonas-thelemann/compare/4.9.9...4.9.10) (2022-04-12)
 
 
