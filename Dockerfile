@@ -2,7 +2,7 @@
 # Serve Nuxt in development mode.
 
 # Should be the specific version of node:alpine.
-FROM node:16.14.2-alpine3.14@sha256:a93230d096610a42310869b16777623fbcacfd593e1b9956324470f760048758 AS development
+FROM node:16.15.0-alpine3.14@sha256:53a5c087654e75f8b12475fe143c5ab8b5f33254a37dc87743d066a57e67b4de AS development
 
 # Update and install dependencies.
 # `git` is required by the `yarn` command
@@ -26,7 +26,7 @@ HEALTHCHECK --interval=10s CMD wget -O /dev/null http://localhost:3000/api/healt
 # Build Nuxt.
 
 # Should be the specific version of node:alpine.
-FROM node:16.14.2-alpine3.14@sha256:a93230d096610a42310869b16777623fbcacfd593e1b9956324470f760048758 AS build
+FROM node:16.15.0-alpine3.14@sha256:53a5c087654e75f8b12475fe143c5ab8b5f33254a37dc87743d066a57e67b4de AS build
 
 ARG NUXT_ENV_STACK_DOMAIN=jonas-thelemann.de
 ENV NUXT_ENV_STACK_DOMAIN=${NUXT_ENV_STACK_DOMAIN}
