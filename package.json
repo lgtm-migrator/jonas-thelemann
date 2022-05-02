@@ -1,6 +1,6 @@
 {
   "name": "jonas-thelemann",
-  "version": "4.9.12",
+  "version": "4.9.13",
   "private": true,
   "scripts": {
     "dev": "nuxi dev",
