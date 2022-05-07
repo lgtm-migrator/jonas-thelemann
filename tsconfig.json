@@ -28,7 +28,7 @@
     },
     "types": [
       "@nuxt/http",
-      "@nuxt/types",
+      "@nuxt/types-edge",
       "@nuxtjs/i18n",
       "@nuxtjs/moment",
       "@types/node"

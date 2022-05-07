@@ -278,7 +278,7 @@
 
 <script lang="ts">
 import { defineComponent } from '@vue/composition-api'
-import { Context } from '@nuxt/types'
+import { Context } from '@nuxt/types-edge'
 
 import consola from 'consola'
 
