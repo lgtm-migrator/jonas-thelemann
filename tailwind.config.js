@@ -86,8 +86,9 @@ module.exports = {
         12: { raw: '(min-aspect-ratio: 2/1)' },
       },
       typography: (theme) => ({
-        sm: prose(theme),
         DEFAULT: prose(theme),
+        sm: prose(theme),
+        base: prose(theme),
         lg: prose(theme),
         xl: prose(theme),
         '2xl': prose(theme),

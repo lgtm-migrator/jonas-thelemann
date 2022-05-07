@@ -4,6 +4,6 @@
 
 @layer utilities {
   .jonas-thelemann-prose {
-    @apply m-auto prose-sm sm:prose lg:prose-lg xl:prose-xl;
+    @apply m-auto prose prose-sm sm:prose-base lg:prose-lg xl:prose-xl; /* 2xl:prose-2xl */
   }
 }
