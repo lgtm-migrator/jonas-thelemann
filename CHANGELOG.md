@@ -1,3 +1,11 @@
+## [4.9.14](https://github.com/dargmuesli/jonas-thelemann/compare/4.9.13...4.9.14) (2022-05-07)
+
+
+### Bug Fixes
+
+* revert "chore(deps): upgrade" ([b6a3458](https://github.com/dargmuesli/jonas-thelemann/commit/b6a345808a0e8861ebd38c7b30a37aab7a375b07))
+* **typography:** correct sizes ([b672354](https://github.com/dargmuesli/jonas-thelemann/commit/b672354db81319f140424bbb40cb9a4ffc1a8667))
+
 ## [4.9.13](https://github.com/dargmuesli/jonas-thelemann/compare/4.9.12...4.9.13) (2022-05-02)
 
 
