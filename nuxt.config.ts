@@ -25,6 +25,7 @@ export default defineNuxtConfig({
     extractCSS: true,
     postcss: { plugins: { tailwindcss: {}, autoprefixer: {} } },
     transpile: [
+      '@nuxt/bridge',
       'abort-controller',
       'event-target-shim',
       'moment',
