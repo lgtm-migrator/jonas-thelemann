@@ -30,7 +30,7 @@
     "@babel/runtime-corejs3": "7.17.9",
     "@commitlint/cli": "17.0.0",
     "@commitlint/config-conventional": "17.0.0",
-    "@intlify/eslint-plugin-vue-i18n": "1.4.1",
+    "@intlify/eslint-plugin-vue-i18n": "2.0.0",
     "@nuxt/babel-preset-app": "2.15.8",
     "@nuxt/bridge": "npm:@nuxt/bridge-edge",
     "@nuxt/types-edge": "2.16.0-27358576.777a4b7f",
