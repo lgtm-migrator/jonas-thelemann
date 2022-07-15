@@ -4,21 +4,16 @@
 # Should be the specific version of node:alpine.
 FROM node:16.15.1-alpine3.14@sha256:889139aa824c8b9dd29938eecfd300d51fc2e984f9cd03df391bcfbe9cf10b53 AS development
 
-# Update and install dependencies.
-# `git` is required by the `yarn` command
-RUN apk add --no-cache \
-    git \
-  && rm -rf /var/cache/apk/*
-
 WORKDIR /srv/app/
 
-COPY ./package.json ./yarn.lock ./
+COPY ./package.json ./pnpm-lock.yaml ./
 
-RUN yarn install
+RUN corepack enable && \
+  pnpm install
 
 COPY ./ ./
 
-CMD ["yarn", "dev", "--hostname", "0.0.0.0"]
+CMD ["pnpm", "run", "dev", "--hostname", "0.0.0.0"]
 HEALTHCHECK --interval=10s CMD wget -O /dev/null http://localhost:3000/api/healthcheck || exit 1
 
 
@@ -32,18 +27,13 @@ ARG NUXT_ENV_STACK_DOMAIN=jonas-thelemann.de
 ENV NUXT_ENV_STACK_DOMAIN=${NUXT_ENV_STACK_DOMAIN}
 ENV NODE_ENV=production
 
-# Update and install dependencies.
-# - `git` is required by the `yarn` command
-RUN apk add --no-cache \
-    git \
-  && rm -rf /var/cache/apk/*
-
 WORKDIR /srv/app/
 
 COPY --from=development /srv/app/ ./
 
-RUN yarn run lint \
-  && yarn run build
+RUN corepack enable && \
+  pnpm run lint && \
+  pnpm run build
 
 
 #######################
