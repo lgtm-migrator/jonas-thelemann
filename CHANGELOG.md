@@ -1,3 +1,10 @@
+# [4.10.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.9.21...4.10.0) (2022-07-15)
+
+
+### Features
+
+* migrate to pnpm ([a4302b0](https://github.com/dargmuesli/jonas-thelemann/commit/a4302b0c8bfbdcada32759d35f4abdeb135f6bca))
+
 ## [4.9.21](https://github.com/dargmuesli/jonas-thelemann/compare/4.9.20...4.9.21) (2022-07-11)
 
 
