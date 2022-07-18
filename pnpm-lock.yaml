@@ -8,7 +8,7 @@ specifiers:
   '@commitlint/config-conventional': 17.0.3
   '@intlify/eslint-plugin-vue-i18n': 2.0.0
   '@nuxt/babel-preset-app': 2.15.8
-  '@nuxt/bridge': npm:@nuxt/bridge-edge@3.0.0-27628751.3df21c7
+  '@nuxt/bridge': npm:@nuxt/bridge-edge@3.0.0-27636329.42ea75b
   '@nuxt/http': 0.6.4
   '@nuxt/types-edge': 2.16.0-27616340.013f051b
   '@nuxtjs/eslint-config-typescript': 10.0.0
@@ -69,7 +69,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.0.3
   '@intlify/eslint-plugin-vue-i18n': 2.0.0_eslint@8.20.0
   '@nuxt/babel-preset-app': 2.15.8_vue@2.7.7
-  '@nuxt/bridge': /@nuxt/bridge-edge/3.0.0-27628751.3df21c7_ybyy3ylip4neoxi5cemjbq7qva
+  '@nuxt/bridge': /@nuxt/bridge-edge/3.0.0-27636329.42ea75b_ybyy3ylip4neoxi5cemjbq7qva
   '@nuxt/types-edge': 2.16.0-27616340.013f051b_webpack@4.46.0
   '@nuxtjs/eslint-config-typescript': 10.0.0_he2ccbldppg44uulnyq4rwocfa
   '@nuxtjs/eslint-module': 3.1.0_rcrc74i36nnzx6b6tiapiefiuu
@@ -1855,8 +1855,8 @@ packages:
       - vue
     dev: true
 
-  /@nuxt/bridge-edge/3.0.0-27628751.3df21c7_ybyy3ylip4neoxi5cemjbq7qva:
-    resolution: {integrity: sha512-qzuLUz2P3pY7WTYQZJxuy0x2hXvn3OXBfZ8Xp3kb1ut2imRTiXlpPsn6KCDP+hurYbPqS5br1BZFkhBIoSnQww==}
+  /@nuxt/bridge-edge/3.0.0-27636329.42ea75b_ybyy3ylip4neoxi5cemjbq7qva:
+    resolution: {integrity: sha512-TMqeLv0ApKKmuxoo0jh3IH+524HkYAGzxbkpqLvoMxFtRQmdYiuKaLnVp5wgSRi1X4QKURVxfT7Pa595mCzonw==}
     engines: {node: ^14.16.0 || ^16.11.0 || ^17.0.0 || ^18.0.0}
     hasBin: true
     dependencies:
@@ -2807,7 +2807,7 @@ packages:
   /@types/clean-css/4.2.5:
     resolution: {integrity: sha512-NEzjkGGpbs9S9fgC4abuBvTpVwE3i+Acu9BBod3PUyjDVZcNsGx61b8r2PphR61QGPnn0JHVs5ey6/I4eTrkxw==}
     dependencies:
-      '@types/node': 18.0.0
+      '@types/node': 18.0.6
       source-map: 0.6.1
     dev: true
 
@@ -2827,7 +2827,7 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.4.5
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
     dev: true
 
   /@types/eslint/7.29.0:
@@ -2840,7 +2840,7 @@ packages:
   /@types/eslint/8.4.5:
     resolution: {integrity: sha512-dhsC09y1gpJWnK+Ff4SGvCuSnk9DaU0BJZSzOwa6GVSg65XtTugLBITDAAzRU5duGBoXBHpdR/9jHGxJjNflJQ==}
     dependencies:
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
       '@types/json-schema': 7.0.11
     dev: true
 
