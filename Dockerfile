@@ -39,7 +39,7 @@ RUN corepack enable && \
 #######################
 # Provide a web server.
 
-FROM nginx:1.23.0-alpine@sha256:64c52121585141d7e29f550ec340e72ce9e2fadad3f1d9c94b22a6a7db43ee08 AS production
+FROM nginx:1.23.0-alpine@sha256:4a846cc240449c53c8ae24269ba6bcaee5167d8ad75cd2a8d8ba422b7c726979 AS production
 
 WORKDIR /usr/share/nginx/html
 
