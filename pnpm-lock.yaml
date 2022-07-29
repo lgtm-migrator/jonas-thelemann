@@ -25,7 +25,7 @@ specifiers:
   buffer: 6.0.3
   chalk: 4.1.2
   consola: 2.15.3
-  core-js: 3.24.0
+  core-js: 3.24.1
   eslint: 8.20.0
   eslint-config-prettier: 8.5.0
   eslint-plugin-nuxt: 3.2.0
@@ -57,7 +57,7 @@ dependencies:
   '@nuxtjs/sitemap': 2.4.0
   '@tailwindcss/typography': 0.5.4_tailwindcss@3.1.6
   consola: 2.15.3
-  core-js: 3.24.0
+  core-js: 3.24.1
   nuxt-edge: 2.16.0-27616340.013f051b_zxv4zpd5k7xewuhylykplwfajq
   nuxt-helmet: 3.0.0
 
@@ -1821,7 +1821,7 @@ packages:
       '@babel/preset-env': 7.18.9_@babel+core@7.18.9
       '@babel/runtime': 7.18.9
       '@vue/babel-preset-jsx': 1.3.1_gfdtw2ubsrm4xhxnj4ojapqig4
-      core-js: 3.24.0
+      core-js: 3.24.1
       core-js-compat: 3.23.5
       regenerator-runtime: 0.13.9
     transitivePeerDependencies:
@@ -3222,7 +3222,7 @@ packages:
       vite: ^2.8.0
     dependencies:
       '@babel/standalone': 7.18.9
-      core-js: 3.24.0
+      core-js: 3.24.1
       magic-string: 0.26.2
       regenerator-runtime: 0.13.9
       systemjs: 6.12.1
@@ -5055,8 +5055,8 @@ packages:
     requiresBuild: true
     dev: true
 
-  /core-js/3.24.0:
-    resolution: {integrity: sha512-IeOyT8A6iK37Ep4kZDD423mpi6JfPRoPUdQwEWYiGolvn4o6j2diaRzNfDfpTdu3a5qMbrGUzKUpYpRY8jXCkQ==}
+  /core-js/3.24.1:
+    resolution: {integrity: sha512-0QTBSYSUZ6Gq21utGzkfITDylE8jWC9Ne1D2MrhvlsZBI1x39OdDIVbzSqtgMndIy6BlHxBXpMGqzZmnztg2rg==}
     requiresBuild: true
 
   /core-util-is/1.0.3:
