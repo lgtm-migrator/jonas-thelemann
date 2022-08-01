@@ -66,5 +66,5 @@
     "vue": "2.7.8",
     "webpack": "4.46.0"
   },
-  "scheduleVersion": "4.10.1"
+  "scheduleVersion": "4.10.2"
 }
