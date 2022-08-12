@@ -8,6 +8,8 @@ ENV NODE_OPTIONS=--openssl-legacy-provider
 
 WORKDIR /srv/app/
 
+COPY ./docker-entrypoint.sh /usr/local/bin/
+
 COPY ./package.json ./pnpm-lock.yaml ./
 
 RUN npm install -g pnpm && \
@@ -15,7 +17,11 @@ RUN npm install -g pnpm && \
 
 COPY ./ ./
 
-CMD ["pnpm", "run", "dev", "--hostname", "0.0.0.0"]
+VOLUME /srv/.pnpm-store
+VOLUME /srv/app
+
+ENTRYPOINT ["docker-entrypoint.sh"]
+CMD ["pnpm", "run", "dev"]
 HEALTHCHECK --interval=10s CMD wget -O /dev/null http://localhost:3000/api/healthcheck || exit 1
 
 
