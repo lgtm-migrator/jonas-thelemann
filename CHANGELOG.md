@@ -1,3 +1,15 @@
+# [4.11.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.10.3...4.11.0) (2022-08-12)
+
+
+### Bug Fixes
+
+* add forgotten migrations ([07c0d86](https://github.com/dargmuesli/jonas-thelemann/commit/07c0d86bb023383cdfc90c6681bf0397a59e5e68))
+
+
+### Features
+
+* replace venice image with tutzing ([81d60e6](https://github.com/dargmuesli/jonas-thelemann/commit/81d60e6f196009449a3408e7be7451459ea39a58))
+
 ## [4.10.3](https://github.com/dargmuesli/jonas-thelemann/compare/4.10.2...4.10.3) (2022-08-12)
 
 
