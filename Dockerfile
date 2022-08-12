@@ -4,6 +4,8 @@
 # Should be the specific version of node:alpine.
 FROM node:18.3.0-alpine3.14@sha256:a648bbe9a0af3991ef1bf02208b2e9b04b4bad49790efc5740a43d13cd1482b5 AS development
 
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 WORKDIR /srv/app/
 
 COPY ./package.json ./pnpm-lock.yaml ./
@@ -26,6 +28,7 @@ FROM node:18.3.0-alpine3.14@sha256:a648bbe9a0af3991ef1bf02208b2e9b04b4bad49790ef
 ARG NUXT_ENV_STACK_DOMAIN=jonas-thelemann.de
 ENV NUXT_ENV_STACK_DOMAIN=${NUXT_ENV_STACK_DOMAIN}
 ENV NODE_ENV=production
+ENV NODE_OPTIONS=--openssl-legacy-provider
 
 WORKDIR /srv/app/
 
