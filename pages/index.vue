@@ -1,14 +1,14 @@
 <template>
   <div class="flex flex-col xl:flex-row">
     <img
-      alt="Jonas in Venice."
-      class="max-h-[85vh] object-cover object-top xl:fixed xl:max-h-[100vh] xl:max-w-[50%]"
-      src="/assets/static/images/venice.jpg"
+      alt="Jonas in Tutzing."
+      class="max-h-[85vh] object-cover object-position-custom xl:fixed xl:max-h-[100vh] xl:max-w-[50%]"
+      src="/assets/static/images/tutzing.jpg"
     />
     <img
-      alt="Jonas in Venice."
+      alt="Jonas in Tutzing."
       class="invisible hidden max-h-[85vh] object-cover object-top xl:block xl:max-h-[100vh] xl:max-w-[50%]"
-      src="/assets/static/images/venice.jpg"
+      src="/assets/static/images/tutzing.jpg"
     />
     <div class="p-4 sm:p-8">
       <main class="min-h-screen min-w-0 space-y-6">

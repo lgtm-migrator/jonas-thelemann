@@ -48,7 +48,7 @@ module.exports = {
   ],
   plugins: [
     require('@tailwindcss/typography'),
-    function ({ addBase, theme }) {
+    function ({ addBase, addComponents, theme }) {
       addBase({
         h1: {
           ...heading(theme),
@@ -73,6 +73,11 @@ module.exports = {
         },
         h6: {
           ...heading(theme),
+        },
+      })
+      addComponents({
+        '.object-position-custom': {
+          objectPosition: '0% 30%',
         },
       })
     },
