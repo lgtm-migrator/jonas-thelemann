@@ -10,7 +10,7 @@ WORKDIR /srv/app/
 
 COPY ./package.json ./pnpm-lock.yaml ./
 
-RUN corepack enable && \
+RUN npm install -g pnpm && \
   pnpm install
 
 COPY ./ ./
@@ -34,7 +34,7 @@ WORKDIR /srv/app/
 
 COPY --from=development /srv/app/ ./
 
-RUN corepack enable && \
+RUN npm install -g pnpm && \
   pnpm run lint && \
   pnpm run build
 
