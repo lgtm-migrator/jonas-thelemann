@@ -8,7 +8,7 @@ specifiers:
   '@commitlint/config-conventional': 17.0.3
   '@intlify/eslint-plugin-vue-i18n': 2.0.0
   '@nuxt/babel-preset-app': 2.15.8
-  '@nuxt/bridge': npm:@nuxt/bridge-edge@3.0.0-27666083.80ccd51
+  '@nuxt/bridge': npm:@nuxt/bridge-edge@3.0.0-27671859.cbb5d17
   '@nuxt/http': 0.6.4
   '@nuxt/types-edge': 2.16.0-27616340.013f051b
   '@nuxtjs/eslint-config-typescript': 10.0.0
@@ -69,7 +69,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.0.3
   '@intlify/eslint-plugin-vue-i18n': 2.0.0_eslint@8.21.0
   '@nuxt/babel-preset-app': 2.15.8_vue@2.7.8
-  '@nuxt/bridge': /@nuxt/bridge-edge/3.0.0-27666083.80ccd51_2turem7ylvilxdlmncyfdur3m4
+  '@nuxt/bridge': /@nuxt/bridge-edge/3.0.0-27671859.cbb5d17_2turem7ylvilxdlmncyfdur3m4
   '@nuxt/types-edge': 2.16.0-27616340.013f051b_webpack@4.46.0
   '@nuxtjs/eslint-config-typescript': 10.0.0_qugx7qdu5zevzvxaiqyxfiwquq
   '@nuxtjs/eslint-module': 3.1.0_pfo3ge5a7dhg5w52ro6wyzpxsq
@@ -1853,8 +1853,8 @@ packages:
       - vue
     dev: true
 
-  /@nuxt/bridge-edge/3.0.0-27666083.80ccd51_2turem7ylvilxdlmncyfdur3m4:
-    resolution: {integrity: sha512-tRMvUjABsiyjSE7LtrJyDQSrq0bEOiiwK6UMXhY6FWW1ek79Yy0R6zMMsJ8CU9EgCpkbRnfHM2odvO+n//SiwA==}
+  /@nuxt/bridge-edge/3.0.0-27671859.cbb5d17_2turem7ylvilxdlmncyfdur3m4:
+    resolution: {integrity: sha512-Ps3YmSzpnt45t8DYzruQDEdtJ+DGsrrtZjwIeRM3/N/uFqDE65nv/JPGfW5wOXUkggW+k7+EaUvR6Mv1XEgDVw==}
     engines: {node: ^14.16.0 || ^16.11.0 || ^17.0.0 || ^18.0.0}
     hasBin: true
     dependencies:
@@ -1882,7 +1882,7 @@ packages:
       hash-sum: 2.0.0
       knitwork: 0.1.2
       magic-string: 0.26.2
-      mlly: 0.5.7
+      mlly: 0.5.12
       nitropack: 0.4.12_vite@2.9.14+webpack@4.46.0
       node-fetch: 3.2.10
       nuxi: 3.0.0-rc.6
@@ -1898,6 +1898,7 @@ packages:
       semver: 7.3.7
       std-env: 3.1.1
       ufo: 0.8.5
+      unctx: 2.0.1_vite@2.9.14+webpack@4.46.0
       unimport: 0.6.5_vite@2.9.14+webpack@4.46.0
       unplugin: 0.8.1_vite@2.9.14+webpack@4.46.0
       untyped: 0.4.5
@@ -2140,7 +2141,7 @@ packages:
       jiti: 1.14.0
       knitwork: 0.1.2
       lodash.template: 4.5.0
-      mlly: 0.5.7
+      mlly: 0.5.12
       pathe: 0.3.3
       pkg-types: 0.3.3
       scule: 0.2.1
@@ -4324,8 +4325,8 @@ packages:
       dotenv: 16.0.1
       gittar: 0.1.1
       jiti: 1.14.0
-      mlly: 0.5.7
-      pathe: 0.3.3
+      mlly: 0.5.12
+      pathe: 0.3.4
       rc9: 1.2.2
     dev: true
 
@@ -6565,6 +6566,10 @@ packages:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
     dev: true
 
+  /estree-walker/3.0.1:
+    resolution: {integrity: sha512-woY0RUD87WzMBUiZLx8NsYr23N5BKsOMZHhu2hoNRVh6NXGfoiT1KOL8G3UHlJAnEDGmfa5ubNA/AacfG+Kb0g==}
+    dev: true
+
   /esutils/2.0.3:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
@@ -6669,7 +6674,7 @@ packages:
     resolution: {integrity: sha512-seYffJRrRVI3qrCC0asf2mWAvQ/U0jZA+eECylqIxCDHzBs/W+ZeEv3D0bsjNeEewIYZKfELyY96mRactx8C4w==}
     dependencies:
       enhanced-resolve: 5.10.0
-      mlly: 0.5.7
+      mlly: 0.5.12
       pathe: 0.3.3
       ufo: 0.8.5
     dev: true
@@ -8818,12 +8823,13 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
 
-  /mlly/0.5.7:
-    resolution: {integrity: sha512-rz+n2i9862ymLH+UDlHpsuTVyCIAs+9WejS2De2VUlAKdpq8OJ9x/C2M7nNUMLEW1H+D6n0uZlpz8+tMGxCmyQ==}
+  /mlly/0.5.12:
+    resolution: {integrity: sha512-8moXGh6Hfy2Nmys3DDEm4CuxDBk5Y7Lk1jQ4JcwW0djO9b+SCKTpw0enIQeZIuEnPljdxHSGmcbXU9hpIIEYeQ==}
     dependencies:
       acorn: 8.8.0
-      pathe: 0.3.3
+      pathe: 0.3.4
       pkg-types: 0.3.3
+      ufo: 0.8.5
     dev: true
 
   /moment-locales-webpack-plugin/1.2.0_ettc4k2gnnz2dqrs35cl6ybzqa:
@@ -8978,12 +8984,12 @@ packages:
       klona: 2.0.5
       listhen: 0.2.13
       mime: 3.0.0
-      mlly: 0.5.7
+      mlly: 0.5.12
       mri: 1.2.0
       node-fetch-native: 0.1.4
       ohash: 0.1.5
       ohmyfetch: 0.4.18
-      pathe: 0.3.3
+      pathe: 0.3.4
       perfect-debounce: 0.1.3
       pkg-types: 0.3.3
       pretty-bytes: 6.0.0
@@ -9674,6 +9680,10 @@ packages:
     resolution: {integrity: sha512-x3nrPvG0HDSDzUiJ0WqtzhN4MD+h5B+dFJ3/qyxVuARlr4Y3aJv8gri2cZzp9Z8sGs2a+aG9gNbKngh3gme57A==}
     dev: true
 
+  /pathe/0.3.4:
+    resolution: {integrity: sha512-YWgqEdxf36R6vcsyj0A+yT/rDRPe0wui4J9gRR7T4whjU5Lx/jZOr75ckEgTNaLVQABAwsrlzHRpIKcCdXAQ5A==}
+    dev: true
+
   /pbkdf2/3.1.2:
     resolution: {integrity: sha512-iuh7L6jA7JEGu2WxDwtQP1ddOpaJNC4KlDEFfdQajSGgGPNi4OyDc2R7QnbY2bR9QjBVGwgvTdNJZoE7RaxUMA==}
     engines: {node: '>=0.12'}
@@ -9738,8 +9748,8 @@ packages:
     resolution: {integrity: sha512-6AJcCMnjUQPQv/Wk960w0TOmjhdjbeaQJoSKWRQv9N3rgkessCu6J0Ydsog/nw1MbpnxHuPzYbfOn2KmlZO1FA==}
     dependencies:
       jsonc-parser: 3.1.0
-      mlly: 0.5.7
-      pathe: 0.3.3
+      mlly: 0.5.12
+      pathe: 0.3.4
     dev: true
 
   /pluralize/8.0.0:
@@ -12698,6 +12708,20 @@ packages:
       - webpack
     dev: true
 
+  /unctx/2.0.1_vite@2.9.14+webpack@4.46.0:
+    resolution: {integrity: sha512-4VkJKSG+lh1yYkvdI0Xd3Gm7y7PU6F0mG5SoJqCI1j2jtIaHvTLAdBfbhDjbHxT93BsRkzcaxaeBtu8W/mX1Sg==}
+    dependencies:
+      acorn: 8.8.0
+      estree-walker: 3.0.1
+      magic-string: 0.26.2
+      unplugin: 0.8.1_vite@2.9.14+webpack@4.46.0
+    transitivePeerDependencies:
+      - esbuild
+      - rollup
+      - vite
+      - webpack
+    dev: true
+
   /undici/5.8.1:
     resolution: {integrity: sha512-iDRmWX4Zar/4A/t+1LrKQRm102zw2l9Wgat3LtTlTn8ykvMZmAmpq9tjyHEigx18FsY7IfATvyN3xSw9BDz0eA==}
     engines: {node: '>=12.18'}
@@ -12709,7 +12733,7 @@ packages:
       defu: 6.0.0
       mime: 3.0.0
       node-fetch-native: 0.1.4
-      pathe: 0.3.3
+      pathe: 0.3.4
     dev: true
 
   /unfetch/4.2.0:
@@ -12743,8 +12767,8 @@ packages:
       fast-glob: 3.2.11
       local-pkg: 0.4.2
       magic-string: 0.26.2
-      mlly: 0.5.7
-      pathe: 0.3.3
+      mlly: 0.5.12
+      pathe: 0.3.4
       scule: 0.2.1
       strip-literal: 0.4.0
       unplugin: 0.7.2_a7gdde3dgnvam7dro3rlhcjpvi
@@ -12763,8 +12787,8 @@ packages:
       fast-glob: 3.2.11
       local-pkg: 0.4.2
       magic-string: 0.26.2
-      mlly: 0.5.7
-      pathe: 0.3.3
+      mlly: 0.5.12
+      pathe: 0.3.4
       scule: 0.2.1
       strip-literal: 0.4.0
       unplugin: 0.7.2_vite@2.9.14+webpack@4.46.0
@@ -12783,8 +12807,8 @@ packages:
       fast-glob: 3.2.11
       local-pkg: 0.4.2
       magic-string: 0.26.2
-      mlly: 0.5.7
-      pathe: 0.3.3
+      mlly: 0.5.12
+      pathe: 0.3.4
       scule: 0.3.2
       strip-literal: 0.4.0
       unplugin: 0.8.1_vite@2.9.14+webpack@4.46.0
