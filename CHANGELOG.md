@@ -1,3 +1,10 @@
+## [4.10.3](https://github.com/dargmuesli/jonas-thelemann/compare/4.10.2...4.10.3) (2022-08-12)
+
+
+### Bug Fixes
+
+* **docker:** add openssl legacy provider ([d0a63b3](https://github.com/dargmuesli/jonas-thelemann/commit/d0a63b33892ef2477d8532eb97058e119a247898))
+
 ## [4.10.2](https://github.com/dargmuesli/jonas-thelemann/compare/4.10.1...4.10.2) (2022-08-01)
 
 
