@@ -374,7 +374,7 @@ en:
   english: English
   experience: Experience
   german: German
-  gi: Society for Computer Science
+  gi: German Informatics Society
   honorsAwards: Honors & Awards
   honorsAwardsIdeasCompetition: Ideas Competition Top 10 Project
   kasselAddress: Kassel, Hesse, Germany
