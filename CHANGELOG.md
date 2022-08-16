@@ -1,3 +1,10 @@
+## [4.11.1](https://github.com/dargmuesli/jonas-thelemann/compare/4.11.0...4.11.1) (2022-08-16)
+
+
+### Bug Fixes
+
+* correct "GI" translation ([a1250aa](https://github.com/dargmuesli/jonas-thelemann/commit/a1250aab2cd02a9a698b8bdfac0886ce4dc9b59e))
+
 # [4.11.0](https://github.com/dargmuesli/jonas-thelemann/compare/4.10.3...4.11.0) (2022-08-12)
 
 
