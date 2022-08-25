@@ -8,7 +8,7 @@ specifiers:
   '@commitlint/config-conventional': 17.0.3
   '@intlify/eslint-plugin-vue-i18n': 2.0.0
   '@nuxt/babel-preset-app': 2.15.8
-  '@nuxt/bridge': npm:@nuxt/bridge-edge@3.0.0-27672061.a645f7f
+  '@nuxt/bridge': npm:@nuxt/bridge-edge@3.0.0-27690335.da95eff
   '@nuxt/http': 0.6.4
   '@nuxt/types-edge': 2.16.0-27616340.013f051b
   '@nuxtjs/eslint-config-typescript': 10.0.0
@@ -69,7 +69,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.0.3
   '@intlify/eslint-plugin-vue-i18n': 2.0.0_eslint@8.22.0
   '@nuxt/babel-preset-app': 2.15.8_vue@2.7.10
-  '@nuxt/bridge': /@nuxt/bridge-edge/3.0.0-27672061.a645f7f_gt75cye3kvmp6u7jw2jaapmv3y
+  '@nuxt/bridge': /@nuxt/bridge-edge/3.0.0-27690335.da95eff_gt75cye3kvmp6u7jw2jaapmv3y
   '@nuxt/types-edge': 2.16.0-27616340.013f051b_webpack@4.46.0
   '@nuxtjs/eslint-config-typescript': 10.0.0_4rv7y5c6xz3vfxwhbrcxxi73bq
   '@nuxtjs/eslint-module': 3.1.0_mg4svcqeqcwmi3xilh6uhijqpy
@@ -1882,8 +1882,8 @@ packages:
       - vue
     dev: true
 
-  /@nuxt/bridge-edge/3.0.0-27672061.a645f7f_gt75cye3kvmp6u7jw2jaapmv3y:
-    resolution: {integrity: sha512-07eHiERCIcmkb/n8FviRH8ntexIV35jWDu/NLFFxXTrONAXrR02c3eBrXwBtXhNM/su70YA+DTufeDSEYQw9eQ==}
+  /@nuxt/bridge-edge/3.0.0-27690335.da95eff_gt75cye3kvmp6u7jw2jaapmv3y:
+    resolution: {integrity: sha512-TweZvyfL9ZjQL6uWRX2Z3cd7/bymhlEm54kjhojY2IMwA+Au3StEMe3zcvp0p3aDbLYeTRJ2gkN0lfeEGtd7Bw==}
     engines: {node: ^14.16.0 || ^16.11.0 || ^17.0.0 || ^18.0.0}
     hasBin: true
     dependencies:
@@ -1932,7 +1932,7 @@ packages:
       unplugin: 0.9.4_vite@2.9.15+webpack@4.46.0
       untyped: 0.4.5
       vite: 2.9.15
-      vue-bundle-renderer: 0.3.9
+      vue-bundle-renderer: 0.4.2
     transitivePeerDependencies:
       - '@babel/core'
       - bufferutil
@@ -4336,12 +4336,6 @@ packages:
     resolution: {integrity: sha512-qwVpFEHNfhYJIzNRBvd2C1kyo6jz3ZSMPyyuR47OPdiKWlbYnZNyDWuyR175qDnAJLiCo5fBBqPb3RiXgWlkOQ==}
     dependencies:
       semver: 7.3.7
-    dev: true
-
-  /bundle-runner/0.0.1:
-    resolution: {integrity: sha512-xevhXw77nJ7wjCRTyo1JYumUNUiZmD0CJEummyLUJbdhub4bZWuplS+Y7nlMq5V9sKJQW+dV/LZR/SlxS5f4LQ==}
-    dependencies:
-      source-map: 0.7.4
     dev: true
 
   /bytes/3.0.0:
@@ -13301,10 +13295,10 @@ packages:
     deprecated: Sorry but vue-analytics is no longer maintained. I would suggest you switch to vue-gtag, with love, the guy who made the package.
     dev: true
 
-  /vue-bundle-renderer/0.3.9:
-    resolution: {integrity: sha512-jhkyS2Zaey9OAp2xVyGnN0//lLfNtT2elFq1NevaY4JwQEw27DFS970rQbNYPds2WXeq2H/O2HM+qCPcsimJGg==}
+  /vue-bundle-renderer/0.4.2:
+    resolution: {integrity: sha512-HwWd/qw3QBQvZXlK7xQbOViCoDzSaodSueao0Yt3VUxReLDt90FAaufXjv2hfpHQKvYCo5Rez8z1zHOEo3fhAg==}
     dependencies:
-      bundle-runner: 0.0.1
+      ufo: 0.8.5
     dev: true
 
   /vue-client-only/2.1.0:
