@@ -29,7 +29,7 @@ specifiers:
   core-js: 3.25.0
   eslint: 8.23.0
   eslint-config-prettier: 8.5.0
-  eslint-plugin-nuxt: 3.2.0
+  eslint-plugin-nuxt: 4.0.0
   eslint-plugin-prettier: 4.2.1
   eslint-plugin-vue: 9.4.0
   eslint-plugin-yml: 1.1.0
@@ -85,7 +85,7 @@ devDependencies:
   chalk: 4.1.2
   eslint: 8.23.0
   eslint-config-prettier: 8.5.0_eslint@8.23.0
-  eslint-plugin-nuxt: 3.2.0_eslint@8.23.0
+  eslint-plugin-nuxt: 4.0.0_eslint@8.23.0
   eslint-plugin-prettier: 4.2.1_tgumt6uwl2md3n6uqnggd6wvce
   eslint-plugin-vue: 9.4.0_eslint@8.23.0
   eslint-plugin-yml: 1.1.0_eslint@8.23.0
@@ -6532,12 +6532,12 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-nuxt/3.2.0_eslint@8.23.0:
-    resolution: {integrity: sha512-SWpmJALwagdrlMooajFX9IFxFEKdBxD+e4NFOVw9FGc22HQpNKdiljRHchS/3O5e2R7sPZYv8xdCtoordqIXFQ==}
+  /eslint-plugin-nuxt/4.0.0_eslint@8.23.0:
+    resolution: {integrity: sha512-v3Vwdk8YKe52bAz8eSIDqQuTtfL/T1r9dSl1uhC5SyR5pgLxgKkQdxXVf/Bf6Ax7uyd9rHqiAuYVdqqDb7ILdA==}
     dependencies:
-      eslint-plugin-vue: 8.7.1_eslint@8.23.0
+      eslint-plugin-vue: 9.4.0_eslint@8.23.0
       semver: 7.3.7
-      vue-eslint-parser: 8.3.0_eslint@8.23.0
+      vue-eslint-parser: 9.0.3_eslint@8.23.0
     transitivePeerDependencies:
       - eslint
       - supports-color
