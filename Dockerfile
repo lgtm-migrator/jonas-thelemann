@@ -41,7 +41,7 @@ WORKDIR /srv/app/
 COPY --from=development /srv/app/ ./
 
 RUN npm install -g pnpm && \
-  pnpm run nuxi prepare && \
+  pnpm nuxi prepare && \
   pnpm run lint && \
   pnpm run build
 
