@@ -33,7 +33,7 @@
     "@commitlint/config-conventional": "17.1.0",
     "@intlify/eslint-plugin-vue-i18n": "2.0.0",
     "@nuxt/babel-preset-app": "2.15.8",
-    "@nuxt/bridge": "npm:@nuxt/bridge-edge@3.0.0-27699693.0bb392e",
+    "@nuxt/bridge": "npm:@nuxt/bridge-edge@3.0.0-27700335.6dfc006",
     "@nuxt/types-edge": "2.16.0-27616340.013f051b",
     "@nuxtjs/eslint-config-typescript": "11.0.0",
     "@nuxtjs/eslint-module": "3.1.0",
