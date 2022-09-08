@@ -22,7 +22,7 @@
     "@tailwindcss/typography": "0.5.7",
     "consola": "2.15.3",
     "core-js": "3.25.1",
-    "nuxt-edge": "2.16.0-27708500.54e852f",
+    "nuxt-edge": "2.16.0-27709946.54e852f",
     "nuxt-helmet": "3.0.0"
   },
   "devDependencies": {
@@ -34,7 +34,7 @@
     "@intlify/eslint-plugin-vue-i18n": "2.0.0",
     "@nuxt/babel-preset-app": "2.15.8",
     "@nuxt/bridge": "npm:@nuxt/bridge-edge@3.0.0-27700335.6dfc006",
-    "@nuxt/types-edge": "2.16.0-27708500.54e852f",
+    "@nuxt/types-edge": "2.16.0-27709946.54e852f",
     "@nuxtjs/eslint-config-typescript": "11.0.0",
     "@nuxtjs/eslint-module": "3.1.0",
     "@nuxtjs/google-analytics": "2.4.0",
