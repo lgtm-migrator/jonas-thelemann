@@ -14,7 +14,7 @@ specifiers:
   '@nuxtjs/eslint-config-typescript': 11.0.0
   '@nuxtjs/eslint-module': 3.1.0
   '@nuxtjs/google-analytics': 2.4.0
-  '@nuxtjs/html-validator': 0.7.0
+  '@nuxtjs/html-validator': 0.7.1
   '@nuxtjs/i18n': 7.3.0
   '@nuxtjs/moment': 1.6.1
   '@nuxtjs/robots': 2.5.0
@@ -76,7 +76,7 @@ devDependencies:
   '@nuxtjs/eslint-config-typescript': 11.0.0_itqs5654cmlnjraw6gjzqacppi
   '@nuxtjs/eslint-module': 3.1.0_cdjqwdp6v6x7dxt6w5yixlvvha
   '@nuxtjs/google-analytics': 2.4.0
-  '@nuxtjs/html-validator': 0.7.0_kalku3etu3tvbsgiczzuuxbpiu
+  '@nuxtjs/html-validator': 0.7.1_kalku3etu3tvbsgiczzuuxbpiu
   '@nuxtjs/moment': 1.6.1_webpack@4.46.0
   '@nuxtjs/stylelint-module': 4.1.0_5iuplmcanpyfvhmmlj6h2pi6zi
   '@types/node': 18.7.13
@@ -263,14 +263,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/types': 7.19.0
-
-  /@babel/helper-function-name/7.18.9:
-    resolution: {integrity: sha512-fJgWlZt7nxGksJS9a0XdSaI4XvpExnNIgRP+rVefWh5U7BL8pPuir6SJUmFKRfjWQ51OtWSzwOxhaH/EBWWc0A==}
-    engines: {node: '>=6.9.0'}
-    dependencies:
-      '@babel/template': 7.18.10
-      '@babel/types': 7.19.0
-    dev: false
 
   /@babel/helper-function-name/7.19.0:
     resolution: {integrity: sha512-WAwHBINyrpqywkUH0nTnNgI5ina5TFn85HKS0pbPDfxFfhyR/aNQEn4hGi1P1JyT//I0t4OgXUlofzWILRvS5w==}
@@ -1269,7 +1261,7 @@ packages:
       '@babel/code-frame': 7.18.6
       '@babel/generator': 7.19.0
       '@babel/helper-environment-visitor': 7.18.9
-      '@babel/helper-function-name': 7.18.9
+      '@babel/helper-function-name': 7.19.0
       '@babel/helper-hoist-variables': 7.18.6
       '@babel/helper-split-export-declaration': 7.18.6
       '@babel/parser': 7.19.0
@@ -1678,12 +1670,11 @@ packages:
     resolution: {integrity: sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==}
     dev: false
 
-  /@html-validate/stylish/2.0.1:
-    resolution: {integrity: sha512-iRLjgQnNq66rcsTukun6KwMhPEoUV2R3atPbTSapnEvD1aETjD+pfS+1yYrmaPeJFgXHzfsSYjAuyUVq7EID/Q==}
-    engines: {node: '>= 12.0'}
+  /@html-validate/stylish/3.0.1:
+    resolution: {integrity: sha512-jQNDrSnWvJEPSlqC1tFqcbmVuJy2x61UwqFsXHxYT2sgCXFW4AVhsoIcHkECCmUHtQ8hpHU6yOBGA+rMLZhS7A==}
+    engines: {node: '>= 14.0'}
     dependencies:
       kleur: 4.1.5
-      text-table: 0.2.0
     dev: true
 
   /@humanwhocodes/config-array/0.10.4:
@@ -2606,17 +2597,17 @@ packages:
       vue-analytics: 5.22.1
     dev: true
 
-  /@nuxtjs/html-validator/0.7.0_kalku3etu3tvbsgiczzuuxbpiu:
-    resolution: {integrity: sha512-UP0fVbVevB/RtftzulZNcXdmzBjm0mJgOHBNroY1Snef8ZNaIVs9bt7wbCqEhv8flaVwfUD1THFr75+SyYc4yg==}
+  /@nuxtjs/html-validator/0.7.1_kalku3etu3tvbsgiczzuuxbpiu:
+    resolution: {integrity: sha512-oH3yZsBzggrn5cwQWxXeLj6KWOxQuFNnTV6OBaak1ZUePK2VbA3AmywIxHnv0ZHVNhk5I1X6nlxbize4mZDTcg==}
     peerDependencies:
-      chalk: ^3.0.0 || ^4.0.0
+      chalk: ^3.0.0 || ^4.0.0 || ^5.0.0
       consola: ^2.15.0
       prettier: ^2.1.2
     dependencies:
       chalk: 4.1.2
       consola: 2.15.3
-      defu: 5.0.0
-      html-validate: 7.1.0
+      defu: 5.0.1
+      html-validate: 7.4.1
       prettier: 2.7.1
     transitivePeerDependencies:
       - jest
@@ -5634,13 +5625,8 @@ packages:
   /defu/3.2.2:
     resolution: {integrity: sha512-8UWj5lNv7HD+kB0e9w77Z7TdQlbUYDVWqITLHNqFIn6khrNHv5WQo38Dcm1f6HeNyZf0U7UbPf6WeZDSdCzGDQ==}
 
-  /defu/5.0.0:
-    resolution: {integrity: sha512-VHg73EDeRXlu7oYWRmmrNp/nl7QkdXUxkQQKig0Zk8daNmm84AbGoC8Be6/VVLJEKxn12hR0UBmz8O+xQiAPKQ==}
-    dev: true
-
   /defu/5.0.1:
     resolution: {integrity: sha512-EPS1carKg+dkEVy3qNTqIdp2qV7mUP08nIsupfwQpz++slCVRw7qbQyWvSTig+kFPwz2XXp5/kIIkH+CwrJKkQ==}
-    dev: false
 
   /defu/6.1.0:
     resolution: {integrity: sha512-pOFYRTIhoKujrmbTRhcW5lYQLBXw/dlTwfI8IguF1QCDJOcJzNH1w+YFjxqy6BAuJrClTy6MUE8q+oKJ2FLsIw==}
@@ -7728,14 +7714,14 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /html-validate/7.1.0:
-    resolution: {integrity: sha512-sp/dyAk57tXfqpMP87jbnrX8UiyXvclVyQE7GK0RJBX5caPI5rJ4RaE3L9R4isT0rdeORXXLVdyxkH4KnKLprQ==}
+  /html-validate/7.4.1:
+    resolution: {integrity: sha512-HJQQVmD2TWkwniaKonQo2BWQ7gWICSjumDFLG+DAY0TJM2oqqPMX9KJFXCpTsNorTuJAOR5kQss4HNjDZCvz6w==}
     engines: {node: '>= 14.0'}
     hasBin: true
     peerDependencies:
-      jest: ^25.1 || ^26 || ^27.1 || ^28
-      jest-diff: ^25.1 || ^26 || ^27.1 || ^28
-      jest-snapshot: ^25.1 || ^26 || ^27.1 || ^28
+      jest: ^25.1 || ^26 || ^27.1 || ^28.1.3 || ^29.0.3
+      jest-diff: ^25.1 || ^26 || ^27.1 || ^28.1.3 || ^29.0.3
+      jest-snapshot: ^25.1 || ^26 || ^27.1 || ^28.1.3 || ^29.0.3
     peerDependenciesMeta:
       jest:
         optional: true
@@ -7745,7 +7731,7 @@ packages:
         optional: true
     dependencies:
       '@babel/code-frame': 7.18.6
-      '@html-validate/stylish': 2.0.1
+      '@html-validate/stylish': 3.0.1
       '@sidvind/better-ajv-errors': 2.0.0_ajv@8.11.0
       acorn-walk: 8.2.0
       ajv: 8.11.0
