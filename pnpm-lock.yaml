@@ -8,7 +8,7 @@ specifiers:
   '@commitlint/config-conventional': 17.1.0
   '@intlify/eslint-plugin-vue-i18n': 2.0.0
   '@nuxt/babel-preset-app': 2.15.8
-  '@nuxt/bridge': npm:@nuxt/bridge-edge@3.0.0-27718044.2f69fe0
+  '@nuxt/bridge': npm:@nuxt/bridge-edge@3.0.0-27718481.b03ca40
   '@nuxt/http': 0.6.4
   '@nuxt/types-edge': 2.16.0-27717142.54e852f
   '@nuxtjs/eslint-config-typescript': 11.0.0
@@ -71,7 +71,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.1.0
   '@intlify/eslint-plugin-vue-i18n': 2.0.0_eslint@8.23.1
   '@nuxt/babel-preset-app': 2.15.8_vue@2.7.10
-  '@nuxt/bridge': /@nuxt/bridge-edge/3.0.0-27718044.2f69fe0_vdb2s7j6sczaafw4gnlvvj3ape
+  '@nuxt/bridge': /@nuxt/bridge-edge/3.0.0-27718481.b03ca40_vdb2s7j6sczaafw4gnlvvj3ape
   '@nuxt/types-edge': 2.16.0-27717142.54e852f_webpack@4.46.0
   '@nuxtjs/eslint-config-typescript': 11.0.0_irgkl5vooow2ydyo6aokmferha
   '@nuxtjs/eslint-module': 3.1.0_lcggckcw6y6tqfcqncvgdnntqy
@@ -1951,8 +1951,8 @@ packages:
       - vue
     dev: true
 
-  /@nuxt/bridge-edge/3.0.0-27718044.2f69fe0_vdb2s7j6sczaafw4gnlvvj3ape:
-    resolution: {integrity: sha512-oHcBsmtI2lMZVwkCBVJr/LPoLd8YVFKfwbiefarrAtSA7kfVVwtgbJEmmumuaxYUfXLxfjEMbmUaxka97m78Sg==}
+  /@nuxt/bridge-edge/3.0.0-27718481.b03ca40_vdb2s7j6sczaafw4gnlvvj3ape:
+    resolution: {integrity: sha512-lAYLanuuQI1UIphVSSv4UOqFEvvemWe37YyORKSUB4/F3pR2EncZr9VZoG0Dm03GBslp0e8G6IAM2WlH4TpIDw==}
     engines: {node: ^14.16.0 || ^16.11.0 || ^17.0.0 || ^18.0.0}
     hasBin: true
     dependencies:
@@ -1982,7 +1982,7 @@ packages:
       knitwork: 0.1.2
       magic-string: 0.26.3
       mlly: 0.5.14
-      nitropack: 0.5.1_vite@2.9.15+webpack@4.46.0
+      nitropack: 0.5.2_vite@2.9.15+webpack@4.46.0
       node-fetch: 3.2.10
       nuxi: 3.0.0-rc.8
       ohash: 0.1.5
@@ -2773,11 +2773,11 @@ packages:
       rollup: 2.79.0
     dev: true
 
-  /@rollup/plugin-node-resolve/13.3.0_rollup@2.79.0:
-    resolution: {integrity: sha512-Lus8rbUo1eEcnS4yTFKLZrVumLPY+YayBdWXgFSHYhTT2iJbMhoaaBL3xl5NCdeRytErGr8tZ0L71BMRmnlwSw==}
+  /@rollup/plugin-node-resolve/14.1.0_rollup@2.79.0:
+    resolution: {integrity: sha512-5G2niJroNCz/1zqwXtk0t9+twOSDlG00k1Wfd7bkbbXmwg8H8dvgHdIWAun53Ps/rckfvOC7scDBjuGFg5OaWw==}
     engines: {node: '>= 10.0.0'}
     peerDependencies:
-      rollup: ^2.42.0
+      rollup: ^2.78.0
     dependencies:
       '@rollup/pluginutils': 3.1.0_rollup@2.79.0
       '@types/resolve': 1.17.1
@@ -9231,8 +9231,8 @@ packages:
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  /nitropack/0.5.1_vite@2.9.15+webpack@4.46.0:
-    resolution: {integrity: sha512-mPDcj1lmbjZLtXJjE4EXkXsq2S+DnbBNHYOs1SNBeFiBIlOYqhyHipJR5zx/m/SuR9ELd9DyBIVm/ulQDipUhg==}
+  /nitropack/0.5.2_vite@2.9.15+webpack@4.46.0:
+    resolution: {integrity: sha512-VXLxM5e6Fnkj8XPT9WHIPAKo1PRFr9zlLtE1Rhu8N1p9BCyTtFvXXQpOJeeTXrjYYUsFqlBlzQof+tCc0TfeTg==}
     engines: {node: ^14.16.0 || ^16.11.0 || ^17.0.0 || ^18.0.0}
     hasBin: true
     dependencies:
@@ -9242,7 +9242,7 @@ packages:
       '@rollup/plugin-commonjs': 22.0.2_rollup@2.79.0
       '@rollup/plugin-inject': 4.0.4_rollup@2.79.0
       '@rollup/plugin-json': 4.1.0_rollup@2.79.0
-      '@rollup/plugin-node-resolve': 13.3.0_rollup@2.79.0
+      '@rollup/plugin-node-resolve': 14.1.0_rollup@2.79.0
       '@rollup/plugin-replace': 4.0.0_rollup@2.79.0
       '@rollup/plugin-wasm': 5.2.0_rollup@2.79.0
       '@rollup/pluginutils': 4.2.1
