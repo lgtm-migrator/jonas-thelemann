@@ -1,3 +1,10 @@
+## [4.11.7](https://github.com/dargmuesli/jonas-thelemann/compare/4.11.6...4.11.7) (2022-10-12)
+
+
+### Bug Fixes
+
+* edit image ([ff68f37](https://github.com/dargmuesli/jonas-thelemann/commit/ff68f37f74ebab29d30aee1d0b0399b2c24e17e3))
+
 ## [4.11.6](https://github.com/dargmuesli/jonas-thelemann/compare/4.11.5...4.11.6) (2022-10-10)
 
 
