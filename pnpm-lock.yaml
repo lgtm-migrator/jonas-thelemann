@@ -8,7 +8,7 @@ specifiers:
   '@commitlint/config-conventional': 17.1.0
   '@intlify/eslint-plugin-vue-i18n': 2.0.0
   '@nuxt/babel-preset-app': 2.15.8
-  '@nuxt/bridge': npm:@nuxt/bridge-edge@3.0.0-27778050.a725a7a
+  '@nuxt/bridge': npm:@nuxt/bridge-edge@3.0.0-27778503.de9e5c2
   '@nuxt/http': 0.6.4
   '@nuxt/types-edge': 2.16.0-27720022.54e852f
   '@nuxtjs/eslint-config-typescript': 11.0.0
@@ -71,7 +71,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.1.0
   '@intlify/eslint-plugin-vue-i18n': 2.0.0_eslint@8.26.0
   '@nuxt/babel-preset-app': 2.15.8_vue@2.7.13
-  '@nuxt/bridge': /@nuxt/bridge-edge/3.0.0-27778050.a725a7a_oyv3ob5uhnecfzmil6arlhztbm
+  '@nuxt/bridge': /@nuxt/bridge-edge/3.0.0-27778503.de9e5c2_oyv3ob5uhnecfzmil6arlhztbm
   '@nuxt/types-edge': 2.16.0-27720022.54e852f_webpack@4.46.0
   '@nuxtjs/eslint-config-typescript': 11.0.0_wyqvi574yv7oiwfeinomdzmc3m
   '@nuxtjs/eslint-module': 3.1.0_aqjevno6vjf6wohdxlmqigajvm
@@ -1890,8 +1890,8 @@ packages:
       - vue
     dev: true
 
-  /@nuxt/bridge-edge/3.0.0-27778050.a725a7a_oyv3ob5uhnecfzmil6arlhztbm:
-    resolution: {integrity: sha512-LJanvJ6weDmiCk2Y3l4I2SWUtKj8uoYOng1sOTLIbaCIk7afw+YT+8lCISxEls2kQE1YO3XylPxnMz9XR0Blpg==}
+  /@nuxt/bridge-edge/3.0.0-27778503.de9e5c2_oyv3ob5uhnecfzmil6arlhztbm:
+    resolution: {integrity: sha512-jnQD0wcY/hC5EFvFjUCGJ4dG0tr2yv7oWwUofI5TJkVgwm4pOikweGlL74Bnia3ft07Ekl/jGFy5vv7wCRj2/Q==}
     engines: {node: ^14.16.0 || ^16.11.0 || ^17.0.0 || ^18.0.0}
     hasBin: true
     dependencies:
