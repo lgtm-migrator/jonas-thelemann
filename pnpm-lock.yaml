@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@babel/core': 7.19.6
   '@babel/eslint-parser': 7.19.1
-  '@babel/runtime-corejs3': 7.19.6
+  '@babel/runtime-corejs3': 7.20.0
   '@commitlint/cli': 17.1.2
   '@commitlint/config-conventional': 17.1.0
   '@intlify/eslint-plugin-vue-i18n': 2.0.0
@@ -66,7 +66,7 @@ dependencies:
 devDependencies:
   '@babel/core': 7.19.6
   '@babel/eslint-parser': 7.19.1_lz6pjk7mo2w5fzem2eded7dzpy
-  '@babel/runtime-corejs3': 7.19.6
+  '@babel/runtime-corejs3': 7.20.0
   '@commitlint/cli': 17.1.2
   '@commitlint/config-conventional': 17.1.0
   '@intlify/eslint-plugin-vue-i18n': 2.0.0_eslint@8.26.0
@@ -1199,8 +1199,8 @@ packages:
       '@babel/types': 7.19.4
       esutils: 2.0.3
 
-  /@babel/runtime-corejs3/7.19.6:
-    resolution: {integrity: sha512-oWNn1ZlGde7b4i/3tnixpH9qI0bOAACiUs+KEES4UUCnsPjVWFlWdLV/iwJuPC2qp3EowbAqsm+0XqNwnwYhxA==}
+  /@babel/runtime-corejs3/7.20.0:
+    resolution: {integrity: sha512-v1JH7PeAAGBEyTQM9TqojVl+b20zXtesFKCJHu50xMxZKD1fX0TKaKHPsZfFkXfs7D1M9M6Eeqg1FkJ3a0x2dA==}
     engines: {node: '>=6.9.0'}
     dependencies:
       core-js-pure: 3.26.0
