@@ -14,7 +14,7 @@ specifiers:
   '@nuxtjs/eslint-config-typescript': 11.0.0
   '@nuxtjs/eslint-module': 3.1.0
   '@nuxtjs/google-analytics': 2.4.0
-  '@nuxtjs/html-validator': 1.1.0
+  '@nuxtjs/html-validator': 1.1.1
   '@nuxtjs/i18n': 7.3.0
   '@nuxtjs/moment': 1.6.1
   '@nuxtjs/robots': 2.5.0
@@ -76,7 +76,7 @@ devDependencies:
   '@nuxtjs/eslint-config-typescript': 11.0.0_wyqvi574yv7oiwfeinomdzmc3m
   '@nuxtjs/eslint-module': 3.1.0_aqjevno6vjf6wohdxlmqigajvm
   '@nuxtjs/google-analytics': 2.4.0
-  '@nuxtjs/html-validator': 1.1.0
+  '@nuxtjs/html-validator': 1.1.1
   '@nuxtjs/moment': 1.6.1_webpack@4.46.0
   '@nuxtjs/stylelint-module': 4.1.0_akfdkhfwbwpgqw76hyu5p2g5gi
   '@types/node': 18.11.9
@@ -2547,12 +2547,12 @@ packages:
       vue-analytics: 5.22.1
     dev: true
 
-  /@nuxtjs/html-validator/1.1.0:
-    resolution: {integrity: sha512-g4SvV0JtbX6RMYV+aLpfQoPKr1s3ODfDILkvn42Xn4B9Bnsz7/DrhWxKMaYIeTT607iiv3PA3lgfmOf7Dw1WaQ==}
+  /@nuxtjs/html-validator/1.1.1:
+    resolution: {integrity: sha512-QdIsCE99J4lWkaQNjrfDPdoL0J2ocWFmjo4RJLsrMWJ/0hm0nMIRn15kCxeFVIYycBX0ZHo3hzyzkmy1sJsrag==}
     dependencies:
       '@nuxt/kit': 3.0.0-rc.12
       chalk: 5.1.2
-      html-validate: 7.6.0
+      html-validate: 7.7.1
       prettier: 2.7.1
     transitivePeerDependencies:
       - jest
@@ -7481,8 +7481,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /html-validate/7.6.0:
-    resolution: {integrity: sha512-6Ib433N0/ou2/0oLjfUmFjaAVFW8KKU/fOBBhrZXNuPcYCUsZExAD3xOqKl1bp5ANHb4PItXEK9vcKL/L7Da0Q==}
+  /html-validate/7.7.1:
+    resolution: {integrity: sha512-pCPbFHygd8YCKcQcyQnEwIWKVtA37f0snQP65EsS9ap4JrnG0HdIevJl90p8ZAhGjLsex5P0nI+n6v4pSov97Q==}
     engines: {node: '>= 14.0'}
     hasBin: true
     peerDependencies:
